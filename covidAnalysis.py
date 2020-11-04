@@ -82,9 +82,9 @@ def compute_ti_oppupation_per_regions(df, save_image=False):
     
     plt.grid(True)
     
-    plt.title('Posti TI oppupati/disponibili per regioni')
+    plt.title('Posti TI occupati/disponibili per regioni')
     plt.xlabel('Date')
-    plt.ylabel('Posti TI oppupati/disponibili')
+    plt.ylabel('Posti TI occupati/disponibili')
     plt.legend()
     
     if save_image:
@@ -115,13 +115,13 @@ def compute_rec_with_symptoms(df, save_image=False):
     
     plt.grid(True)
     
-    plt.title('Rivocerati con sintomi')
+    plt.title('Ricoverati con sintomi')
     plt.xlabel('Date')
-    plt.ylabel('Rivocerati con sintomi')
+    plt.ylabel('Ricoverati con sintomi')
     plt.legend()
     
     if save_image:
-        plt.savefig('ti_per_regioni.png', dpi=300)
+        plt.savefig('ricoverati_con_sintomi.png', dpi=300)
     
     plt.show()
     
