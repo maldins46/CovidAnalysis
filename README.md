@@ -9,3 +9,8 @@ Besides performing the clone, also recursively initialize submodules. Also, the 
 ```
 git submodule update --remote --recursive
 ```
+
+## Available charts
+![Occupazione TI per regioni](./docs/ti_per_regioni.png)
+![Positivi per regioni](./docs/positivi_per_regioni.png)
+![Ricoverati con sintomi](./docs/ricoverati_con_sintomi.png)
