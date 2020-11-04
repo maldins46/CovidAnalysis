@@ -21,7 +21,7 @@ ti_places = {
     "Campania": 600
 }
 
-def extract_regions_data(path = '/Users/riccardomaldini/Desktop/Covid/dati-regioni'):
+def extract_regions_data(path = './GvtOpenData/dati-regioni'):
     """ 
     Reads all csv files about regions data and concatenates them in a 
     data frame.
