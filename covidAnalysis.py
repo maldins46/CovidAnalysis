@@ -93,6 +93,40 @@ def compute_ti_oppupation_per_regions(df, save_image=False):
     plt.show()
     
     
+
+def compute_rec_with_symptoms(df, save_image=False):
+    """
+    Computes and plots recovered with symptoms. 
+
+    """
+    marche = extract_single_region_data(df, "Marche")
+    lombardia = extract_single_region_data(df, "Lombardia")
+    campania = extract_single_region_data(df, "Campania")
+    molise = extract_single_region_data(df, "Molise")
+    
+    
+    # Plot the data
+    plt.plot(molise['data'], molise['ricoverati_con_sintomi'], label='Molise', c='#4CD233')
+    plt.plot(lombardia['data'], lombardia['ricoverati_con_sintomi'], label='Lombardia', c='#FF4333')
+    plt.plot(campania['data'], campania['ricoverati_con_sintomi'], label='Campania', c='#F8B510')
+    plt.plot(marche['data'], marche['ricoverati_con_sintomi'], label='Marche', c='#3391FF')
+    
+    plt.gcf().autofmt_xdate()
+    
+    plt.grid(True)
+    
+    plt.title('Rivocerati con sintomi')
+    plt.xlabel('Date')
+    plt.ylabel('Rivocerati con sintomi')
+    plt.legend()
+    
+    if save_image:
+        plt.savefig('ti_per_regioni.png', dpi=300)
+    
+    plt.show()
+    
+    
+    
 def compute_daily_cases(df, save_image=False):
     """
     Computes and plots relations between occupied TI places and available ones,
