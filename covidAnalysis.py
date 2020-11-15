@@ -88,7 +88,7 @@ def compute_ti_oppupation_per_regions(df, save_image=False):
     plt.legend()
     
     if save_image:
-        plt.savefig('ti_per_regioni.png', dpi=300)
+        plt.savefig('./docs/ti_per_regioni.png', dpi=300)
     
     plt.show()
     
@@ -121,7 +121,7 @@ def compute_rec_with_symptoms(df, save_image=False):
     plt.legend()
     
     if save_image:
-        plt.savefig('ricoverati_con_sintomi.png', dpi=300)
+        plt.savefig('./docs/ricoverati_con_sintomi.png', dpi=300)
     
     plt.show()
     
@@ -156,7 +156,7 @@ def compute_daily_cases(df, save_image=False):
     plt.legend()
     
     if save_image:
-        plt.savefig('positivi_per_regioni.png', dpi=300)
+        plt.savefig('./docs/positivi_per_regioni.png', dpi=300)
     
     plt.show()
   
