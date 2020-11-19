@@ -1,18 +1,11 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+# Generates a new release with updated data every day ay midnight
 
-name: Python Charts Generation
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+name: Daily Release
 
 # schedule the chart generation to be executed every day at midnight
-#on:
-#  schedule:
-#  - cron: "0 0 * * *"
+on:
+  schedule:
+  - cron: "0 0 * * *"
 
 jobs:
   build:
@@ -37,18 +30,7 @@ jobs:
         pip install numpy
         pip install matplotlib
         pip install python-dateutil
-      #  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-    #- name: Lint with flake8
-    #  run: |
-    #    # stop the build if there are Python syntax errors or undefined names
-    #    flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-    #    # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-    #    flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     
-    #- name: Test with pytest
-    #  run: |
-    #    pytest
     - name: Generate updated charts
       run: |
         python generate_charts.py
@@ -59,6 +41,7 @@ jobs:
         name: charts
         path: ./docs/
 
+    # Useful to create the release name
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
@@ -69,10 +52,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: test-${{ steps.date.outputs.date }}
-        release_name: Test release ${{ steps.date.outputs.date }}
+        tag_name: covid-${{ steps.date.outputs.date }}
+        release_name: Release ${{ steps.date.outputs.date }}
         draft: false
-        prerelease: true
+        prerelease: false
     
     - name: Upload Release Assets
       id: upload-release-assets
