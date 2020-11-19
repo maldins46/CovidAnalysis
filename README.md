@@ -13,9 +13,9 @@ git submodule update --remote --recursive
 ```
 
 ## Charts
-Charts are automatically updated each day. [Here](https://github.com/maldins46/CovidAnalysis/releases/latest) are the latest version.
+Charts are automatically updated each day. [Here](https://github.com/maldins46/CovidAnalysis/releases/latest) are the latest version. These are examples of available charts (shown images are not live):
 
-These are examples of available charts (shown images are not live):
 ![Occupazione TI per regioni](./docs/ti_per_regioni.png)
 ![Positivi per regioni](./docs/positivi_per_regioni.png)
-![Ricoverati con sintomi](./docs/ricoverati_con_sintomi.png)
+![Deceduti per regioni](./docs/deceduti_per_regioni.png)
+![Ricoverati con sintomi per regioni](./docs/ricoverati_con_sintomi_per_regioni.png)

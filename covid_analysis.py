@@ -27,7 +27,12 @@ def extract_regions_data(path = './GvtOpenData/dati-regioni'):
     return pd.concat((pd.read_csv(file) for file in all_files))
 
 
-def extract_single_region_data(df, region):
+# Create dataframe, extract some region data, plot all available 
+# info into files inside docs directory
+df = extract_regions_data()
+
+
+def extract_single_region_data(region):
     """ 
     Extracts all data about a single region, it sort them, and adds.
     additional data about TI occupation, if available. Also, converts dates 
@@ -47,26 +52,25 @@ def extract_single_region_data(df, region):
     return region_df
 
 
-def extract_regions_of_interest(df):
+def extract_regions_of_interest():
     """
     Extract some regions defined as of interest in the analysis, as a dictionary.
     """
     return {
-        reg.lombardia: extract_single_region_data(df, reg.lombardia),
-        reg.emilia_romagna: extract_single_region_data(df, reg.emilia_romagna),
-        reg.calabria: extract_single_region_data(df, reg.calabria),
-        reg.molise: extract_single_region_data(df, reg.molise),
-        reg.marche: extract_single_region_data(df, reg.marche)
+        reg.lombardia: extract_single_region_data(reg.lombardia),
+        reg.emilia_romagna: extract_single_region_data(reg.emilia_romagna),
+        reg.molise: extract_single_region_data(reg.molise),
+        reg.marche: extract_single_region_data(reg.marche)
     }
 
 
-def compute_ti_occupation_per_regions(df, save_image=False, show=False):
+def compute_ti_occupation_per_regions(save_image=False, show=False):
     """
     Computes and plots relations between occupied TI places and available ones,
     for some regions of interest. 
     """
 
-    regions = extract_regions_of_interest(df)
+    regions = extract_regions_of_interest()
     
     for region_name, region in regions.items():
         plt.plot(region['data'], region['occupazione_ti'], label=region_name)
@@ -76,9 +80,9 @@ def compute_ti_occupation_per_regions(df, save_image=False, show=False):
     
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Posti TI occupati/disponibili per regioni')
+    plt.title('Occupazione TI giornaliera per regioni')
     plt.xlabel('Date')
-    plt.ylabel('Posti TI occupati/disponibili')
+    plt.ylabel('Occupazione TI giornaliera')
     plt.legend()
     
     if save_image:
@@ -90,25 +94,25 @@ def compute_ti_occupation_per_regions(df, save_image=False, show=False):
     plt.close()
     
 
-def compute_rec_with_symptoms(df, save_image=False, show=False):
+def compute_rec_with_symptoms(save_image=False, show=False):
     """
     Computes and plots recovered with symptoms. 
     """
 
-    regions = extract_regions_of_interest(df)
+    regions = extract_regions_of_interest()
     
     for region_name, region in regions.items():
         plt.plot(region['data'], region['ricoverati_con_sintomi'], label=region_name)
     
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Ricoverati con sintomi')
+    plt.title('Ricoverati con sintomi giornalieri per regioni')
     plt.xlabel('Date')
     plt.ylabel('Ricoverati con sintomi')
     plt.legend()
     
     if save_image:
-        plt.savefig('./docs/ricoverati_con_sintomi.png', dpi=300)
+        plt.savefig('./docs/ricoverati_con_sintomi_per_regioni.png', dpi=300)
     
     if show:
         plt.show()
@@ -116,14 +120,13 @@ def compute_rec_with_symptoms(df, save_image=False, show=False):
     plt.close()
     
     
-    
-def compute_daily_cases(df, save_image=False, show=False):
+def compute_daily_cases(save_image=False, show=False):
     """
     Computes and plots relations between occupied TI places and available ones,
     for some regions of interest. 
     """
     
-    regions = extract_regions_of_interest(df)
+    regions = extract_regions_of_interest()
     
     for region_name, region in regions.items():
         plt.plot(region['data'], region['nuovi_positivi'], label=region_name)
@@ -143,3 +146,28 @@ def compute_daily_cases(df, save_image=False, show=False):
 
     plt.close()
   
+
+def compute_death(save_image=False, show=False):
+    """
+    Computes and plots daily deaths. 
+    """
+
+    regions = extract_regions_of_interest()
+    
+    for region_name, region in regions.items():
+        plt.plot(region['data'], region['deceduti'], label=region_name)
+    
+    plt.gcf().autofmt_xdate()
+    plt.grid(True)
+    plt.title('Deceduti giornalieri per regioni')
+    plt.xlabel('Date')
+    plt.ylabel('Deceduti')
+    plt.legend()
+    
+    if save_image:
+        plt.savefig('./docs/deceduti_per_regioni.png', dpi=300)
+    
+    if show:
+        plt.show()
+
+    plt.close()
