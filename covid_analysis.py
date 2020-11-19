@@ -87,6 +87,8 @@ def compute_ti_occupation_per_regions(df, save_image=False, show=False):
     if show:
         plt.show()
     
+    plt.close()
+    
 
 def compute_rec_with_symptoms(df, save_image=False, show=False):
     """
@@ -110,6 +112,8 @@ def compute_rec_with_symptoms(df, save_image=False, show=False):
     
     if show:
         plt.show()
+
+    plt.close()
     
     
     
@@ -136,4 +140,6 @@ def compute_daily_cases(df, save_image=False, show=False):
     
     if show:
         plt.show()
+
+    plt.close()
   
