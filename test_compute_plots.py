@@ -4,10 +4,10 @@
 Example execution of the scripts.
 @author: riccardomaldini
 """
-import covidAnalysis as covid
+import covid_analysis as covid
   
 # Create dataframe, extract some region data, plot all available info
 df = covid.extract_regions_data()
-covid.compute_ti_occupation_per_regions(df, True)
-covid.compute_daily_cases(df, True)
-covid.compute_rec_with_symptoms(df, True)
+covid.compute_ti_occupation_per_regions(df, save_image=True, show=False)
+covid.compute_daily_cases(df, save_image=True, show=False)
+covid.compute_rec_with_symptoms(df, save_image=True, show=False)
