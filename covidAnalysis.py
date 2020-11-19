@@ -12,33 +12,8 @@ import matplotlib.pyplot as plt
 import os
 import glob
 import dateutil.parser as datePrs
-
-# Intensive therapy available places. Manually added from:
-# https://www.infodata.ilsole24ore.com/2020/10/15/terapie-intensive-scopri-in-tempo-reale-quanti-posti-sono-occupati/
-# Source: Quotidiano Sanità, Report Commissario Arcuri, regional data
-ti_places = {
-    "Abruzzo": 148,
-    "Badsilicata": 73,
-    "Calabria": 239,
-    "Campania": 505,
-    "Emilia-Romagna": 634,
-    "Friuli Venezia Giulia": 1080,
-    "Lazio": 847,
-    "Liguria": 209,
-    "Lombardia": 1036,
-    "Marche": 143,
-    "Molise": 34,
-    "P.A. Bolzano": 55,
-    "P.A. Trento": 51,
-    "Piemonte": 575,
-    "Puglia": 369,
-    "Sardegna": 9,
-    "Sicilia": 588,
-    "Toscana": 523,
-    "Umbria": 117,
-    "Valle d'Aosta": 20,
-    "Veneto": 1016
-}
+import regionsDenomination as reg
+from tiPlaces import ti_places_dict as ti_places
 
 def extract_regions_data(path = './GvtOpenData/dati-regioni'):
     """ 
@@ -49,7 +24,6 @@ def extract_regions_data(path = './GvtOpenData/dati-regioni'):
     all_files_paths = os.path.join(path, "*.csv")
     all_files = glob.glob(all_files_paths)
     return pd.concat((pd.read_csv(file) for file in all_files))
-
 
 
 def extract_single_region_data(df, region):
@@ -69,38 +43,38 @@ def extract_single_region_data(df, region):
         
     region_df = region_df.sort_values('data')
 
-        
     return region_df
+
+
+def extract_regions_of_interest(df):
+    """
+    Extract some regions defined as of interest in the analysis, as a dictionary.
+    """
+    return {
+        reg.lombardia: extract_single_region_data(df, reg.lombardia),
+        reg.emilia_romagna: extract_single_region_data(df, reg.emilia_romagna),
+        reg.calabria: extract_single_region_data(df, reg.calabria),
+        reg.molise: extract_single_region_data(df, reg.molise),
+        reg.marche: extract_single_region_data(df, reg.marche)
+    }
 
 
 def compute_ti_oppupation_per_regions(df, save_image=False):
     """
     Computes and plots relations between occupied TI places and available ones,
     for some regions of interest. 
-
     """
-    marche = extract_single_region_data(df, "Marche")
-    lombardia = extract_single_region_data(df, "Lombardia")
-    campania = extract_single_region_data(df, "Campania")
-    molise = extract_single_region_data(df, "Molise")
-    
-    
-    # Plot the data
-    plt.plot(molise['data'], molise['occupazione_ti'], label='Molise', c='#4CD233')
-    plt.plot(lombardia['data'], lombardia['occupazione_ti'], label='Lombardia', c='#FF4333')
-    plt.plot(campania['data'], campania['occupazione_ti'], label='Campania', c='#F8B510')
-    plt.plot(marche['data'], marche['occupazione_ti'], label='Marche', c='#3391FF')
 
+    regions = extract_regions_of_interest(df)
     
+    for region_name, region in regions.items():
+        plt.plot(region['data'], region['occupazione_ti'], label=region_name)
     
-    plt.axhline(y=0.4, color='r', linestyle='-')
-    plt.axhline(y=1, color='r', linestyle='-')
-    
+    plt.axhline(y=0.3, color='r', linestyle='--', label="Livello d'allerta")
+    plt.axhline(y=1, color='r', linestyle='--', label="Saturazione")
     
     plt.gcf().autofmt_xdate()
-    
     plt.grid(True)
-    
     plt.title('Posti TI occupati/disponibili per regioni')
     plt.xlabel('Date')
     plt.ylabel('Posti TI occupati/disponibili')
@@ -111,29 +85,19 @@ def compute_ti_oppupation_per_regions(df, save_image=False):
     
     plt.show()
     
-    
 
 def compute_rec_with_symptoms(df, save_image=False):
     """
     Computes and plots recovered with symptoms. 
-
     """
-    marche = extract_single_region_data(df, "Marche")
-    lombardia = extract_single_region_data(df, "Lombardia")
-    campania = extract_single_region_data(df, "Campania")
-    molise = extract_single_region_data(df, "Molise")
+
+    regions = extract_regions_of_interest(df)
     
-    
-    # Plot the data
-    plt.plot(molise['data'], molise['ricoverati_con_sintomi'], label='Molise', c='#4CD233')
-    plt.plot(lombardia['data'], lombardia['ricoverati_con_sintomi'], label='Lombardia', c='#FF4333')
-    plt.plot(campania['data'], campania['ricoverati_con_sintomi'], label='Campania', c='#F8B510')
-    plt.plot(marche['data'], marche['ricoverati_con_sintomi'], label='Marche', c='#3391FF')
+    for region_name, region in regions.items():
+        plt.plot(region['data'], region['ricoverati_con_sintomi'], label=region_name)
     
     plt.gcf().autofmt_xdate()
-    
     plt.grid(True)
-    
     plt.title('Ricoverati con sintomi')
     plt.xlabel('Date')
     plt.ylabel('Ricoverati con sintomi')
@@ -150,25 +114,15 @@ def compute_daily_cases(df, save_image=False):
     """
     Computes and plots relations between occupied TI places and available ones,
     for some regions of interest. 
-
     """
-    marche = extract_single_region_data(df, "Marche")
-    lombardia = extract_single_region_data(df, "Lombardia")
-    campania = extract_single_region_data(df, "Campania")
-    molise = extract_single_region_data(df, "Molise")
     
+    regions = extract_regions_of_interest(df)
     
-    # Plot the data
-    plt.plot(molise['data'], molise['nuovi_positivi'], label='Molise', c='#4CD233')
-    plt.plot(lombardia['data'], lombardia['nuovi_positivi'], label='Lombardia', c='#FF4333')
-    plt.plot(campania['data'], campania['nuovi_positivi'], label='Campania', c='#F8B510')
-    plt.plot(marche['data'], marche['nuovi_positivi'], label='Marche', c='#3391FF')
-    
+    for region_name, region in regions.items():
+        plt.plot(region['data'], region['nuovi_positivi'], label=region_name)
     
     plt.gcf().autofmt_xdate()
-    
     plt.grid(True)
-    
     plt.title('Nuovi positivi giornalieri per regione')
     plt.xlabel('Date')
     plt.ylabel('Nuovi positivi')
