@@ -49,7 +49,8 @@ def extract_single_region_data(region):
         
     region_df = region_df.sort_values('data')
 
-    return region_df
+    # Remove some problematic data
+    return region_df[~region_df.index.duplicated(keep=False)]
 
 
 def extract_regions_of_interest():
@@ -58,6 +59,7 @@ def extract_regions_of_interest():
     """
     return {
         reg.lombardia: extract_single_region_data(reg.lombardia),
+        #reg.calabria: extract_single_region_data(reg.calabria),
         reg.emilia_romagna: extract_single_region_data(reg.emilia_romagna),
         reg.molise: extract_single_region_data(reg.molise),
         reg.marche: extract_single_region_data(reg.marche)
@@ -76,7 +78,7 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
         plt.plot(region['data'], region['occupazione_ti'], label=region_name)
     
     plt.axhline(y=0.3, color='r', linestyle='--', label="Livello d'allerta")
-    plt.axhline(y=1, color='r', linestyle='--', label="Saturazione")
+    plt.axhline(y=1, color='y', linestyle='--', label="Saturazione")
     
     plt.gcf().autofmt_xdate()
     plt.grid(True)
