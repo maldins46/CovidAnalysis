@@ -81,4 +81,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         release_id: ${{ steps.create-release.outputs.id }}
-        path: ./docs
+        assets_path: ./docs
