@@ -13,12 +13,31 @@ import os
 import glob
 import dateutil.parser as datePrs
 
-# Intensive therapy available places. To be continued.
+# Intensive therapy available places. Manually added from:
+# https://www.infodata.ilsole24ore.com/2020/10/15/terapie-intensive-scopri-in-tempo-reale-quanti-posti-sono-occupati/
+# Source: Quotidiano Sanità, Report Commissario Arcuri, regional data
 ti_places = {
-    "Marche": 153,
-    "Lombardia": 1260,
-    "Molise": 27,
-    "Campania": 600
+    "Abruzzo": 148,
+    "Badsilicata": 73,
+    "Calabria": 239,
+    "Campania": 505,
+    "Emilia-Romagna": 634,
+    "Friuli Venezia Giulia": 1080,
+    "Lazio": 847,
+    "Liguria": 209,
+    "Lombardia": 1036,
+    "Marche": 143,
+    "Molise": 34,
+    "P.A. Bolzano": 55,
+    "P.A. Trento": 51,
+    "Piemonte": 575,
+    "Puglia": 369,
+    "Sardegna": 9,
+    "Sicilia": 588,
+    "Toscana": 523,
+    "Umbria": 117,
+    "Valle d'Aosta": 20,
+    "Veneto": 1016
 }
 
 def extract_regions_data(path = './GvtOpenData/dati-regioni'):
