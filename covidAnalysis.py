@@ -59,7 +59,7 @@ def extract_regions_of_interest(df):
     }
 
 
-def compute_ti_oppupation_per_regions(df, save_image=False):
+def compute_ti_occupation_per_regions(df, save_image=False):
     """
     Computes and plots relations between occupied TI places and available ones,
     for some regions of interest. 
