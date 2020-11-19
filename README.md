@@ -12,8 +12,10 @@ Besides performing the clone, also recursively initialize submodules. Also, the 
 git submodule update --remote --recursive
 ```
 
-## Live charts
-Charts shown here are automatically updated each day.
-![Occupazione TI per regioni](https://github.com/maldins46/CovidAnalysis/releases/latest/download/ti_per_regioni.png)
-![Positivi per regioni](https://github.com/maldins46/CovidAnalysis/releases/latest/download/positivi_per_regioni.png)
-![Ricoverati con sintomi](https://github.com/maldins46/CovidAnalysis/releases/latest/download/ricoverati_con_sintomi.png)
+## Charts
+Charts are automatically updated each day. [Here](https://github.com/maldins46/CovidAnalysis/releases/latest) are the latest version.
+
+These are examples of available charts (shown images are not live):
+![Occupazione TI per regioni](./docs/ti_per_regioni.png)
+![Positivi per regioni](./docs/positivi_per_regioni.png)
+![Ricoverati con sintomi](./docs/ricoverati_con_sintomi.png)
