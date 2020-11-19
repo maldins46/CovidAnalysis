@@ -33,6 +33,7 @@ jobs:
         pip install matplotlib
         pip install python-dateutil
       #  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      # todo not working for now
 
     # todo when tests finished, run this
     #- name: Lint with flake8
