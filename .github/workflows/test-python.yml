@@ -28,11 +28,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
-        pip install pandas
-        pip install numpy
-        pip install matplotlib
-        pip install python-dateutil
-      #  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       # todo not working for now
 
     # todo when tests finished, run this
