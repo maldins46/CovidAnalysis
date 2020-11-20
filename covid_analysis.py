@@ -5,7 +5,6 @@ Module with useful elaborations about italian covid.
 @author: riccardomaldini
 """
 
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -17,10 +16,8 @@ from ti_places import ti_places_dict as ti_places
 
 
 def extract_regions_data(path = './GvtOpenData/dati-regioni'):
-    """ 
-    Reads all csv files about regions data and concatenates them in a 
-    data frame.
-    """
+    """ Reads all csv files about regions data and concatenates them in a
+    data frame."""
     
     all_files_paths = os.path.join(path, "*.csv")
     all_files = glob.glob(all_files_paths)
