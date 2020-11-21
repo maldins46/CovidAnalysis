@@ -4,9 +4,11 @@
 Example execution of the scripts.
 @author: riccardomaldini
 """
-import covid_analysis as covid
+import regions_analysis
+import provinces_analysis
 
-covid.compute_ti_occupation_per_regions(save_image=True, show=False)
-covid.compute_daily_cases(save_image=True, show=False)
-covid.compute_rec_with_symptoms(save_image=True, show=False)
-covid.compute_death(save_image=True, show=False)
+regions_analysis.compute_ti_occupation_per_regions(save_image=True, show=False)
+regions_analysis.compute_daily_cases(save_image=True, show=False)
+regions_analysis.compute_rec_with_symptoms(save_image=True, show=False)
+regions_analysis.compute_death(save_image=True, show=False)
+provinces_analysis.compute_total_cases_per_provinces(save_image=True, show=False)

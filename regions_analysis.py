@@ -56,7 +56,6 @@ def extract_regions_of_interest():
     """
     return {
         reg.lombardia: extract_single_region_data(reg.lombardia),
-        #reg.calabria: extract_single_region_data(reg.calabria),
         reg.emilia_romagna: extract_single_region_data(reg.emilia_romagna),
         reg.molise: extract_single_region_data(reg.molise),
         reg.marche: extract_single_region_data(reg.marche)
