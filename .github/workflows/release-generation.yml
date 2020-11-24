@@ -12,10 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout with Open Data Submodule # updates gvt repo submodule for publication
+    - name: Checkout with Open Data Submodule
       uses: actions/checkout@v2
       with:
-        submodules: 'recursive' 
+        submodules: 'recursive'
+
+    - name: Update Open Data submodule
+      run: git submodule update --remote --recursive 
       
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
