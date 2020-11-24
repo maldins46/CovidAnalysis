@@ -10,4 +10,3 @@ macerata = "Macerata"
 fermo = "Fermo"
 ascoli_piceno = "Ascoli Piceno"
 pesaro_urbino = "Pesaro e Urbino"
-
