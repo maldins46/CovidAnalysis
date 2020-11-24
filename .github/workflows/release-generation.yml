@@ -8,7 +8,7 @@ on:
   - cron: "0 0 * * *"
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +33,7 @@ jobs:
     
     - name: Generate updated charts
       run: |
-        python generate_charts.py
+        python charts_generation.py
         
     - name: Save charts artifacts
       uses: actions/upload-artifact@v2

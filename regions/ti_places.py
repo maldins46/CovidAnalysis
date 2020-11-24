@@ -7,7 +7,7 @@ Source: Quotidiano Sanità, Report Commissario Arcuri, regional data
 @author: riccardomaldini
 """
 
-import regions_denomination as reg
+from . import regions_names as reg
 
 ti_places_dict = {
     reg.abruzzo: 148,

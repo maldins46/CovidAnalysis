@@ -10,9 +10,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 import glob
-import dateutil.parser as datePrs
-import regions_denomination as reg
-from ti_places import ti_places_dict as ti_places
+import dateutil.parser as date_parser
+from . import regions_names as reg
+from .ti_places import ti_places_dict as ti_places
 
 
 def extract_regions_data(path='./GvtOpenData/dati-regioni'):
@@ -39,7 +39,7 @@ def extract_single_region_data(region):
     region_df = region_df.assign(occupazione_ti=pd.Series(np.zeros(region_df.size)))
     for index, row in region_df.iterrows():
         region_df.at[index, 'occupazione_ti'] = row['terapia_intensiva'] / ti_places[row['denominazione_regione']]
-        region_df.at[index, 'data'] = datePrs.parse(row['data'])
+        region_df.at[index, 'data'] = date_parser.parse(row['data'])
 
     region_df = region_df.sort_values('data')
 

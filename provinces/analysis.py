@@ -9,8 +9,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 import glob
-import dateutil.parser as datePrs
-import provinces_denomination as prov
+import dateutil.parser as date_parser
+from . import provinces_names as prov
 
 
 def extract_provinces_data(path='./GvtOpenData/dati-province'):
@@ -38,7 +38,7 @@ def extract_single_province_data(province):
     province_df = df_provinces[df_provinces['denominazione_provincia'] == province]
 
     for index, row in province_df.iterrows():
-        province_df.at[index, 'data'] = datePrs.parse(row['data'])
+        province_df.at[index, 'data'] = date_parser.parse(row['data'])
 
     province_df = province_df.sort_values('data')
 

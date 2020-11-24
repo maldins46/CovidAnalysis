@@ -5,8 +5,8 @@ Tests the correct execution of the chart generation, and the output, that should
 to the right portion of the dataframe.
 @author: riccardomaldini
 """
-import regions_analysis
-import provinces_analysis
+import regions.analysis as regions_analysis
+import provinces.analysis as provinces_analysis
 
 
 def test_regions_chart_generation():
