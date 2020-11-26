@@ -13,7 +13,7 @@ git submodule update --remote --recursive
 ```
 
 ## Charts
-Charts are automatically updated each day. [Here](https://github.com/maldins46/CovidAnalysis/releases/latest) are the latest version. These are examples of available charts (shown images are not live):
+Charts are automatically updated each day. [Here](https://github.com/maldins46/CovidAnalysis/releases/latest) you can download the updated charts. These are the available live charts:
 
 ![Occupazione TI per regioni](./docs/ti_per_regioni.png)
 ![Positivi per regioni](./docs/positivi_per_regioni.png)
