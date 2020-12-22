@@ -11,6 +11,7 @@ import os
 import glob
 import dateutil.parser as date_parser
 from . import provinces_names as prov
+import numpy as np
 
 
 def extract_provinces_data(path='./GvtOpenData/dati-province'):
@@ -45,8 +46,15 @@ def extract_single_province_data(province):
     # re-activates warnings
     pd.options.mode.chained_assignment = 'warn'
 
-    # Remove some problematic data
-    return province_df[~province_df.index.duplicated(keep=False)]
+    # Remove some duplicated data
+    province_df = province_df[~province_df.index.duplicated(keep=False)]
+
+    # makes diff on total cases
+    province_df['casi'] = province_df['totale_casi'].diff()
+    province_df = province_df[province_df['casi'] > 0]
+    province_df = province_df[province_df['casi'] < 400]
+
+    return province_df
 
 
 def extract_provinces_of_marche():
@@ -70,11 +78,12 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
     provinces = extract_provinces_of_marche()
 
     for province_name, province in provinces.items():
-        plt.plot(province['data'], province['totale_casi'], label=province_name)
+        dates, cases = compute_x_days_mov_average(province, 'casi', 7)
+        plt.plot(dates, cases, label=province_name)
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Totale casi per province delle Marche')
+    plt.title('Casi per province delle Marche (7 gg. m.a.)')
     plt.xlabel('Date')
     plt.ylabel('Totale casi')
     plt.legend()
@@ -86,3 +95,16 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
         plt.show()
 
     plt.close()
+
+
+def compute_x_days_mov_average(df, column, window=7):
+    """
+    Computes an x-days-moving-average on the given column, of the given
+    dataframe, and returns the computed column and the correspondant dates,
+    for plotting.
+    """
+
+    column_ma = np.convolve(df[column], np.ones(window)/window, mode='valid')
+    dates = df.iloc[window-1:].data
+
+    return dates, column_ma

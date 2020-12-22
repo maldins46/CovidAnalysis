@@ -44,7 +44,10 @@ def extract_single_region_data(region):
     region_df = region_df.sort_values('data')
 
     # Remove some problematic data
-    return region_df[~region_df.index.duplicated(keep=False)]
+    region_df = region_df[~region_df.index.duplicated(keep=False)]
+    region_df['incremento_morti'] = region_df['deceduti'].diff()
+
+    return region_df
 
 
 def extract_regions_of_interest():
@@ -123,11 +126,12 @@ def compute_daily_cases(save_image=False, show=False):
     regions = extract_regions_of_interest()
 
     for region_name, region in regions.items():
-        plt.plot(region['data'], region['nuovi_positivi'], label=region_name)
+        dates, pos = compute_x_days_mov_average(region, 'nuovi_positivi', 7)
+        plt.plot(dates, pos, label=region_name)
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Nuovi positivi giornalieri per regione')
+    plt.title('Nuovi positivi giornalieri per regione (7 gg. m.a.)')
     plt.xlabel('Date')
     plt.ylabel('Nuovi positivi')
     plt.legend()
@@ -149,11 +153,12 @@ def compute_death(save_image=False, show=False):
     regions = extract_regions_of_interest()
 
     for region_name, region in regions.items():
-        plt.plot(region['data'], region['deceduti'], label=region_name)
+        dates, deaths = compute_x_days_mov_average(region, 'incremento_morti', 7)
+        plt.plot(dates, deaths, label=region_name)
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Deceduti giornalieri per regioni')
+    plt.title('Deceduti giornalieri per regioni (7 gg. m.a.)')
     plt.xlabel('Date')
     plt.ylabel('Deceduti')
     plt.legend()
@@ -165,3 +170,16 @@ def compute_death(save_image=False, show=False):
         plt.show()
 
     plt.close()
+
+
+def compute_x_days_mov_average(df, column, window=7):
+    """
+    Computes an x-days-moving-average on the given column, of the given
+    dataframe, and returns the computed column and the correspondant dates,
+    for plotting.
+    """
+
+    column_ma = np.convolve(df[column], np.ones(window)/window, mode='valid')
+    dates = df.iloc[window-1:].data
+
+    return dates, column_ma
