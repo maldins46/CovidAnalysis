@@ -1,3 +1,4 @@
 theme: jekyll-theme-slate
-title: [CovidAnalysis by maldins46]
-description: [Python module used to extract relevant information from Italian Government Covid Open Data.]
+title: CovidAnalysis
+description: Python module used to extract relevant information from Italian Government Covid Open Data.
+show_downloads: "true"
