@@ -200,21 +200,21 @@ def compute_marche_data(save_image=False, show=False):
 
     marche = extract_single_region_data(reg.marche)
 
-    dates, deaths = compute_x_days_mov_average(marche, 'incr_morti_per_100000_ab', 7)
+    dates, deaths = compute_x_days_mov_average(marche, 'incremento_morti', 7)
     plt.plot(dates, deaths, label='Incremento morti (7 gg. m.a.)')
 
-    plt.plot(marche['data'], marche['occ_ti_per_100000_ab'], label='Pazienti TI')
+    plt.plot(marche['data'], marche['occupazione_ti'], label='Pazienti TI')
 
-    dates, pos = compute_x_days_mov_average(marche, 'nuovi_pos_per_100000_ab', 7)
+    dates, pos = compute_x_days_mov_average(marche, 'nuovi_positivi', 7)
     plt.plot(dates, pos, label="Nuovi positivi (7 gg. m.a.)")
 
-    plt.plot(marche['data'], marche['ric_per_100000_ab'], label="Ricoverati con sintomi")
+    plt.plot(marche['data'], marche['ricoverati_con_sintomi'], label="Ricoverati con sintomi")
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Parametri regione Marche ogni 100.000 abitanti')
+    plt.title('Parametri regione Marche')
     plt.xlabel('Date')
-    plt.ylabel('Parametri ogni 100.000 abitanti')
+    plt.ylabel('Variaz. parametri')
     plt.legend()
 
     if save_image:

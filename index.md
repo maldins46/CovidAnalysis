@@ -21,5 +21,8 @@ Charts are automatically updated each day. [Here](https://github.com/maldins46/C
 ![Parametri regione Marche](./docs/parametri_marche.png)
 
 
-![Deceduti per regioni](./docs/totale_casi_per_province_marche.png)
+![Casi per province Marche](./docs/totale_casi_per_province_marche.png)
+
+
+![Casi per province Marche abs](./docs/totale_casi_per_province_marche_abs.png)
 

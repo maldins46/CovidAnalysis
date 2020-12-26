@@ -100,6 +100,33 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
     plt.close()
 
 
+def compute_total_cases_per_provinces_abs(save_image=False, show=False):
+    """
+    Computes and plots total cases in Marche provinces, as absolute cases.
+    """
+
+    provinces = extract_provinces_of_marche()
+
+    for province_name, province in provinces.items():
+        dates, cases = compute_x_days_mov_average(province, 'incremento_casi', 20)
+        plt.plot(dates, cases, label=province_name)
+
+    plt.gcf().autofmt_xdate()
+    plt.grid(True)
+    plt.title('Nuovi positivi Marche in valori assoluti (20 gg. m.a.)')
+    plt.xlabel('Date')
+    plt.ylabel('Nuovi positivi')
+    plt.legend()
+
+    if save_image:
+        plt.savefig('./docs/totale_casi_per_province_marche_abs.png', dpi=300, transparent=True)
+
+    if show:
+        plt.show()
+
+    plt.close()
+
+
 def compute_x_days_mov_average(df, column, window=7):
     """
     Computes an x-days-moving-average on the given column, of the given
