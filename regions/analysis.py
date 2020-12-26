@@ -13,6 +13,7 @@ import glob
 import dateutil.parser as date_parser
 from . import regions_names as reg
 from .ti_places import ti_places_dict as ti_places
+from .population import population_dict as population
 
 
 def extract_regions_data(path='./GvtOpenData/dati-regioni'):
@@ -35,16 +36,20 @@ def extract_single_region_data(region):
 
     region_df = df.loc[df['denominazione_regione'] == region]
 
-    # Adds TI occupation data
-    region_df = region_df.assign(occupazione_ti=pd.Series(np.zeros(region_df.size)))
-    for index, row in region_df.iterrows():
-        region_df.at[index, 'occupazione_ti'] = row['terapia_intensiva'] / ti_places[row['denominazione_regione']]
-        region_df.at[index, 'data'] = date_parser.parse(row['data'])
+    # convert data column in a proper date format
+    region_df['data'] = region_df['data'].map(lambda date_str: date_parser.parse(date_str)) 
 
+    # sort values by date
     region_df = region_df.sort_values('data')
 
-    # Remove some problematic data
+    # Adds TI occupation data
+    region_df = region_df.assign(occupazione_ti=pd.Series(np.zeros(region_df.size)))
+    region_df['occupazione_ti'] = region_df['terapia_intensiva'] / ti_places[region]
+
+    # Remove some duplicated data
     region_df = region_df[~region_df.index.duplicated(keep=False)]
+
+    # set dath increment column
     region_df['incremento_morti'] = region_df['deceduti'].diff()
 
     return region_df
