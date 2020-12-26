@@ -105,7 +105,7 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/ti_per_regioni.png', dpi=300)
+        plt.savefig('./docs/ti_per_regioni.png', dpi=300, transparent=True)
 
     if show:
         plt.show()
@@ -131,7 +131,7 @@ def compute_rec_with_symptoms(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/ricoverati_con_sintomi_per_regioni.png', dpi=300)
+        plt.savefig('./docs/ricoverati_con_sintomi_per_regioni.png', dpi=300, transparent=True)
 
     if show:
         plt.show()
@@ -158,7 +158,7 @@ def compute_daily_cases(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/positivi_per_regioni.png', dpi=300)
+        plt.savefig('./docs/positivi_per_regioni.png', dpi=300, transparent=True)
 
     if show:
         plt.show()
@@ -185,7 +185,7 @@ def compute_death(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/deceduti_per_regioni.png', dpi=300)
+        plt.savefig('./docs/deceduti_per_regioni.png', dpi=300, transparent=True)
 
     if show:
         plt.show()
@@ -218,7 +218,7 @@ def compute_marche_data(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/parametri_marche.png', dpi=300)
+        plt.savefig('./docs/parametri_marche.png', dpi=300, transparent=True)
 
     if show:
         plt.show()
