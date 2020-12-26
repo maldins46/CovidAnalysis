@@ -14,6 +14,7 @@ def test_regions_chart_generation():
     regions_analysis.compute_daily_cases()
     regions_analysis.compute_rec_with_symptoms()
     regions_analysis.compute_death()
+    regions_analysis.compute_marche_data()
 
 
 def test_provinces_chart_generation():

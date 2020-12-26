@@ -12,6 +12,7 @@ import glob
 import dateutil.parser as date_parser
 from . import provinces_names as prov
 import numpy as np
+from .population import population_dict as population
 
 
 def extract_provinces_data(path='./GvtOpenData/dati-province'):
@@ -25,7 +26,7 @@ def extract_provinces_data(path='./GvtOpenData/dati-province'):
 
 
 # Create dataframe, extract some region data, plot all available info into files inside docs directory
-df_provinces = extract_provinces_data()
+df = extract_provinces_data()
 
 
 def extract_single_province_data(province):
@@ -36,11 +37,12 @@ def extract_single_province_data(province):
     # suppresses a false positive in the function
     pd.options.mode.chained_assignment = None
 
-    province_df = df_provinces[df_provinces['denominazione_provincia'] == province]
+    province_df = df.loc[df['denominazione_provincia'] == province]
 
-    for index, row in province_df.iterrows():
-        province_df.at[index, 'data'] = date_parser.parse(row['data'])
+    # convert data column in a proper date format
+    province_df['data'] = province_df['data'].map(lambda date_str: date_parser.parse(date_str))
 
+    # sort values by date
     province_df = province_df.sort_values('data')
 
     # re-activates warnings
@@ -49,10 +51,11 @@ def extract_single_province_data(province):
     # Remove some duplicated data
     province_df = province_df[~province_df.index.duplicated(keep=False)]
 
-    # makes diff on total cases
-    province_df['casi'] = province_df['totale_casi'].diff()
-    province_df = province_df[province_df['casi'] > 0]
-    province_df = province_df[province_df['casi'] < 400]
+    # Add data 'incremento casi', scale per 100000 inhabitants
+    province_df['incremento_casi'] = province_df['totale_casi'].diff()
+    province_df = province_df[province_df['incremento_casi'] > 0]
+    province_df = province_df[province_df['incremento_casi'] < 400]
+    province_df['incr_casi_per_100000_ab'] = province_df['incremento_casi'] / population[province] * 100000
 
     return province_df
 
@@ -78,14 +81,14 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
     provinces = extract_provinces_of_marche()
 
     for province_name, province in provinces.items():
-        dates, cases = compute_x_days_mov_average(province, 'casi', 7)
+        dates, cases = compute_x_days_mov_average(province, 'incr_casi_per_100000_ab', 20)
         plt.plot(dates, cases, label=province_name)
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Casi per province delle Marche (7 gg. m.a.)')
+    plt.title('Nuovi positivi Marche ogni 100.000 abitanti (20 gg. m.a.)')
     plt.xlabel('Date')
-    plt.ylabel('Totale casi')
+    plt.ylabel('Nuovi positivi ogni 100.000 abitanti')
     plt.legend()
 
     if save_image:

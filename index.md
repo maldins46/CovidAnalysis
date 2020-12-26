@@ -18,5 +18,8 @@ Charts are automatically updated each day. [Here](https://github.com/maldins46/C
 ![Ricoverati con sintomi per regioni](./docs/ricoverati_con_sintomi_per_regioni.png)
 
 
+![Parametri regione Marche](./docs/parametri_marche.png)
+
+
 ![Deceduti per regioni](./docs/totale_casi_per_province_marche.png)
 

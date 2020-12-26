@@ -16,7 +16,18 @@ git submodule update --remote --recursive
 Charts are automatically updated each day. [Here](https://github.com/maldins46/CovidAnalysis/releases/latest) you can download the updated charts. These are the available live charts:
 
 ![Occupazione TI per regioni](./docs/ti_per_regioni.png)
+
+
 ![Positivi per regioni](./docs/positivi_per_regioni.png)
+
+
 ![Deceduti per regioni](./docs/deceduti_per_regioni.png)
+
+
 ![Ricoverati con sintomi per regioni](./docs/ricoverati_con_sintomi_per_regioni.png)
+
+
+![Parametri regione Marche](./docs/parametri_marche.png)
+
+
 ![Deceduti per regioni](./docs/totale_casi_per_province_marche.png)

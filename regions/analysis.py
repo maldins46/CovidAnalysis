@@ -8,6 +8,7 @@ Module with useful elaborations about italian covid.
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
 import os
 import glob
 import dateutil.parser as date_parser
@@ -34,23 +35,36 @@ def extract_single_region_data(region):
     Also, converts datesto datetime.
     """
 
+    # suppresses a false positive in the function
+    pd.options.mode.chained_assignment = None
+
     region_df = df.loc[df['denominazione_regione'] == region]
 
     # convert data column in a proper date format
-    region_df['data'] = region_df['data'].map(lambda date_str: date_parser.parse(date_str)) 
+    region_df['data'] = region_df['data'].map(lambda date_str: date_parser.parse(date_str))
 
     # sort values by date
     region_df = region_df.sort_values('data')
 
-    # Adds TI occupation data
-    region_df = region_df.assign(occupazione_ti=pd.Series(np.zeros(region_df.size)))
-    region_df['occupazione_ti'] = region_df['terapia_intensiva'] / ti_places[region]
+    # re-activates warnings
+    pd.options.mode.chained_assignment = 'warn'
 
     # Remove some duplicated data
     region_df = region_df[~region_df.index.duplicated(keep=False)]
 
-    # set dath increment column
+    # Adds TI occupation data, scale per 100.000 inhabitants
+    region_df['occupazione_ti'] = region_df['terapia_intensiva'] / ti_places[region]
+    region_df['occ_ti_per_100000_ab'] = region_df['terapia_intensiva'] / population[region] * 100000
+
+    # Add data 'ricoverati con sintomi' per 100.000 inhabitants
+    region_df['ric_per_100000_ab'] = region_df['ricoverati_con_sintomi'] / population[region] * 100000
+
+    # Add data 'nuovi positivi' per 100.000 inhabitants
+    region_df['nuovi_pos_per_100000_ab'] = region_df['nuovi_positivi'] / population[region] * 100000
+
+    # Add data 'incremento morti', scale per 100.000 inhabitants
     region_df['incremento_morti'] = region_df['deceduti'].diff()
+    region_df['incr_morti_per_100000_ab'] = region_df['incremento_morti'] / population[region] * 100000
 
     return region_df
 
@@ -81,11 +95,13 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
     plt.axhline(y=0.3, color='r', linestyle='--', label="Livello d'allerta")
     plt.axhline(y=1, color='y', linestyle='--', label="Saturazione")
 
+    plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Occupazione TI giornaliera per regioni')
+    plt.suptitle('Percentuale occupazione TI')
+
     plt.xlabel('Date')
-    plt.ylabel('Occupazione TI giornaliera')
+    plt.ylabel('Percentuale occupazione TI')
     plt.legend()
 
     if save_image:
@@ -105,13 +121,13 @@ def compute_rec_with_symptoms(save_image=False, show=False):
     regions = extract_regions_of_interest()
 
     for region_name, region in regions.items():
-        plt.plot(region['data'], region['ricoverati_con_sintomi'], label=region_name)
+        plt.plot(region['data'], region['ric_per_100000_ab'], label=region_name)
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Ricoverati con sintomi giornalieri per regioni')
+    plt.title('Ricoverati con sintomi ogni 100.000 abitanti')
     plt.xlabel('Date')
-    plt.ylabel('Ricoverati con sintomi')
+    plt.ylabel('Ric. con sintomi ogni 100.000 abitanti')
     plt.legend()
 
     if save_image:
@@ -131,14 +147,14 @@ def compute_daily_cases(save_image=False, show=False):
     regions = extract_regions_of_interest()
 
     for region_name, region in regions.items():
-        dates, pos = compute_x_days_mov_average(region, 'nuovi_positivi', 7)
+        dates, pos = compute_x_days_mov_average(region, 'nuovi_pos_per_100000_ab', 7)
         plt.plot(dates, pos, label=region_name)
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Nuovi positivi giornalieri per regione (7 gg. m.a.)')
+    plt.title('Nuovi positivi ogni 100.000 abitanti (7 gg. m.a.)')
     plt.xlabel('Date')
-    plt.ylabel('Nuovi positivi')
+    plt.ylabel('Nuovi positivi ogni 100.000 abitanti')
     plt.legend()
 
     if save_image:
@@ -158,18 +174,51 @@ def compute_death(save_image=False, show=False):
     regions = extract_regions_of_interest()
 
     for region_name, region in regions.items():
-        dates, deaths = compute_x_days_mov_average(region, 'incremento_morti', 7)
+        dates, deaths = compute_x_days_mov_average(region, 'incr_morti_per_100000_ab', 7)
         plt.plot(dates, deaths, label=region_name)
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Deceduti giornalieri per regioni (7 gg. m.a.)')
+    plt.title('Deceduti ogni 100.000 abitanti (7 gg. m.a.)')
     plt.xlabel('Date')
-    plt.ylabel('Deceduti')
+    plt.ylabel('Deceduti ogni 100.000 abitanti')
     plt.legend()
 
     if save_image:
         plt.savefig('./docs/deceduti_per_regioni.png', dpi=300)
+
+    if show:
+        plt.show()
+
+    plt.close()
+
+
+def compute_marche_data(save_image=False, show=False):
+    """
+    Different data about region Marche.
+    """
+
+    marche = extract_single_region_data(reg.marche)
+
+    dates, deaths = compute_x_days_mov_average(marche, 'incr_morti_per_100000_ab', 7)
+    plt.plot(dates, deaths, label='Incremento morti (7 gg. m.a.)')
+
+    plt.plot(marche['data'], marche['occ_ti_per_100000_ab'], label='Pazienti TI')
+
+    dates, pos = compute_x_days_mov_average(marche, 'nuovi_pos_per_100000_ab', 7)
+    plt.plot(dates, pos, label="Nuovi positivi (7 gg. m.a.)")
+
+    plt.plot(marche['data'], marche['ric_per_100000_ab'], label="Ricoverati con sintomi")
+
+    plt.gcf().autofmt_xdate()
+    plt.grid(True)
+    plt.title('Parametri regione Marche ogni 100.000 abitanti')
+    plt.xlabel('Date')
+    plt.ylabel('Parametri ogni 100.000 abitanti')
+    plt.legend()
+
+    if save_image:
+        plt.savefig('./docs/parametri_marche.png', dpi=300)
 
     if show:
         plt.show()
