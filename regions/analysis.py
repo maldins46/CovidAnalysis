@@ -15,6 +15,7 @@ import dateutil.parser as date_parser
 from . import regions_names as reg
 from .ti_places import ti_places_dict as ti_places
 from .population import population_dict as population
+from national import analysis as national_analysis
 
 
 def extract_regions_data(path='./GvtOpenData/dati-regioni'):
@@ -27,6 +28,7 @@ def extract_regions_data(path='./GvtOpenData/dati-regioni'):
 
 # Create dataframe, extract some region data, plot all available info into files inside docs directory
 df = extract_regions_data()
+national_df = national_analysis.extract_national_data()
 
 
 def extract_single_region_data(region):
@@ -89,6 +91,8 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
 
     regions = extract_regions_of_interest()
 
+    plt.plot(national_df['data'], national_df['occupazione_ti'], label="Italia")
+
     for region_name, region in regions.items():
         plt.plot(region['data'], region['occupazione_ti'], label=region_name)
 
@@ -120,6 +124,8 @@ def compute_rec_with_symptoms(save_image=False, show=False):
 
     regions = extract_regions_of_interest()
 
+    plt.plot(national_df['data'], national_df['ric_per_100000_ab'], label="Italia")
+
     for region_name, region in regions.items():
         plt.plot(region['data'], region['ric_per_100000_ab'], label=region_name)
 
@@ -145,6 +151,9 @@ def compute_daily_cases(save_image=False, show=False):
     """
 
     regions = extract_regions_of_interest()
+
+    dates, pos = compute_x_days_mov_average(national_df, 'nuovi_pos_per_100000_ab', 7)
+    plt.plot(dates, pos, label="Italia")
 
     for region_name, region in regions.items():
         dates, pos = compute_x_days_mov_average(region, 'nuovi_pos_per_100000_ab', 7)
@@ -172,6 +181,9 @@ def compute_death(save_image=False, show=False):
     """
 
     regions = extract_regions_of_interest()
+
+    dates, deaths = compute_x_days_mov_average(national_df, 'incr_morti_per_100000_ab', 7)
+    plt.plot(dates, deaths, label="Italia")
 
     for region_name, region in regions.items():
         dates, deaths = compute_x_days_mov_average(region, 'incr_morti_per_100000_ab', 7)

@@ -8,7 +8,6 @@ Module with useful elaborations about italian covid.
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.ticker as mtick
 import os
 import glob
 import dateutil.parser as date_parser
@@ -57,34 +56,6 @@ def extract_national_data(path='./GvtOpenData/dati-andamento-nazionale'):
 
 # Create dataframe, extract data, plot all available info into files inside docs directory
 df = extract_national_data()
-
-
-def compute_ti_occupation(save_image=False, show=False):
-    """
-    Computes and plots relations between occupied TI places and available ones.
-    """
-
-    plt.plot(df['data'], df['occupazione_ti'], label="Percentuale occupazione TI")
-
-    plt.axhline(y=0.3, color='r', linestyle='--', label="Livello d'allerta")
-    plt.axhline(y=1, color='y', linestyle='--', label="Saturazione")
-
-    plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
-    plt.suptitle('Percentuale occupazione TI nazionale')
-
-    plt.xlabel('Date')
-    plt.ylabel('Percentuale occupazione TI Italia')
-    plt.legend()
-
-    if save_image:
-        plt.savefig('./docs/ti_italia.png', dpi=300, transparent=True)
-
-    if show:
-        plt.show()
-
-    plt.close()
 
 
 def compute_national_data(save_image=False, show=False):

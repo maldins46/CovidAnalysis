@@ -13,6 +13,7 @@ import dateutil.parser as date_parser
 from . import provinces_names as prov
 import numpy as np
 from .population import population_dict as population
+from national import analysis as national_analysis
 
 
 def extract_provinces_data(path='./GvtOpenData/dati-province'):
@@ -27,6 +28,7 @@ def extract_provinces_data(path='./GvtOpenData/dati-province'):
 
 # Create dataframe, extract some region data, plot all available info into files inside docs directory
 df = extract_provinces_data()
+national_df = national_analysis.extract_national_data()
 
 
 def extract_single_province_data(province):
@@ -79,6 +81,9 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
     """
 
     provinces = extract_provinces_of_marche()
+
+    dates, cases = compute_x_days_mov_average(national_df, 'nuovi_pos_per_100000_ab', 7)
+    plt.plot(dates, cases, label="Italia")
 
     for province_name, province in provinces.items():
         dates, cases = compute_x_days_mov_average(province, 'incr_casi_per_100000_ab', 20)

@@ -18,9 +18,6 @@ Charts are automatically updated each day. [Here](https://github.com/maldins46/C
 ![Parametri nazionali](./docs/parametri_italia.png)
 
 
-![Occupazione TI Italia](./docs/ti_italia.png)
-
-
 ![Occupazione TI per regioni](./docs/ti_per_regioni.png)
 
 

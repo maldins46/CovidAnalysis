@@ -12,7 +12,6 @@ import national.analysis as national_analysis
 
 def test_national_chart_generation():
     national_analysis.compute_national_data()
-    national_analysis.compute_ti_occupation()
 
 
 def test_regions_chart_generation():
@@ -25,3 +24,4 @@ def test_regions_chart_generation():
 
 def test_provinces_chart_generation():
     provinces_analysis.compute_total_cases_per_provinces()
+    provinces_analysis.compute_total_cases_per_provinces_abs()
