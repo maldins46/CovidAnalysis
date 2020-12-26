@@ -82,12 +82,12 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
 
     provinces = extract_provinces_of_marche()
 
-    dates, cases = compute_x_days_mov_average(national_df, 'nuovi_pos_per_100000_ab', 7)
-    plt.plot(dates, cases, label="Italia")
-
     for province_name, province in provinces.items():
         dates, cases = compute_x_days_mov_average(province, 'incr_casi_per_100000_ab', 20)
         plt.plot(dates, cases, label=province_name)
+
+    dates, cases = compute_x_days_mov_average(national_df, 'nuovi_pos_per_100000_ab', 7)
+    plt.plot(dates, cases, alpha=0.5, linestyle=':', label="Italia")
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
