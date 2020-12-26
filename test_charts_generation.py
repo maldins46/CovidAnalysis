@@ -7,6 +7,12 @@ to the right portion of the dataframe.
 """
 import regions.analysis as regions_analysis
 import provinces.analysis as provinces_analysis
+import national.analysis as national_analysis
+
+
+def test_national_chart_generation():
+    national_analysis.compute_national_data()
+    national_analysis.compute_ti_occupation()
 
 
 def test_regions_chart_generation():

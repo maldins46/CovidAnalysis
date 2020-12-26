@@ -203,7 +203,7 @@ def compute_marche_data(save_image=False, show=False):
     dates, deaths = compute_x_days_mov_average(marche, 'incremento_morti', 7)
     plt.plot(dates, deaths, label='Incremento morti (7 gg. m.a.)')
 
-    plt.plot(marche['data'], marche['occupazione_ti'], label='Pazienti TI')
+    plt.plot(marche['data'], marche['terapia_intensiva'], label='Pazienti TI')
 
     dates, pos = compute_x_days_mov_average(marche, 'nuovi_positivi', 7)
     plt.plot(dates, pos, label="Nuovi positivi (7 gg. m.a.)")
