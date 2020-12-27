@@ -37,22 +37,22 @@ def extract_single_region_data(region):
     Also, converts datesto datetime.
     """
 
+    region_df = df.loc[df['denominazione_regione'] == region]
+
     # suppresses a false positive in the function
     pd.options.mode.chained_assignment = None
-
-    region_df = df.loc[df['denominazione_regione'] == region]
 
     # convert data column in a proper date format
     region_df['data'] = region_df['data'].map(lambda date_str: date_parser.parse(date_str))
 
-    # sort values by date
-    region_df = region_df.sort_values('data')
-
     # re-activates warnings
     pd.options.mode.chained_assignment = 'warn'
 
-    # Remove some duplicated data
-    region_df = region_df[~region_df.index.duplicated(keep=False)]
+    # Clean index and duplicates, sort by date
+    region_df = region_df.sort_values('data')
+    region_df = region_df[~region_df.data.duplicated(keep='last')]
+    region_df = region_df.reset_index()
+    region_df = region_df.drop('index', 1)
 
     # Adds TI occupation data, scale per 100.000 inhabitants
     region_df['occupazione_ti'] = region_df['terapia_intensiva'] / ti_places[region]

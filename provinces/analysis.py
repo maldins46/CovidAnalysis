@@ -36,22 +36,22 @@ def extract_single_province_data(province):
     Extracts all data about a single province, it sort them, and adds. Also, converts dates to datetime.
     """
 
+    province_df = df.loc[df['denominazione_provincia'] == province]
+
     # suppresses a false positive in the function
     pd.options.mode.chained_assignment = None
-
-    province_df = df.loc[df['denominazione_provincia'] == province]
 
     # convert data column in a proper date format
     province_df['data'] = province_df['data'].map(lambda date_str: date_parser.parse(date_str))
 
-    # sort values by date
-    province_df = province_df.sort_values('data')
-
     # re-activates warnings
     pd.options.mode.chained_assignment = 'warn'
 
-    # Remove some duplicated data
-    province_df = province_df[~province_df.index.duplicated(keep=False)]
+    # Clean index and duplicates, sort by date
+    province_df = province_df.sort_values('data')
+    province_df = province_df[~province_df.data.duplicated(keep='last')]
+    province_df = province_df.reset_index()
+    province_df = province_df.drop('index', 1)
 
     # Add data 'incremento casi', scale per 100000 inhabitants
     province_df['incremento_casi'] = province_df['totale_casi'].diff()

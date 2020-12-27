@@ -25,17 +25,20 @@ def extract_national_data(path='./GvtOpenData/dati-andamento-nazionale'):
     all_files = glob.glob(all_files_paths)
     national_df = pd.concat((pd.read_csv(file) for file in all_files))
 
+    # suppresses a false positive in the function
+    pd.options.mode.chained_assignment = None
+
     # convert data column in a proper date format
     national_df['data'] = national_df['data'].map(lambda date_str: date_parser.parse(date_str))
-
-    # sort values by date
-    national_df = national_df.sort_values('data')
 
     # re-activates warnings
     pd.options.mode.chained_assignment = 'warn'
 
-    # Remove some duplicated data
-    national_df = national_df[~national_df.index.duplicated(keep=False)]
+    # Clean index and duplicates, sort by date
+    national_df = national_df.sort_values('data')
+    national_df = national_df[~national_df.data.duplicated(keep='last')]
+    national_df = national_df.reset_index()
+    national_df = national_df.drop('index', 1)
 
     # Adds TI occupation data, scale per 100.000 inhabitants
     national_df['occupazione_ti'] = national_df['terapia_intensiva'] / ti_places
