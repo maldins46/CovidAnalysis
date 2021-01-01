@@ -54,9 +54,13 @@ def extract_single_region_data(region):
     region_df = region_df.reset_index()
     region_df = region_df.drop('index', 1)
 
-    # Adds TI occupation data, scale per 100.000 inhabitants
+    # Adds TI occupation data
     region_df['occupazione_ti'] = region_df['terapia_intensiva'] / ti_places[region]
-    region_df['occ_ti_per_100000_ab'] = region_df['terapia_intensiva'] / population[region] * 100000
+
+    # Adds positivity rate
+    region_df['tamponi_giornalieri'] = region_df['tamponi'].diff()
+    region_df['tamponi_positivi_giornalieri'] = region_df['totale_casi'].diff()
+    region_df['tasso_positivita'] = region_df['tamponi_positivi_giornalieri'] / region_df['tamponi_giornalieri']
 
     # Add data 'ricoverati con sintomi' per 100.000 inhabitants
     region_df['ric_per_100000_ab'] = region_df['ricoverati_con_sintomi'] / population[region] * 100000
@@ -109,6 +113,42 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
 
     if save_image:
         plt.savefig('./docs/ti_per_regioni.png', dpi=300, transparent=True)
+
+    if show:
+        plt.show()
+
+    plt.close()
+
+
+def compute_positivity_per_regions(save_image=False, show=False):
+    """
+    Computes and plots relations between tests and positive ones, for some regions of interest.
+    """
+
+    regions = extract_regions_of_interest()
+
+    for region_name, region in regions.items():
+        # filter data from July
+        region_filtered = region[region['data'] > '2020-07-01']
+        dates, pos = compute_x_days_mov_average(region_filtered, 'tasso_positivita', 7)
+        plt.plot(dates, pos, label=region_name)
+
+    # Filter data from July
+    national_df_filtered = national_df[national_df['data'] > '2020-07-01']
+    dates, pos = compute_x_days_mov_average(national_df_filtered, 'tasso_positivita', 7)
+    plt.plot(dates, pos, alpha=0.5, linestyle=':', label="Italia")
+
+    plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
+    plt.gcf().autofmt_xdate()
+    plt.grid(True)
+    plt.suptitle('Tasso di positività tamponi (7 gg. m.a.)')
+
+    plt.xlabel('Date')
+    plt.ylabel('Percentuale tamponi positivi')
+    plt.legend()
+
+    if save_image:
+        plt.savefig('./docs/positivita.png', dpi=300, transparent=True)
 
     if show:
         plt.show()

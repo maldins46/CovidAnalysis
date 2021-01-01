@@ -21,6 +21,9 @@ Charts are automatically updated each day. [Here](https://github.com/maldins46/C
 ![Occupazione TI per regioni](./docs/ti_per_regioni.png)
 
 
+![Tasso positività](./docs/positivita.png)
+
+
 ![Positivi per regioni](./docs/positivi_per_regioni.png)
 
 

@@ -40,9 +40,15 @@ def extract_national_data(path='./GvtOpenData/dati-andamento-nazionale'):
     national_df = national_df.reset_index()
     national_df = national_df.drop('index', 1)
 
-    # Adds TI occupation data, scale per 100.000 inhabitants
+    # Adds TI occupation data
     national_df['occupazione_ti'] = national_df['terapia_intensiva'] / ti_places
-    national_df['occ_ti_per_100000_ab'] = national_df['terapia_intensiva'] / population * 100000
+
+    # Adds positivity rate
+    national_df['tamponi_giornalieri'] = national_df['tamponi'].diff()
+    national_df = national_df[national_df['tamponi_giornalieri'] > 0]
+
+    national_df['tamponi_positivi_giornalieri'] = national_df['totale_casi'].diff()
+    national_df['tasso_positivita'] = national_df['tamponi_positivi_giornalieri'] / national_df['tamponi_giornalieri']
 
     # Add data 'ricoverati con sintomi' per 100.000 inhabitants
     national_df['ric_per_100000_ab'] = national_df['ricoverati_con_sintomi'] / population * 100000
