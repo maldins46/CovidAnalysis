@@ -29,7 +29,7 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/totale_casi_per_province_marche.png', dpi=300, transparent=True)
+        plt.savefig('./docs/totale_casi_per_province_marche.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -52,7 +52,7 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/totale_casi_per_province_marche_abs.png', dpi=300, transparent=True)
+        plt.savefig('./docs/totale_casi_per_province_marche_abs.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
