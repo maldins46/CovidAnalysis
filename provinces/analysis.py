@@ -5,77 +5,10 @@ Module with useful elaborations about italian covid in marche.
 @author: riccardomaldini
 """
 
-import pandas as pd
 import matplotlib.pyplot as plt
-import os
-import glob
-import dateutil.parser as date_parser
-from . import provinces_names as prov
 import numpy as np
-from .population import population_dict as population
-from national import analysis as national_analysis
-
-
-def extract_provinces_data(path='./GvtOpenData/dati-province'):
-    """
-    Reads all csv files about provinces data and concatenates them in a data frame.
-    """
-
-    all_files_paths = os.path.join(path, "*.csv")
-    all_files = glob.glob(all_files_paths)
-    return pd.concat((pd.read_csv(file) for file in all_files))
-
-
-# Create dataframe, extract some region data, plot all available info into files inside docs directory
-df = extract_provinces_data()
-national_df = national_analysis.extract_national_data()
-
-
-def extract_single_province_data(province):
-    """
-    Extracts all data about a single province, it sort them, and adds. Also, converts dates to datetime.
-    """
-
-    province_df = df.loc[df['denominazione_provincia'] == province]
-
-    # suppresses a false positive in the function
-    pd.options.mode.chained_assignment = None
-
-    # convert data column in a proper date format
-    province_df['data'] = province_df['data'].map(lambda date_str: date_parser.parse(date_str))
-
-    # re-activates warnings
-    pd.options.mode.chained_assignment = 'warn'
-
-    # Clean index and duplicates, sort by date
-    province_df = province_df.sort_values('data')
-    province_df = province_df[~province_df.data.duplicated(keep='last')]
-    province_df = province_df.reset_index()
-    province_df = province_df.drop('index', 1)
-
-    # Filter data from September
-    province_df = province_df[province_df['data'] > '2020-09-01']
-
-    # Add data 'incremento casi', scale per 100000 inhabitants
-    province_df['incremento_casi'] = province_df['totale_casi'].diff()
-    province_df = province_df[province_df['incremento_casi'] > 0]
-    province_df = province_df[province_df['incremento_casi'] < 400]
-    province_df['incr_casi_per_100000_ab'] = province_df['incremento_casi'] / population[province] * 100000
-
-    return province_df
-
-
-def extract_provinces_of_marche():
-    """
-    Extract some regions defined as of interest in the analysis, as a dictionary.
-    """
-    return {
-        prov.ancona: extract_single_province_data(prov.ancona),
-        prov.pesaro_urbino: extract_single_province_data(prov.pesaro_urbino),
-        prov.macerata: extract_single_province_data(prov.macerata),
-        prov.fermo: extract_single_province_data(prov.fermo),
-        prov.ascoli_piceno: extract_single_province_data(prov.ascoli_piceno)
-    }
+from national.data_extractor import nation_data
+from .data_extractor import provinces_of_marche_data
 
 
 def compute_total_cases_per_provinces(save_image=False, show=False):
@@ -83,13 +16,11 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
     Computes and plots total cases in Marche provinces.
     """
 
-    provinces = extract_provinces_of_marche()
-
-    for province_name, province in provinces.items():
+    for province_name, province in provinces_of_marche_data.items():
         dates, cases = compute_x_days_mov_average(province, 'incr_casi_per_100000_ab', 28)
         plt.plot(dates, cases, label=province_name)
 
-    dates, cases = compute_x_days_mov_average(national_df, 'nuovi_pos_per_100000_ab', 28)
+    dates, cases = compute_x_days_mov_average(nation_data, 'nuovi_pos_per_100000_ab', 28)
     plt.plot(dates, cases, alpha=0.5, linestyle=':', label="Italia")
 
     plt.gcf().autofmt_xdate()
@@ -112,9 +43,7 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
     Computes and plots total cases in Marche provinces, as absolute cases.
     """
 
-    provinces = extract_provinces_of_marche()
-
-    for province_name, province in provinces.items():
+    for province_name, province in provinces_of_marche_data.items():
         dates, cases = compute_x_days_mov_average(province, 'incremento_casi', 28)
         plt.plot(dates, cases, label=province_name)
 

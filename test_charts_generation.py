@@ -11,7 +11,7 @@ import national.analysis as national_analysis
 
 
 def test_national_chart_generation():
-    national_analysis.compute_national_data()
+    national_analysis.compute_national_parameters()
 
 
 def test_regions_chart_generation():
@@ -20,7 +20,7 @@ def test_regions_chart_generation():
     regions_analysis.compute_daily_cases()
     regions_analysis.compute_rec_with_symptoms()
     regions_analysis.compute_death()
-    regions_analysis.compute_marche_data()
+    regions_analysis.compute_region_parameters()
 
 
 def test_provinces_chart_generation():
