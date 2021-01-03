@@ -29,7 +29,6 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Occupazione TI')
     plt.ylabel('Percentuale occupaz. TI')
     plt.legend()
 
@@ -57,7 +56,6 @@ def compute_positivity_per_regions(save_image=False, show=False):
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Tasso di positività')
     plt.ylabel('Tamp. pos. su effettuati (7 gg. m.a.)')
     plt.legend()
 
@@ -82,7 +80,6 @@ def compute_rec_with_symptoms(save_image=False, show=False):
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Ricoverati con sintomi')
     plt.ylabel('Ric. con sintomi ogni 100.000 abitanti')
     plt.legend()
 
@@ -109,7 +106,6 @@ def compute_daily_cases(save_image=False, show=False):
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Nuovi positivi')
     plt.ylabel('Nuovi pos. ogni 100.000 ab. (7 gg. m.a.)')
     plt.legend()
 
@@ -136,8 +132,6 @@ def compute_death(save_image=False, show=False):
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Deceduti')
-    plt.xlabel('Date')
     plt.ylabel('Dec. ogni 100.000 ab. (7 gg. m.a.)')
     plt.legend()
 
@@ -169,7 +163,6 @@ def compute_region_parameters(save_image=False, show=False, region_name=reg.marc
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title(f"Parametri  COVID-19 {region_name}")
     plt.ylabel('Variaz. parametri')
     plt.legend()
 

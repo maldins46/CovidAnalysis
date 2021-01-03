@@ -1,4 +1,4 @@
 theme: jekyll-theme-slate
 title: CovidAnalysis
-description: Python module used to extract relevant information from Italian Government Covid Open Data.
+description: Una dashboard per consultare dati di interesse sull'andamento dell'epidemia da COVID-19.
 show_downloads: "true"

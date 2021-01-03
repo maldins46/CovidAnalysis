@@ -25,7 +25,6 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Nuovi positivi Marche (valori relativi)')
     plt.ylabel('Nuovi pos. ogni 100.000 ab. (1m. m.a.)')
     plt.legend()
 
@@ -49,7 +48,6 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Nuovi positivi Marche (valori assoluti)')
     plt.ylabel('Nuovi pos. in val. ass. (1m. m.a.)')
     plt.legend()
 
