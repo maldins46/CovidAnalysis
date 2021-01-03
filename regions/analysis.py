@@ -54,6 +54,9 @@ def extract_single_region_data(region):
     region_df = region_df.reset_index()
     region_df = region_df.drop('index', 1)
 
+    # Filter data from September
+    region_df = region_df[region_df['data'] > '2020-09-01']
+
     # Adds TI occupation data
     region_df['occupazione_ti'] = region_df['terapia_intensiva'] / ti_places[region]
 
@@ -128,14 +131,10 @@ def compute_positivity_per_regions(save_image=False, show=False):
     regions = extract_regions_of_interest()
 
     for region_name, region in regions.items():
-        # filter data from July
-        region_filtered = region[region['data'] > '2020-07-01']
-        dates, pos = compute_x_days_mov_average(region_filtered, 'tasso_positivita', 7)
+        dates, pos = compute_x_days_mov_average(region, 'tasso_positivita', 7)
         plt.plot(dates, pos, label=region_name)
 
-    # Filter data from July
-    national_df_filtered = national_df[national_df['data'] > '2020-07-01']
-    dates, pos = compute_x_days_mov_average(national_df_filtered, 'tasso_positivita', 7)
+    dates, pos = compute_x_days_mov_average(national_df, 'tasso_positivita', 7)
     plt.plot(dates, pos, alpha=0.5, linestyle=':', label="Italia")
 
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))

@@ -53,6 +53,9 @@ def extract_single_province_data(province):
     province_df = province_df.reset_index()
     province_df = province_df.drop('index', 1)
 
+    # Filter data from September
+    province_df = province_df[province_df['data'] > '2020-09-01']
+
     # Add data 'incremento casi', scale per 100000 inhabitants
     province_df['incremento_casi'] = province_df['totale_casi'].diff()
     province_df = province_df[province_df['incremento_casi'] > 0]
