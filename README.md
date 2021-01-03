@@ -12,31 +12,4 @@ Besides performing the clone, also recursively initialize submodules. Also, the 
 git submodule update --remote --recursive
 ```
 
-## Charts
-Charts are automatically updated each day. [Here](https://github.com/maldins46/CovidAnalysis/releases/latest) you can download the updated charts. These are the available live charts:
-
-![Parametri nazionali](./docs/parametri_italia.png)
-
-
-![Occupazione TI per regioni](./docs/ti_per_regioni.png)
-
-
-![Tasso positività](./docs/positivita.png)
-
-
-![Positivi per regioni](./docs/positivi_per_regioni.png)
-
-
-![Deceduti per regioni](./docs/deceduti_per_regioni.png)
-
-
-![Ricoverati con sintomi per regioni](./docs/ricoverati_con_sintomi_per_regioni.png)
-
-
-![Parametri regione Marche](./docs/parametri_marche.png)
-
-
-![Casi per province Marche abs](./docs/totale_casi_per_province_marche.png)
-
-
-![Casi per province Marche abs](./docs/totale_casi_per_province_marche_abs.png)
+Charts are automatically updated each day. Consult [the repository website](https://maldins46.github.io/CovidAnalysis) for a neat live COVID-19 dashboard, comprising the latest version of the charts. You can also download all the available charts in PNG format [from here](https://github.com/maldins46/CovidAnalysis/releases/latest).
