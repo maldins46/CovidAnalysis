@@ -88,7 +88,6 @@ def compute_national_data(save_image=False, show=False):
     plt.gcf().autofmt_xdate()
     plt.grid(True)
     plt.title('Parametri COVID-19 Italia')
-    plt.xlabel('Date')
     plt.ylabel('Variaz. parametri')
     plt.legend()
 

@@ -102,16 +102,14 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
 
     plt.plot(national_df['data'], national_df['occupazione_ti'], alpha=0.5, linestyle=':', label="Italia")
 
-    plt.axhline(y=0.3, color='r', linestyle='--', label="Livello d'allerta")
-    plt.axhline(y=1, color='y', linestyle='--', label="Saturazione")
+    plt.axhline(y=0.3, color='y', linestyle='--', alpha=0.5, label="Livello d'allerta")
+    plt.axhline(y=1, color='r', linestyle='--', alpha=0.5, label="Saturazione")
 
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.suptitle('Percentuale occupazione TI')
-
-    plt.xlabel('Date')
-    plt.ylabel('Percentuale occupazione TI')
+    plt.title('Occupazione TI')
+    plt.ylabel('Percentuale occupaz. TI')
     plt.legend()
 
     if save_image:
@@ -131,19 +129,17 @@ def compute_positivity_per_regions(save_image=False, show=False):
     regions = extract_regions_of_interest()
 
     for region_name, region in regions.items():
-        dates, pos = compute_x_days_mov_average(region, 'tasso_positivita', 7)
+        dates, pos = compute_x_days_mov_average(region, 'tasso_positivita', 14)
         plt.plot(dates, pos, label=region_name)
 
-    dates, pos = compute_x_days_mov_average(national_df, 'tasso_positivita', 7)
+    dates, pos = compute_x_days_mov_average(national_df, 'tasso_positivita', 14)
     plt.plot(dates, pos, alpha=0.5, linestyle=':', label="Italia")
 
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.suptitle('Tasso di positività tamponi (7 gg. m.a.)')
-
-    plt.xlabel('Date')
-    plt.ylabel('Percentuale tamponi positivi')
+    plt.title('Tasso di positività')
+    plt.ylabel('Tamp. pos. su effettuati (7 gg. m.a.)')
     plt.legend()
 
     if save_image:
@@ -169,8 +165,7 @@ def compute_rec_with_symptoms(save_image=False, show=False):
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Ricoverati con sintomi ogni 100.000 abitanti')
-    plt.xlabel('Date')
+    plt.title('Ricoverati con sintomi')
     plt.ylabel('Ric. con sintomi ogni 100.000 abitanti')
     plt.legend()
 
@@ -199,9 +194,8 @@ def compute_daily_cases(save_image=False, show=False):
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Nuovi positivi ogni 100.000 abitanti (7 gg. m.a.)')
-    plt.xlabel('Date')
-    plt.ylabel('Nuovi positivi ogni 100.000 abitanti')
+    plt.title('Nuovi positivi')
+    plt.ylabel('Nuovi pos. ogni 100.000 ab. (7 gg. m.a.)')
     plt.legend()
 
     if save_image:
@@ -229,9 +223,9 @@ def compute_death(save_image=False, show=False):
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Deceduti ogni 100.000 abitanti (7 gg. m.a.)')
+    plt.title('Deceduti')
     plt.xlabel('Date')
-    plt.ylabel('Deceduti ogni 100.000 abitanti')
+    plt.ylabel('Dec. ogni 100.000 ab. (7 gg. m.a.)')
     plt.legend()
 
     if save_image:
@@ -262,8 +256,7 @@ def compute_marche_data(save_image=False, show=False):
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Parametri regione Marche')
-    plt.xlabel('Date')
+    plt.title('Parametri  COVID-19 Marche')
     plt.ylabel('Variaz. parametri')
     plt.legend()
 

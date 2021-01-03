@@ -86,17 +86,16 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
     provinces = extract_provinces_of_marche()
 
     for province_name, province in provinces.items():
-        dates, cases = compute_x_days_mov_average(province, 'incr_casi_per_100000_ab', 20)
+        dates, cases = compute_x_days_mov_average(province, 'incr_casi_per_100000_ab', 28)
         plt.plot(dates, cases, label=province_name)
 
-    dates, cases = compute_x_days_mov_average(national_df, 'nuovi_pos_per_100000_ab', 7)
+    dates, cases = compute_x_days_mov_average(national_df, 'nuovi_pos_per_100000_ab', 28)
     plt.plot(dates, cases, alpha=0.5, linestyle=':', label="Italia")
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Nuovi positivi Marche ogni 100.000 abitanti (20 gg. m.a.)')
-    plt.xlabel('Date')
-    plt.ylabel('Nuovi positivi ogni 100.000 abitanti')
+    plt.title('Nuovi positivi Marche (valori relativi)')
+    plt.ylabel('Nuovi pos. ogni 100.000 ab. (1m. m.a.)')
     plt.legend()
 
     if save_image:
@@ -116,14 +115,13 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
     provinces = extract_provinces_of_marche()
 
     for province_name, province in provinces.items():
-        dates, cases = compute_x_days_mov_average(province, 'incremento_casi', 20)
+        dates, cases = compute_x_days_mov_average(province, 'incremento_casi', 28)
         plt.plot(dates, cases, label=province_name)
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
-    plt.title('Nuovi positivi Marche in valori assoluti (20 gg. m.a.)')
-    plt.xlabel('Date')
-    plt.ylabel('Nuovi positivi')
+    plt.title('Nuovi positivi Marche (valori assoluti)')
+    plt.ylabel('Nuovi pos. in val. ass. (1m. m.a.)')
     plt.legend()
 
     if save_image:
