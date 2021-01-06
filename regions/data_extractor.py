@@ -10,6 +10,7 @@ import os
 import glob
 import dateutil.parser as date_parser
 from . import regions_names as reg
+import utils
 from .ti_places import ti_places_dict as ti_places
 from .population import population_dict as population
 
@@ -57,14 +58,17 @@ def extract_single_region_data(region):
     region_df['tasso_positivita'] = region_df['tamponi_positivi_giornalieri'] / region_df['tamponi_giornalieri']
 
     # Add data 'ricoverati con sintomi' per 100.000 inhabitants
-    region_df['ric_per_100000_ab'] = region_df['ricoverati_con_sintomi'] / population[region] * 100000
+    region_df['ric_per_100000_ab'] = utils.scale_per_x_inhabitants(region_df['ricoverati_con_sintomi'], population[region])
 
     # Add data 'nuovi positivi' per 100.000 inhabitants
-    region_df['nuovi_pos_per_100000_ab'] = region_df['nuovi_positivi'] / population[region] * 100000
+    region_df['nuovi_pos_per_100000_ab'] = utils.scale_per_x_inhabitants(region_df['nuovi_positivi'], population[region])
 
     # Add data 'incremento morti', scale per 100.000 inhabitants
     region_df['incremento_morti'] = region_df['deceduti'].diff()
-    region_df['incr_morti_per_100000_ab'] = region_df['incremento_morti'] / population[region] * 100000
+    region_df['incr_morti_per_100000_ab'] = utils.scale_per_x_inhabitants(region_df['incremento_morti'], population[region])
+
+    # compute rt
+    region_df['rt'] = utils.compute_rt(region_df['nuovi_positivi'])
 
     return region_df
 

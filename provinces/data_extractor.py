@@ -11,6 +11,7 @@ import glob
 import dateutil.parser as date_parser
 from . import provinces_names as prov
 from .population import population_dict as population
+import utils
 
 
 def extract_provinces_data(path='./GvtOpenData/dati-province'):
@@ -50,10 +51,16 @@ def extract_single_province_data(province):
 
     # Add data 'incremento casi', scale per 100000 inhabitants
     province_df['incremento_casi'] = province_df['totale_casi'].diff()
-    province_df = province_df[province_df['incremento_casi'] > 0]
-    province_df = province_df[province_df['incremento_casi'] < 400]
-    province_df['incr_casi_per_100000_ab'] = province_df['incremento_casi'] / population[province] * 100000
 
+    # custom cleaning for some dirty data
+    province_df['incremento_casi'] = province_df['incremento_casi'].apply(lambda x: x if x > 0 else float('NaN'))
+    province_df['incremento_casi'] = province_df['incremento_casi'].apply(lambda x: x if x < 400 else float('NaN'))
+    province_df['incremento_casi'] = province_df['incremento_casi'].fillna(method='ffill', limit=3)
+
+    province_df['incr_casi_per_100000_ab'] = utils.scale_per_x_inhabitants(province_df['incremento_casi'], population[province])
+
+    # The provincial value is too unstable to compute rt with raw values
+    province_df['rt'] = utils.compute_rt(utils.compute_x_days_mov_average(province_df['incremento_casi'], 14))
     return province_df
 
 

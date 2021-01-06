@@ -40,6 +40,33 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
 
     plt.close()
 
+def compute_rt_per_regions(save_image=False, show=False):
+    """
+    Computes and plots rt for some regions of interest.
+    """
+
+    for region_name, region_data in benchmark_regions_data.items():
+        plt.plot(region_data['data'], region_data['rt'], label=region_name)
+
+    plt.plot(nation_data['data'], nation_data['rt'], alpha=0.5, linestyle=':', label="Italia")
+
+    plt.axhline(y=1.25, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
+    plt.axhline(y=1, color='tab:orange', linestyle='--', alpha=0.5, label="Zona arancione")
+
+    plt.gcf().autofmt_xdate()
+    plt.grid(True)
+    plt.ylabel('Indice RT')
+    plt.legend()
+
+    if save_image:
+        plt.savefig('./docs/rt_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+
+    if show:
+        plt.show()
+
+    plt.close()
+
+
 
 def compute_positivity_per_regions(save_image=False, show=False):
     """
@@ -103,6 +130,8 @@ def compute_daily_cases(save_image=False, show=False):
 
     dates, pos = compute_x_days_mov_average(nation_data, 'nuovi_pos_per_100000_ab', 7)
     plt.plot(dates, pos, alpha=0.5, linestyle=':', label="Italia")
+
+    plt.axhline(y=50, color='r', linestyle='--', alpha=0.5, label="Cond. nec. zona rossa")
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)

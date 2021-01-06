@@ -6,6 +6,7 @@ Module with useful elaborations about italian covid.
 """
 
 import numpy as np
+import math
 import matplotlib.pyplot as plt
 from .data_extractor import nation_data
 
@@ -46,7 +47,12 @@ def compute_x_days_mov_average(df, column, window=7):
     for plotting.
     """
 
+    
     column_ma = np.convolve(df[column], np.ones(window)/window, mode='valid')
-    dates = df.iloc[window-1:].data
+    column_padded = np.concatenate((np.full(math.ceil((window-1)/2), float('NaN')), column_ma, np.full(math.floor((window-1)/2), float('NaN'))))
 
-    return dates, column_ma
+
+    dates = df['data']
+
+
+    return dates, column_padded

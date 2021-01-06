@@ -10,6 +10,7 @@ import national.analysis as national_analysis
 
 national_analysis.compute_national_parameters(save_image=True, show=False)
 regions_analysis.compute_ti_occupation_per_regions(save_image=True, show=False)
+regions_analysis.compute_rt_per_regions(save_image=True, show=False)
 regions_analysis.compute_positivity_per_regions(save_image=True, show=False)
 regions_analysis.compute_daily_cases(save_image=True, show=False)
 regions_analysis.compute_rec_with_symptoms(save_image=True, show=False)

@@ -6,9 +6,12 @@ Extracts national data from the database.
 """
 
 import pandas as pd
+import math
+import numpy as np
 import os
 import glob
 import dateutil.parser as date_parser
+import utils
 
 ti_places = 6458
 population = 60244639
@@ -46,23 +49,42 @@ def extract_nation_data(path='./GvtOpenData/dati-andamento-nazionale'):
 
     # Adds positivity rate
     national_df['tamponi_giornalieri'] = national_df['tamponi'].diff()
-    national_df = national_df[national_df['tamponi_giornalieri'] > 0]
+
+    # custom cleaning for some dirty data
+    national_df.at[297, 'tamponi_giornalieri'] = 180000
 
     national_df['tamponi_positivi_giornalieri'] = national_df['totale_casi'].diff()
     national_df['tasso_positivita'] = national_df['tamponi_positivi_giornalieri'] / national_df['tamponi_giornalieri']
 
     # Add data 'ricoverati con sintomi' per 100.000 inhabitants
-    national_df['ric_per_100000_ab'] = national_df['ricoverati_con_sintomi'] / population * 100000
+    national_df['ric_per_100000_ab'] = utils.scale_per_x_inhabitants(national_df['ricoverati_con_sintomi'], population)
 
     # Add data 'nuovi positivi' per 100.000 inhabitants
-    national_df['nuovi_pos_per_100000_ab'] = national_df['nuovi_positivi'] / population * 100000
+    national_df['nuovi_pos_per_100000_ab'] = utils.scale_per_x_inhabitants(national_df['nuovi_positivi'], population)
 
     # Add data 'incremento morti', scale per 100.000 inhabitants
     national_df['incremento_morti'] = national_df['deceduti'].diff()
-    national_df['incr_morti_per_100000_ab'] = national_df['incremento_morti'] / population * 100000
+    national_df['incr_morti_per_100000_ab'] = utils.scale_per_x_inhabitants(national_df['incremento_morti'], population)
+
+    # compute rt
+    national_df['rt'] = utils.compute_rt(national_df['nuovi_positivi'])
 
     return national_df
 
 
 # Create dataframe with national data
 nation_data = extract_nation_data()
+
+
+
+def compute_x_days_mov_average(df, column, window=7):
+    """
+    Computes an x-days-moving-average on the given column, of the given
+    dataframe, and returns the computed column and the correspondant dates,
+    for plotting.
+    """
+
+    column_ma = np.convolve(df[column], np.ones(window)/window, mode='valid')
+    dates = df.iloc[window-1:].data
+
+    return dates, column_ma
