@@ -18,9 +18,9 @@ I grafici seguenti raffrontano vari parametri a livello regionale, in particolar
 
 ## Rt per regioni
 
-![Occupazione TI per regioni](./docs/rt_per_regioni.png)
+![RT per regioni](./docs/rt_per_regioni.png)
 
-Il grafico mostra l'andamento dell'indice Rt per le regioni del benchmark, calcolato con modellazione SIR (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo).
+Il grafico mostra l'andamento dell'indice Rt per le regioni del benchmark, calcolato con modellazione SIR (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo). L'indice così calcolato tende ad essere impreciso, allontandosi dal valore 1, ma mostra chiaramente un valore maggiore o minore di 1 nel caso in cui i contagi siano in aumento o diminuzione.
 
 
 ## Occupazione terapia intensiva per regioni
@@ -64,6 +64,13 @@ Il grafico raffronta differenti indicatori a livello regionale, in valori assolu
 - La linea gialla riporta il numero di pazienti in terapia intensiva, per ogni giorno; 
 - La linea verde riporta i nuovi positivi riportati ogni giorno (in media mobile di 7 giorni, per mitigare la stagionalità settimanale);
 - La linea rossa riporta i ricoverati con sintomi, per ogni giorno.
+
+## Rt per provincia delle Marche
+
+![RT per regioni](./docs/rt_per_province_marche.png)
+
+Il grafico mostra l'andamento dell'indice Rt per le province delle Marche, calcolato con modellazione SIR (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo). L'indice così calcolato tende ad essere impreciso, allontandosi dal valore 1, ma mostra chiaramente un valore maggiore o minore di 1 nel caso in cui i contagi siano in aumento o diminuzione.
+
 
 ## Nuovi positivi per provincia delle Marche, per 100.000 abitanti
 

@@ -6,9 +6,13 @@ Module with useful elaborations about italian covid in marche.
 """
 
 import matplotlib.pyplot as plt
-import numpy as np
 from national.data_extractor import nation_data
 from .data_extractor import provinces_of_marche_data
+from regions.data_extractor import extract_single_region_data
+from regions import regions_names
+import utils
+
+marche_data = extract_single_region_data(regions_names.marche)
 
 
 def compute_total_cases_per_provinces(save_image=False, show=False):
@@ -16,12 +20,15 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
     Computes and plots total cases in Marche provinces.
     """
 
-    for province_name, province in provinces_of_marche_data.items():
-        dates, cases = compute_x_days_mov_average(province, 'incr_casi_per_100000_ab', 28)
-        plt.plot(dates, cases, label=province_name)
+    for province_name, province_data in provinces_of_marche_data.items():
+        cases = utils.compute_x_days_mov_average(province_data['incr_casi_per_100000_ab'], 28)
+        plt.plot(province_data['data'], cases, label=province_name)
 
-    dates, cases = compute_x_days_mov_average(nation_data, 'nuovi_pos_per_100000_ab', 28)
-    plt.plot(dates, cases, alpha=0.5, linestyle=':', label="Italia")
+    cases = utils.compute_x_days_mov_average(nation_data['nuovi_pos_per_100000_ab'], 28)
+    plt.plot(nation_data['data'], cases, alpha=0.5, linestyle=':', label="Italia")
+
+    cases = utils.compute_x_days_mov_average(marche_data['nuovi_pos_per_100000_ab'], 28)
+    plt.plot(marche_data['data'], cases, alpha=0.5, linestyle=':', label="Marche")
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
@@ -42,9 +49,9 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
     Computes and plots total cases in Marche provinces, as absolute cases.
     """
 
-    for province_name, province in provinces_of_marche_data.items():
-        dates, cases = compute_x_days_mov_average(province, 'incremento_casi', 28)
-        plt.plot(dates, cases, label=province_name)
+    for province_name, province_data in provinces_of_marche_data.items():
+        cases = utils.compute_x_days_mov_average(province_data['incremento_casi'], 28)
+        plt.plot(province_data['data'], cases, label=province_name)
 
     plt.gcf().autofmt_xdate()
     plt.grid(True)
@@ -60,14 +67,29 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
     plt.close()
 
 
-def compute_x_days_mov_average(df, column, window=7):
+def compute_rt_per_provinces(save_image=False, show=False):
     """
-    Computes an x-days-moving-average on the given column, of the given
-    dataframe, and returns the computed column and the correspondant dates,
-    for plotting.
+    Computes and plots rt for Marche provinces
     """
 
-    column_ma = np.convolve(df[column], np.ones(window)/window, mode='valid')
-    dates = df.iloc[window-1:].data
+    for province_name, province_data in provinces_of_marche_data.items():
+        plt.plot(province_data['data'], province_data['rt'], label=province_name)
 
-    return dates, column_ma
+    plt.plot(nation_data['data'], nation_data['rt'], alpha=0.5, linestyle=':', label="Italia")
+    plt.plot(marche_data['data'], marche_data['rt'], alpha=0.5, linestyle=':', label="Marche")
+
+    plt.axhline(y=1.25, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
+    plt.axhline(y=1, color='tab:orange', linestyle='--', alpha=0.5, label="Zona arancione")
+
+    plt.gcf().autofmt_xdate()
+    plt.grid(True)
+    plt.ylabel('Indice RT')
+    plt.legend()
+
+    if save_image:
+        plt.savefig('./docs/rt_per_province_marche.png', dpi=300, transparent=True, bbox_inches='tight')
+
+    if show:
+        plt.show()
+
+    plt.close()

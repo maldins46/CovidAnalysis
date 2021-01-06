@@ -5,10 +5,9 @@ Module with useful elaborations about italian covid.
 @author: riccardomaldini
 """
 
-import numpy as np
-import math
 import matplotlib.pyplot as plt
 from .data_extractor import nation_data
+import utils
 
 
 def compute_national_parameters(save_image=False, show=False):
@@ -16,13 +15,13 @@ def compute_national_parameters(save_image=False, show=False):
     Different data about Italy.
     """
 
-    dates, deaths = compute_x_days_mov_average(nation_data, 'incremento_morti', 7)
-    plt.plot(dates, deaths, label='Incremento morti (7 gg. m.a.)')
+    deaths = utils.compute_x_days_mov_average(nation_data['incremento_morti'], 7)
+    plt.plot(nation_data['data'], deaths, label='Incremento morti (7 gg. m.a.)')
 
     plt.plot(nation_data['data'], nation_data['terapia_intensiva'], label='Pazienti TI')
 
-    dates, pos = compute_x_days_mov_average(nation_data, 'nuovi_positivi', 7)
-    plt.plot(dates, pos, label="Nuovi positivi (7 gg. m.a.)")
+    pos = utils.compute_x_days_mov_average(nation_data['nuovi_positivi'], 7)
+    plt.plot(nation_data['data'], pos, label="Nuovi positivi (7 gg. m.a.)")
 
     plt.plot(nation_data['data'], nation_data['ricoverati_con_sintomi'], label="Ricoverati con sintomi")
 
@@ -38,19 +37,3 @@ def compute_national_parameters(save_image=False, show=False):
         plt.show()
 
     plt.close()
-
-
-def compute_x_days_mov_average(df, column, window=7):
-    """
-    Computes an x-days-moving-average on the given column, of the given
-    dataframe, and returns the computed column and the correspondant dates,
-    for plotting.
-    """
-
-    column_ma = np.convolve(df[column], np.ones(window)/window, mode='valid')
-    column_padded = np.concatenate((np.full(math.ceil((window-1)/2), float('NaN')), 
-                                    column_ma, np.full(math.floor((window-1)/2), float('NaN'))))
-
-    dates = df['data']
-
-    return dates, column_padded
