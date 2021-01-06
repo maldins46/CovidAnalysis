@@ -6,7 +6,6 @@ Extracts national data from the database.
 """
 
 import pandas as pd
-import math
 import numpy as np
 import os
 import glob
@@ -74,7 +73,6 @@ def extract_nation_data(path='./GvtOpenData/dati-andamento-nazionale'):
 
 # Create dataframe with national data
 nation_data = extract_nation_data()
-
 
 
 def compute_x_days_mov_average(df, column, window=7):

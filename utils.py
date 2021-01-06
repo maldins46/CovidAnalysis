@@ -7,7 +7,6 @@ General mathematical and analytical utilities, used in various parts of the modu
 
 import numpy as np
 import math
-import matplotlib.pyplot as plt
 
 
 def compute_x_days_mov_average(array, window=7):

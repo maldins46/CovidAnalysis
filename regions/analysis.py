@@ -40,6 +40,7 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
 
     plt.close()
 
+
 def compute_rt_per_regions(save_image=False, show=False):
     """
     Computes and plots rt for some regions of interest.
@@ -65,7 +66,6 @@ def compute_rt_per_regions(save_image=False, show=False):
         plt.show()
 
     plt.close()
-
 
 
 def compute_positivity_per_regions(save_image=False, show=False):

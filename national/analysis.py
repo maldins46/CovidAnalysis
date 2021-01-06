@@ -47,12 +47,10 @@ def compute_x_days_mov_average(df, column, window=7):
     for plotting.
     """
 
-    
     column_ma = np.convolve(df[column], np.ones(window)/window, mode='valid')
-    column_padded = np.concatenate((np.full(math.ceil((window-1)/2), float('NaN')), column_ma, np.full(math.floor((window-1)/2), float('NaN'))))
-
+    column_padded = np.concatenate((np.full(math.ceil((window-1)/2), float('NaN')), 
+                                    column_ma, np.full(math.floor((window-1)/2), float('NaN'))))
 
     dates = df['data']
-
 
     return dates, column_padded
