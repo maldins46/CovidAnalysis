@@ -16,6 +16,13 @@ Dal grafico si vede bene come il numero di nuovi positivi "traini" con ritardo m
 
 I grafici seguenti raffrontano vari parametri a livello regionale, in particolare confrontando tre regioni prese come "benchmark", per rendere più chiaro il grafico: Lombardia, Emilia-Romagna, Marche. La scelta delle regioni è stata dettata anche dalla volontà di espandere l'analisi in particolare sulla regione Marche.
 
+## Rt per regioni
+
+![Occupazione TI per regioni](./docs/rt_per_regioni.png)
+
+Il grafico mostra l'andamento dell'indice Rt per le regioni del benchmark, calcolato con modellazione SIR (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo).
+
+
 ## Occupazione terapia intensiva per regioni
 
 ![Occupazione TI per regioni](./docs/ti_per_regioni.png)
@@ -52,7 +59,7 @@ Analisi più specifiche sono state portate avanti per quanto riguarda la regione
 
 ![Parametri regione Marche](./docs/parametri_marche.png)
 
-Il grafico seguente raffronta differenti indicatori a livello regionale, in valori assoluti, con gli stessi valori indicati nel primo grafico, ma limitati ai valori regionali: 
+Il grafico raffronta differenti indicatori a livello regionale, in valori assoluti, con gli stessi valori indicati nel primo grafico, ma limitati ai valori regionali: 
 - La linea blu riporta i deceduti per ogni giorno (in media mobile di 7 giorni, per mitigare la stagionalità settimanale); 
 - La linea gialla riporta il numero di pazienti in terapia intensiva, per ogni giorno; 
 - La linea verde riporta i nuovi positivi riportati ogni giorno (in media mobile di 7 giorni, per mitigare la stagionalità settimanale);
