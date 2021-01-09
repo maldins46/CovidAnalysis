@@ -66,7 +66,7 @@ def extract_nation_data(path='./GvtOpenData/dati-andamento-nazionale'):
     national_df['incr_morti_per_100000_ab'] = utils.scale_per_x_inhabitants(national_df['incremento_morti'], population)
 
     # compute rt
-    national_df['rt'] = utils.compute_rt(national_df['nuovi_positivi'])
+    national_df['rt'] = utils.compute_rt(national_df['totale_casi'], national_df['dimessi_guariti'], national_df['deceduti'])
 
     return national_df
 

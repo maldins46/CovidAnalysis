@@ -22,32 +22,32 @@ def compute_x_days_mov_average(array, window=7):
     return np.concatenate((left_padding, column_ma, right_padding))
 
 
-def compute_rt(new_positives_array_raw):
+def compute_rt(tot_cases, tot_healed, tot_death):
     """
-    Computes the rt index, with SIR method (simplified version of EpiEstim)
-    https://www.scienzainrete.it/articolo/modo-semplice-calcolare-rt/roberto-battiston/2020-11-20
+    Computes and plots RT for some regions of interest, with SIRD model applied as by INFN, with some modifications for
+    handling the shift between new positives and deaths-healings.
+    https://covid19.infn.it/banner/Approfondimenti.pdf    
     """
+    distanced_diff = lambda array, distance : array[distance:] - array[:-distance]
 
-    # Inverse healing time in days (avg)
-    gamma = 1/9 - 1
 
-    # compute the 7-days moving average for new positives, for a stable I(t)
-    new_positives_ma = compute_x_days_mov_average(new_positives_array_raw, 7)
+    delta_tot_positives = distanced_diff(np.log(tot_cases.to_numpy()), 7)
+    delta_tot_healed = distanced_diff(np.log(tot_healed.to_numpy()), 7)
+    delta_tot_death = distanced_diff(np.log(tot_death.to_numpy()), 7)
 
-    # compute ln(I(t))
-    column_log = np.log(new_positives_ma)
+    sh_delta_tot_positives = delta_tot_positives[:-8]
+    sh_delta_tot_healed = delta_tot_healed[8:]
+    sh_delta_tot_death = delta_tot_death[8:]
 
-    # compute(d ln(I(t)) dt)
-    column_log_diff = np.diff(column_log)
+    column_rt = sh_delta_tot_positives / (sh_delta_tot_healed + sh_delta_tot_death)
 
-    # add a NaN value before the array, as diff returns an array of dimension n-1
-    column_rt_padded = np.insert(column_log_diff, 0, float('NaN'))
+    # add a NaN value before the array, as diff returns an array of dimension n-7
+    left_padding = np.full(7, float('NaN'))
+    right_padding = np.full(8, float('NaN'))
 
-    # compute rt with SIR
-    column_rt = (column_rt_padded + gamma) / gamma
+    column_rt_padded = np.concatenate((left_padding, column_rt, right_padding))
 
-    # stabilize value
-    stable_rt = compute_x_days_mov_average(column_rt, 7)
+    stable_rt = compute_x_days_mov_average(column_rt_padded, 14)
 
     return stable_rt
 

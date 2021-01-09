@@ -20,7 +20,9 @@ I grafici seguenti raffrontano vari parametri a livello regionale, in particolar
 
 ![RT per regioni](./docs/rt_per_regioni.png)
 
-Il grafico mostra l'andamento dell'indice Rt per le regioni del benchmark, calcolato con modellazione SIR (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo). L'indice così calcolato tende ad essere impreciso, allontandosi dal valore 1, ma mostra chiaramente un valore maggiore o minore di 1 nel caso in cui i contagi siano in aumento o diminuzione.
+Il grafico mostra l'andamento dell'indice Rt per le regioni del benchmark, calcolato con modellazione SIRT (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo). L'algoritmo segue il procedimento [indicato dall'INFN](https://covid19.infn.it/banner/Approfondimenti.pdf), con una modifica aggiuntiva che permette di considerare lo scostamento temporale tra nuovi infetti e guariti-deceduti. L'indice pone in relazione gli l'aumento degli infetti con quello dei deceduti e guariti, considerando uno scostamento temporale di 9 giorni tra infetti e deceduti-guariti (che denota il tempo medio di guarigione/morte per COVID-19). 
+
+Per questo motivo, il metodo di calcolo porta l'indice ad essere "arretrato" di 9 giorni rispetto alla data odierna, pur essendo indicativo. In rosso e arancione sono riportate le soglie che portano, secondo l'ultimo DPCM, in zona arancione o rossa.
 
 
 ## Occupazione terapia intensiva per regioni
@@ -64,13 +66,6 @@ Il grafico raffronta differenti indicatori a livello regionale, in valori assolu
 - La linea gialla riporta il numero di pazienti in terapia intensiva, per ogni giorno; 
 - La linea verde riporta i nuovi positivi riportati ogni giorno (in media mobile di 7 giorni, per mitigare la stagionalità settimanale);
 - La linea rossa riporta i ricoverati con sintomi, per ogni giorno.
-
-## Rt per provincia delle Marche
-
-![RT per regioni](./docs/rt_per_province_marche.png)
-
-Il grafico mostra l'andamento dell'indice Rt per le province delle Marche, calcolato con modellazione SIR (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo). L'indice così calcolato tende ad essere impreciso, allontandosi dal valore 1, ma mostra chiaramente un valore maggiore o minore di 1 nel caso in cui i contagi siano in aumento o diminuzione.
-
 
 ## Nuovi positivi per provincia delle Marche, per 100.000 abitanti
 

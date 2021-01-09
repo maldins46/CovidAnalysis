@@ -43,7 +43,8 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
 
 def compute_rt_per_regions(save_image=False, show=False):
     """
-    Computes and plots rt for some regions of interest.
+    Computes and plots RT for some regions of interest, with SIRD model applied as by INFN.
+    https://covid19.infn.it/banner/Approfondimenti.pdf
     """
 
     for region_name, region_data in benchmark_regions_data.items():

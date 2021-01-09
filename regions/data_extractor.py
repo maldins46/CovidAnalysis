@@ -68,7 +68,7 @@ def extract_single_region_data(region):
     region_df['incr_morti_per_100000_ab'] = utils.scale_per_x_inhabitants(region_df['incremento_morti'], population[region])
 
     # compute rt
-    region_df['rt'] = utils.compute_rt(region_df['nuovi_positivi'])
+    region_df['rt'] = utils.compute_rt(region_df['totale_casi'], region_df['dimessi_guariti'], region_df['deceduti'])
 
     return region_df
 

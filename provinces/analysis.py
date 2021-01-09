@@ -65,31 +65,3 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
         plt.show()
 
     plt.close()
-
-
-def compute_rt_per_provinces(save_image=False, show=False):
-    """
-    Computes and plots rt for Marche provinces
-    """
-
-    for province_name, province_data in provinces_of_marche_data.items():
-        plt.plot(province_data['data'], province_data['rt'], label=province_name)
-
-    plt.plot(nation_data['data'], nation_data['rt'], alpha=0.5, linestyle=':', label="Italia")
-    plt.plot(marche_data['data'], marche_data['rt'], alpha=0.5, linestyle=':', label="Marche")
-
-    plt.axhline(y=1.25, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
-    plt.axhline(y=1, color='tab:orange', linestyle='--', alpha=0.5, label="Zona arancione")
-
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
-    plt.ylabel('Indice RT')
-    plt.legend()
-
-    if save_image:
-        plt.savefig('./docs/rt_per_province_marche.png', dpi=300, transparent=True, bbox_inches='tight')
-
-    if show:
-        plt.show()
-
-    plt.close()

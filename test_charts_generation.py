@@ -27,4 +27,3 @@ def test_regions_chart_generation():
 def test_provinces_chart_generation():
     provinces_analysis.compute_total_cases_per_provinces()
     provinces_analysis.compute_total_cases_per_provinces_abs()
-    provinces_analysis.compute_rt_per_provinces()

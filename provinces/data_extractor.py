@@ -59,9 +59,6 @@ def extract_single_province_data(province):
 
     province_df['incr_casi_per_100000_ab'] = utils.scale_per_x_inhabitants(province_df['incremento_casi'],
                                                                            population[province])
-
-    # The provincial value is too unstable to compute rt with raw values
-    province_df['rt'] = utils.compute_rt(utils.compute_x_days_mov_average(province_df['incremento_casi'], 14))
     return province_df
 
 
