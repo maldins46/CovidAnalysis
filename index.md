@@ -20,7 +20,7 @@ I grafici seguenti raffrontano vari parametri a livello regionale, in particolar
 
 ![RT per regioni](./docs/rt_per_regioni.png)
 
-Il grafico mostra l'andamento dell'indice Rt per le regioni del benchmark, calcolato con modellazione SIRT (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo). L'algoritmo segue il procedimento [indicato dall'INFN](https://covid19.infn.it/banner/Approfondimenti.pdf), con una modifica aggiuntiva che permette di considerare lo scostamento temporale tra nuovi infetti e guariti-deceduti. L'indice pone in relazione gli l'aumento degli infetti con quello dei deceduti e guariti, considerando uno scostamento temporale di 9 giorni tra infetti e deceduti-guariti (che denota il tempo medio di guarigione/morte per COVID-19). 
+Il grafico mostra l'andamento dell'indice Rt per le regioni del benchmark, calcolato con modellazione SIRD (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo). L'algoritmo segue il procedimento [indicato dall'INFN](https://covid19.infn.it/banner/Approfondimenti.pdf), con una modifica aggiuntiva che permette di considerare lo scostamento temporale tra nuovi infetti e guariti-deceduti. L'indice pone in relazione gli l'aumento degli infetti con quello dei deceduti e guariti, considerando uno scostamento temporale di 9 giorni tra infetti e deceduti-guariti (che denota il tempo medio di guarigione/morte per COVID-19). 
 
 Per questo motivo, il metodo di calcolo porta l'indice ad essere "arretrato" di 9 giorni rispetto alla data odierna, pur essendo indicativo. In rosso e arancione sono riportate le soglie che portano, secondo l'ultimo DPCM, in zona arancione o rossa.
 
