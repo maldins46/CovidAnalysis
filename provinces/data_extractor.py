@@ -67,11 +67,11 @@ def extract_provinces_of_marche():
     Extract some regions defined as of interest in the analysis, as a dictionary.
     """
     return {
-        prov.ancona: extract_single_province_data(prov.ancona),
         prov.pesaro_urbino: extract_single_province_data(prov.pesaro_urbino),
         prov.macerata: extract_single_province_data(prov.macerata),
         prov.fermo: extract_single_province_data(prov.fermo),
-        prov.ascoli_piceno: extract_single_province_data(prov.ascoli_piceno)
+        prov.ascoli_piceno: extract_single_province_data(prov.ascoli_piceno),
+        prov.ancona: extract_single_province_data(prov.ancona)
     }
 
 

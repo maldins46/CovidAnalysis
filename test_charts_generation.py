@@ -18,6 +18,7 @@ def test_regions_chart_generation():
     regions_analysis.compute_ti_occupation_per_regions()
     regions_analysis.compute_rt_per_regions()
     regions_analysis.compute_positivity_per_regions()
+    regions_analysis.compute_weekly_incidence()
     regions_analysis.compute_daily_cases()
     regions_analysis.compute_rec_with_symptoms()
     regions_analysis.compute_death()

@@ -7,6 +7,7 @@ Module with useful elaborations about italian covid.
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
+from matplotlib.dates import MonthLocator, DateFormatter
 from . import regions_names as reg
 from .data_extractor import benchmark_regions_data, extract_single_region_data
 from national.data_extractor import nation_data
@@ -27,8 +28,12 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
     plt.axhline(y=1, color='r', linestyle='--', alpha=0.5, label="Saturazione")
 
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gcf().autofmt_xdate(which='both')
+    plt.grid(True, which='both', axis='both')
     plt.ylabel('Percentuale occupaz. TI')
     plt.legend()
 
@@ -55,13 +60,48 @@ def compute_rt_per_regions(save_image=False, show=False):
     plt.axhline(y=1.25, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
     plt.axhline(y=1, color='tab:orange', linestyle='--', alpha=0.5, label="Zona arancione")
 
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gcf().autofmt_xdate(which='both')
+    plt.grid(True, which='both', axis='both')
     plt.ylabel('Indice RT')
     plt.legend()
 
     if save_image:
         plt.savefig('./docs/rt_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+
+    if show:
+        plt.show()
+
+    plt.close()
+
+
+def compute_weekly_incidence(save_image=False, show=False):
+    """
+    Computes and plots the weekly positives incidence for some regions of interest. This is one
+    of the indices used to determine the zone.
+    """
+
+    for region_name, region_data in benchmark_regions_data.items():
+        plt.plot(region_data['data'], region_data['incid_sett_per_100000_ab'], label=region_name)
+
+    plt.plot(nation_data['data'], nation_data['incid_sett_per_100000_ab'], alpha=0.5, linestyle=':', label="Italia")
+
+    plt.axhline(y=200, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
+
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gcf().autofmt_xdate(which='both')
+    plt.grid(True, which='both', axis='both')
+    plt.ylabel('Incid. sett. pos. per 100.000 ab.')
+    plt.legend()
+
+    if save_image:
+        plt.savefig('./docs/incid_sett_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -82,8 +122,12 @@ def compute_positivity_per_regions(save_image=False, show=False):
     plt.plot(nation_data['data'], pos, alpha=0.5, linestyle=':', label="Italia")
 
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gcf().autofmt_xdate(which='both')
+    plt.grid(True, which='both', axis='both')
     plt.ylabel('Tamp. pos. su effettuati (14 gg. m.a.)')
     plt.legend()
 
@@ -106,8 +150,12 @@ def compute_rec_with_symptoms(save_image=False, show=False):
 
     plt.plot(nation_data['data'], nation_data['ric_per_100000_ab'], alpha=0.5, linestyle=':', label="Italia")
 
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gcf().autofmt_xdate(which='both')
+    plt.grid(True, which='both', axis='both')
     plt.ylabel('Ric. con sintomi ogni 100.000 abitanti')
     plt.legend()
 
@@ -134,8 +182,12 @@ def compute_daily_cases(save_image=False, show=False):
 
     plt.axhline(y=50, color='r', linestyle='--', alpha=0.5, label="Cond. nec. zona rossa")
 
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gcf().autofmt_xdate(which='both')
+    plt.grid(True, which='both', axis='both')
     plt.ylabel('Nuovi pos. ogni 100.000 ab. (7 gg. m.a.)')
     plt.legend()
 
@@ -160,8 +212,12 @@ def compute_death(save_image=False, show=False):
     deaths = utils.compute_x_days_mov_average(nation_data['incr_morti_per_100000_ab'], 7)
     plt.plot(nation_data['data'], deaths, alpha=0.5, linestyle=':', label="Italia")
 
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gcf().autofmt_xdate(which='both')
+    plt.grid(True, which='both', axis='both')
     plt.ylabel('Dec. ogni 100.000 ab. (7 gg. m.a.)')
     plt.legend()
 
@@ -176,13 +232,13 @@ def compute_death(save_image=False, show=False):
 
 def compute_region_parameters(save_image=False, show=False, region_name=reg.marche):
     """
-    Different data about region Marche.
+    Different data about a single region.
     """
 
     region_data = extract_single_region_data(region_name)
 
     deaths = utils.compute_x_days_mov_average(region_data['incremento_morti'], 7)
-    plt.plot(region_data['data'], deaths, label='Incremento morti (7 gg. m.a.)')
+    plt.plot(region_data['data'], deaths, label='Nuovi decessi (7 gg. m.a.)')
 
     plt.plot(region_data['data'], region_data['terapia_intensiva'], label='Pazienti TI')
 
@@ -191,8 +247,12 @@ def compute_region_parameters(save_image=False, show=False, region_name=reg.marc
 
     plt.plot(region_data['data'], region_data['ricoverati_con_sintomi'], label="Ricoverati con sintomi")
 
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gcf().autofmt_xdate(which='both')
+    plt.grid(True, which='both', axis='both')
     plt.ylabel('Variaz. parametri')
     plt.legend()
 

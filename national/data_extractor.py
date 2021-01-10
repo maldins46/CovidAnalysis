@@ -61,6 +61,10 @@ def extract_nation_data(path='./GvtOpenData/dati-andamento-nazionale'):
     # Add data 'nuovi positivi' per 100.000 inhabitants
     national_df['nuovi_pos_per_100000_ab'] = utils.scale_per_x_inhabitants(national_df['nuovi_positivi'], population)
 
+    # Add data 'incidenza settimanale, scale per 100.000 inhabitants
+    national_df['incidenza_settimanale'] = utils.distanced_diff(national_df['totale_casi'], 7)
+    national_df['incid_sett_per_100000_ab'] = utils.scale_per_x_inhabitants(national_df['incidenza_settimanale'], population)
+
     # Add data 'incremento morti', scale per 100.000 inhabitants
     national_df['incremento_morti'] = national_df['deceduti'].diff()
     national_df['incr_morti_per_100000_ab'] = utils.scale_per_x_inhabitants(national_df['incremento_morti'], population)

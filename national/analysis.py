@@ -6,6 +6,7 @@ Module with useful elaborations about italian covid.
 """
 
 import matplotlib.pyplot as plt
+from matplotlib.dates import MonthLocator, DateFormatter
 from .data_extractor import nation_data
 import utils
 
@@ -16,7 +17,7 @@ def compute_national_parameters(save_image=False, show=False):
     """
 
     deaths = utils.compute_x_days_mov_average(nation_data['incremento_morti'], 7)
-    plt.plot(nation_data['data'], deaths, label='Incremento morti (7 gg. m.a.)')
+    plt.plot(nation_data['data'], deaths, label='Nuovi decessi (7 gg. m.a.)')
 
     plt.plot(nation_data['data'], nation_data['terapia_intensiva'], label='Pazienti TI')
 
@@ -25,8 +26,13 @@ def compute_national_parameters(save_image=False, show=False):
 
     plt.plot(nation_data['data'], nation_data['ricoverati_con_sintomi'], label="Ricoverati con sintomi")
 
-    plt.gcf().autofmt_xdate()
-    plt.grid(True)
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gcf().autofmt_xdate(which='both')
+    plt.grid(True, which='both', axis='both')
+
     plt.ylabel('Variaz. parametri')
     plt.legend()
 

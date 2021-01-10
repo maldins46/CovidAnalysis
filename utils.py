@@ -22,14 +22,28 @@ def compute_x_days_mov_average(array, window=7):
     return np.concatenate((left_padding, column_ma, right_padding))
 
 
+def distanced_diff(array, distance=7):
+    """
+    Computes for each element of the given array the difference between the n-th element with
+    the n-th - distance element.
+    """
+
+    if type(array) is np.ndarray:
+        np_array = array
+    else:
+        np_array = array.to_numpy()
+
+    distanced_diff = np_array[distance:] - np_array[:-distance]
+    left_padding = np.full(distance, float('NaN'))
+    return np.concatenate((left_padding, distanced_diff))
+
+
 def compute_rt(tot_cases, tot_healed, tot_death):
     """
     Computes and plots RT for some regions of interest, with SIRD model applied as by INFN, with some modifications for
     handling the shift between new positives and deaths-healings.
-    https://covid19.infn.it/banner/Approfondimenti.pdf    
+    https://covid19.infn.it/banner/Approfondimenti.pdf
     """
-    distanced_diff = lambda array, distance : array[distance:] - array[:-distance]
-
 
     delta_tot_positives = distanced_diff(np.log(tot_cases.to_numpy()), 7)
     delta_tot_healed = distanced_diff(np.log(tot_healed.to_numpy()), 7)
@@ -42,10 +56,9 @@ def compute_rt(tot_cases, tot_healed, tot_death):
     column_rt = sh_delta_tot_positives / (sh_delta_tot_healed + sh_delta_tot_death)
 
     # add a NaN value before the array, as diff returns an array of dimension n-7
-    left_padding = np.full(7, float('NaN'))
     right_padding = np.full(8, float('NaN'))
 
-    column_rt_padded = np.concatenate((left_padding, column_rt, right_padding))
+    column_rt_padded = np.concatenate((column_rt, right_padding))
 
     stable_rt = compute_x_days_mov_average(column_rt_padded, 14)
 

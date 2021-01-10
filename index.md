@@ -1,29 +1,48 @@
-I grafici sotto riportati estraggono informazioni di rilievo a partire dagli [Open Data forniti dalla Presidenza del Consiglio dei Ministri](https://github.com/pcm-dpc/COVID-19). I grafici si aggiornano automaticamente allo scoccare della mezzanotte, con i dati del giorno precedente. I grafici possono anche essere scaricati in formato PNG da [qui](https://github.com/maldins46/CovidAnalysis/releases/latest).
+I grafici sotto riportati estraggono informazioni di rilievo a partire dagli [Open Data forniti dalla Protezione Civile](https://github.com/pcm-dpc/COVID-19). I grafici si rigenerano automaticamente allo scoccare della mezzanotte, con i dati aggiornati al giorno precedente. I grafici possono anche essere scaricati in formato PNG da [qui](https://github.com/maldins46/CovidAnalysis/releases/latest).
 
 # Parametri nazionali
 
 ![Parametri nazionali](./docs/parametri_italia.png)
 
 Il grafico raffronta differenti indicatori a livello nazionale, in valori assoluti. 
-- La linea blu riporta i deceduti per ogni giorno (in media mobile di 7 giorni, per mitigare la stagionalità settimanale); 
-- La linea gialla riporta il numero di pazienti in terapia intensiva, per ogni giorno; 
-- La linea verde riporta i nuovi positivi riportati ogni giorno (in media mobile di 7 giorni, per mitigare la stagionalità settimanale);
-- La linea rossa riporta i ricoverati con sintomi, per ogni giorno.
-
-Dal grafico si vede bene come il numero di nuovi positivi "traini" con ritardo medio di una settimana i ricoverati. Ciò permette di avere un'idea in anticipo dell'andamento della seconda. In linea di massima, al di fuori del periodo di picco, questo fenomeno non si verifica, a causa del minor numero di tamponi effettuati.
+- La linea blu riporta i decessi giornalieri (in media mobile di 7 giorni); 
+- La linea gialla riporta l'ammontare dei pazienti in terapia intensiva, per ogni giorno; 
+- La linea verde riporta i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni);
+- La linea rossa riporta i'ammontare dei pazienti ricoverati con sintomi per COVID-19, per ogni giorno.
 
 # Parametri regionali
 
 I grafici seguenti raffrontano vari parametri a livello regionale, in particolare confrontando tre regioni prese come "benchmark", per rendere più chiaro il grafico: Lombardia, Emilia-Romagna, Marche. La scelta delle regioni è stata dettata anche dalla volontà di espandere l'analisi in particolare sulla regione Marche.
 
-## Rt per regioni
+## Indice R(t) per regioni
 
 ![RT per regioni](./docs/rt_per_regioni.png)
 
-Il grafico mostra l'andamento dell'indice Rt per le regioni del benchmark, calcolato con modellazione SIRD (un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo). L'algoritmo segue il procedimento [indicato dall'INFN](https://covid19.infn.it/banner/Approfondimenti.pdf), con una modifica aggiuntiva che permette di considerare lo scostamento temporale tra nuovi infetti e guariti-deceduti. L'indice pone in relazione gli l'aumento degli infetti con quello dei deceduti e guariti, considerando uno scostamento temporale di 9 giorni tra infetti e deceduti-guariti (che denota il tempo medio di guarigione/morte per COVID-19). 
+Il grafico mostra l'andamento dell'indice R(t) per le regioni del benchmark, calcolato con modellazione SIRD (un metodo semplificato, **non quello utilizzato dall'ISS**, ma indicativo dell'andamento). L'algoritmo segue il procedimento [indicato dall'INFN](https://covid19.infn.it/banner/Approfondimenti.pdf), con una modifica aggiuntiva che permette di considerare lo scostamento temporale tra nuovi infetti e guariti-deceduti. 
 
-Per questo motivo, il metodo di calcolo porta l'indice ad essere "arretrato" di 9 giorni rispetto alla data odierna, pur essendo indicativo. In rosso e arancione sono riportate le soglie che portano, secondo l'ultimo DPCM, in zona arancione o rossa.
+Nella pratica, ogni punto del grafico viene calcolato come `α / (β + γ)`, in cui:
+- `α`: incidenza settimanale dei nuovi casi;
+- `β`: incidenza settimanale dei dimessi guariti;
+- `γ`: incidenza settimanale dei deceduti per COVID-19.
+A differenza del metodo dell'INFN, però, `β` e `γ` sono considerati "slittati" in avanti di 9 giorni (numero che denota la durata media di ricovero per COVID-19), permettendo di comparare tra loro le misure. 
 
+Per questo motivo, il metodo di calcolo porta l'indice ad essere "arretrato" di 9 giorni rispetto alla data odierna, pur essendo indicativo. Questo è anche il motivo per cui in genere i vari metodi per il calcolo di R(t) non riportano il dato ad oggi, ma quello di una settimana prima rispetto all'ultimo campione rilevato, se non di più.
+
+In rosso e arancione sono riportate le soglie che portano, secondo le regole valide dall'11 gennaio, le regioni in zona arancione o rossa.
+
+## Incidenza settimanale casi, per 100.000 abitanti
+
+![Incidenza settimanale](./docs/incid_sett_per_regioni.png)
+
+Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni regione, scalato su 100.000 abitanti. In altre parole, ogni punto del grafico esprime **la differenza tra il totale dei casi registrati nel giorno *n* rispetto al giorno *n - 7***. Il dato viene riportato in quanto sarà uno dei nuovi parametri previsti dalle regole valide dal 16 gennaio, per la classificazione di una regione come zona rossa: al di sopra dei 200 casi ogni 100.000 abitanti, la regione sarà "papabile" per il cambio di zona.
+
+## Nuovi positivi per regioni, per 100.000 abitanti
+
+![Positivi per regioni](./docs/positivi_per_regioni.png)
+
+Il grafico indica i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni regione del benchmark. Il dato è scalato su 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana.
+
+Inoltre, a partire dall'11 di gennaio, è stata stabilita la soglia di 50 nuovi casi ogni 100.000 abitanti come condizione necessaria (non sufficiente) al passaggio delle regioni a zona rossa.
 
 ## Occupazione terapia intensiva per regioni
 
@@ -37,44 +56,26 @@ Il grafico riporta, per ogni regione del benchmark, la percentuale di occupazion
 
 Il grafico indica, per ogni regione, la percentuale di tamponi positivi su quelli effettuati giornalmente (tampone molecolare). Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana. In linea di massima, all'aumentare dei tamponi effettuati, la percentuale aumenta.  
 
-## Nuovi positivi per regioni, per 100.000 abitanti
-
-![Positivi per regioni](./docs/positivi_per_regioni.png)
-
-Il grafico indica i nuovi casi positivi registrati ogni giorno (ospedalizzati + isolamento domiciliare), per ogni regione del benchmark. Il dato è scalato sul 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana.
-
-## Deceduti per regioni, per 100.000 abitanti
-
-![Deceduti per regioni](./docs/deceduti_per_regioni.png)
-
-Il grafico indica i deceduti per COVID-19 registrati ogni giorno, per ogni regione del benchmark. Il dato è scalato sul 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana.
-
-## Ricoverati con sintomi per regioni, per 100.000 abitanti
-
-![Ricoverati con sintomi per regioni](./docs/ricoverati_con_sintomi_per_regioni.png)
-
-Il grafico riporta il numero di pazienti con sintomi COVID-19 ospedalizzati giornalmente. Il dato è scalato sul 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. È riportata, con la traccia semi-trasparente, la media italiana.
-
 # Parametri incentrati sulla regione Marche
 
 Analisi più specifiche sono state portate avanti per quanto riguarda la regione Marche, in quanto interessato ad analizzare questa regione.
 
 ![Parametri regione Marche](./docs/parametri_marche.png)
 
-Il grafico raffronta differenti indicatori a livello regionale, in valori assoluti, con gli stessi valori indicati nel primo grafico, ma limitati ai valori regionali: 
-- La linea blu riporta i deceduti per ogni giorno (in media mobile di 7 giorni, per mitigare la stagionalità settimanale); 
-- La linea gialla riporta il numero di pazienti in terapia intensiva, per ogni giorno; 
-- La linea verde riporta i nuovi positivi riportati ogni giorno (in media mobile di 7 giorni, per mitigare la stagionalità settimanale);
-- La linea rossa riporta i ricoverati con sintomi, per ogni giorno.
+Il grafico precedente raffronta differenti indicatori a livello regionale, in valori assoluti, con gli stessi valori indicati nel primo grafico, ma limitati ai valori regionali: 
+- La linea blu riporta i decessi giornalieri (in media mobile di 7 giorni); 
+- La linea gialla riporta l'ammontare dei pazienti in terapia intensiva, per ogni giorno; 
+- La linea verde riporta i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni);
+- La linea rossa riporta i'ammontare dei pazienti ricoverati con sintomi per COVID-19, per ogni giorno.
 
 ## Nuovi positivi per provincia delle Marche, per 100.000 abitanti
 
 ![Casi per province Marche](./docs/totale_casi_per_province_marche.png)
 
-Il grafico indica i nuovi casi positivi registrati ogni giorno (ospedalizzati + isolamento domiciliare), per ogni provincia della regione Marche. Il dato è scalato sul 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le province, tenendo conto della diversa densità di popolazione. Esserndo il dato provinciale fortemente rumoroso, è stata effettuata una media mobile su un periodo di 28 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana.
+Il grafico indica i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni provincia della regione Marche. Il dato è scalato sul 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le province, tenendo conto della diversa densità di popolazione. Il dato provinciale è fortemente instabile: per la consultazione, è stata effettuata una media mobile su un periodo di 14 giorni, il che porta ad avere il dato arretrato temporalmente di una settimana. È riportata, con la traccia semi-trasparente, la media italiana.
 
 ## Nuovi positivi per provincia delle Marche, in valori assoluti
 
 ![Casi per province Marche abs](./docs/totale_casi_per_province_marche_abs.png)
 
-Il grafico indica i nuovi casi positivi registrati ogni giorno (ospedalizzati + isolamento domiciliare), per ogni provincia della regione Marche. Il dato è riportato in valosi assoluti, per evidenziare il numero effettivo di casi di ogni porvincia. Esserndo il dato provinciale fortemente rumoroso, è stata effettuata una media mobile su un periodo di 28 giorni, per ogni serie.
+Il grafico indica i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni provincia della regione Marche. Il dato è riportato in valosi assoluti, per evidenziare il numero effettivo di casi di ogni porvincia. Il dato provinciale è fortemente instabile: per la consultazione, è stata effettuata una media mobile su un periodo di 14 giorni, il che porta ad avere il dato arretrato temporalmente di una settimana. È riportata, con la traccia semi-trasparente, la media italiana.

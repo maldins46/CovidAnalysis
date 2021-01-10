@@ -67,6 +67,11 @@ def extract_single_region_data(region):
     region_df['incremento_morti'] = region_df['deceduti'].diff()
     region_df['incr_morti_per_100000_ab'] = utils.scale_per_x_inhabitants(region_df['incremento_morti'], population[region])
 
+    # Add data 'incidenza settimanale, scale per 100.000 inhabitants
+    region_df['incidenza_settimanale'] = utils.distanced_diff(region_df['totale_casi'], 7)
+    region_df['incid_sett_per_100000_ab'] = utils.scale_per_x_inhabitants(region_df['incidenza_settimanale'],
+                                                                          population[region])
+
     # compute rt
     region_df['rt'] = utils.compute_rt(region_df['totale_casi'], region_df['dimessi_guariti'], region_df['deceduti'])
 
