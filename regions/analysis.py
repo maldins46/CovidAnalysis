@@ -61,9 +61,7 @@ def compute_rt_per_regions(save_image=False, show=False):
     plt.axhline(y=1, color='tab:orange', linestyle='--', alpha=0.5, label="Zona arancione")
     plt.axhline(y=0.5, color='y', linestyle='--', alpha=0.5, label="Zona gialla")
 
-    
     plt.ylim([0, 8])
-
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
@@ -95,7 +93,6 @@ def compute_weekly_incidence(save_image=False, show=False):
 
     plt.axhline(y=250, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
     plt.axhline(y=50, color='y', linestyle='--', alpha=0.5, label="Zona gialla")
-
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))

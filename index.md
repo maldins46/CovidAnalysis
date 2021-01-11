@@ -13,7 +13,7 @@ Il grafico raffronta differenti indicatori a livello nazionale, in valori assolu
 
 # Parametri regionali
 
-I grafici seguenti raffrontano vari parametri a livello regionale, in particolare confrontando tre regioni prese come "benchmark", per rendere più chiaro il grafico: Lombardia, Emilia-Romagna, Marche. La scelta delle regioni è stata dettata anche dalla volontà di espandere l'analisi in particolare sulla regione Marche.
+I grafici seguenti raffrontano vari parametri a livello regionale, in particolare confrontando tre regioni prese come "benchmark", per rendere più chiaro il grafico: Veneto, Toscana, Marche. La scelta delle regioni è stata dettata anche dalla volontà di espandere l'analisi in particolare sulla regione Marche.
 
 ## Indice R(t) per regioni
 

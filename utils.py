@@ -57,11 +57,9 @@ def compute_rt(tot_cases, tot_healed, tot_death):
 
     # add a NaN value before the array, as diff returns an array of dimension n-7
     right_padding = np.full(7, float('NaN'))
-
     rt_padded = np.concatenate((column_rt, right_padding))
 
     return compute_x_days_mov_average(rt_padded, 4)
-
 
 
 def scale_per_x_inhabitants(array, population, per_inhabitants=100000):
