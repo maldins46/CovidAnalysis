@@ -45,24 +45,23 @@ def compute_rt(tot_cases, tot_healed, tot_death):
     https://covid19.infn.it/banner/Approfondimenti.pdf
     """
 
-    delta_tot_positives = distanced_diff(np.log(tot_cases.to_numpy()), 7)
-    delta_tot_healed = distanced_diff(np.log(tot_healed.to_numpy()), 7)
-    delta_tot_death = distanced_diff(np.log(tot_death.to_numpy()), 7)
+    delta_tot_positives = distanced_diff(tot_cases.to_numpy(), 7)
+    delta_tot_healed = distanced_diff(tot_healed.to_numpy(), 7)
+    delta_tot_death = distanced_diff(tot_death.to_numpy(), 7)
 
-    sh_delta_tot_positives = delta_tot_positives[:-8]
-    sh_delta_tot_healed = delta_tot_healed[8:]
-    sh_delta_tot_death = delta_tot_death[8:]
+    sh_delta_tot_positives = delta_tot_positives[:-7]
+    sh_delta_tot_healed = delta_tot_healed[7:]
+    sh_delta_tot_death = delta_tot_death[7:]
 
     column_rt = sh_delta_tot_positives / (sh_delta_tot_healed + sh_delta_tot_death)
 
     # add a NaN value before the array, as diff returns an array of dimension n-7
-    right_padding = np.full(8, float('NaN'))
+    right_padding = np.full(7, float('NaN'))
 
-    column_rt_padded = np.concatenate((column_rt, right_padding))
+    rt_padded = np.concatenate((column_rt, right_padding))
 
-    stable_rt = compute_x_days_mov_average(column_rt_padded, 14)
+    return compute_x_days_mov_average(rt_padded, 4)
 
-    return stable_rt
 
 
 def scale_per_x_inhabitants(array, population, per_inhabitants=100000):

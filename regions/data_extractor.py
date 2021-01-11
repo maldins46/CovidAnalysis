@@ -84,8 +84,8 @@ def extract_benchmark_regions():
     """
 
     return {
-        reg.lombardia: extract_single_region_data(reg.lombardia),
-        reg.emilia_romagna: extract_single_region_data(reg.emilia_romagna),
+        reg.toscana: extract_single_region_data(reg.toscana),
+        reg.veneto: extract_single_region_data(reg.veneto),
         reg.marche: extract_single_region_data(reg.marche)
     }
 

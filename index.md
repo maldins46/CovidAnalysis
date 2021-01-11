@@ -1,5 +1,6 @@
 I grafici sotto riportati estraggono informazioni di rilievo a partire dagli [Open Data forniti dalla Protezione Civile](https://github.com/pcm-dpc/COVID-19). I grafici si rigenerano automaticamente allo scoccare della mezzanotte, con i dati aggiornati al giorno precedente. I grafici possono anche essere scaricati in formato PNG da [qui](https://github.com/maldins46/CovidAnalysis/releases/latest).
 
+
 # Parametri nazionali
 
 ![Parametri nazionali](./docs/parametri_italia.png)
@@ -18,23 +19,28 @@ I grafici seguenti raffrontano vari parametri a livello regionale, in particolar
 
 ![RT per regioni](./docs/rt_per_regioni.png)
 
-Il grafico mostra l'andamento dell'indice R(t) per le regioni del benchmark, calcolato con modellazione SIRD (un metodo semplificato, **non quello utilizzato dall'ISS**, ma indicativo dell'andamento). L'algoritmo segue il procedimento [indicato dall'INFN](https://covid19.infn.it/banner/Approfondimenti.pdf), con una modifica aggiuntiva che permette di considerare lo scostamento temporale tra nuovi infetti e guariti-deceduti. 
+Il grafico mostra l'andamento dell'indice R(t) per le regioni del benchmark, calcolato con **modellazione SIRD** (un metodo semplificato, **non quello utilizzato dall'ISS**, ma indicativo dell'andamento). L'algoritmo segue il procedimento [indicato dall'INFN](https://covid19.infn.it/banner/Approfondimenti.pdf), con una modifica aggiuntiva che permette di considerare lo scostamento temporale tra nuovi infetti e guariti-deceduti. 
 
 Nella pratica, ogni punto del grafico viene calcolato come `α / (β + γ)`, in cui:
 - `α`: incidenza settimanale dei nuovi casi;
 - `β`: incidenza settimanale dei dimessi guariti;
 - `γ`: incidenza settimanale dei deceduti per COVID-19.
-A differenza del metodo dell'INFN, però, `β` e `γ` sono considerati "slittati" in avanti di 9 giorni (numero che denota la durata media di ricovero per COVID-19), permettendo di comparare tra loro le misure. 
+A differenza del metodo dell'INFN, però, `β` e `γ` vengono "slittati" in avanti di 7 giorni (numero che denota la durata media di ricovero per COVID-19), permettendo di comparare tra loro le misure.È stata inoltre applicata una media mobile su 4 giorni per rendere la curva meno "spigolosa". 
 
-Per questo motivo, il metodo di calcolo porta l'indice ad essere "arretrato" di 9 giorni rispetto alla data odierna, pur essendo indicativo. Questo è anche il motivo per cui in genere i vari metodi per il calcolo di R(t) non riportano il dato ad oggi, ma quello di una settimana prima rispetto all'ultimo campione rilevato, se non di più.
+Tutti questi accorgimenti portano l'indice ad essere "arretrato" di 9 giorni rispetto alla data odierna. Questo è anche il motivo per cui in genere i vari metodi per il calcolo di R(t) non riportano il dato ad oggi, ma quello di almeno una settimana prima rispetto all'ultimo campione rilevato.
 
-In rosso e arancione sono riportate le soglie che portano, secondo le regole valide dall'11 gennaio, le regioni in zona arancione o rossa.
+Orizzontalmente sono inoltre riportate le soglie che portano, al di sopra di esse, le regioni in zona arancione, rossa o gialla, secondo le regole valide dal 16 gennaio.
+
+*Nota metodologica*: i differenti metodi per il calcolo di R(t) **possono portare a risultati molto differenti** tra di loro. In generale, tutti i metodi riportano correttamente un valore maggiore di 1 nel caso in cui i contagi sono in aumento, e minore di 1 nel caso in cui siano in diminuzione, ma lo scostamento dal valore 1 può essere anche molto differente. 
+
+Il modello utilizzato dall'ISS, ad esempio (**EpiEstim**), è molto più complesso, e tiene traccia tra le altre anche dei casi importati (dato non disponibile da quelli forniti dalla Protezione Civile). In generale tale modello e porta a valori più bassi nel momento il cui il valore è maggiore di 1 (in genere, compresi tra 1 e 3). Il modello SIRD, al contrario, può portare a valori anche di molto superiori a 1, essendo molto semplificato.
+
 
 ## Incidenza settimanale casi, per 100.000 abitanti
 
 ![Incidenza settimanale](./docs/incid_sett_per_regioni.png)
 
-Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni regione, scalato su 100.000 abitanti. In altre parole, ogni punto del grafico esprime **la differenza tra il totale dei casi registrati nel giorno *n* rispetto al giorno *n - 7***. Il dato viene riportato in quanto sarà uno dei nuovi parametri previsti dalle regole valide dal 16 gennaio, per la classificazione di una regione come zona rossa: al di sopra dei 200 casi ogni 100.000 abitanti, la regione sarà "papabile" per il cambio di zona.
+Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni regione, scalato su 100.000 abitanti. In altre parole, ogni punto del grafico esprime **la differenza tra il totale dei casi registrati nel giorno *n* rispetto al giorno *n - 7***. Il dato viene riportato in quanto sarà uno dei nuovi parametri previsti dalle regole valide dal 16 gennaio, per la classificazione della regione: al di sopra dei 250 casi ogni 100.000 abitanti, la regione potrà essere posta in zona rossa; al di sotto dei 50 casi, andrebbero a venir meno anche le restrizioni della zona gialla.
 
 ## Nuovi positivi per regioni, per 100.000 abitanti
 

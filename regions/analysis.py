@@ -59,6 +59,10 @@ def compute_rt_per_regions(save_image=False, show=False):
 
     plt.axhline(y=1.25, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
     plt.axhline(y=1, color='tab:orange', linestyle='--', alpha=0.5, label="Zona arancione")
+    plt.axhline(y=0.5, color='y', linestyle='--', alpha=0.5, label="Zona gialla")
+
+    
+    plt.ylim([0, 8])
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
@@ -66,7 +70,7 @@ def compute_rt_per_regions(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Indice RT')
+    plt.ylabel('Indice RT (4 gg. m.a.')
     plt.legend()
 
     if save_image:
@@ -89,7 +93,9 @@ def compute_weekly_incidence(save_image=False, show=False):
 
     plt.plot(nation_data['data'], nation_data['incid_sett_per_100000_ab'], alpha=0.5, linestyle=':', label="Italia")
 
-    plt.axhline(y=200, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
+    plt.axhline(y=250, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
+    plt.axhline(y=50, color='y', linestyle='--', alpha=0.5, label="Zona gialla")
+
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
