@@ -31,9 +31,9 @@ Tutti questi accorgimenti portano l'indice ad essere "arretrato" di 9 giorni ris
 
 Orizzontalmente sono inoltre riportate le soglie che portano, al di sopra di esse, le regioni in zona arancione, rossa o gialla, secondo le regole valide dal 16 gennaio.
 
-*Nota metodologica*: i differenti metodi per il calcolo di R(t) **possono portare a risultati molto differenti** tra di loro. In generale, tutti i metodi riportano correttamente un valore maggiore di 1 nel caso in cui i contagi sono in aumento, e minore di 1 nel caso in cui siano in diminuzione, ma lo scostamento dal valore 1 può essere anche molto differente. 
+*Nota metodologica*: i differenti metodi per il calcolo di R(t) **possono portare a risultati molto differenti** tra di loro. In generale, **tutti i metodi modellano correttamente un valore maggiore di 1 nel caso in cui i contagi sono in aumento, e minore di 1 nel caso in cui siano in diminuzione, ma lo scostamento dal valore 1 può variare tra i metodi anche di molto**. 
 
-Il modello utilizzato dall'ISS, ad esempio (**EpiEstim**), è molto più complesso, e tiene traccia tra le altre anche dei casi importati (dato non disponibile da quelli forniti dalla Protezione Civile). In generale tale modello e porta a valori più bassi nel momento il cui il valore è maggiore di 1 (in genere, compresi tra 1 e 3). Il modello SIRD, al contrario, può portare a valori anche di molto superiori a 1, essendo molto semplificato.
+**EpiEstim**, il modello utilizzato dall'ISS, è molto più preciso: utilizza un modello probabilistico complesso e tiene traccia tra le altre anche dei casi importati (dato non disponibile da quelli forniti dalla Protezione Civile). In generale tale modello e porta a valori più bassi nel momento il cui il valore è maggiore di 1 (compresi tra 1 e 2,5). Il modello SIRD, al contrario, quando superiore a 1, può portare a valori anche di molto alti, in quanto vengono fatte varie assunzioni anche molto forti. Basti pensare ad `α`: l'incidenza settimanale dei nuovi casi dovrebbe considerare tutte le persone infette dal preciso momento di inizio dell'infezione, compresi gli asintomatici: dato che non è possibile da ottenere, e che porta quindi la stima a essere approssimata.
 
 
 ## Incidenza settimanale casi, per 100.000 abitanti
