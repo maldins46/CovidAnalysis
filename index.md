@@ -48,7 +48,7 @@ Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni re
 
 Il grafico indica i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni regione del benchmark. Il dato è scalato su 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana.
 
-Inoltre, a partire dall'11 di gennaio, è stata stabilita la soglia di 50 nuovi casi ogni 100.000 abitanti come condizione necessaria (non sufficiente) al passaggio delle regioni a zona rossa.
+Inoltre, a partire dall'11 di gennaio, è stata stabilita la soglia di 50 nuovi casi ogni 100.000 abitanti come **condizione necessaria** al passaggio delle regioni a zona rossa, con indice R(t) superiore a 1,25**. Il criterio dell'incidenza settimanale, invece, **non tiene conto della soglia riportata su questo grafico**: se una regione registra più di 250 casi alla settimana ogni 100.000 abitanti, finisce automaticamente in zona rossa.
 
 ## Occupazione terapia intensiva per regioni
 
