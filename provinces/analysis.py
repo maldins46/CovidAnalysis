@@ -33,8 +33,8 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Nuovi pos. ogni 100.000 ab. (14 gg. m.a.)')
@@ -60,8 +60,8 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Nuovi pos. in val. ass. (14 gg. m.a.)')

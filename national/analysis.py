@@ -28,8 +28,8 @@ def compute_national_parameters(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
 
