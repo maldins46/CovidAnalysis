@@ -57,18 +57,18 @@ def compute_rt_per_regions(save_image=False, show=False):
 
     plt.plot(nation_data['data'], nation_data['rt'], alpha=0.5, linestyle=':', label="Italia")
 
-    plt.axhline(y=1.25, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
-    plt.axhline(y=1, color='tab:orange', linestyle='--', alpha=0.5, label="Zona arancione")
-    plt.axhline(y=0.5, color='y', linestyle='--', alpha=0.5, label="Zona gialla")
+    plt.axhline(y=1.50, color='tab:red', linestyle='--', alpha=0.5, label="Scenario 4")
+    plt.axhline(y=1.25, color='tab:orange', linestyle='--', alpha=0.5, label="Scenario 3")
+    plt.axhline(y=1, color='y', linestyle='--', alpha=0.5, label="Scenario 2")
 
-    plt.ylim([0, 8])
+    #plt.ylim([0, 8])
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
     plt.gca().xaxis.set_minor_formatter(DateFormatter('%d/%m/%Y'))
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Indice RT (4 gg. m.a.')
+    plt.ylabel('Indice RT (4 gg. m.a.)')
     plt.legend()
 
     if save_image:
@@ -91,8 +91,7 @@ def compute_weekly_incidence(save_image=False, show=False):
 
     plt.plot(nation_data['data'], nation_data['incid_sett_per_100000_ab'], alpha=0.5, linestyle=':', label="Italia")
 
-    plt.axhline(y=250, color='r', linestyle='--', alpha=0.5, label="Zona rossa")
-    plt.axhline(y=50, color='y', linestyle='--', alpha=0.5, label="Zona gialla")
+    plt.axhline(y=50, color='tab:orange', linestyle='--', alpha=0.5, label="Soglia incidenza")
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
@@ -182,8 +181,6 @@ def compute_daily_cases(save_image=False, show=False):
 
     pos = utils.compute_x_days_mov_average(nation_data['nuovi_pos_per_100000_ab'], 7)
     plt.plot(nation_data['data'], pos, alpha=0.5, linestyle=':', label="Italia")
-
-    plt.axhline(y=50, color='r', linestyle='--', alpha=0.5, label="Cond. nec. zona rossa")
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))

@@ -59,8 +59,10 @@ def compute_rt(tot_cases, tot_healed, tot_death):
     right_padding = np.full(7, float('NaN'))
     rt_padded = np.concatenate((column_rt, right_padding))
 
-    return compute_x_days_mov_average(rt_padded, 4)
+    rt_smoother = lambda x: math.log2(x) + 1 if (x > 2) else x
+    v_rt_smoother = np.vectorize(rt_smoother)
 
+    return v_rt_smoother(compute_x_days_mov_average(rt_padded, 4))
 
 def scale_per_x_inhabitants(array, population, per_inhabitants=100000):
     return array / population * per_inhabitants

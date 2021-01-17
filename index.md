@@ -1,5 +1,13 @@
 I grafici sotto riportati estraggono informazioni di rilievo a partire dagli [Open Data forniti dalla Protezione Civile](https://github.com/pcm-dpc/COVID-19). I grafici si rigenerano automaticamente allo scoccare della mezzanotte, con i dati aggiornati al giorno precedente. I grafici possono anche essere scaricati in formato PNG da [qui](https://github.com/maldins46/CovidAnalysis/releases/latest).
 
+# Come vengono determinate le zone
+
+A partire dal 16 di gennaio, i colori delle varie regioni vengono determinati sulla base di livello di rischio, valore dell'indice Rt e in base all'incidenza settimanale dei casi. Il meccanismo [viene spiegato molto bene da YouTrend](https://www.youtrend.it/2021/01/14/come-funziona-il-nuovo-sistema-per-decidere-i-colori-delle-regioni/). Riporto questo grafico dallo stesso articolo:
+
+![Sistema Colori](./docs/sist_colori.png)
+
+Il livello di rischio viene calcolato sulla base di molteplici parametri, tra cui la pressione sul sistema sanitario.
+
 
 # Parametri nazionali
 
@@ -19,13 +27,20 @@ I grafici seguenti raffrontano vari parametri a livello regionale, in particolar
 
 ![RT per regioni](./docs/rt_per_regioni.png)
 
-Il grafico mostra l'andamento dell'indice R(t) per le regioni del benchmark, calcolato con **modellazione SIRD** (un metodo semplificato, **non quello utilizzato dall'ISS**, ma indicativo dell'andamento). L'algoritmo segue il procedimento [indicato dall'INFN](https://covid19.infn.it/banner/Approfondimenti.pdf), con una modifica aggiuntiva che permette di considerare lo scostamento temporale tra nuovi infetti e guariti-deceduti. 
+Il grafico mostra l'andamento dell'indice R(t) per le regioni del benchmark, calcolato con **modellazione SIRD** (un metodo semplificato, **non quello utilizzato dall'ISS**, ma indicativo dell'andamento). Le soglie orizzontali indicano i vari **scenari**, a seconda dei quali vengono determinate le varie zone come riportato nella tabella a inizio pagina:
+- **Scenario 1**: R(t) minore di 1;
+- **Scenario 2**: R(t) compreso tra 1 e 1,25;
+- **Scenario 3**: R(t) compreso tra 1.25 e 1.50;
+- **Scenario 4**: R(t) superiori a 1.50.
 
-Nella pratica, ogni punto del grafico viene calcolato come `α / (β + γ)`, in cui:
+L'algoritmo segue il procedimento [indicato dall'INFN](https://covid19.infn.it/banner/Approfondimenti.pdf), con alcune modifiche aggiuntive.
+
+Nella pratica, la modellazione SIRD richiede che ogni punto del grafico venga calcolato come `α / (β + γ)`, in cui:
 - `α`: incidenza settimanale dei nuovi casi;
 - `β`: incidenza settimanale dei dimessi guariti;
 - `γ`: incidenza settimanale dei deceduti per COVID-19.
-A differenza del metodo dell'INFN, però, `β` e `γ` vengono "slittati" in avanti di 7 giorni (numero che denota la durata media di ricovero per COVID-19), permettendo di comparare tra loro le misure.È stata inoltre applicata una media mobile su 4 giorni per rendere la curva meno "spigolosa". 
+
+A differenza del metodo dell'INFN, però, `β` e `γ` vengono "slittati" in avanti di 7 giorni (numero che denota la durata media di ricovero per COVID-19), permettendo di comparare tra loro le misure. È stata inoltre applicata una media mobile su 4 giorni per rendere la curva meno "spigolosa". Infine, un'ulteriore modifica è stata applicata al risultato precedente: ogni valore `x` maggiore di 2 viene posto essere uguale a `log2(x) + 1`. Ciò viene vatto per porre un "tetto" all'indice, che per la natura dei dati disponibili può assumere valori molto alti.
 
 Tutti questi accorgimenti portano l'indice ad essere "arretrato" di 9 giorni rispetto alla data odierna. Questo è anche il motivo per cui in genere i vari metodi per il calcolo di R(t) non riportano il dato ad oggi, ma quello di almeno una settimana prima rispetto all'ultimo campione rilevato.
 
@@ -33,14 +48,14 @@ Orizzontalmente sono inoltre riportate le soglie che portano, al di sopra di ess
 
 *Nota metodologica*: i differenti metodi per il calcolo di R(t) **possono portare a risultati molto differenti** tra di loro. In generale, **tutti i metodi modellano correttamente un valore maggiore di 1 nel caso in cui i contagi sono in aumento, e minore di 1 nel caso in cui siano in diminuzione, ma lo scostamento dal valore 1 può variare tra i metodi anche di molto**. 
 
-**EpiEstim**, il modello utilizzato dall'ISS, è molto più preciso: utilizza un modello probabilistico complesso e tiene traccia tra le altre anche dei casi importati (dato non disponibile da quelli forniti dalla Protezione Civile). In generale tale modello e porta a valori più bassi nel momento il cui il valore è maggiore di 1 (compresi tra 1 e 2,5). Il modello SIRD, al contrario, quando superiore a 1, può portare a valori anche di molto alti, in quanto vengono fatte varie assunzioni anche molto forti. Basti pensare ad `α`: l'incidenza settimanale dei nuovi casi dovrebbe considerare tutte le persone infette dal preciso momento di inizio dell'infezione, compresi gli asintomatici: dato che non è possibile da ottenere, e che porta quindi la stima a essere approssimata.
+**EpiEstim**, il modello utilizzato dall'ISS, è molto più preciso: utilizza un modello probabilistico complesso e tiene traccia tra le altre anche dei casi importati (dato non disponibile da quelli forniti dalla Protezione Civile). In generale tale modello e porta a valori più bassi nel momento il cui il valore è maggiore di 1 (compresi tra 1 e 2,5). Il modello SIRD, al contrario, quando superiore a 1, può portare a valori anche di molto alti, in quanto vengono fatte varie assunzioni anche molto forti (motivo per cui è stata posta la funzione "tetto"). Basti pensare ad `α`: l'incidenza settimanale dei nuovi casi dovrebbe considerare tutte le persone infette dal preciso momento di inizio dell'infezione, compresi gli asintomatici: dato che non è possibile da ottenere, e che porta quindi la stima a essere approssimata.
 
 
 ## Incidenza settimanale casi, per 100.000 abitanti
 
 ![Incidenza settimanale](./docs/incid_sett_per_regioni.png)
 
-Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni regione, scalato su 100.000 abitanti. In altre parole, ogni punto del grafico esprime **la differenza tra il totale dei casi registrati nel giorno *n* rispetto al giorno *n - 7***. Il dato viene riportato in quanto sarà uno dei nuovi parametri previsti dalle regole valide dal 16 gennaio, per la classificazione della regione: al di sopra dei 250 casi ogni 100.000 abitanti, la regione potrà essere posta in zona rossa; al di sotto dei 50 casi, andrebbero a venir meno anche le restrizioni della zona gialla.
+Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni regione, scalato su 100.000 abitanti. In altre parole, ogni punto del grafico esprime **la differenza tra il totale dei casi registrati nel giorno *n* rispetto al giorno *n - 7***. Il dato viene riportato in quanto la soglia a 50 è uno dei nuovi parametri previsti dalle regole valide dal 16 gennaio, come indicato nella tabella iniziale.
 
 ## Nuovi positivi per regioni, per 100.000 abitanti
 
@@ -48,7 +63,6 @@ Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni re
 
 Il grafico indica i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni regione del benchmark. Il dato è scalato su 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana.
 
-Inoltre, a partire dall'11 di gennaio, è stata stabilita la soglia di 50 nuovi casi ogni 100.000 abitanti come **condizione necessaria** al passaggio delle regioni a zona rossa, con indice R(t) superiore a 1,25. Il criterio dell'incidenza settimanale, invece, **non tiene conto della soglia riportata su questo grafico**: se una regione registra più di 250 casi alla settimana ogni 100.000 abitanti, finisce automaticamente in zona rossa.
 
 ## Occupazione terapia intensiva per regioni
 
