@@ -54,10 +54,16 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
     Computes and plots total cases in Marche provinces, as absolute cases.
     """
 
+    cases_stack = []
+    labels = []
+    dates = []
     for province_name, province_data in provinces_of_marche_data.items():
         cases = utils.compute_x_days_mov_average(province_data['incremento_casi'], 14)
-        plt.plot(province_data['data'], cases, label=province_name)
+        cases_stack.append(cases)
+        labels.append(province_name)
+        dates = province_data['data']
 
+    plt.stackplot(dates, cases_stack, labels=labels)
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
@@ -65,7 +71,7 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Nuovi pos. in val. ass. (14 gg. m.a.)')
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./docs/totale_casi_per_province_marche_abs.png', dpi=300, transparent=True, bbox_inches='tight')

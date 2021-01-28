@@ -12,7 +12,6 @@ from .areas_name import areas_name_dict as areas_name
 from . import areas
 from .data_extractor import benchmark_regions_data, extract_area_adm_data
 from .data_extractor import nation_data
-# import utils
 
 
 def compute_adm(save_image=False, show=False, area_code=areas.italia):
@@ -21,6 +20,8 @@ def compute_adm(save_image=False, show=False, area_code=areas.italia):
     """
     data = extract_area_adm_data(area_code)
 
+    # plt.stackplot(data['data_somministrazione'], data['prima_dose'],data['seconda_dose'],
+    #               labels=['Prime dosi', 'Seconde dosi'])
     plt.bar(data['data_somministrazione'], data['prima_dose'], label='Prime dosi')
     plt.bar(data['data_somministrazione'], data['seconda_dose'], bottom=data['prima_dose'],
             label='Seconde dosi')
