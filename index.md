@@ -23,10 +23,9 @@ Il grafico raffronta differenti indicatori a livello nazionale, in valori assolu
 
 ## Dosi di vaccino somministrate
 
-![Vaccini somministrati](./docs/dosi_somministrate.png)
+![Vaccini somministrati](./docs/dosi_italia.png)
 
 Il grafico mostra le dosi di vaccino somministrate giornalmente, distinguendo somministrazioni per prima dose dalle somministrazioni per seconda dose. L'altezza complessiva di ogni barra indica il totale delle somministrazioni giornaliere.
-
 
 # Valori regionali
 
@@ -61,11 +60,15 @@ Orizzontalmente sono inoltre riportate le soglie che portano, al di sopra di ess
 
 ## Dosi di vaccino somministrate per 100.000 abitanti
 
-Coming soon!
+![Dosi per regioni](./docs/dosi_per_regioni)
+
+Il grafico mostra le singole dosi di vaccino somministrate giornalmente per ogni regione. Il dato è scalato su 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. È riportata, con la traccia semi-trasparente, la media italiana.
 
 ## Percentuale popolazione immunizzata
 
-Coming soon!
+![Immunizzati](./docs/immunizzati.png)
+
+Il grafico mostra la percentuale di popolazione, per ogni regione del benchmark e per l'Italia (traccia semi-trasparente) che puo essere definita immunizzata, ovvero tale da aver ricevuto sia la prima dose che il richiamo.
 
 ## Incidenza settimanale casi, per 100.000 abitanti
 
@@ -106,9 +109,11 @@ Il grafico precedente raffronta differenti indicatori a livello regionale, in va
 - La linea verde riporta i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni);
 - La linea rossa riporta i'ammontare dei pazienti ricoverati con sintomi per COVID-19, per ogni giorno.
 
-## Dosi di vaccino somministrate
+## Dosi di vaccino somministrate nelle Marche
 
-Coming soon!
+![Vaccini somministrati](./docs/dosi_marche.png)
+
+Il grafico mostra le dosi di vaccino somministrate giornalmente nelle Marche, distinguendo somministrazioni per prima dose dalle somministrazioni per seconda dose. L'altezza complessiva di ogni barra indica il totale delle somministrazioni giornaliere.
 
 ## Nuovi positivi per provincia delle Marche, per 100.000 abitanti
 

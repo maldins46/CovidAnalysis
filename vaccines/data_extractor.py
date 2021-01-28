@@ -21,9 +21,11 @@ def extract_area_adm_data(area_code="ITA",
 
     # Clean index and duplicates, sort by date
     area_df = area_df.sort_values('data_somministrazione')
+    area_df = area_df.reset_index()
+    area_df = area_df.drop('index', 1)
 
     # Filter data from September
-    area_df = area_df[area_df['data_somministrazione'] > '2020-09-01']
+    area_df = area_df[area_df['data_somministrazione'] >= '2021-01-01']
 
     # Doses per 100.000 ab
     area_df['prima_dose_per_100000_ab'] = utils.scale_per_x_inhabitants(area_df['prima_dose'], population[area_code])
@@ -34,6 +36,16 @@ def extract_area_adm_data(area_code="ITA",
     area_df['perc_prima_dose'] = area_df['prima_dose'] / population[area_code]
     area_df['perc_seconda_dose'] = area_df['seconda_dose'] / population[area_code]
     area_df['perc_totale'] = area_df['totale'] / population[area_code]
+
+    # Accumulation
+    area_df['acc_totale'] = area_df['totale'].cumsum()
+    area_df['acc_perc_totale'] = area_df['acc_totale'] / population[area_code]
+
+    area_df['acc_prima_dose'] = area_df['prima_dose'].cumsum()
+    area_df['acc_perc_prima_dose'] = area_df['acc_prima_dose'] / population[area_code]
+
+    area_df['acc_seconda_dose'] = area_df['seconda_dose'].cumsum()
+    area_df['acc_perc_seconda_dose'] = area_df['acc_seconda_dose'] / population[area_code]
 
     return area_df
 
