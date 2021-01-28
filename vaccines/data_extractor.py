@@ -7,8 +7,8 @@ Extracts data from the vaccine repo per area.
 
 import pandas as pd
 import utils
-from .population import population_dict as population
-from . import areas
+from dictionaries.population import population_dict as population
+from dictionaries import area_codes as areas
 
 
 def extract_area_adm_data(area_code="ITA",

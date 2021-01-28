@@ -10,10 +10,11 @@ from matplotlib.dates import MonthLocator, DateFormatter
 from national.data_extractor import nation_data
 from .data_extractor import provinces_of_marche_data
 from regions.data_extractor import extract_single_region_data
-from regions import regions_names
+from dictionaries import area_codes
+from dictionaries.area_names import area_names_dict as area_names
 import utils
 
-marche_data = extract_single_region_data(regions_names.marche)
+marche_data = extract_single_region_data(area_codes.marche)
 
 
 def compute_total_cases_per_provinces(save_image=False, show=False):
@@ -21,9 +22,9 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
     Computes and plots total cases in Marche provinces.
     """
 
-    for province_name, province_data in provinces_of_marche_data.items():
+    for province_code, province_data in provinces_of_marche_data.items():
         cases = utils.compute_x_days_mov_average(province_data['incr_casi_per_100000_ab'], 14)
-        plt.plot(province_data['data'], cases, label=province_name)
+        plt.plot(province_data['data'], cases, label=area_names[province_code])
 
     cases = utils.compute_x_days_mov_average(nation_data['nuovi_pos_per_100000_ab'], 14)
     plt.plot(nation_data['data'], cases, alpha=0.5, linestyle=':', label="Italia")
@@ -57,10 +58,10 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
     cases_stack = []
     labels = []
     dates = []
-    for province_name, province_data in provinces_of_marche_data.items():
+    for province_code, province_data in provinces_of_marche_data.items():
         cases = utils.compute_x_days_mov_average(province_data['incremento_casi'], 14)
         cases_stack.append(cases)
-        labels.append(province_name)
+        labels.append(area_names[province_code])
         dates = province_data['data']
 
     plt.stackplot(dates, cases_stack, labels=labels)

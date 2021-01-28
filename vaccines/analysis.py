@@ -8,8 +8,8 @@ Analysis on the national vaccine data.
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 from matplotlib.dates import DateFormatter, DayLocator
-from .areas_name import areas_name_dict as areas_name
-from . import areas
+from dictionaries.area_names import area_names_dict as area_names
+from dictionaries import area_codes as areas
 from .data_extractor import benchmark_regions_data, extract_area_adm_data
 from .data_extractor import nation_data
 
@@ -36,7 +36,7 @@ def compute_adm(save_image=False, show=False, area_code=areas.italia):
     plt.legend()
 
     if save_image:
-        area_name_clean = areas_name[area_code].lower().replace(' ', '_')
+        area_name_clean = area_names[area_code].lower().replace(' ', '_')
         plt.savefig(f'./docs/dosi_{area_name_clean}.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
@@ -51,7 +51,7 @@ def compute_regional_doses(save_image=False, show=False):
     """
 
     for area_code, region_data in benchmark_regions_data.items():
-        plt.plot(region_data['data_somministrazione'], region_data['totale_per_100000_ab'], label=areas_name[area_code])
+        plt.plot(region_data['data_somministrazione'], region_data['totale_per_100000_ab'], label=area_names[area_code])
 
     plt.plot(nation_data['data_somministrazione'], nation_data['totale_per_100000_ab'], alpha=0.5, linestyle=':',
              label="Italia")
@@ -78,7 +78,7 @@ def compute_immunes_per_regions(save_image=False, show=False):
     """
 
     for area_code, region_data in benchmark_regions_data.items():
-        plt.plot(region_data['data_somministrazione'], region_data['acc_perc_seconda_dose'], label=areas_name[area_code])
+        plt.plot(region_data['data_somministrazione'], region_data['acc_perc_seconda_dose'], label=area_names[area_code])
 
     plt.plot(nation_data['data_somministrazione'], nation_data['acc_perc_seconda_dose'], alpha=0.5, linestyle=':',
              label="Italia")

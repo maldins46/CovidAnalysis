@@ -8,7 +8,7 @@ import regions.analysis as regions_analysis
 import provinces.analysis as provinces_analysis
 import national.analysis as national_analysis
 import vaccines.analysis as vacc_nat
-import vaccines.areas as areas
+import dictionaries.area_codes as areas
 
 vacc_nat.compute_regional_doses(save_image=True, show=False)
 vacc_nat.compute_adm(save_image=True, show=False)
@@ -22,7 +22,7 @@ regions_analysis.compute_rt_per_regions(save_image=True, show=False)
 regions_analysis.compute_weekly_incidence(save_image=True, show=False)
 regions_analysis.compute_positivity_per_regions(save_image=True, show=False)
 regions_analysis.compute_daily_cases(save_image=True, show=False)
-regions_analysis.compute_region_parameters(save_image=True, show=False)
+regions_analysis.compute_region_parameters(save_image=True, show=False, region_code=areas.marche)
 
 provinces_analysis.compute_total_cases_per_provinces(save_image=True, show=False)
 provinces_analysis.compute_total_cases_per_provinces_abs(save_image=True, show=False)

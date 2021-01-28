@@ -9,7 +9,7 @@ import regions.analysis as regions_analysis
 import provinces.analysis as provinces_analysis
 import national.analysis as national_analysis
 import vaccines.analysis as vacc_nat
-import vaccines.areas as areas
+import dictionaries.area_codes as areas
 
 
 def test_national_chart_generation():
@@ -24,7 +24,7 @@ def test_regions_chart_generation():
     regions_analysis.compute_daily_cases()
     regions_analysis.compute_rec_with_symptoms()
     regions_analysis.compute_death()
-    regions_analysis.compute_region_parameters()
+    regions_analysis.compute_region_parameters(region_code=areas.marche)
 
 
 def test_provinces_chart_generation():

@@ -7,7 +7,7 @@ https://www.tuttitalia.it/regioni/popolazione/
 @author: riccardomaldini
 """
 
-from . import areas
+from . import area_codes as areas
 
 population_dict = {
     areas.italia: 60244639,
@@ -31,5 +31,10 @@ population_dict = {
     areas.toscana: 3722729,
     areas.umbria: 880285,
     areas.valle_daosta: 125501,
-    areas.veneto: 4907704
+    areas.veneto: 4907704,
+    areas.ancona: 469750,
+    areas.ascoli_piceno: 206363,
+    areas.macerata: 312146,
+    areas.fermo: 173004,
+    areas.pesaro_urbino: 357137,
 }

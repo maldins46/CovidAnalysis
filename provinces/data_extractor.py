@@ -9,9 +9,10 @@ import pandas as pd
 import os
 import glob
 import dateutil.parser as date_parser
-from . import provinces_names as prov
-from .population import population_dict as population
 import utils
+from dictionaries import area_codes as areas
+from dictionaries.area_names import area_names_dict as area_names
+from dictionaries.population import population_dict as population
 
 
 def extract_provinces_data(path='./GvtOpenData/dati-province'):
@@ -24,12 +25,13 @@ def extract_provinces_data(path='./GvtOpenData/dati-province'):
     return pd.concat((pd.read_csv(file) for file in all_files))
 
 
-def extract_single_province_data(province):
+def extract_single_province_data(province_code="ANC"):
     """
     Extracts all data about a single province, it sort them, and adds. Also, converts dates to datetime.
     """
 
-    province_df = provinces_data.loc[provinces_data['denominazione_provincia'] == province]
+    area_name = area_names[province_code]
+    province_df = provinces_data.loc[provinces_data['denominazione_provincia'] == area_name]
 
     # suppresses a false positive in the function
     pd.options.mode.chained_assignment = None
@@ -58,7 +60,7 @@ def extract_single_province_data(province):
     province_df['incremento_casi'] = province_df['incremento_casi'].fillna(method='ffill', limit=3)
 
     province_df['incr_casi_per_100000_ab'] = utils.scale_per_x_inhabitants(province_df['incremento_casi'],
-                                                                           population[province])
+                                                                           population[province_code])
     return province_df
 
 
@@ -67,11 +69,11 @@ def extract_provinces_of_marche():
     Extract some regions defined as of interest in the analysis, as a dictionary.
     """
     return {
-        prov.pesaro_urbino: extract_single_province_data(prov.pesaro_urbino),
-        prov.macerata: extract_single_province_data(prov.macerata),
-        prov.fermo: extract_single_province_data(prov.fermo),
-        prov.ascoli_piceno: extract_single_province_data(prov.ascoli_piceno),
-        prov.ancona: extract_single_province_data(prov.ancona)
+        areas.pesaro_urbino: extract_single_province_data(areas.pesaro_urbino),
+        areas.macerata: extract_single_province_data(areas.macerata),
+        areas.fermo: extract_single_province_data(areas.fermo),
+        areas.ascoli_piceno: extract_single_province_data(areas.ascoli_piceno),
+        areas.ancona: extract_single_province_data(areas.ancona)
     }
 
 

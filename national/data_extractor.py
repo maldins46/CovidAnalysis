@@ -10,9 +10,12 @@ import os
 import glob
 import dateutil.parser as date_parser
 import utils
+from dictionaries.area_codes import italia
+from dictionaries.population import population_dict
+from dictionaries.ti_places import ti_places_dict
 
-ti_places = 6458
-population = 60244639
+ti_places = ti_places_dict[italia]
+population = population_dict[italia]
 
 
 def extract_nation_data(path='./GvtOpenData/dati-andamento-nazionale'):

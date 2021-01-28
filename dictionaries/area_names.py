@@ -7,9 +7,9 @@ Source: Quotidiano Sanità, Report Commissario Arcuri, areasional data
 @author: riccardomaldini
 """
 
-from . import areas
+from . import area_codes as areas
 
-areas_name_dict = {
+area_names_dict = {
     areas.italia: "Italia",
     areas.abruzzo: "Abruzzo",
     areas.basilicata: "Basilicata",
@@ -31,5 +31,10 @@ areas_name_dict = {
     areas.toscana: "Toscana",
     areas.umbria: "Umbria",
     areas.valle_daosta: "Valle d'Aosta",
-    areas.veneto: "Veneto"
+    areas.veneto: "Veneto",
+    areas.ancona: "Ancona",
+    areas.macerata: "Macerata",
+    areas.fermo: "Fermo",
+    areas.ascoli_piceno: "Ascoli Piceno",
+    areas.pesaro_urbino: "Pesaro e Urbino"
 }

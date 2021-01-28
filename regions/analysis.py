@@ -8,7 +8,8 @@ Module with useful elaborations about italian covid.
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 from matplotlib.dates import MonthLocator, DateFormatter
-from . import regions_names as reg
+from dictionaries import area_codes as areas
+from dictionaries.area_names import area_names_dict as area_names
 from .data_extractor import benchmark_regions_data, extract_single_region_data
 from national.data_extractor import nation_data
 import utils
@@ -19,8 +20,8 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
     Computes and plots relations between occupied TI places and available ones, for some regions of interest.
     """
 
-    for region_name, region_data in benchmark_regions_data.items():
-        plt.plot(region_data['data'], region_data['occupazione_ti'], label=region_name)
+    for region_code, region_data in benchmark_regions_data.items():
+        plt.plot(region_data['data'], region_data['occupazione_ti'], label=area_names[region_code])
 
     plt.plot(nation_data['data'], nation_data['occupazione_ti'], alpha=0.5, linestyle=':', label="Italia")
 
@@ -52,8 +53,8 @@ def compute_rt_per_regions(save_image=False, show=False):
     https://covid19.infn.it/banner/Approfondimenti.pdf
     """
 
-    for region_name, region_data in benchmark_regions_data.items():
-        plt.plot(region_data['data'], region_data['rt'], label=region_name)
+    for region_code, region_data in benchmark_regions_data.items():
+        plt.plot(region_data['data'], region_data['rt'], label=area_names[region_code])
 
     plt.plot(nation_data['data'], nation_data['rt'], alpha=0.5, linestyle=':', label="Italia")
 
@@ -85,8 +86,8 @@ def compute_weekly_incidence(save_image=False, show=False):
     of the indices used to determine the zone.
     """
 
-    for region_name, region_data in benchmark_regions_data.items():
-        plt.plot(region_data['data'], region_data['incid_sett_per_100000_ab'], label=region_name)
+    for region_code, region_data in benchmark_regions_data.items():
+        plt.plot(region_data['data'], region_data['incid_sett_per_100000_ab'], label=area_names[region_code])
 
     plt.plot(nation_data['data'], nation_data['incid_sett_per_100000_ab'], alpha=0.5, linestyle=':', label="Italia")
 
@@ -115,9 +116,9 @@ def compute_positivity_per_regions(save_image=False, show=False):
     Computes and plots relations between tests and positive ones, for some regions of interest.
     """
 
-    for region_name, region_data in benchmark_regions_data.items():
+    for region_code, region_data in benchmark_regions_data.items():
         pos = utils.compute_x_days_mov_average(region_data['tasso_positivita'], 14)
-        plt.plot(region_data['data'], pos, label=region_name)
+        plt.plot(region_data['data'], pos, label=area_names[region_code])
 
     pos = utils.compute_x_days_mov_average(nation_data['tasso_positivita'], 14)
     plt.plot(nation_data['data'], pos, alpha=0.5, linestyle=':', label="Italia")
@@ -146,8 +147,8 @@ def compute_rec_with_symptoms(save_image=False, show=False):
     Computes and plots recovered with symptoms.
     """
 
-    for region_name, region_data in benchmark_regions_data.items():
-        plt.plot(region_data['data'], region_data['ric_per_100000_ab'], label=region_name)
+    for region_code, region_data in benchmark_regions_data.items():
+        plt.plot(region_data['data'], region_data['ric_per_100000_ab'], label=area_names[region_code])
 
     plt.plot(nation_data['data'], nation_data['ric_per_100000_ab'], alpha=0.5, linestyle=':', label="Italia")
 
@@ -174,9 +175,9 @@ def compute_daily_cases(save_image=False, show=False):
     Computes daily cases, for some regions of interest.
     """
 
-    for region_name, region_data in benchmark_regions_data.items():
+    for region_code, region_data in benchmark_regions_data.items():
         pos = utils.compute_x_days_mov_average(region_data['nuovi_pos_per_100000_ab'], 7)
-        plt.plot(region_data['data'], pos, label=region_name)
+        plt.plot(region_data['data'], pos, label=area_names[region_code])
 
     pos = utils.compute_x_days_mov_average(nation_data['nuovi_pos_per_100000_ab'], 7)
     plt.plot(nation_data['data'], pos, alpha=0.5, linestyle=':', label="Italia")
@@ -204,9 +205,9 @@ def compute_death(save_image=False, show=False):
     Computes and plots daily deaths.
     """
 
-    for region_name, region_data in benchmark_regions_data.items():
+    for region_code, region_data in benchmark_regions_data.items():
         deaths = utils.compute_x_days_mov_average(region_data['incr_morti_per_100000_ab'], 7)
-        plt.plot(region_data['data'], deaths, label=region_name)
+        plt.plot(region_data['data'], deaths, label=area_names[region_code])
 
     deaths = utils.compute_x_days_mov_average(nation_data['incr_morti_per_100000_ab'], 7)
     plt.plot(nation_data['data'], deaths, alpha=0.5, linestyle=':', label="Italia")
@@ -229,12 +230,12 @@ def compute_death(save_image=False, show=False):
     plt.close()
 
 
-def compute_region_parameters(save_image=False, show=False, region_name=reg.marche):
+def compute_region_parameters(save_image=False, show=False, region_code=areas.marche):
     """
     Different data about a single region.
     """
 
-    region_data = extract_single_region_data(region_name)
+    region_data = extract_single_region_data(region_code)
 
     deaths = utils.compute_x_days_mov_average(region_data['incremento_morti'], 7)
     plt.plot(region_data['data'], deaths, label='Nuovi decessi (7 gg. m.a.)')
@@ -256,7 +257,7 @@ def compute_region_parameters(save_image=False, show=False, region_name=reg.marc
     plt.legend()
 
     if save_image:
-        region_name_clean = region_name.lower().replace(' ', '_')
+        region_name_clean = area_names[region_code].lower().replace(' ', '_')
         plt.savefig(f"./docs/parametri_{region_name_clean}", dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
