@@ -27,6 +27,7 @@ Il grafico raffronta differenti indicatori a livello nazionale, in valori assolu
 
 Il grafico mostra le dosi di vaccino somministrate giornalmente, distinguendo somministrazioni per prima dose dalle somministrazioni per seconda dose. L'altezza complessiva di ogni barra indica il totale delle somministrazioni giornaliere.
 
+
 # Valori regionali
 
 I grafici seguenti raffrontano vari parametri a livello regionale, in particolare confrontando tre regioni prese come "benchmark", per rendere più chiaro il grafico: Veneto, Toscana, Marche. La scelta delle regioni è stata dettata anche dalla volontà di espandere l'analisi in particolare sulla regione Marche.
@@ -58,6 +59,13 @@ Orizzontalmente sono inoltre riportate le soglie che portano, al di sopra di ess
 
 **EpiEstim**, il modello utilizzato dall'ISS, è molto più preciso: utilizza un modello probabilistico complesso e tiene traccia tra le altre anche dei casi importati (dato non disponibile da quelli forniti dalla Protezione Civile). In generale tale modello e porta a valori più bassi nel momento il cui il valore è maggiore di 1 (compresi tra 1 e 2,5). Il modello SIRD, al contrario, quando superiore a 1, può portare a valori anche di molto alti, in quanto vengono fatte varie assunzioni anche molto forti (motivo per cui è stata posta la funzione "tetto"). Basti pensare ad `α`: l'incidenza settimanale dei nuovi casi dovrebbe considerare tutte le persone infette dal preciso momento di inizio dell'infezione, compresi gli asintomatici: dato che non è possibile da ottenere, e che porta quindi la stima a essere approssimata.
 
+## Dosi di vaccino somministrate per 100.000 abitanti
+
+Coming soon!
+
+## Percentuale popolazione immunizzata
+
+Coming soon!
 
 ## Incidenza settimanale casi, per 100.000 abitanti
 
@@ -97,6 +105,10 @@ Il grafico precedente raffronta differenti indicatori a livello regionale, in va
 - La linea gialla riporta l'ammontare dei pazienti in terapia intensiva, per ogni giorno; 
 - La linea verde riporta i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni);
 - La linea rossa riporta i'ammontare dei pazienti ricoverati con sintomi per COVID-19, per ogni giorno.
+
+## Dosi di vaccino somministrate
+
+Coming soon!
 
 ## Nuovi positivi per provincia delle Marche, per 100.000 abitanti
 
