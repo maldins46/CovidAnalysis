@@ -6,7 +6,6 @@ Extracts national data from the database.
 """
 
 import pandas as pd
-import numpy as np
 import os
 import glob
 import dateutil.parser as date_parser
@@ -77,16 +76,3 @@ def extract_nation_data(path='./GvtOpenData/dati-andamento-nazionale'):
 
 # Create dataframe with national data
 nation_data = extract_nation_data()
-
-
-def compute_x_days_mov_average(df, column, window=7):
-    """
-    Computes an x-days-moving-average on the given column, of the given
-    dataframe, and returns the computed column and the correspondant dates,
-    for plotting.
-    """
-
-    column_ma = np.convolve(df[column], np.ones(window)/window, mode='valid')
-    dates = df.iloc[window-1:].data
-
-    return dates, column_ma

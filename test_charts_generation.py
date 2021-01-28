@@ -8,6 +8,7 @@ to the right portion of the dataframe.
 import regions.analysis as regions_analysis
 import provinces.analysis as provinces_analysis
 import national.analysis as national_analysis
+import vaccines.national.analysis as vacc_nat
 
 
 def test_national_chart_generation():
@@ -28,3 +29,7 @@ def test_regions_chart_generation():
 def test_provinces_chart_generation():
     provinces_analysis.compute_total_cases_per_provinces()
     provinces_analysis.compute_total_cases_per_provinces_abs()
+
+
+def test_vaccines_chart_generation():
+    vacc_nat.compute_national_adm()

@@ -11,6 +11,8 @@ Il livello di rischio viene calcolato sulla base di molteplici parametri, tra cu
 
 # Parametri nazionali
 
+## Parametri in val. assoluti
+
 ![Parametri nazionali](./docs/parametri_italia.png)
 
 Il grafico raffronta differenti indicatori a livello nazionale, in valori assoluti. 
@@ -18,6 +20,12 @@ Il grafico raffronta differenti indicatori a livello nazionale, in valori assolu
 - La linea gialla riporta l'ammontare dei pazienti in terapia intensiva, per ogni giorno; 
 - La linea verde riporta i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni);
 - La linea rossa riporta i'ammontare dei pazienti ricoverati con sintomi per COVID-19, per ogni giorno.
+
+## Vaccini somministrati
+
+![Vaccini somministrati](./docs/dosi_somministrate.png)
+
+Il grafico mostra le dosi di vaccino somministrate giornalmente, distinguendo somministrazioni per prima dose dalle somministrazioni da seconda dose. L'altezza complessiva di ogni barra indica il totale delle somministrazioni giornaliere.
 
 # Parametri regionali
 
