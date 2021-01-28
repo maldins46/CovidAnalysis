@@ -60,7 +60,7 @@ Orizzontalmente sono inoltre riportate le soglie che portano, al di sopra di ess
 
 ## Dosi di vaccino somministrate per 100.000 abitanti
 
-![Dosi per regioni](./docs/dosi_per_regioni)
+![Dosi per regioni](./docs/dosi_per_regioni.png)
 
 Il grafico mostra le singole dosi di vaccino somministrate giornalmente per ogni regione. Il dato è scalato su 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. È riportata, con la traccia semi-trasparente, la media italiana.
 
