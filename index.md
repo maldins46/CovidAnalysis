@@ -9,9 +9,9 @@ A partire dal 16 di gennaio, i colori delle varie regioni vengono determinati su
 Il livello di rischio viene calcolato sulla base di molteplici parametri, tra cui la pressione sul sistema sanitario.
 
 
-# Parametri nazionali
+# Valori nazionali
 
-## Parametri in val. assoluti
+## Parametri nazionali in val. assoluti
 
 ![Parametri nazionali](./docs/parametri_italia.png)
 
@@ -21,13 +21,13 @@ Il grafico raffronta differenti indicatori a livello nazionale, in valori assolu
 - La linea verde riporta i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni);
 - La linea rossa riporta i'ammontare dei pazienti ricoverati con sintomi per COVID-19, per ogni giorno.
 
-## Vaccini somministrati
+## Dosi di vaccino somministrate
 
 ![Vaccini somministrati](./docs/dosi_somministrate.png)
 
-Il grafico mostra le dosi di vaccino somministrate giornalmente, distinguendo somministrazioni per prima dose dalle somministrazioni da seconda dose. L'altezza complessiva di ogni barra indica il totale delle somministrazioni giornaliere.
+Il grafico mostra le dosi di vaccino somministrate giornalmente, distinguendo somministrazioni per prima dose dalle somministrazioni per seconda dose. L'altezza complessiva di ogni barra indica il totale delle somministrazioni giornaliere.
 
-# Parametri regionali
+# Valori regionali
 
 I grafici seguenti raffrontano vari parametri a livello regionale, in particolare confrontando tre regioni prese come "benchmark", per rendere più chiaro il grafico: Veneto, Toscana, Marche. La scelta delle regioni è stata dettata anche dalla volontà di espandere l'analisi in particolare sulla regione Marche.
 
@@ -84,9 +84,11 @@ Il grafico riporta, per ogni regione del benchmark, la percentuale di occupazion
 
 Il grafico indica, per ogni regione, la percentuale di tamponi positivi su quelli effettuati giornalmente (tampone molecolare). Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana. In linea di massima, all'aumentare dei tamponi effettuati, la percentuale aumenta.  
 
-# Parametri incentrati sulla regione Marche
+# Valori incentrati sulla regione Marche
 
 Analisi più specifiche sono state portate avanti per quanto riguarda la regione Marche, in quanto interessato ad analizzare questa regione.
+
+## Parametri Marche in val. assoluti
 
 ![Parametri regione Marche](./docs/parametri_marche.png)
 
