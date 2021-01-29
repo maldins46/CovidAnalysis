@@ -10,7 +10,7 @@ on:
   - cron: "0 0 * * *"
 
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -45,7 +45,6 @@ jobs:
     - name: Commit changes 
       uses: EndBug/add-and-commit@v5.2.0
       with:
-        branch: gh-pages
         author_name: 'Deploy Bot'
         message: 'Update charts ${{ steps.date.outputs.date }}'
       env:
