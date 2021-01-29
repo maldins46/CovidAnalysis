@@ -1,0 +1,74 @@
+@import "sizes";
+@import "colors";
+
+/**
+ * Various other variable and utils.
+ */
+$defaultShadow: 0 2px 5px 0 rgba(0,0,0,.2);
+
+// it hides the target from the screen
+@mixin hide {
+  visibility: hidden;
+  display: none;
+}
+
+// shows the target into the screen
+@mixin show {
+  visibility: visible;
+  display: block;
+}
+
+// adds a container for right-aligned mat-buttons
+@mixin right-aligned-button {
+  .right-button-container {
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    @include responsiveProp(margin-bottom, $defaultMargin);
+
+    .button-icon {
+      margin-right: $marginSmartphone / 2;
+    }
+  }
+}
+
+// multiline truncation w. ellipsis
+// https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css
+@mixin multiLineEllipsis($lineCount: 1){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lineCount;
+  -webkit-box-orient: vertical;
+}
+
+// standard single line ellpsis strategy
+@mixin singleLineEllispis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// transform the target into a standard chip container
+@mixin chip {
+  border-radius: 48px;
+  background-color: $primaryColor;
+  color: $backgroundColor;
+  @include responsiveProp(padding-left, $defaultMargin);
+  @include responsiveProp(padding-right, $defaultMargin);
+  @include responsiveProp(padding-top, $quarterMargin);
+  @include responsiveProp(padding-bottom, $quarterMargin);
+}
+
+// to use into icon containers, it resizes them
+@mixin mat-icon-size($size: 24px) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+}
+
+// transform the target into a horizontal divider
+@mixin horizontalDivider {
+  height: 1px;
+  background-color: $dividerColor;
+}

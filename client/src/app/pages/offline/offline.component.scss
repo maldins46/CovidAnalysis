@@ -1,0 +1,27 @@
+@import "~src/styles/utils";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .icon {
+    @include mat-icon-size(128px);
+    @include responsiveProp(margin-bottom, $defaultMargin);
+  }
+
+  .padded-text {
+    width: 100%;
+    box-sizing: border-box;
+    @include responsiveProp(padding-left, $defaultMargin);
+    @include responsiveProp(padding-right, $defaultMargin);
+    text-align: center;
+    @include responsiveProp(margin-bottom, $halfMargin);
+
+    h1 {
+      @include responsiveProp(margin-bottom, $halfMargin);
+    }
+  }
+}

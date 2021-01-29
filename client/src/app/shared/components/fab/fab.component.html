@@ -1,0 +1,13 @@
+<a *ngIf="!customAction" href="#" [routerLink]="route" [queryParams]="queryParams" class="extended-fab-button" mat-fab>
+
+  <mat-icon class="button-icon" svgIcon="{{iconName}}"></mat-icon>
+
+  <span class="button-text">{{title}}</span>
+</a>
+
+<button *ngIf="customAction" class="extended-fab-button" (click)="fabClick.emit()" mat-fab>
+
+  <mat-icon class="button-icon" svgIcon="{{iconName}}"></mat-icon>
+
+  <span class="button-text">{{title}}</span>
+</button>

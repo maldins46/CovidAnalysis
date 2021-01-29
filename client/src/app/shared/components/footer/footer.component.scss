@@ -1,0 +1,38 @@
+@import "~src/styles/utils";
+
+footer {
+  background: $backgroundColor;
+  width: 100%;
+  box-shadow: $defaultShadow;
+  box-sizing: border-box;
+  @include responsiveProp(height, $footerHeight);
+  @include responsiveProp(padding, $defaultMargin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  div.title {
+    @include responsiveProp(margin-bottom, $quarterMargin)
+  }
+
+  a.title {
+    @include subheadFont;
+    text-decoration: none;
+    color: $primaryControlColor;
+  }
+
+  a.subtitle {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    text-decoration: none;
+    color: $beerColor;
+
+    .image {
+      margin-right: 8px;
+    }
+  }
+}

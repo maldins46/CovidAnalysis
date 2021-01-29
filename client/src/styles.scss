@@ -1,0 +1,81 @@
+/**
+ * Global styles file. You can add global styles to this file
+ * and also import other style files.
+ */
+
+// Normalize.css is a customisable CSS file that makes browsers render all
+// elements more consistently and in line with modern standards.
+@import "node_modules/normalize-scss/sass/normalize";
+
+// the custom theme used to enable angular material
+@import "styles/globals/material-custom-theme";
+
+// main utils, used across the app
+@import "styles/utils";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  @include bodyFont;
+  color: $secondaryControlColor;
+}
+
+// disables default focus for button, as a visual feedback is handled by AngularMaterial
+button {
+  outline:none !important;
+}
+
+// global default configuration for pages
+.page {
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  @include responsiveProp(padding, $defaultMargin);
+  @include responsiveProp(width, $pageWidth);
+
+  // this must be after the responsive padding rule
+  padding-top: $appBarHeightSmartphone + $marginSmartphone;
+
+  a {
+    text-decoration: none;
+  }
+
+  @include right-aligned-button();
+
+  @include forDesktopOnly {
+    padding-top: $appBarHeightDesktop + $marginDesktop;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Font used for generic titles.
+h1 {
+  @include titleFont;
+  color: $primaryControlColor;
+  @include responsiveProp(margin-bottom, $halfMargin);
+  margin-top: 0;
+}
+
+// Font used for an important body text, such as a card title.
+h2 {
+  @include subheadFont;
+  color: $primaryControlColor;
+  @include responsiveProp(margin-bottom, $quarterMargin);
+  margin-top: 0;
+}
+
+p {
+  @include bodyFont;
+  margin-top: 0;
+  @include responsiveProp(margin-bottom, $defaultMargin);
+}
+

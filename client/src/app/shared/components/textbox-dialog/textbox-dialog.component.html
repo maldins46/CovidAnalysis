@@ -1,0 +1,18 @@
+<mat-dialog-content class="mat-typography">
+  <p>{{data.content}}</p>
+  <mat-form-field appearance="outline" class="input-field-wide">
+    <mat-label>{{data.textBoxTitle}}</mat-label>
+    <input matInput cdkFocusInitial [type]="(data.textType ? data.textType : 'text')"
+           [placeholder]="data.textBoxHint" [(ngModel)]="inputValue">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="data.negativeAction.execute(inputValue)">
+    {{data.negativeAction.text}}
+  </button>
+  <button mat-button [mat-dialog-close]="true" color="primary"
+          [disabled]="inputValue.length < (data.minimumTextLength ? data.minimumTextLength : 1)"
+           (click)="data.positiveAction.execute(inputValue)">
+    {{data.positiveAction.text}}
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,14 @@
+@import "~src/styles/utils";
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -1 * $footerHeightSmartphone;
+
+  @include forDesktopOnly {
+    margin-bottom: -1 * $footerHeightDesktop;
+  }
+}
+
+.push {
+  @include responsiveProp(height, $footerHeight);
+}

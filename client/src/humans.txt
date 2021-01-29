@@ -1,0 +1,11 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <Riccardo Maldini> -- <Programmer> -- <https://www.riccardomaldini.it>
+
+# TECHNOLOGY COLOPHON
+
+    Technologies: CSS3, HTML5, JavaScript
+    Framework:    Angular
