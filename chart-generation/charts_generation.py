@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Uses the library to generate all available charts in the ./docs/ directory.
+Uses the library to generate all available charts in the ./assets/ directory.
 @author: riccardomaldini
 """
 import regions.analysis as regions_analysis

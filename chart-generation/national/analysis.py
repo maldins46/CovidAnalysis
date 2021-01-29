@@ -37,7 +37,7 @@ def compute_national_parameters(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/parametri_italia.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/parametri_italia.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()

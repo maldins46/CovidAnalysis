@@ -39,7 +39,7 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/ti_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/ti_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -72,7 +72,7 @@ def compute_rt_per_regions(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/rt_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/rt_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -103,7 +103,7 @@ def compute_weekly_incidence(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/incid_sett_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/incid_sett_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -134,7 +134,7 @@ def compute_positivity_per_regions(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/positivita.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/positivita.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -162,7 +162,7 @@ def compute_rec_with_symptoms(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/ricoverati_con_sintomi_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/ricoverati_con_sintomi_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -192,7 +192,7 @@ def compute_daily_cases(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/positivi_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/positivi_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -222,7 +222,7 @@ def compute_death(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/deceduti_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/deceduti_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -258,7 +258,7 @@ def compute_region_parameters(save_image=False, show=False, region_code=areas.ma
 
     if save_image:
         region_name_clean = area_names[region_code].lower().replace(' ', '_')
-        plt.savefig(f"./docs/parametri_{region_name_clean}", dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig(f"./assets/parametri_{region_name_clean}", dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()

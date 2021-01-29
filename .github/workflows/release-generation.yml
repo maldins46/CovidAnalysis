@@ -1,11 +1,13 @@
 # Generates a new release with updated data every day ay midnight
 
-name: Daily Release
+name: Daily Chart Update
 
 # schedule the chart generation to be executed every day at midnight
 on:
   schedule:
   - cron: "0 0 * * *"
+  
+  push: main
 
 jobs:
   publish:
@@ -33,13 +35,7 @@ jobs:
     
     - name: Generate updated charts
       run: |
-        python charts_generation.py
-        
-    - name: Save charts artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: charts
-        path: ./docs/
+        python ./chart-generation/charts_generation.py
 
     # Useful to create the release name
     - name: Get current date
@@ -49,26 +45,8 @@ jobs:
     - name: Commit changes 
       uses: EndBug/add-and-commit@v5.2.0
       with:
-        message: 'Auto update date'
+        branch: gh-pages
+        author_name: 'Deploy Bot'
+        message: 'Update charts ${{ steps.date.outputs.date }}'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Create Release
-      id: create-release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: covid-${{ steps.date.outputs.date }}
-        release_name: Release ${{ steps.date.outputs.date }}
-        draft: false
-        prerelease: false
-    
-    - name: Upload Release Assets
-      id: upload-release-assets
-      uses: dwenegar/upload-release-assets@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        release_id: ${{ steps.create-release.outputs.id }}
-        assets_path: ./docs

@@ -4,7 +4,7 @@ I grafici sotto riportati estraggono informazioni di rilievo a partire dagli [Op
 
 A partire dal 16 di gennaio, i colori delle varie regioni vengono determinati sulla base di livello di rischio, valore dell'indice Rt e in base all'incidenza settimanale dei casi. Il meccanismo [viene spiegato molto bene da YouTrend](https://www.youtrend.it/2021/01/14/come-funziona-il-nuovo-sistema-per-decidere-i-colori-delle-regioni/). Riporto questo grafico dallo stesso articolo:
 
-![Sistema Colori](./docs/sist_colori.png)
+![Sistema Colori](./assets/sist_colori.png)
 
 Il livello di rischio viene calcolato sulla base di molteplici parametri, tra cui la pressione sul sistema sanitario.
 
@@ -13,7 +13,7 @@ Il livello di rischio viene calcolato sulla base di molteplici parametri, tra cu
 
 ## Parametri nazionali in val. assoluti
 
-![Parametri nazionali](./docs/parametri_italia.png)
+![Parametri nazionali](./assets/parametri_italia.png)
 
 Il grafico raffronta differenti indicatori a livello nazionale, in valori assoluti. 
 - La linea blu riporta i decessi giornalieri (in media mobile di 7 giorni); 
@@ -23,7 +23,7 @@ Il grafico raffronta differenti indicatori a livello nazionale, in valori assolu
 
 ## Dosi di vaccino somministrate
 
-![Vaccini somministrati](./docs/dosi_italia.png)
+![Vaccini somministrati](./assets/dosi_italia.png)
 
 Il grafico mostra le dosi di vaccino somministrate giornalmente, distinguendo somministrazioni per prima dose dalle somministrazioni per seconda dose. L'altezza complessiva di ogni barra indica il totale delle somministrazioni giornaliere.
 
@@ -33,7 +33,7 @@ I grafici seguenti raffrontano vari parametri a livello regionale, in particolar
 
 ## Indice R(t) per regioni
 
-![RT per regioni](./docs/rt_per_regioni.png)
+![RT per regioni](./assets/rt_per_regioni.png)
 
 Il grafico mostra l'andamento dell'indice R(t) per le regioni del benchmark, calcolato con **modellazione SIRD** (un metodo semplificato, **non quello utilizzato dall'ISS**, ma indicativo dell'andamento). Le soglie orizzontali indicano i vari **scenari**, a seconda dei quali vengono determinate le varie zone come riportato nella tabella a inizio pagina:
 - **Scenario 1**: R(t) minore di 1;
@@ -60,38 +60,38 @@ Orizzontalmente sono inoltre riportate le soglie che portano, al di sopra di ess
 
 ## Dosi di vaccino somministrate per 100.000 abitanti
 
-![Dosi per regioni](./docs/dosi_per_regioni.png)
+![Dosi per regioni](./assets/dosi_per_regioni.png)
 
 Il grafico mostra le singole dosi di vaccino somministrate giornalmente per ogni regione. Il dato è scalato su 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. È riportata, con la traccia semi-trasparente, la media italiana.
 
 ## Percentuale popolazione immunizzata
 
-![Immunizzati](./docs/immunizzati.png)
+![Immunizzati](./assets/immunizzati.png)
 
 Il grafico mostra la percentuale di popolazione, per ogni regione del benchmark e per l'Italia (traccia semi-trasparente) che puo essere definita immunizzata, ovvero tale da aver ricevuto sia la prima dose che il richiamo.
 
 ## Incidenza settimanale casi, per 100.000 abitanti
 
-![Incidenza settimanale](./docs/incid_sett_per_regioni.png)
+![Incidenza settimanale](./assets/incid_sett_per_regioni.png)
 
 Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni regione, scalato su 100.000 abitanti. In altre parole, ogni punto del grafico esprime **la differenza tra il totale dei casi registrati nel giorno *n* rispetto al giorno *n - 7***. Il dato viene riportato in quanto la soglia a 50 è uno dei nuovi parametri previsti dalle regole valide dal 16 gennaio, come indicato nella tabella iniziale.
 
 ## Nuovi positivi per regioni, per 100.000 abitanti
 
-![Positivi per regioni](./docs/positivi_per_regioni.png)
+![Positivi per regioni](./assets/positivi_per_regioni.png)
 
 Il grafico indica i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni regione del benchmark. Il dato è scalato su 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana.
 
 
 ## Occupazione terapia intensiva per regioni
 
-![Occupazione TI per regioni](./docs/ti_per_regioni.png)
+![Occupazione TI per regioni](./assets/ti_per_regioni.png)
 
 Il grafico riporta, per ogni regione del benchmark, la percentuale di occupazione dei reparti di terapia intensiva, calcolata come `n° posti occupati / n° posti disponibili`. Il numero di posti in terapia intensiva per regioni derivano da [una fonte esterna](https://www.infodata.ilsole24ore.com/2020/10/15/terapie-intensive-scopri-in-tempo-reale-quanti-posti-sono-occupati/). È riportata, con la traccia semi-trasparente, la media italiana. La linea gialla indica il livello d'allerta del 30% dei posti TI occupati (oltre il quale sono a rischio gli interventi ordinari), mentre la linea rossa la saturazione (100% di posti occupati).
 
 ## Tasso di positività
 
-![Tasso positività](./docs/positivita.png)
+![Tasso positività](./assets/positivita.png)
 
 Il grafico indica, per ogni regione, la percentuale di tamponi positivi su quelli effettuati giornalmente (tampone molecolare). Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7 giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana. In linea di massima, all'aumentare dei tamponi effettuati, la percentuale aumenta.  
 
@@ -101,7 +101,7 @@ Analisi più specifiche sono state portate avanti per quanto riguarda la regione
 
 ## Parametri Marche in val. assoluti
 
-![Parametri regione Marche](./docs/parametri_marche.png)
+![Parametri regione Marche](./assets/parametri_marche.png)
 
 Il grafico precedente raffronta differenti indicatori a livello regionale, in valori assoluti, con gli stessi valori indicati nel primo grafico, ma limitati ai valori regionali: 
 - La linea blu riporta i decessi giornalieri (in media mobile di 7 giorni); 
@@ -111,18 +111,18 @@ Il grafico precedente raffronta differenti indicatori a livello regionale, in va
 
 ## Dosi di vaccino somministrate nelle Marche
 
-![Vaccini somministrati](./docs/dosi_marche.png)
+![Vaccini somministrati](./assets/dosi_marche.png)
 
 Il grafico mostra le dosi di vaccino somministrate giornalmente nelle Marche, distinguendo somministrazioni per prima dose dalle somministrazioni per seconda dose. L'altezza complessiva di ogni barra indica il totale delle somministrazioni giornaliere.
 
 ## Nuovi positivi per provincia delle Marche, per 100.000 abitanti
 
-![Casi per province Marche](./docs/totale_casi_per_province_marche.png)
+![Casi per province Marche](./assets/totale_casi_per_province_marche.png)
 
 Il grafico indica i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni provincia della regione Marche. Il dato è scalato sul 100.000 abitanti, rendendo così possibile mettere in relazione tra loro le province, tenendo conto della diversa densità di popolazione. Il dato provinciale è fortemente instabile: per la consultazione, è stata effettuata una media mobile su un periodo di 14 giorni, il che porta ad avere il dato arretrato temporalmente di una settimana. È riportata, con la traccia semi-trasparente, la media italiana.
 
 ## Nuovi positivi per provincia delle Marche, in valori assoluti
 
-![Casi per province Marche abs](./docs/totale_casi_per_province_marche_abs.png)
+![Casi per province Marche abs](./assets/totale_casi_per_province_marche_abs.png)
 
 Il grafico indica i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni provincia della regione Marche. Il dato è riportato in valosi assoluti, per evidenziare il numero effettivo di casi di ogni porvincia. Il dato provinciale è fortemente instabile: per la consultazione, è stata effettuata una media mobile su un periodo di 14 giorni, il che porta ad avere il dato arretrato temporalmente di una settimana. È riportata, con la traccia semi-trasparente, la media italiana.

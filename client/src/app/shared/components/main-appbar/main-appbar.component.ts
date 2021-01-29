@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-main-appbar',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./main-appbar.component.scss']
 })
 export class MainAppbarComponent implements OnInit {
+  imgPrefix = environment.imgPrefix;
 
   constructor() { }
 

@@ -18,7 +18,7 @@ def compute_adm(save_image=False, show=False, area_code=areas.italia):
     """
     Administration data about Italy.
     """
-    data = extract_area_adm_data(area_code)
+    data = extract_area_adm_data(area_code) if area_code != areas.italia else nation_data
 
     # plt.stackplot(data['data_somministrazione'], data['prima_dose'],data['seconda_dose'],
     #               labels=['Prime dosi', 'Seconde dosi'])
@@ -37,7 +37,7 @@ def compute_adm(save_image=False, show=False, area_code=areas.italia):
 
     if save_image:
         area_name_clean = area_names[area_code].lower().replace(' ', '_')
-        plt.savefig(f'./docs/dosi_{area_name_clean}.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig(f'./assets/dosi_{area_name_clean}.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -64,7 +64,7 @@ def compute_regional_doses(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/dosi_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/dosi_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -92,7 +92,7 @@ def compute_immunes_per_regions(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./docs/immunizzati.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/immunizzati.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()

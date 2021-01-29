@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-image',
@@ -9,13 +10,13 @@ export class ImageComponent implements OnInit {
   @Input() src: string | undefined;
   @Input() alt: string | undefined;
 
-  defaultFallback = '/assets/images/fallbackImg.png';
+  defaultFallback =  `${environment.imgPrefix}/assets/fallbackImg.png`;
   actualSrc: string | undefined;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.actualSrc = this.src ? `/CovidAnalysis/${this.src}` : this.defaultFallback;
+    this.actualSrc = this.src ? `${environment.imgPrefix}${this.src}` : this.defaultFallback;
   }
 
   setDefaultFallback(): void {
