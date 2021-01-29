@@ -5,23 +5,17 @@ import {AppRoutingModule} from '../../app-routing.module';
 import {SharedDirectivesModule} from '../directives/shared-directives.module';
 import {SharedPipesModule} from '../pipes/shared-pipes.module';
 import {MaterialComponentsModule} from '../material-components/material-components.module';
-import {AlertDialogComponent} from './alert-dialog/alert-dialog.component';
 import {FooterComponent} from './footer/footer.component';
 import {MainAppbarComponent} from './main-appbar/main-appbar.component';
-import {NestedAppbarComponent} from './nested-appbar/nested-appbar.component';
-import {FabComponent} from './fab/fab.component';
-import {TextboxDialogComponent} from './textbox-dialog/textbox-dialog.component';
 import { LastUpdateComponent } from './last-update/last-update.component';
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
   declarations: [
-    AlertDialogComponent,
     FooterComponent,
     MainAppbarComponent,
-    NestedAppbarComponent,
-    FabComponent,
-    TextboxDialogComponent,
-    LastUpdateComponent
+    LastUpdateComponent,
+    ImageComponent
   ],
   imports: [
     CommonModule,
@@ -33,13 +27,10 @@ import { LastUpdateComponent } from './last-update/last-update.component';
     FormsModule
   ],
   exports: [
-    AlertDialogComponent,
     FooterComponent,
     MainAppbarComponent,
-    NestedAppbarComponent,
-    FabComponent,
-    TextboxDialogComponent,
-    LastUpdateComponent
+    LastUpdateComponent,
+    ImageComponent
   ]
 })
 export class SharedComponentsModule { }

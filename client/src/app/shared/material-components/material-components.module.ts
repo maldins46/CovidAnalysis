@@ -3,16 +3,10 @@ import {CommonModule} from '@angular/common';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatRippleModule} from '@angular/material/core';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatRippleModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -23,28 +17,16 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatMenuModule,
     MatToolbarModule,
     MatButtonModule,
-    MatProgressSpinnerModule,
-    MatRippleModule,
-    MatSnackBarModule,
-    MatDialogModule,
-    MatInputModule,
-    MatSelectModule,
     MatTooltipModule,
-    MatButtonToggleModule,
+    MatRippleModule
   ],
   exports: [
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
     MatButtonModule,
-    MatProgressSpinnerModule,
-    MatRippleModule,
-    MatSnackBarModule,
-    MatDialogModule,
-    MatInputModule,
-    MatSelectModule,
     MatTooltipModule,
-    MatButtonToggleModule,
+    MatRippleModule
   ]
 })
 export class MaterialComponentsModule {

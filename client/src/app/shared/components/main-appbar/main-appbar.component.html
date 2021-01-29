@@ -56,21 +56,29 @@
     </button>
 
     <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/home">
-          <mat-icon svgIcon="home-outline" class="menu-icon"></mat-icon>
-          <span>Home</span>
-        </button>
-        <button mat-menu-item routerLink="/rules">
-          <mat-icon svgIcon="clipboard-check-outline" class="menu-icon"></mat-icon>
-          <span>Regole</span>
-        </button>
-      <button mat-menu-item routerLink="/group-a">
-        <mat-icon svgIcon="alpha-a-circle-outline" class="menu-icon"></mat-icon>
-        <span>Girone A</span>
+      <button mat-menu-item routerLink="/home">
+        <mat-icon svgIcon="home-outline" class="menu-icon"></mat-icon>
+        <span>Home</span>
       </button>
-      <button mat-menu-item routerLink="/group-b">
-        <mat-icon svgIcon="alpha-b-circle-outline" class="menu-icon"></mat-icon>
-        <span>Girone B</span>
+
+      <button mat-menu-item routerLink="/italy">
+        <mat-icon svgIcon="flag-variant-outline" class="menu-icon"></mat-icon>
+        <span>Italia</span>
+      </button>
+
+      <button mat-menu-item routerLink="/vaccines">
+        <mat-icon svgIcon="flask-outline" class="menu-icon"></mat-icon>
+        <span>Vaccini</span>
+      </button>
+
+      <button mat-menu-item routerLink="/benchmark">
+        <mat-icon svgIcon="map-marker-multiple-outline" class="menu-icon"></mat-icon>
+        <span>Benchmark</span>
+      </button>
+
+      <button mat-menu-item routerLink="/marche">
+        <mat-icon svgIcon="marche" class="menu-icon"></mat-icon>
+        <span>Marche</span>
       </button>
     </mat-menu>
   </div>
