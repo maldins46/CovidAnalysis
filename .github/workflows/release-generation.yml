@@ -1,11 +1,9 @@
 # Generates a new release with updated data every day ay midnight
 
-name: Daily Chart Update
+name: Daily Charts' Deploy
 
 # schedule the chart generation to be executed every day at midnight
 on:
-  push: 
-    branches: [ main ]
   schedule:
   - cron: "0 0 * * *"
 
@@ -45,7 +43,6 @@ jobs:
     - name: Commit changes 
       uses: EndBug/add-and-commit@v5.2.0
       with:
-        author_name: 'Deploy Bot'
         message: 'Update charts ${{ steps.date.outputs.date }}'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

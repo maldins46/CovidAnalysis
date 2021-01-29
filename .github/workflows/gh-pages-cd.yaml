@@ -1,7 +1,7 @@
 # The aim of this action is to deploy a usable instance of the client to
 # GitHub Pages, by compiling che Angular client, and making it
 # accessible from the branch gh-pages.
-name: Angular CD
+name: Client Deploy
 on:
   push:
     branches:

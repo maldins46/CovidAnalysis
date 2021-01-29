@@ -1,6 +1,5 @@
 # CovidAnalysis
 ![Python Tests](https://github.com/maldins46/CovidAnalysis/workflows/Python%20Tests/badge.svg)
-![Language](https://img.shields.io/github/languages/top/maldins46/CovidAnalysis)
 ![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=alert_status)
 ![Repo size](https://img.shields.io/github/repo-size/maldins46/CovidAnalysis)
 ![License](https://img.shields.io/github/license/maldins46/CovidAnalysis)
