@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611954859379,
+  "timestamp": 1611959846377,
   "index": "/CovidAnalysis/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/CovidAnalysis/favicon.ico",
         "/CovidAnalysis/index.html",
-        "/CovidAnalysis/main.76e20bb22490fe129a72.js",
+        "/CovidAnalysis/main.758b33cbf680f16e2497.js",
         "/CovidAnalysis/manifest.webmanifest",
         "/CovidAnalysis/polyfills.d15628b9ba7248669cd9.js",
         "/CovidAnalysis/runtime.7b63b9fd40098a2e8207.js",
@@ -31,6 +31,7 @@
       "urls": [
         "/CovidAnalysis/assets/custom-icons/marche.svg",
         "/CovidAnalysis/assets/custom-icons/mdi.svg",
+        "/CovidAnalysis/assets/fallbackImg.png",
         "/CovidAnalysis/assets/icons/android-chrome-192x192.png",
         "/CovidAnalysis/assets/icons/android-chrome-512x512.png",
         "/CovidAnalysis/assets/icons/android-chrome-maskable-192x192.png",
@@ -40,9 +41,8 @@
         "/CovidAnalysis/assets/icons/favicon.ico",
         "/CovidAnalysis/assets/icons/mstile-150x150.png",
         "/CovidAnalysis/assets/icons/safari-pinned-tab.svg",
-        "/CovidAnalysis/assets/images/fallbackImg.png",
-        "/CovidAnalysis/assets/images/logo-small.png",
-        "/CovidAnalysis/assets/images/logo.png"
+        "/CovidAnalysis/assets/logo-small.png",
+        "/CovidAnalysis/assets/logo.png"
       ],
       "patterns": []
     }
@@ -51,6 +51,7 @@
   "hashTable": {
     "/CovidAnalysis/assets/custom-icons/marche.svg": "6b8143d2bd48d03c2ca8c172425b57251202059c",
     "/CovidAnalysis/assets/custom-icons/mdi.svg": "5f383669c6cb349c6a326116b0de97da66b0e076",
+    "/CovidAnalysis/assets/fallbackImg.png": "dfbfc3745cb9e666d0b63bdb84230c04903a35b4",
     "/CovidAnalysis/assets/icons/android-chrome-192x192.png": "ad9bc97d999355ddf42c23722dcea2e75639d035",
     "/CovidAnalysis/assets/icons/android-chrome-512x512.png": "48666cae25daa1af6306a655f86ec0c63da505ae",
     "/CovidAnalysis/assets/icons/android-chrome-maskable-192x192.png": "34401e80ef2a3efd74030004a45ca6a040b4de17",
@@ -60,12 +61,11 @@
     "/CovidAnalysis/assets/icons/favicon.ico": "8fc02df634ef772c704437cb73e9ec2b37498ce7",
     "/CovidAnalysis/assets/icons/mstile-150x150.png": "72da42fee5027d95e59539d544af4226f9c8eff5",
     "/CovidAnalysis/assets/icons/safari-pinned-tab.svg": "55b4493fdf99a0f4fcd9b471f42b7d704dab4a1c",
-    "/CovidAnalysis/assets/images/fallbackImg.png": "dfbfc3745cb9e666d0b63bdb84230c04903a35b4",
-    "/CovidAnalysis/assets/images/logo-small.png": "45c6e23503f7c39e005019f0ebf92bb35c4098ee",
-    "/CovidAnalysis/assets/images/logo.png": "9cfbaf2476d59cfd215fe6ac3661756154f86b17",
+    "/CovidAnalysis/assets/logo-small.png": "45c6e23503f7c39e005019f0ebf92bb35c4098ee",
+    "/CovidAnalysis/assets/logo.png": "9cfbaf2476d59cfd215fe6ac3661756154f86b17",
     "/CovidAnalysis/favicon.ico": "8fc02df634ef772c704437cb73e9ec2b37498ce7",
-    "/CovidAnalysis/index.html": "a265f5695e68581efdb9080509e17c5e8e218701",
-    "/CovidAnalysis/main.76e20bb22490fe129a72.js": "7c4c443bfb0ea7aa35f5107efecdd6e72285244f",
+    "/CovidAnalysis/index.html": "3f00cd694b33a58b6efa3e6347eabe2a9e363d93",
+    "/CovidAnalysis/main.758b33cbf680f16e2497.js": "3463e56faa95adca219ce5d5b56e7e12aa655cb2",
     "/CovidAnalysis/manifest.webmanifest": "42b245c3ee77b97424f3d03d758f56ae21a104bb",
     "/CovidAnalysis/polyfills.d15628b9ba7248669cd9.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
     "/CovidAnalysis/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
