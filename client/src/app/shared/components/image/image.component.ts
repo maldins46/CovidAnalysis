@@ -10,13 +10,13 @@ export class ImageComponent implements OnInit {
   @Input() src: string | undefined;
   @Input() alt: string | undefined;
 
-  defaultFallback =  `${environment.imgPrefix}/assets/fallbackImg.png`;
+  defaultFallback =  '/CovidAnalysis/assets/fallbackImg.png';
   actualSrc: string | undefined;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.actualSrc = this.src ? `${environment.imgPrefix}${this.src}` : this.defaultFallback;
+    this.actualSrc = this.src ? this.src : this.defaultFallback;
   }
 
   setDefaultFallback(): void {
