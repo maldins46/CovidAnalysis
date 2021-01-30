@@ -10,6 +10,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 18px;
+  color: $primaryControlColor;
 
   @include forDesktopOnly {
     font-size: 20px;
@@ -20,27 +21,17 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 16px;
+  color: $primaryControlColor;
 
   @include forDesktopOnly {
     font-size: 18px;
   }
 }
 
-
-@mixin subsubtitleFont {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-
-  @include forDesktopOnly {
-    font-size: 16px;
-  }
-}
-
 @mixin subheadFont {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
 
   @include forDesktopOnly {
     font-size: 16px;
@@ -51,6 +42,8 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   font-size: 16px;
+  color: $secondaryControlColor;
+
 
   @include forDesktopOnly {
     font-size: 16px;

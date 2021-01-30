@@ -6,16 +6,18 @@ import {SharedDirectivesModule} from '../directives/shared-directives.module';
 import {SharedPipesModule} from '../pipes/shared-pipes.module';
 import {MaterialComponentsModule} from '../material-components/material-components.module';
 import {FooterComponent} from './footer/footer.component';
-import {MainAppbarComponent} from './main-appbar/main-appbar.component';
+import {AppbarComponent} from './main-appbar/appbar.component';
 import { LastUpdateComponent } from './last-update/last-update.component';
 import { ImageComponent } from './image/image.component';
+import { PageComponent } from './page/page.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    MainAppbarComponent,
+    AppbarComponent,
     LastUpdateComponent,
-    ImageComponent
+    ImageComponent,
+    PageComponent
   ],
   imports: [
     CommonModule,
@@ -28,9 +30,10 @@ import { ImageComponent } from './image/image.component';
   ],
   exports: [
     FooterComponent,
-    MainAppbarComponent,
+    AppbarComponent,
     LastUpdateComponent,
-    ImageComponent
+    ImageComponent,
+    PageComponent
   ]
 })
 export class SharedComponentsModule { }

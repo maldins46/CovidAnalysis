@@ -15,10 +15,11 @@ footer {
   div.title {
     @include responsiveProp(margin-bottom, $quarterMargin)
   }
-
-  a.title {
+  a {
     @include subheadFont;
     text-decoration: none;
+  }
+  a.title {
     color: $primaryControlColor;
   }
 
@@ -28,9 +29,8 @@ footer {
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    text-decoration: none;
-    @include subheadFont;
     color: $beerColor;
+    font-weight: 500;
 
     .image {
       margin-right: 8px;

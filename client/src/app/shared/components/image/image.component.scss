@@ -4,5 +4,5 @@
   max-width: 100%;
   height: auto;
 
-  @include responsiveProp(margin-bottom, $defaultMargin)
+  @include responsiveProp(margin-bottom, $quarterMargin)
 }
