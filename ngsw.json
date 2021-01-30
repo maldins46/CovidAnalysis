@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611961499373,
+  "timestamp": 1612016654873,
   "index": "/CovidAnalysis/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/CovidAnalysis/favicon.ico",
         "/CovidAnalysis/index.html",
-        "/CovidAnalysis/main.8b7ec81f6cc050cfef45.js",
+        "/CovidAnalysis/main.86d506999aa3ca008775.js",
         "/CovidAnalysis/manifest.webmanifest",
         "/CovidAnalysis/polyfills.d15628b9ba7248669cd9.js",
         "/CovidAnalysis/runtime.7b63b9fd40098a2e8207.js",
-        "/CovidAnalysis/styles.6849d30bb8b03d39ff68.css"
+        "/CovidAnalysis/styles.9552dee5098dd8d86390.css"
       ],
       "patterns": []
     },
@@ -49,11 +49,11 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/CovidAnalysis/assets/custom-icons/marche.svg": "6b8143d2bd48d03c2ca8c172425b57251202059c",
+    "/CovidAnalysis/assets/custom-icons/marche.svg": "170d7e7ecdbffb25aaee5ad66c848428051359ad",
     "/CovidAnalysis/assets/custom-icons/mdi.svg": "5f383669c6cb349c6a326116b0de97da66b0e076",
     "/CovidAnalysis/assets/fallbackImg.png": "dfbfc3745cb9e666d0b63bdb84230c04903a35b4",
-    "/CovidAnalysis/assets/icons/android-chrome-192x192.png": "ad9bc97d999355ddf42c23722dcea2e75639d035",
-    "/CovidAnalysis/assets/icons/android-chrome-512x512.png": "48666cae25daa1af6306a655f86ec0c63da505ae",
+    "/CovidAnalysis/assets/icons/android-chrome-192x192.png": "ebf08b3d3bb70f43b86716f32b1999634206aa68",
+    "/CovidAnalysis/assets/icons/android-chrome-512x512.png": "d520c97ac5c9b8e999987cda608f430380481e69",
     "/CovidAnalysis/assets/icons/android-chrome-maskable-192x192.png": "34401e80ef2a3efd74030004a45ca6a040b4de17",
     "/CovidAnalysis/assets/icons/apple-touch-icon.png": "6a01fcaca37f596a9fd68c6296c9c5f5fb249207",
     "/CovidAnalysis/assets/icons/favicon-16x16.png": "507ade33fe8642782c6258909ea7c6aa8bd1b7d5",
@@ -64,12 +64,12 @@
     "/CovidAnalysis/assets/logo-small.png": "45c6e23503f7c39e005019f0ebf92bb35c4098ee",
     "/CovidAnalysis/assets/logo.png": "9cfbaf2476d59cfd215fe6ac3661756154f86b17",
     "/CovidAnalysis/favicon.ico": "8fc02df634ef772c704437cb73e9ec2b37498ce7",
-    "/CovidAnalysis/index.html": "b3b4a52a358cd18025038a749e654643cc3b1a22",
-    "/CovidAnalysis/main.8b7ec81f6cc050cfef45.js": "41a326e65066807e8c3a0897265152376b120b43",
+    "/CovidAnalysis/index.html": "16310a786266c66df519d8367eaa8f12fcce4ff7",
+    "/CovidAnalysis/main.86d506999aa3ca008775.js": "59e36cde8396228cf4015a18aeb50155cc5dbb42",
     "/CovidAnalysis/manifest.webmanifest": "42b245c3ee77b97424f3d03d758f56ae21a104bb",
     "/CovidAnalysis/polyfills.d15628b9ba7248669cd9.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
     "/CovidAnalysis/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/CovidAnalysis/styles.6849d30bb8b03d39ff68.css": "6c20264ad7752fdfa98f32175ddecdb3685c7794"
+    "/CovidAnalysis/styles.9552dee5098dd8d86390.css": "6b9ef1d99cb7c3a182a6e6ff28182ae54c39a94d"
   },
   "navigationUrls": [
     {
