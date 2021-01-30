@@ -10,7 +10,7 @@ export class ImageComponent implements OnInit {
   @Input() src: string | undefined;
   @Input() alt: string | undefined;
 
-  defaultFallback =  '/CovidAnalysis/assets/fallbackImg.png';
+  defaultFallback =  `${environment.imgPrefix}/assets/fallbackImg.png`;
   actualSrc: string | undefined;
 
   constructor() { }

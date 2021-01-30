@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../../../core/api/api.service';
 
 @Component({
   selector: 'app-last-update',
