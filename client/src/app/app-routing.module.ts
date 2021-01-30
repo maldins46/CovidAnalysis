@@ -13,10 +13,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [ConnectionGuard] },
   { path: 'italy', component: ItalyComponent, canActivate: [ConnectionGuard] },
-  { path: 'marche', component: MarcheComponent, canActivate: [ConnectionGuard] },
-  { path: 'benchmark', component: BenchmarkComponent, canActivate: [ConnectionGuard] },
   { path: 'vaccines', component: VaccinesComponent, canActivate: [ConnectionGuard] },
-
+  { path: 'benchmark', component: BenchmarkComponent, canActivate: [ConnectionGuard] },
+  { path: 'marche', component: MarcheComponent, canActivate: [ConnectionGuard] },
 
   // others
   { path: 'offline', component: OfflineComponent, canActivate: [OnlineGuard] },
