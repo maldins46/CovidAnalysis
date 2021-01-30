@@ -1,22 +1,63 @@
 <div class="page">
-  <h1>Home</h1>
+  <h1>Una dashboard per consultare dati di interesse sull'andamento dell'epidemia da COVID-19.</h1>
   <p>
-    Benvenuto nel nuovo CovidAnalysis! Sto preparando il restyling del sito, per cui per alcuni giorni i grafici non
-    saranno disponibili! Puoi sempre scaricare la immagini aggiornate <a href="">da qui</a>.
+    Benvenuto! CovidAnalysis è un sito che mostra informazioni di rilievo sull'andamento dell'epidemia da COVID-19,
+    estratti a partire dagli opendata <a href="https://github.com/pcm-dpc/COVID-19">forniti dalla Protezione Civile</a>
+    e dal <a href="https://github.com/italia/covid19-opendata-vaccini">Dipartimento per la Trasformazione Digitale</a>.
   </p>
-  <app-image src="https://raw.githubusercontent.com/maldins46/CovidAnalysis/main/assets/dosi_italia.png"
-             alt="Parametri nazionali"></app-image>
-
-  <h1>Altra sezione</h1>
   <p>
-    Altro paragrafo Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
+    I grafici si rigenerano automaticamente allo scoccare della mezzanotte, con i dati aggiornati al giorno
+    precedente.
   </p>
-  <div class="right-button-container">
-    <a mat-raised-button color="primary" routerLink="/vaccines"><mat-icon class="button-icon" svgIcon="flask-outline"></mat-icon> Vai a sezione vaccini</a>
-  </div>
+
+  <h2>Perché questo sito?</h2>
+  <p>
+    Scopo del sito è quello di carpire delle informazioni, a partire dai dati grezzi, e renderle facilmente reperibili.
+    Va inoltre sottolineato che il focus è più sul fornire una piattaforma facilmente accessibile e costantemente
+    aggiornata, rispetto allo scendere nel dettaglio delle analisi; essendo un informatico, mi sono focalizzato più sul
+    creare un mezzo efficace.
+  </p>
+
+  <h2>Come contribuire?</h2>
+  <p>
+    Il codice del sito, e i sorgenti per la generazione dei grafici, è
+    <a href="https://github.com/maldins46/CovidAnalysis">completamente open source</a>, e distribuito con
+    <a href="https://github.com/maldins46/CovidAnalysis/blob/main/LICENSE">licenza MIT</a>. Ciò significa che
+    chi ne abbia volontà, può contribuire al miglioramento del sito, dei contenuti,
+    o semplicemente utilizzare il codice per dar luce alle proprie analisi.
+  </p>
+  <p>
+    Se il sito è di tuo gradimento, puoi anche incentivarmi <a href="#">con una piccola donazione</a> 💙
+  </p>
+
+  <h1>Com'è strutturato il sito?</h1>
+  <p>
+    Sono presenti differenti sezioni, ognuna delle quali raggruppa analisi di diverso tipo. Puoi accedervi da qui
+    o dal menù principale:
+  </p>
+  <ul>
+    <li><b><a routerLink="/italy">Italia</a></b>: grafici, analisi e indicatori utili a descrivere la situazione a
+      livello nazionale, oltre a un rapido excursus sui parametri per il calcolo del sistema a zone.
+    </li>
+    <li><b><a routerLink="/vaccines">Vaccini</a></b>: varie analisi ricavate a partire dai dati sui vaccini, sia a
+      livello nazionale, che di benchmark, che per la regione Marche.
+    </li>
+    <li><b><a routerLink="/benchmark">Benchmark regionale</a></b>: grafici che raffrontano vari parametri a
+      livello regionale, confrontando in particolare tre regioni prese come "benchmark", rappresentative di situazioni
+      differenti.
+    </li>
+    <li><b><a routerLink="/marche">Marche</a></b>: analisi incentrate su dati regionali e provinciali della Regione
+      Marche, in quanto di interesse personale un focus particolare su questa regione.
+    </li>
+  </ul>
+
+
+  <h2>App everywhere!</h2>
+  <p>
+    Il sito è inoltre una <b>Web App</b>: ciò significa che, accedendo da qualunque dispositivo tramite browser, e
+    salvando il sito nella schermata home (tasto Condividi > Aggiungi alla schermata Home), questo viene visualizzato
+    come una vera e propria app nativa!
+  </p>
 </div>
 
 <app-main-appbar></app-main-appbar>

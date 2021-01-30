@@ -42,6 +42,43 @@ button {
     color: $primaryColor;
   }
 
+
+  // Font used for generic titles.
+  h1 {
+    @include titleFont;
+    color: $primaryControlColor;
+    @include responsiveProp(margin-bottom, $halfMargin);
+    margin-top: 0;
+  }
+
+  // Font used for an important body text, such as a card title.
+  h2 {
+    @include subtitleFont;
+    color: $primaryControlColor;
+    @include responsiveProp(margin-top, $quarterMargin);
+    @include responsiveProp(margin-bottom, $halfMargin);
+    margin-top: 0;
+  }
+
+
+  p {
+    @include bodyFont;
+    margin-top: 0;
+    @include responsiveProp(margin-bottom, $defaultMargin);
+  }
+
+  ul{
+    padding-inline-start: 20px;
+  }
+
+
+  li {
+    @include bodyFont;
+    margin-top: 0;
+    @include responsiveProp(margin-bottom, $halfMargin);
+  }
+
+
   img {
     height: 100%;
   }
@@ -54,26 +91,3 @@ button {
     padding-right: 0;
   }
 }
-
-// Font used for generic titles.
-h1 {
-  @include titleFont;
-  color: $primaryControlColor;
-  @include responsiveProp(margin-bottom, $halfMargin);
-  margin-top: 0;
-}
-
-// Font used for an important body text, such as a card title.
-h2 {
-  @include subheadFont;
-  color: $primaryControlColor;
-  @include responsiveProp(margin-bottom, $quarterMargin);
-  margin-top: 0;
-}
-
-p {
-  @include bodyFont;
-  margin-top: 0;
-  @include responsiveProp(margin-bottom, $defaultMargin);
-}
-

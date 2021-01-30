@@ -1,10 +1,36 @@
 <div class="page">
   <h1>Italia</h1>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Grafici, analisi e indicatori utili a descrivere la situazione a
+    livello nazionale, oltre a un rapido excursus sui parametri per il calcolo del sistema a zone.
   </p>
+
+  <h2>Parametri nazionali in valori assoluti</h2>
+
+  <p>
+    Il grafico raffronta differenti indicatori a livello nazionale, in valori assoluti:
+  </p>
+  <ul>
+    <li>La linea blu riporta i decessi giornalieri (in media mobile di 7 giorni);</li>
+    <li>La linea gialla riporta l'ammontare dei pazienti in terapia intensiva, per ogni giorno;</li>
+    <li>La linea verde riporta i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni);</li>
+    <li>La linea rossa riporta i'ammontare dei pazienti ricoverati con sintomi per COVID-19, per ogni giorno.</li>
+  </ul>
+
+  <app-image src="https://raw.githubusercontent.com/maldins46/CovidAnalysis/main/assets/parametri_italia.png"
+             alt="Parametri Italia"></app-image>
+
+  <h2>Come funziona il sistema a zone?</h2>
+  <p>
+    A partire dal 16 di gennaio, i colori delle varie regioni vengono determinati sulla base di livello di rischio,
+    valore dell'indice R(t) e in base all'incidenza settimanale dei casi. Il meccanismo
+    <a href="https://www.youtrend.it/2021/01/14/come-funziona-il-nuovo-sistema-per-decidere-i-colori-delle-regioni/">
+      viene spiegato molto bene da YouTrend</a>. Il grafico qui riportato proviene dallo stesso articolo:
+  </p>
+
+  <app-image src="https://raw.githubusercontent.com/maldins46/CovidAnalysis/main/assets/sist_colori.png"
+             alt="Sistema a zone"></app-image>
+
 </div>
 
 <app-main-appbar></app-main-appbar>

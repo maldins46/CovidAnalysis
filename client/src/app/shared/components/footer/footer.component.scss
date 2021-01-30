@@ -29,6 +29,7 @@ footer {
     flex-direction: row;
     justify-content: center;
     text-decoration: none;
+    @include subheadFont;
     color: $beerColor;
 
     .image {

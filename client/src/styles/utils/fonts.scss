@@ -16,6 +16,27 @@
   }
 }
 
+@mixin subtitleFont {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+
+  @include forDesktopOnly {
+    font-size: 18px;
+  }
+}
+
+
+@mixin subsubtitleFont {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+
+  @include forDesktopOnly {
+    font-size: 16px;
+  }
+}
+
 @mixin subheadFont {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -29,7 +50,7 @@
 @mixin bodyFont {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 16px;
 
   @include forDesktopOnly {
     font-size: 16px;

@@ -1,10 +1,76 @@
 <div class="page">
-  <h1>Benchmark</h1>
+  <h1>Benchmark regionale</h1>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Grafici che raffrontano vari parametri a livello regionale, confrontando in particolare tre regioni prese come
+    "benchmark", rappresentative di situazioni differenti: <b>Veneto</b>, <b>Toscana</b>, <b>Marche</b>. La scelta
+    delle regioni è stata dettata anche dalla volontà di espandere l'analisi in particolare sulla regione Marche.
   </p>
+
+  <h2>Indice R(t) SIRD per regioni</h2>
+
+  <p>
+  Il grafico mostra l'andamento dell'indice R(t) per le regioni del benchmark, calcolato con <b>modellazione SIRD</b>:
+  un metodo semplificato, <b>non quello utilizzato dall'ISS</b>, ma indicativo dell'andamento.
+  </p>
+
+  <app-image src="https://raw.githubusercontent.com/maldins46/CovidAnalysis/main/assets/rt_per_regioni.png"
+             alt="R(t) per regioni"></app-image>
+
+  <p>
+    Le soglie orizzontali indicano la soglia dei vari <b>scenari</b>, a seconda dei quali vengono
+    <a href="#" routerLink="/italy">determinate le varie zone</a> :
+  </p>
+  <ul>
+    <li><b>Scenario 1</b>:  R(t) minore di 1;</li>
+    <li><b>Scenario 2</b>: R(t) compreso tra 1 e 1,25;</li>
+    <li><b>Scenario 3</b>: R(t) compreso tra 1,25 e 1,50;</li>
+    <li><b>Scenario 4</b>: R(t) superiore a 1,50.</li>
+  </ul>
+
+  <p>
+    <i>Nota metodologica</i>: differenti metodi per il calcolo di R(t) <b>possono portare a risultati molto
+    differenti</b> tra di loro. Quello qui utilizzato, ad esempio, ha per la natura dell'algoritmo e dei dati utilizzati
+    una forte varianza (si allontantana molto dal valore di 1). C'è però da dire che <b>tutti i metodi modellano correttamente un
+    valore maggiore di 1 nel caso in cui i contagi sono in aumento, e minore di 1 nel caso in cui siano in diminuzione</b>.
+    <b>EpiEstim</b>, quello utilzzato dall'ISS, è molto più complesso, ma fornisce valori più precisi e con meno varianza.
+  </p>
+
+  <h2>Incidenza settimanale casi, per 100.000 abitanti</h2>
+  <p>
+    Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni regione, scalato su 100.000 abitanti.
+    In altre parole, ogni punto del grafico esprime <i>la differenza tra il totale dei casi registrati nel giorno <b>n</b>
+    rispetto al giorno <b>n - 7</b></i>. Il dato viene riportato in quanto la soglia a 50 è uno dei nuovi parametri
+    previsti dalle regole valide dal 16 gennaio, come indicato nella tabella iniziale.
+  </p>
+
+  <app-image src="https://raw.githubusercontent.com/maldins46/CovidAnalysis/main/assets/incid_sett_per_regioni.png"
+             alt="Incidenza settimanale"></app-image>
+
+  <h2>Occupazione terapia intensiva per regioni</h2>
+  <p>
+    Il grafico riporta, per ogni regione del benchmark, la percentuale di occupazione dei reparti di terapia intensiva,
+    calcolata come <b>n° posti occupati / n° posti disponibili</b>. Il numero di posti in terapia intensiva per regioni
+    derivano da<a href="https://www.infodata.ilsole24ore.com/2020/10/15/terapie-intensive-scopri-in-tempo-reale-quanti-posti-sono-occupati">
+    una fonte esterna</a>. È riportata, con la traccia semi-trasparente, la media italiana. La linea gialla indica il
+    livello d'allerta del 30% dei posti TI occupati (oltre il quale sono a rischio gli interventi ordinari), mentre la
+    linea rossa la saturazione (100% di posti occupati).
+  </p>
+
+  <app-image src="https://raw.githubusercontent.com/maldins46/CovidAnalysis/main/assets/ti_per_regioni.png"
+             alt="Occupazione TI per regioni"></app-image>
+
+  <h2>Tasso di positività</h2>
+  <p>
+    Il grafico indica, per ogni regione, la percentuale di tamponi positivi su quelli effettuati giornalmente
+    (tampone molecolare). Avendo il dato una forte stagionalità settimanale, è stata effettuata una media mobile su 7
+    giorni, per ogni serie. È riportata, con la traccia semi-trasparente, la media italiana. In linea di massima,
+    all'aumentare dei tamponi effettuati, la percentuale aumenta.
+  </p>
+
+  <app-image src="https://raw.githubusercontent.com/maldins46/CovidAnalysis/main/assets/positivita.png"
+             alt="Tasso di positività"></app-image>
+
+
 </div>
 
 <app-main-appbar></app-main-appbar>
