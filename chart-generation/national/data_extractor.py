@@ -43,7 +43,7 @@ def extract_nation_data(path='./GvtOpenData/dati-andamento-nazionale'):
     national_df = national_df.drop('index', 1)
 
     # Filter data from September
-    national_df = national_df[national_df['data'] > '2020-09-01']
+    national_df = national_df[national_df['data'] > '2020-10-15']
 
     # Adds TI occupation data
     national_df['occupazione_ti'] = national_df['terapia_intensiva'] / ti_places

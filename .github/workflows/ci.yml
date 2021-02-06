@@ -1,20 +1,18 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
-name: Python Tests
+name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: main
   pull_request:
-    branches: [ main ]
+    branches: main
 
 jobs:
-  test:
+  ci:
+    name: Lint and test
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout with Open Data Submodule # updates gvt repo submodule for publication
+    - name: Checkout with submodules
       uses: actions/checkout@v2
       with:
         submodules: 'recursive' 

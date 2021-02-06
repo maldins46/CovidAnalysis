@@ -6,7 +6,7 @@ Module with useful elaborations about italian covid in marche.
 """
 
 import matplotlib.pyplot as plt
-from matplotlib.dates import MonthLocator, DateFormatter
+from matplotlib.dates import MonthLocator
 from national.data_extractor import nation_data
 from .data_extractor import provinces_of_marche_data
 from regions.data_extractor import extract_single_region_data
@@ -34,8 +34,8 @@ def compute_total_cases_per_provinces(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Nuovi pos. ogni 100.000 ab. (14 gg. m.a.)')
@@ -67,8 +67,8 @@ def compute_total_cases_per_provinces_abs(save_image=False, show=False):
     plt.stackplot(dates, cases_stack, labels=labels)
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Nuovi pos. in val. ass. (14 gg. m.a.)')

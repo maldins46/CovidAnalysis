@@ -1,7 +1,14 @@
 # CovidAnalysis
 ![Python Tests](https://github.com/maldins46/CovidAnalysis/workflows/Python%20Tests/badge.svg)
 ![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=alert_status)
-![Repo size](https://img.shields.io/github/repo-size/maldins46/CovidAnalysis)
+![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=sqale_rating)
+![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=security_rating)
+![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=reliability_rating)
+![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=sqale_index)
+![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=vulnerabilities)
+![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=ncloc)
+![Bugs](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=bugs)
+![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=code_smells)
 ![License](https://img.shields.io/github/license/maldins46/CovidAnalysis)
 
 

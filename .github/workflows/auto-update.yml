@@ -1,11 +1,10 @@
-# Generates a new release with updated data every day ay midnight
+name: Auto update data
 
-name: Daily Charts' Deploy
-
-# schedule the chart generation to be executed every day at midnight
+# schedule the chart generation to be executed every day at 20:00, as new data usually
+# are ready at 18:00.
 on:
   schedule:
-  - cron: "0 0 * * *"
+  - cron: "0 20 * * *"
 
 jobs:
   deploy:

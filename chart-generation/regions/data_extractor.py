@@ -50,7 +50,7 @@ def extract_single_region_data(region_code=areas.marche):
     region_df = region_df.drop('index', 1)
 
     # Filter data from September
-    region_df = region_df[region_df['data'] > '2020-09-01']
+    region_df = region_df[region_df['data'] > '2020-10-15']
 
     # Adds TI occupation data
     region_df['occupazione_ti'] = region_df['terapia_intensiva'] / ti_places[region_code]

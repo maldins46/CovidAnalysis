@@ -7,11 +7,12 @@ Analysis on the national vaccine data.
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
-from matplotlib.dates import DateFormatter, DayLocator
 from dictionaries.area_names import area_names_dict as area_names
 from dictionaries import area_codes as areas
 from .data_extractor import benchmark_regions_data, extract_area_adm_data
 from .data_extractor import nation_data
+from matplotlib.dates import MonthLocator
+import utils
 
 
 def compute_adm(save_image=False, show=False, area_code=areas.italia):
@@ -26,9 +27,10 @@ def compute_adm(save_image=False, show=False, area_code=areas.italia):
     plt.bar(data['data_somministrazione'], data['seconda_dose'], bottom=data['prima_dose'],
             label='Seconde dosi')
 
-    plt.gca().xaxis.set_major_locator(DayLocator(interval=2))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gcf().autofmt_xdate(which='both')
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
 
@@ -56,8 +58,10 @@ def compute_regional_doses(save_image=False, show=False):
     plt.plot(nation_data['data_somministrazione'], nation_data['totale_per_100000_ab'], alpha=0.5, linestyle=':',
              label="Italia")
 
-    plt.gca().xaxis.set_major_locator(DayLocator(interval=2))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Somministraz. ogni 100.000 abitanti')
@@ -84,8 +88,10 @@ def compute_immunes_per_regions(save_image=False, show=False):
              label="Italia")
 
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
-    plt.gca().xaxis.set_major_locator(DayLocator(interval=2))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_locator(MonthLocator())
+    plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Percentuale popolaz. immunizz.')

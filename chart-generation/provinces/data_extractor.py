@@ -49,7 +49,7 @@ def extract_single_province_data(province_code="ANC"):
     province_df = province_df.drop('index', 1)
 
     # Filter data from September
-    province_df = province_df[province_df['data'] > '2020-09-01']
+    province_df = province_df[province_df['data'] > '2020-10-15']
 
     # Add data 'incremento casi', scale per 100000 inhabitants
     province_df['incremento_casi'] = province_df['totale_casi'].diff()

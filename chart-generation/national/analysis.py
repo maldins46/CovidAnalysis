@@ -6,7 +6,7 @@ Module with useful elaborations about italian covid.
 """
 
 import matplotlib.pyplot as plt
-from matplotlib.dates import MonthLocator, DateFormatter
+from matplotlib.dates import MonthLocator
 from .data_extractor import nation_data
 import utils
 
@@ -28,8 +28,8 @@ def compute_national_parameters(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
 

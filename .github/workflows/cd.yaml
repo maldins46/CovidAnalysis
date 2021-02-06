@@ -1,16 +1,18 @@
-# The aim of this action is to deploy a usable instance of the client to
-# GitHub Pages, by compiling che Angular client, and making it
-# accessible from the branch gh-pages.
-name: Client Deploy
+name: CD
+
 on:
   push:
-    branches:
-      - main
+    branches: main
+
 jobs:
-  deploy:
+  cd:
+    name: Pages delivery
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout with submodules
+        uses: actions/checkout@v2
+
       - name: Angular Deploy to gh-pages
         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.1
         with:
@@ -19,5 +21,5 @@ jobs:
           base_href: /CovidAnalysis/
           run_lint: "true"
           deploy_branch: gh-pages
-          angular_project_dir: ./client/
+          angular_project_dir: client/
           angular_dist_build_folder: client/dist/covidanalysis

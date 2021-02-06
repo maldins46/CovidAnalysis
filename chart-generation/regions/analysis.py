@@ -7,7 +7,7 @@ Module with useful elaborations about italian covid.
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
-from matplotlib.dates import MonthLocator, DateFormatter
+from matplotlib.dates import MonthLocator
 from dictionaries import area_codes as areas
 from dictionaries.area_names import area_names_dict as area_names
 from .data_extractor import benchmark_regions_data, extract_single_region_data
@@ -31,8 +31,8 @@ def compute_ti_occupation_per_regions(save_image=False, show=False):
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Percentuale occupaz. TI')
@@ -64,8 +64,8 @@ def compute_rt_per_regions(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Indice RT (4 gg. m.a.)')
@@ -95,8 +95,8 @@ def compute_weekly_incidence(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Incid. sett. pos. per 100.000 ab.')
@@ -126,8 +126,8 @@ def compute_positivity_per_regions(save_image=False, show=False):
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Tamp. pos. su effettuati (14 gg. m.a.)')
@@ -154,8 +154,8 @@ def compute_rec_with_symptoms(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Ric. con sintomi ogni 100.000 abitanti')
@@ -184,8 +184,8 @@ def compute_daily_cases(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Nuovi pos. ogni 100.000 ab. (7 gg. m.a.)')
@@ -214,8 +214,8 @@ def compute_death(save_image=False, show=False):
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Dec. ogni 100.000 ab. (7 gg. m.a.)')
@@ -249,8 +249,8 @@ def compute_region_parameters(save_image=False, show=False, region_code=areas.ma
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-    plt.gca().xaxis.set_major_formatter(DateFormatter('%d %b'))
-    plt.gca().xaxis.set_minor_formatter(DateFormatter('%d %b'))
+    plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
+    plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
     plt.ylabel('Variaz. parametri')
