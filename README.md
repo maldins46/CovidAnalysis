@@ -2,18 +2,10 @@
 ![CI](https://github.com/maldins46/CovidAnalysis/workflows/CI/badge.svg)
 ![CD](https://github.com/maldins46/CovidAnalysis/workflows/CD/badge.svg)
 ![Auto update data](https://github.com/maldins46/CovidAnalysis/workflows/Auto%20update%20data/badge.svg)
-
 ![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=alert_status)
 ![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=sqale_rating)
-![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=security_rating)
-![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=reliability_rating)
-
 ![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=sqale_index)
-![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=vulnerabilities)
 ![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=ncloc)
-![Bugs](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=bugs)
-![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=code_smells)
-
 
 Python module used to extract relevant information from Italian Government Covid Open Data. The repository uses [Open Data from the Italian Government](https://github.com/pcm-dpc/COVID-19) as a Git Submodule. As such, a plain clone does not initialize submodules. You have to clone the project this way:
 
