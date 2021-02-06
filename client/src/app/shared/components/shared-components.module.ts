@@ -6,7 +6,7 @@ import {SharedDirectivesModule} from '../directives/shared-directives.module';
 import {SharedPipesModule} from '../pipes/shared-pipes.module';
 import {MaterialComponentsModule} from '../material-components/material-components.module';
 import {FooterComponent} from './footer/footer.component';
-import {AppbarComponent} from './main-appbar/appbar.component';
+import {AppbarComponent} from './appbar/appbar.component';
 import { LastUpdateComponent } from './last-update/last-update.component';
 import { ImageComponent } from './image/image.component';
 import { PageComponent } from './page/page.component';
