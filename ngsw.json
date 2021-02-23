@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1612623355031,
+  "timestamp": 1614112966943,
   "index": "/CovidAnalysis/index.html",
   "assetGroups": [
     {
@@ -64,7 +64,7 @@
     "/CovidAnalysis/assets/logo-small.png": "45c6e23503f7c39e005019f0ebf92bb35c4098ee",
     "/CovidAnalysis/assets/logo.png": "9cfbaf2476d59cfd215fe6ac3661756154f86b17",
     "/CovidAnalysis/favicon.ico": "8fc02df634ef772c704437cb73e9ec2b37498ce7",
-    "/CovidAnalysis/index.html": "9a74b448f9963abf0179b2f6f9c13a479ba161f3",
+    "/CovidAnalysis/index.html": "b8080dd9185f8eb1cd11b0fd238146016ca0892e",
     "/CovidAnalysis/main.bca4f5d4ce99d7c82d50.js": "1e2bade00edc814933d80bf5df073cc22746b0da",
     "/CovidAnalysis/manifest.webmanifest": "42b245c3ee77b97424f3d03d758f56ae21a104bb",
     "/CovidAnalysis/polyfills.d15628b9ba7248669cd9.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
