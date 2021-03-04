@@ -9,6 +9,7 @@ import { OfflineComponent } from './offline/offline.component';
 import { BenchmarkComponent } from './benchmark/benchmark.component';
 import { MarcheComponent } from './marche/marche.component';
 import { ItalyComponent } from './italy/italy.component';
+import { FeedComponent } from './feed/feed.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ItalyComponent } from './italy/italy.component';
     OfflineComponent,
     BenchmarkComponent,
     MarcheComponent,
-    ItalyComponent
+    ItalyComponent,
+    FeedComponent
   ],
   imports: [
     CommonModule,

@@ -39,6 +39,13 @@
         </li>
 
         <li>
+          <a href="#" mat-icon-button routerLinkActive="active" routerLink="/feed" class="icon-menu"
+             matTooltip="Covid Twitter feed">
+            <mat-icon svgIcon="twitter" class="menu-icon"></mat-icon>
+          </a>
+        </li>
+
+        <li>
           <a href="#" class="text-menu" mat-ripple routerLinkActive="active" routerLink="/home" matTooltip="Home">
             <mat-icon svgIcon="home-outline" class="icon"></mat-icon>
             <span class="title">Home</span>
@@ -59,6 +66,11 @@
       <button mat-menu-item routerLink="/home">
         <mat-icon svgIcon="home-outline" class="menu-icon"></mat-icon>
         <span>Home</span>
+      </button>
+
+      <button mat-menu-item routerLink="/feed">
+        <mat-icon svgIcon="twitter" class="menu-icon"></mat-icon>
+        <span>Covid Twitter feed</span>
       </button>
 
       <button mat-menu-item routerLink="/italy">

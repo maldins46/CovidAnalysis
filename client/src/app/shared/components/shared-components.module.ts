@@ -10,6 +10,7 @@ import {AppbarComponent} from './appbar/appbar.component';
 import { LastUpdateComponent } from './last-update/last-update.component';
 import { ImageComponent } from './image/image.component';
 import { PageComponent } from './page/page.component';
+import { TwitterFeedComponent } from './twitter-feed/twitter-feed.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PageComponent } from './page/page.component';
     AppbarComponent,
     LastUpdateComponent,
     ImageComponent,
-    PageComponent
+    PageComponent,
+    TwitterFeedComponent
   ],
   imports: [
     CommonModule,
@@ -28,12 +30,13 @@ import { PageComponent } from './page/page.component';
     SharedDirectivesModule,
     FormsModule
   ],
-  exports: [
-    FooterComponent,
-    AppbarComponent,
-    LastUpdateComponent,
-    ImageComponent,
-    PageComponent
-  ]
+    exports: [
+        FooterComponent,
+        AppbarComponent,
+        LastUpdateComponent,
+        ImageComponent,
+        PageComponent,
+        TwitterFeedComponent
+    ]
 })
 export class SharedComponentsModule { }

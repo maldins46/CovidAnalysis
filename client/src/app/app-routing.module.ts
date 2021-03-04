@@ -8,6 +8,7 @@ import {ItalyComponent} from './pages/italy/italy.component';
 import {MarcheComponent} from './pages/marche/marche.component';
 import {BenchmarkComponent} from './pages/benchmark/benchmark.component';
 import {VaccinesComponent} from './pages/vaccines/vaccines.component';
+import {FeedComponent} from './pages/feed/feed.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'vaccines', component: VaccinesComponent, canActivate: [ConnectionGuard] },
   { path: 'benchmark', component: BenchmarkComponent, canActivate: [ConnectionGuard] },
   { path: 'marche', component: MarcheComponent, canActivate: [ConnectionGuard] },
+  { path: 'feed', component: FeedComponent, canActivate: [ConnectionGuard] },
 
   // others
   { path: 'offline', component: OfflineComponent, canActivate: [OnlineGuard] },
