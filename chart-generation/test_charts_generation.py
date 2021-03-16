@@ -10,6 +10,11 @@ import provinces.analysis as provinces_analysis
 import national.analysis as national_analysis
 import vaccines.analysis as vacc_nat
 import dictionaries.area_codes as areas
+import national.summary as national_sumamry
+
+
+def test_summary_generation():
+    national_sumamry.compute_summary(save=False, print_terminal=False)
 
 
 def test_national_chart_generation():
