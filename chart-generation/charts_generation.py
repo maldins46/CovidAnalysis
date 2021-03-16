@@ -9,9 +9,11 @@ import provinces.analysis as provinces_analysis
 import national.analysis as national_analysis
 import vaccines.analysis as vacc_nat
 import dictionaries.area_codes as areas
-import national.summary as national_sumamry
+import national.summary as national_summary
+import regions.summary as benchmark_summary
 
-national_sumamry.compute_summary(save=True, print_terminal=False)
+benchmark_summary.compute_summary(save=True, print_terminal=False)
+national_summary.compute_summary(save=True, print_terminal=False)
 vacc_nat.compute_regional_doses(save_image=True, show=False)
 vacc_nat.compute_adm(save_image=True, show=False)
 vacc_nat.compute_adm(save_image=True, show=False, area_code=areas.marche)
