@@ -17,7 +17,7 @@ def compute_summary(print_terminal=True, save=False):
     """
 
     output_dict = {}
-    output_dict["upd_date"] = datetime.now().isoformat(),
+    output_dict.update({"upd_date": datetime.now().isoformat()})
 
     for region_code, region_data in benchmark_regions_data.items():
         # TI
@@ -47,12 +47,14 @@ def compute_summary(print_terminal=True, save=False):
         perc_weekly_increment = weekly_increment / last_weeks_avg
 
         region_name_clean = area_names[region_code].lower().replace(' ', '_')
-
-        output_dict[f"{region_name_clean}_ti_percentage"] = f"{ti_percentage:.4f}",
-        output_dict[f"{region_name_clean}_ti_perc_increment"] = f"{ti_perc_increment:.4f}",
-        output_dict[f"{region_name_clean}_new_positives"] = f"{yesterday:.0f}",
-        output_dict[f"{region_name_clean}_perc_increment_on_yesterday"] = f"{perc_increment:.4f}",
-        output_dict[f"{region_name_clean}_perc_increment_on_4_weeks"] = f"{perc_weekly_increment:.4f}"
+        region_dict = {
+            "ti_percentage": f"{ti_percentage:.4f}",
+            "ti_perc_increment": f"{ti_perc_increment:.4f}",
+            "new_positives": f"{yesterday:.0f}",
+            "perc_increment_on_yesterday": f"{perc_increment:.4f}",
+            "perc_increment_on_4_weeks": f"{perc_weekly_increment:.4f}"
+        }
+        output_dict.update({f"{region_name_clean}": region_dict})
 
     if save:
         with open('./assets/benchmark_summary.json', 'w') as f:

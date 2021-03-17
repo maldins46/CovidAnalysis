@@ -17,7 +17,7 @@ def compute_marche_summary(print_terminal=True, save=False):
     """
 
     output_dict = {}
-    output_dict["upd_date"] = datetime.now().isoformat(),
+    output_dict.update({"upd_date": datetime.now().isoformat()})
 
     for province_code, province_data in provinces_of_marche_data.items():
         # tot. new positives yesterday
@@ -39,10 +39,12 @@ def compute_marche_summary(print_terminal=True, save=False):
         perc_weekly_increment = weekly_increment / last_weeks_avg
 
         province_name_clean = area_names[province_code].lower().replace(' ', '_')
-
-        output_dict[f"{province_name_clean}_new_positives"] = f"{yesterday:.0f}",
-        output_dict[f"{province_name_clean}_perc_increment_on_yesterday"] = f"{perc_increment:.4f}",
-        output_dict[f"{province_name_clean}_perc_increment_on_4_weeks"] = f"{perc_weekly_increment:.4f}"
+        province_dict = {
+            "new_positives": f"{yesterday:.0f}",
+            "perc_increment_on_yesterday": f"{perc_increment:.4f}",
+            "perc_increment_on_4_weeks": f"{perc_weekly_increment:.4f}"
+        }
+        output_dict.update({f"{province_name_clean}": province_dict})
 
     if save:
         with open('./assets/marche_summary.json', 'w') as f:
