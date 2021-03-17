@@ -1,0 +1,11 @@
+<mat-toolbar class="appbar">
+  <a class="headline" [routerLink]="homeRoute">
+      <img [src]="logoPath" class="logo" alt="Logo"/>
+      <h1 class="title">{{title}} <span class="subtitle">{{subtitle}}</span></h1>
+  </a>
+
+  <div class="menu">
+    <app-desktop-menu [menuItems]="menuItems"></app-desktop-menu>
+    <app-smartphone-menu [menuItems]="menuItems"></app-smartphone-menu>
+  </div>
+</mat-toolbar>

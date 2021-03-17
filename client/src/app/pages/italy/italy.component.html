@@ -5,6 +5,47 @@
     livello nazionale, oltre a un rapido excursus sui parametri per il calcolo del sistema a zone.
   </p>
 
+  <h2>Indicatori di sintesi</h2>
+  <ul *ngIf="nationalSummary as nationalSummary">
+    <li>
+      Ultimo aggiornamento dei dati della pagina:
+      <strong>{{nationalSummary.upd_date | extendedDate}}</strong>;
+    </li>
+    <li>
+      Nuovi positivi nella giornata corrente:
+      <strong>
+        {{ nationalSummary.new_positives | number: '1.0-2' }}
+      </strong>;
+    </li>
+    <li>
+      Incremento percentuale dei nuovi positivi, rispetto al giorno precedente:
+      <strong [ngStyle]="{'color': nationalSummary.perc_increment_on_yesterday > 0 ? '#f44336' : '#14AF14'}">
+        {{ nationalSummary.perc_increment_on_yesterday > 0 ? '+' : '-' }}
+        {{ nationalSummary.perc_increment_on_yesterday | percent:'1.2-2' }}
+      </strong>;
+    </li>
+    <li>
+      Incremento percentuale dei nuovi positivi, rispetto alla media dello stesso giorno della settimana, nelle 4 settimane precedenti:
+      <strong [ngStyle]="{'color': nationalSummary.perc_increment_on_4_weeks > 0 ? '#f44336' : '#14AF14'}">
+        {{ nationalSummary.perc_increment_on_4_weeks > 0 ? '+' : '-' }}
+        {{ nationalSummary.perc_increment_on_4_weeks | percent:'1.2-2' }}
+      </strong>;
+    </li>
+    <li>
+      Percentuale occupazione posti TI:
+      <strong>
+        {{ nationalSummary.ti_percentage | percent:'1.2-2' }}
+      </strong>;
+    </li>
+    <li>
+      Incremento percentuale occupazione TI rispetto al giorno precedente:
+      <strong [ngStyle]="{'color': nationalSummary.ti_perc_increment > 0 ? '#f44336' : '#14AF14'}">
+        {{ nationalSummary.ti_perc_increment > 0 ? '+' : '-' }}
+        {{ nationalSummary.ti_perc_increment | percent:'1.2-2' }}
+      </strong>;
+    </li>
+  </ul>
+
   <h2>Parametri nazionali in valori assoluti</h2>
 
   <p>

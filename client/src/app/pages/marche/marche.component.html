@@ -5,6 +5,60 @@
     focus particolare su questa regione.
   </p>
 
+  <h2>Indicatori di sintesi</h2>
+  <ul *ngIf="marcheSummary as marcheSummary">
+    <li>
+      Ultimo aggiornamento dei dati della pagina:<br>
+      <strong>{{marcheSummary.upd_date | extendedDate}}</strong>;
+    </li>
+    <li>
+      Nuovi positivi nella giornata corrente:<br>
+      Ancona
+      <strong>
+        {{ marcheSummary.ancona.new_positives | number: '1.0-2' }}
+      </strong>,
+      Macerata
+      <strong>
+      {{ marcheSummary.macerata.new_positives | number: '1.0-2' }}
+      </strong>,
+      Pesaro e Urbino
+      <strong>
+        {{ marcheSummary.pesaro_e_urbino.new_positives | number: '1.0-2' }}
+      </strong>,
+      Fermo
+      <strong>
+        {{ marcheSummary.fermo.new_positives | number: '1.0-2' }}
+      </strong>,
+      Ascoli Piceno
+      <strong>
+        {{ marcheSummary.ascoli_piceno.new_positives | number: '1.0-2' }}
+      </strong>;
+    </li>
+    <li>
+      Incremento percentuale dei nuovi positivi, rispetto alla media dello stesso giorno della settimana, nelle 4 settimane precedenti:<br>
+      Ancona
+      <strong [ngStyle]="{'color': marcheSummary.ancona.perc_increment_on_4_weeks > 0 ? '#f44336' : '#14AF14'}">
+        {{ marcheSummary.ancona.perc_increment_on_4_weeks > 0 ? '+' : '' }}{{ marcheSummary.ancona.perc_increment_on_4_weeks | percent:'1.2-2' }}
+      </strong>,
+      Macerata
+      <strong [ngStyle]="{'color': marcheSummary.macerata.perc_increment_on_yesterday > 0 ? '#f44336' : '#14AF14'}">
+        {{ marcheSummary.macerata.perc_increment_on_4_weeks > 0 ? '+' : '' }}{{ marcheSummary.macerata.perc_increment_on_4_weeks | percent:'1.2-2' }}
+      </strong>,
+      Pesaro e Urbino
+      <strong [ngStyle]="{'color': marcheSummary.pesaro_e_urbino.perc_increment_on_yesterday > 0 ? '#f44336' : '#14AF14'}">
+        {{ marcheSummary.pesaro_e_urbino.perc_increment_on_4_weeks > 0 ? '+' : '' }}{{ marcheSummary.pesaro_e_urbino.perc_increment_on_4_weeks | percent:'1.2-2' }}
+      </strong>,
+      Fermo
+      <strong [ngStyle]="{'color': marcheSummary.fermo.perc_increment_on_4_weeks > 0 ? '#f44336' : '#14AF14'}">
+        {{ marcheSummary.fermo.perc_increment_on_4_weeks > 0 ? '+' : '' }}{{ marcheSummary.fermo.perc_increment_on_4_weeks | percent:'1.2-2' }}
+      </strong>,
+      Ascoli piceno
+      <strong [ngStyle]="{'color': marcheSummary.ascoli_piceno.perc_increment_on_4_weeks > 0 ? '#f44336' : '#14AF14'}">
+        {{ marcheSummary.ascoli_piceno.perc_increment_on_4_weeks > 0 ? '+' : '' }}{{ marcheSummary.ascoli_piceno.perc_increment_on_4_weeks | percent:'1.2-2' }}
+      </strong>;
+    </li>
+  </ul>
+
   <h2>Parametri Marche in valori assoluti</h2>
 
   <p>

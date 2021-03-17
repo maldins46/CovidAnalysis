@@ -1,0 +1,11 @@
+<div class="smartphone-menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" color="primary"
+          aria-label="Button used to access the website menu">
+    <mat-icon svgIcon="menu"></mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <app-smartphone-menu-item *ngFor="let item of sortedItems" [menuItem]="item">
+    </app-smartphone-menu-item>
+  </mat-menu>
+</div>

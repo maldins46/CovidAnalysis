@@ -1,0 +1,66 @@
+@import "~src/styles/utils";
+
+.appbar {
+  background: $backgroundColor;
+  box-shadow: $defaultShadow;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 16px;
+  flex-direction: row;
+  box-sizing: border-box;
+  top: 0;
+  width: 100%;
+
+  a {
+    text-decoration: none;
+  }
+
+  .headline {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    min-width: 0;
+
+    h1.title {
+      @include titleFont;
+      color: $primaryColor;
+      margin: 0 0 0 8px;
+      @include responsiveProp(margin-right, $halfMargin);
+      @include singleLineEllispis;
+
+      span.subtitle {
+        font-weight: 500;
+        color: $tertiaryControlColor;
+      }
+    }
+
+    img.logo {
+      height: 100%;
+      margin-right: 8px;
+    }
+  }
+
+  .menu {
+    // keeps element aligned to the right
+    margin-left: auto;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      padding-inline-start: 0;
+
+      li {
+        margin: 0
+      }
+    }
+
+    a {
+      color: $tertiaryControlColor;
+    }
+  }
+}
+

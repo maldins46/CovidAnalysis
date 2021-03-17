@@ -1,0 +1,28 @@
+@import "~src/styles/utils";
+
+a.text-menu {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: $tertiaryControlColor;
+  @include responsiveProp(margin-left, $halfMargin);
+  @include responsiveProp(padding-left, $halfMargin);
+  @include responsiveProp(padding-right, $halfMargin);
+  border-radius: 24px;
+  background: $tertiaryColor;
+  transition: 0.2s;
+
+  &:hover {
+    background: $secondaryColor;
+  }
+
+  &.active {
+    color: $primaryColor;
+    background: $secondaryColor;
+  }
+
+  .icon {
+    @include responsiveProp(margin-right, $quarterMargin);
+  }
+}

@@ -1,0 +1,7 @@
+@import "~src/styles/utils";
+
+.smartphone-menu {
+  @include forDesktopOnly {
+    @include hide;
+  }
+}

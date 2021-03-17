@@ -6,16 +6,15 @@ import {SharedDirectivesModule} from '../directives/shared-directives.module';
 import {SharedPipesModule} from '../pipes/shared-pipes.module';
 import {MaterialComponentsModule} from '../material-components/material-components.module';
 import {FooterComponent} from './footer/footer.component';
-import {AppbarComponent} from './appbar/appbar.component';
 import { LastUpdateComponent } from './last-update/last-update.component';
 import { ImageComponent } from './image/image.component';
 import { PageComponent } from './page/page.component';
 import { TwitterFeedComponent } from './twitter-feed/twitter-feed.component';
+import {AppbarsModule} from './appbars/appbars.module';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    AppbarComponent,
     LastUpdateComponent,
     ImageComponent,
     PageComponent,
@@ -28,15 +27,16 @@ import { TwitterFeedComponent } from './twitter-feed/twitter-feed.component';
     ReactiveFormsModule,
     AppRoutingModule,
     SharedDirectivesModule,
-    FormsModule
+    FormsModule,
+    AppbarsModule
   ],
     exports: [
-        FooterComponent,
-        AppbarComponent,
-        LastUpdateComponent,
-        ImageComponent,
-        PageComponent,
-        TwitterFeedComponent
+      FooterComponent,
+      LastUpdateComponent,
+      ImageComponent,
+      PageComponent,
+      TwitterFeedComponent,
+      AppbarsModule
     ]
 })
 export class SharedComponentsModule { }
