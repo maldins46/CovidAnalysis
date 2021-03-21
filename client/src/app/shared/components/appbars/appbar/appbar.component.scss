@@ -30,6 +30,7 @@
       margin: 0 0 0 8px;
       @include responsiveProp(margin-right, $halfMargin);
       @include singleLineEllispis;
+      line-height: 1.6;
 
       span.subtitle {
         font-weight: 500;
@@ -59,7 +60,7 @@
     }
 
     a {
-      color: $tertiaryControlColor;
+      color: $secondaryControlColor;
     }
   }
 }
