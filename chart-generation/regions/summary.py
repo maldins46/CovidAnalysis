@@ -25,21 +25,24 @@ def compute_summary(print_terminal=True, save=False):
 
         # increment TI
         ti_rolling_7_mean = region_data['occupazione_ti'].rolling(7).mean()
-        ti_perc_increment = (ti_rolling_7_mean.iloc[-1] - ti_rolling_7_mean.iloc[-2]) / ti_rolling_7_mean.iloc[-2]
+        ti_perc_increment = (ti_rolling_7_mean.iloc[-1] - ti_rolling_7_mean.iloc[-2])\
+            / ti_rolling_7_mean.iloc[-2]
 
         # new positives
         new_positives = region_data['nuovi_positivi'].iloc[-1]
 
         # increment new positives
         positives_rolling_7_mean = region_data['nuovi_positivi'].rolling(7).mean()
-        positives_perc_increment = (positives_rolling_7_mean.iloc[-1] - positives_rolling_7_mean.iloc[-2]) / positives_rolling_7_mean.iloc[-2]
+        positives_perc_increment = (positives_rolling_7_mean.iloc[-1] - positives_rolling_7_mean.iloc[-2])\
+            / positives_rolling_7_mean.iloc[-2]
 
         # weekly positives
         positives_rolling_7_sum = region_data['nuovi_positivi'].rolling(7).sum()
         weekly_new_positives = positives_rolling_7_sum.iloc[-1]
 
         # weekly increment
-        weekly_new_positives_increment = (positives_rolling_7_sum.iloc[-1] - positives_rolling_7_sum.iloc[-8]) / positives_rolling_7_sum.iloc[-8]
+        weekly_new_positives_increment = (positives_rolling_7_sum.iloc[-1] - positives_rolling_7_sum.iloc[-8])\
+            / positives_rolling_7_sum.iloc[-8]
 
         region_name_clean = area_names[region_code].lower().replace(' ', '_')
         region_dict = {

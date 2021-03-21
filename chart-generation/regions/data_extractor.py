@@ -14,7 +14,6 @@ from dictionaries.area_names import area_names_dict as area_names
 import utils
 from dictionaries.ti_places import ti_places_dict as ti_places
 from dictionaries.population import population_dict as population
-import datetime 
 
 
 def extract_regions_data(path='./GvtOpenData/dati-regioni'):
@@ -51,10 +50,11 @@ def extract_single_region_data(region_code=areas.marche):
     region_df = region_df.drop('index', 1)
 
     # Filter data from 4 months ago
+    # import datetime
     # today = datetime.datetime.now()
     # d = datetime.timedelta(days=120)
     # four_months_ago = today - d
-    
+
     # Filter data from September
     region_df = region_df[region_df['data'] > '2020-10-15']
 
