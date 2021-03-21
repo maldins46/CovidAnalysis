@@ -17,42 +17,38 @@ def compute_summary(print_terminal=True, save=False):
     """
 
     output_dict = {}
-    output_dict.update({"upd_date": datetime.now().isoformat()})
+    output_dict.update({"lastUpdate": datetime.now().isoformat()})
 
     for region_code, region_data in benchmark_regions_data.items():
         # TI
         ti_percentage = region_data['occupazione_ti'].iloc[-1]
 
         # increment TI
-        ti_percentage_before_yest = region_data['occupazione_ti'].iloc[-2]
-        ti_increment = ti_percentage - ti_percentage_before_yest
-        ti_perc_increment = ti_increment / ti_percentage_before_yest
+        ti_rolling_7_mean = region_data['occupazione_ti'].rolling(7).mean()
+        ti_perc_increment = (ti_rolling_7_mean.iloc[-1] - ti_rolling_7_mean.iloc[-2]) / ti_rolling_7_mean.iloc[-2]
 
-        # tot. new positives yesterday
-        yesterday = region_data['nuovi_positivi'].iloc[-1]
+        # new positives
+        new_positives = region_data['nuovi_positivi'].iloc[-1]
 
-        # perc. increment positives 1 day
-        before_yesterday = region_data['nuovi_positivi'].iloc[-2]
-        increment = yesterday - before_yesterday
-        perc_increment = increment / before_yesterday
+        # increment new positives
+        positives_rolling_7_mean = region_data['nuovi_positivi'].rolling(7).mean()
+        positives_perc_increment = (positives_rolling_7_mean.iloc[-1] - positives_rolling_7_mean.iloc[-2]) / positives_rolling_7_mean.iloc[-2]
 
-        # perc. increment today on latest 4 week
-        one_week_ago = region_data['nuovi_positivi'].iloc[-8]
-        two_week_ago = region_data['nuovi_positivi'].iloc[-15]
-        three_week_ago = region_data['nuovi_positivi'].iloc[-22]
-        four_week_ago = region_data['nuovi_positivi'].iloc[-29]
+        # weekly positives
+        positives_rolling_7_sum = region_data['nuovi_positivi'].rolling(7).sum()
+        weekly_new_positives = positives_rolling_7_sum.iloc[-1]
 
-        last_weeks_avg = (one_week_ago + two_week_ago + three_week_ago + four_week_ago) / 4
-        weekly_increment = yesterday - last_weeks_avg
-        perc_weekly_increment = weekly_increment / last_weeks_avg
+        # weekly increment
+        weekly_new_positives_increment = (positives_rolling_7_sum.iloc[-1] - positives_rolling_7_sum.iloc[-8]) / positives_rolling_7_sum.iloc[-8]
 
         region_name_clean = area_names[region_code].lower().replace(' ', '_')
         region_dict = {
-            "ti_percentage": f"{ti_percentage:.4f}",
-            "ti_perc_increment": f"{ti_perc_increment:.4f}",
-            "new_positives": f"{yesterday:.0f}",
-            "perc_increment_on_yesterday": f"{perc_increment:.4f}",
-            "perc_increment_on_4_weeks": f"{perc_weekly_increment:.4f}"
+            "tiPercentage": f"{ti_percentage:.4f}",
+            "tiIncrement": f"{ti_perc_increment:.4f}",
+            "newPositives": f"{new_positives:.0f}",
+            "newPositivesIncrement": f"{positives_perc_increment:.4f}",
+            "weeklyPositives": f"{weekly_new_positives:.0f}",
+            "weeklyPositivesIncrement": f"{weekly_new_positives_increment:.4f}"
         }
         output_dict.update({f"{region_name_clean}": region_dict})
 

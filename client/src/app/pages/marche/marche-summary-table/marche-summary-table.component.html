@@ -1,0 +1,80 @@
+<app-summary-table *ngIf="marcheSummary as marcheSummary">
+  <thead>
+  <tr>
+    <th scope="col">Indicatori di sintesi</th>
+    <th scope="col">Ancona</th>
+    <th scope="col">Macerata</th>
+    <th scope="col">Pesaro e Urbino</th>
+    <th scope="col">Ascoli Piceno</th>
+    <th scope="col">Fermo</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Nuovi positivi</td>
+    <td [ngStyle]="{'color': marcheSummary.ancona.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.ancona.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.ancona.newPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': marcheSummary.macerata.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.macerata.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.macerata.newPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': marcheSummary.pesaroeurbino.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.pesaroeurbino.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.pesaroeurbino.newPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': marcheSummary.ascolipiceno.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.ascolipiceno.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.ascolipiceno.newPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': marcheSummary.fermo.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.fermo.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.fermo.newPositives | number: '1.0-2' }}
+    </td>
+  </tr>
+  <tr>
+    <td>Nuovi positivi sett.</td>
+    <td [ngStyle]="{'color': marcheSummary.ancona.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.ancona.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.ancona.weeklyPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': marcheSummary.macerata.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.macerata.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.macerata.weeklyPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': marcheSummary.pesaroeurbino.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.pesaroeurbino.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.pesaroeurbino.weeklyPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': marcheSummary.ascolipiceno.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.ascolipiceno.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.ascolipiceno.weeklyPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': marcheSummary.fermo.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="marcheSummary.fermo.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ marcheSummary.fermo.weeklyPositives | number: '1.0-2' }}
+    </td>
+  </tr>
+  </tbody>
+</app-summary-table>

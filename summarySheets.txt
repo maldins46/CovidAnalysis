@@ -1,0 +1,28 @@
+summary sheets
+
+- dovrebbero essere json separati
+- ultimo aggiornamento in ogni file incluso
+
+Vaccini:
+- dosi di vaccino somministrate nell'ultimo giorno
+- incremento perc. rispetto a 7 gg fa
+- incremento perc. rispetto al giorno precedente
+- perc. popolazione coperta con una dose
+- perc. popolazione vaccinata
+
+Italia:
+- casi ultimo giorno
+- incremento casi rispetto a ieri
+- incremento media sett. su media ultime 4 sett.
+- perc. occupaz. terapia intensiva
+
+Benchmark:
+- casi ultimo gg. regione
+- incremento casi regione rispetto a ieri
+- incremento media sett. su media ultime 4 sett.
+- perc. occupaz. terapia intensiva
+
+Marche:
+- casi ultimo gg. per provincia
+- incremento casi per provincia rispetto a ieri
+- incremento media sett. su media ultime 4 sett.

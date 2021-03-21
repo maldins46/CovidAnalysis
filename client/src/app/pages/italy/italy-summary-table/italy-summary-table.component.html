@@ -1,0 +1,37 @@
+<app-summary-table *ngIf="nationalSummary as nationalSummary">
+  <thead>
+  <tr>
+    <th scope="col">Indicatori di sintesi</th>
+    <th scope="col">Italia</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Nuovi positivi</td>
+    <td [ngStyle]="{'color': nationalSummary.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="nationalSummary.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ nationalSummary.newPositives | number: '1.0-2' }}
+    </td>
+  </tr>
+  <tr>
+    <td>Nuovi positivi sett.</td>
+    <td [ngStyle]="{'color': nationalSummary.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="nationalSummary.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ nationalSummary.weeklyPositives | number: '1.0-2' }}
+    </td>
+  </tr>
+  <tr>
+    <td>Occupazione TI</td>
+    <td [ngStyle]="{'color': nationalSummary.tiIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="nationalSummary.tiIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ nationalSummary.tiPercentage | percent:'1.2-2' }}
+    </td>
+  </tr>
+  </tbody>
+</app-summary-table>

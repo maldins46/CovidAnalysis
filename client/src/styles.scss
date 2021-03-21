@@ -13,10 +13,14 @@
 // main utils, used across the app
 @import "styles/utils";
 
+// the custom and bootstrap scss
+@import "styles/globals/bootstrap-custom-theme";
+
 html, body {
   height: 100%;
   margin: 0;
   line-height: 1.6;
+  @include bodyFont;
 
   // disables default focus for button, as a visual feedback is handled by AngularMaterial
   button {
@@ -36,6 +40,7 @@ html, body {
     @include titleFont;
     @include responsiveProp(margin-bottom, $halfMargin);
     margin-top: 0;
+    line-height: 1.6;
   }
 
   // Font used for an important body text, such as a card title.
@@ -43,12 +48,14 @@ html, body {
     @include subtitleFont;
     @include responsiveProp(margin-top, $defaultMargin);
     @include responsiveProp(margin-bottom, $halfMargin);
+    line-height: 1.6;
   }
 
   p {
     @include bodyFont;
     margin-top: 0;
     @include responsiveProp(margin-bottom, $halfMargin);
+    line-height: 1.6;
   }
 
   ul{

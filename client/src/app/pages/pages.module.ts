@@ -10,6 +10,9 @@ import { BenchmarkComponent } from './benchmark/benchmark.component';
 import { MarcheComponent } from './marche/marche.component';
 import { ItalyComponent } from './italy/italy.component';
 import { FeedComponent } from './feed/feed.component';
+import { BenchmarkSummaryTableComponent } from './benchmark/benchmark-summary-table/benchmark-summary-table.component';
+import { MarcheSummaryTableComponent } from './marche/marche-summary-table/marche-summary-table.component';
+import { ItalySummaryTableComponent } from './italy/italy-summary-table/italy-summary-table.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { FeedComponent } from './feed/feed.component';
     BenchmarkComponent,
     MarcheComponent,
     ItalyComponent,
-    FeedComponent
+    FeedComponent,
+    BenchmarkSummaryTableComponent,
+    MarcheSummaryTableComponent,
+    ItalySummaryTableComponent
   ],
   imports: [
     CommonModule,

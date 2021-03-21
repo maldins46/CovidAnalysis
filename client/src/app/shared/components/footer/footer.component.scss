@@ -13,7 +13,8 @@ footer {
   justify-content: center;
 
   div.title {
-    @include responsiveProp(margin-bottom, $quarterMargin)
+    @include responsiveProp(margin-bottom, $quarterMargin);
+    text-align: center;
   }
   a {
     @include subheadFont;

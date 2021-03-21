@@ -1,24 +1,27 @@
 export interface BenchmarkSummaryModel {
-  upd_date: string;
+  lastUpdate: string;
   toscana: {
-    ti_percentage: number;
-    ti_perc_increment: number;
-    new_positives: number;
-    perc_increment_on_yesterday: number;
-    perc_increment_on_4_weeks: number;
+    tiPercentage: number;
+    tiIncrement: number;
+    newPositives: number;
+    newPositivesIncrement: number;
+    weeklyPositives: number;
+    weeklyPositivesIncrement: number;
   };
   veneto: {
-    ti_percentage: number;
-    ti_perc_increment: number;
-    new_positives: number;
-    perc_increment_on_yesterday: number;
-    perc_increment_on_4_weeks: number;
+    tiPercentage: number;
+    tiIncrement: number;
+    newPositives: number;
+    newPositivesIncrement: number;
+    weeklyPositives: number;
+    weeklyPositivesIncrement: number;
   };
   marche: {
-    ti_percentage: number;
-    ti_perc_increment: number;
-    new_positives: number;
-    perc_increment_on_yesterday: number;
-    perc_increment_on_4_weeks: number;
+    tiPercentage: number;
+    tiIncrement: number;
+    newPositives: number;
+    newPositivesIncrement: number;
+    weeklyPositives: number;
+    weeklyPositivesIncrement: number;
   };
 }

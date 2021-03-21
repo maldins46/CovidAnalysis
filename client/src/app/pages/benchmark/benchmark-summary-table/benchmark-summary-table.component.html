@@ -1,0 +1,75 @@
+<app-summary-table *ngIf="benchmarkSummary as benchmarkSummary">
+  <thead>
+  <tr>
+    <th scope="col">Indicatori di sintesi</th>
+    <th scope="col">Marche</th>
+    <th scope="col">Veneto</th>
+    <th scope="col">Toscana</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Nuovi positivi</td>
+    <td [ngStyle]="{'color': benchmarkSummary.marche.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="benchmarkSummary.marche.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ benchmarkSummary.marche.newPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': benchmarkSummary.veneto.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="benchmarkSummary.veneto.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ benchmarkSummary.veneto.newPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': benchmarkSummary.toscana.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="benchmarkSummary.toscana.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ benchmarkSummary.toscana.newPositives | number: '1.0-2' }}
+    </td>
+  </tr>
+  <tr>
+    <td>Nuovi positivi sett.</td>
+    <td [ngStyle]="{'color': benchmarkSummary.marche.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="benchmarkSummary.marche.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ benchmarkSummary.marche.weeklyPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': benchmarkSummary.veneto.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="benchmarkSummary.veneto.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ benchmarkSummary.veneto.weeklyPositives | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': benchmarkSummary.toscana.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="benchmarkSummary.toscana.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ benchmarkSummary.toscana.weeklyPositives | number: '1.0-2' }}
+    </td>
+  </tr>
+  <tr>
+    <td>Occupazione TI</td>
+    <td [ngStyle]="{'color': benchmarkSummary.marche.tiIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="benchmarkSummary.marche.tiIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ benchmarkSummary.marche.tiPercentage | percent:'1.2-2' }}
+    </td>
+    <td [ngStyle]="{'color': benchmarkSummary.veneto.tiIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="benchmarkSummary.veneto.tiIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ benchmarkSummary.veneto.tiPercentage | percent:'1.2-2' }}
+    </td>
+    <td [ngStyle]="{'color': benchmarkSummary.toscana.tiIncrement > 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="benchmarkSummary.toscana.tiIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ benchmarkSummary.toscana.tiPercentage | percent:'1.2-2' }}
+    </td>
+  </tr>
+  </tbody>
+</app-summary-table>

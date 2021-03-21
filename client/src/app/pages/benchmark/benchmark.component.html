@@ -6,65 +6,7 @@
     delle regioni è stata dettata anche dalla volontà di espandere l'analisi in particolare sulla regione Marche.
   </p>
 
-  <h2>Indicatori di sintesi</h2>
-  <ul *ngIf="benchmarkSummary as benchmarkSummary">
-    <li>
-      Ultimo aggiornamento dei dati della pagina:
-      <strong>{{benchmarkSummary.upd_date | extendedDate}}</strong>;
-    </li>
-    <li>
-      Nuovi positivi nella giornata corrente:<br>
-      Marche
-      <strong>
-        {{ benchmarkSummary.marche.new_positives | number: '1.0-2' }}
-      </strong>,
-      Veneto
-      <strong>
-        {{ benchmarkSummary.veneto.new_positives | number: '1.0-2' }}
-      </strong>,
-      Toscana
-      <strong>{{ benchmarkSummary.toscana.new_positives | number: '1.0-2' }}</strong>;
-    </li>
-    <li>
-      Incremento percentuale dei nuovi positivi, rispetto alla media dello stesso giorno della settimana, nelle 4 settimane precedenti:<br>
-      Marche
-      <strong [ngStyle]="{'color': benchmarkSummary.marche.perc_increment_on_4_weeks > 0 ? '#f44336' : '#14AF14'}">
-        {{ benchmarkSummary.marche.perc_increment_on_4_weeks > 0 ? '+' : '' }}{{ benchmarkSummary.marche.perc_increment_on_4_weeks | percent:'1.2-2' }}
-      </strong>,
-      Veneto
-      <strong [ngStyle]="{'color': benchmarkSummary.veneto.perc_increment_on_4_weeks > 0 ? '#f44336' : '#14AF14'}">
-        {{ benchmarkSummary.veneto.perc_increment_on_4_weeks > 0 ? '+' : '' }}{{ benchmarkSummary.veneto.perc_increment_on_4_weeks | percent:'1.2-2' }}
-      </strong>,
-      Toscana
-      <strong [ngStyle]="{'color': benchmarkSummary.toscana.perc_increment_on_4_weeks > 0 ? '#f44336' : '#14AF14'}">{{ benchmarkSummary.toscana.perc_increment_on_4_weeks > 0 ? '+' : '' }}{{ benchmarkSummary.toscana.perc_increment_on_4_weeks | percent:'1.2-2' }}</strong>;
-    </li>
-    <li>
-      Percentuale occupazione posti TI:<br>
-      Marche
-      <strong>
-        {{ benchmarkSummary.marche.ti_percentage | percent:'1.2-2' }}
-      </strong>,
-      Veneto
-      <strong>
-        {{ benchmarkSummary.veneto.ti_percentage | percent:'1.2-2' }}
-      </strong>,
-      Toscana
-      <strong>{{ benchmarkSummary.toscana.ti_percentage | percent:'1.2-2' }}</strong>;
-    </li>
-    <li>
-      Incremento percentuale occupazione TI rispetto al giorno precedente:<br>
-      Marche
-      <strong [ngStyle]="{'color': benchmarkSummary.marche.ti_perc_increment > 0 ? '#f44336' : '#14AF14'}">
-        {{ benchmarkSummary.marche.ti_perc_increment > 0 ? '+' : '' }}{{ benchmarkSummary.marche.ti_perc_increment | percent:'1.2-2' }}
-      </strong>,
-      Veneto
-      <strong [ngStyle]="{'color': benchmarkSummary.veneto.ti_perc_increment > 0 ? '#f44336' : '#14AF14'}">
-        {{ benchmarkSummary.veneto.ti_perc_increment > 0 ? '+' : '' }}{{ benchmarkSummary.veneto.ti_perc_increment | percent:'1.2-2' }}
-      </strong>,
-      Toscana
-      <strong [ngStyle]="{'color': benchmarkSummary.toscana.ti_perc_increment > 0 ? '#f44336' : '#14AF14'}">{{ benchmarkSummary.toscana.ti_perc_increment > 0 ? '+' : '' }}{{ benchmarkSummary.toscana.ti_perc_increment | percent:'1.2-2' }}</strong>;
-    </li>
-  </ul>
+  <app-benchmark-summary-table [benchmarkSummary]="benchmarkSummary"></app-benchmark-summary-table>
 
   <h2>Indice R(t) SIRD per regioni</h2>
 

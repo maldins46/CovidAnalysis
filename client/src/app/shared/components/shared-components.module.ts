@@ -11,6 +11,7 @@ import { ImageComponent } from './image/image.component';
 import { PageComponent } from './page/page.component';
 import { TwitterFeedComponent } from './twitter-feed/twitter-feed.component';
 import {AppbarsModule} from './appbars/appbars.module';
+import { SummaryTableComponent } from './summary-table/summary-table.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {AppbarsModule} from './appbars/appbars.module';
     LastUpdateComponent,
     ImageComponent,
     PageComponent,
-    TwitterFeedComponent
+    TwitterFeedComponent,
+    SummaryTableComponent
   ],
   imports: [
     CommonModule,
@@ -31,12 +33,13 @@ import {AppbarsModule} from './appbars/appbars.module';
     AppbarsModule
   ],
     exports: [
-      FooterComponent,
-      LastUpdateComponent,
-      ImageComponent,
-      PageComponent,
-      TwitterFeedComponent,
-      AppbarsModule
+        FooterComponent,
+        LastUpdateComponent,
+        ImageComponent,
+        PageComponent,
+        TwitterFeedComponent,
+        AppbarsModule,
+        SummaryTableComponent
     ]
 })
 export class SharedComponentsModule { }
