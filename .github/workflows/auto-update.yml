@@ -1,7 +1,7 @@
 name: Auto update data
 
- schedule the chart generation to be executed every day at 20:00, as new data usually
- are ready at 18:00.
+# schedule the chart generation to be executed every day at 20:00, as new data usually
+# are ready at 18:00.
 on:
   schedule:
   - cron: "0 8,20 * * *"
