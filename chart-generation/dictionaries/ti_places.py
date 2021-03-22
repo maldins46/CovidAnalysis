@@ -28,7 +28,7 @@ ti_places_dict = {
     areas.puglia: 369,
     areas.sardegna: 9,
     areas.sicilia: 588,
-    areas.toscana: 523,
+    areas.toscana: 550,
     areas.umbria: 117,
     areas.valle_daosta: 20,
     areas.veneto: 1016
