@@ -13,6 +13,7 @@ import { FeedComponent } from './feed/feed.component';
 import { BenchmarkSummaryTableComponent } from './benchmark/benchmark-summary-table/benchmark-summary-table.component';
 import { MarcheSummaryTableComponent } from './marche/marche-summary-table/marche-summary-table.component';
 import { ItalySummaryTableComponent } from './italy/italy-summary-table/italy-summary-table.component';
+import { VaccinesSummaryTableComponent } from './vaccines/vaccines-summary-table/vaccines-summary-table.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ItalySummaryTableComponent } from './italy/italy-summary-table/italy-su
     FeedComponent,
     BenchmarkSummaryTableComponent,
     MarcheSummaryTableComponent,
-    ItalySummaryTableComponent
+    ItalySummaryTableComponent,
+    VaccinesSummaryTableComponent
   ],
   imports: [
     CommonModule,

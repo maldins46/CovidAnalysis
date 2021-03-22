@@ -1,0 +1,109 @@
+<app-summary-table *ngIf="vaccinesSummary as vaccinesSummary">
+  <thead>
+  <tr>
+    <th scope="col">Indicatori di sintesi</th>
+    <th scope="col">Italia</th>
+    <th scope="col">Marche</th>
+    <th scope="col">Veneto</th>
+    <th scope="col">Toscana</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Percentuale popolazione vaccinata</td>
+    <td>
+      {{ vaccinesSummary.italy.fullVaccPopulation | percent:'1.2-2' }}
+    </td>
+    <td>
+      {{ vaccinesSummary.marche.fullVaccPopulation | percent:'1.2-2' }}
+    </td>
+    <td>
+      {{ vaccinesSummary.veneto.fullVaccPopulation | percent:'1.2-2' }}
+    </td>
+    <td>
+      {{ vaccinesSummary.toscana.fullVaccPopulation | percent:'1.2-2' }}
+    </td>
+  </tr>
+  <tr>
+    <td>Dosi somministrate nell'ultimo giorno</td>
+    <td [ngStyle]="{'color': vaccinesSummary.italy.dailyShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.italy.dailyShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.italy.dailyShots | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': vaccinesSummary.marche.dailyShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.marche.dailyShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.marche.dailyShots | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': vaccinesSummary.veneto.dailyShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.veneto.dailyShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.veneto.dailyShots | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': vaccinesSummary.toscana.dailyShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.toscana.dailyShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.toscana.dailyShots | number: '1.0-2' }}
+    </td>
+  </tr>
+  <tr>
+    <td>Prime dosi somministrate nell'ultimo giorno</td>
+    <td [ngStyle]="{'color': vaccinesSummary.italy.dailyFirstShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.italy.dailyFirstShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.italy.dailyFirstShots | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': vaccinesSummary.marche.dailyFirstShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.marche.dailyFirstShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.marche.dailyFirstShots | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': vaccinesSummary.veneto.dailyFirstShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.veneto.dailyFirstShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.veneto.dailyFirstShots | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': vaccinesSummary.toscana.dailyFirstShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.toscana.dailyFirstShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.toscana.dailyFirstShots | number: '1.0-2' }}
+    </td>
+  </tr>
+  <tr>
+    <td>Seconde dosi somministrate nell'ultimo giorno</td>
+    <td [ngStyle]="{'color': vaccinesSummary.italy.dailySecondShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.italy.dailySecondShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.italy.dailySecondShots | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': vaccinesSummary.marche.dailySecondShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.marche.dailySecondShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.marche.dailySecondShots | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': vaccinesSummary.veneto.dailySecondShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.veneto.dailySecondShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.veneto.dailySecondShots | number: '1.0-2' }}
+    </td>
+    <td [ngStyle]="{'color': vaccinesSummary.toscana.dailySecondShotsIncrement <= 0 ? '#f44336' : '#14AF14'}">
+      <mat-icon
+        [svgIcon]="vaccinesSummary.toscana.dailySecondShotsIncrement > 0 ? 'menu-up' : 'menu-down'">
+      </mat-icon>
+      {{ vaccinesSummary.toscana.dailySecondShots | number: '1.0-2' }}
+    </td>
+  </tr>
+  </tbody>
+</app-summary-table>
