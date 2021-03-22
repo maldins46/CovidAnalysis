@@ -20,7 +20,7 @@ ti_places_dict = {
     areas.lazio: 847,
     areas.liguria: 209,
     areas.lombardia: 1036,
-    areas.marche: 143,
+    areas.marche: 237,
     areas.molise: 34,
     areas.bolzano: 55,
     areas.trento: 51,
