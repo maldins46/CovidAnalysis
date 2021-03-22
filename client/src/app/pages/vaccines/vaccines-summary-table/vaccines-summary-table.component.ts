@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NationalSummaryModel} from '../../../shared/models/national-summary.model';
 import {VaccinesSummaryModel} from '../../../shared/models/vaccines-summary.model';
 
 @Component({

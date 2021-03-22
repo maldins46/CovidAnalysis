@@ -2,10 +2,16 @@
   <h1>Vaccini</h1>
   <p>
     Varie analisi ricavate a partire dai dati sui vaccini, sia a livello nazionale, che di benchmark, che per la regione
-    Marche.
+    Marche. L'ultimo aggiornamento ai dati mostrati in questa pagina risale al {{ vaccinesSummary?.lastUpdate | extendedDate }}.
   </p>
 
   <app-vaccines-summary-table [vaccinesSummary]="vaccinesSummary"></app-vaccines-summary-table>
+
+  <p>
+    Le frecce a fianco agli indicatori di sintesi indicano se il valore è in aumento o diminuzione rispetto
+    al giorno/settimana precedente. L'incremento è calcolato in media mobile di 7 giorni, così da rendere il
+    valore meno sensibile ai ritardi di registrazione.
+  </p>
 
   <h2>Dosi di vaccino somministrate, distinzione prima dose/richiamo</h2>
   <p>

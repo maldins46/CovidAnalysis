@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-summary-table',
@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary-table.component.scss']
 })
 export class SummaryTableComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

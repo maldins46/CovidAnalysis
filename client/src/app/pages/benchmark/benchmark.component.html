@@ -4,15 +4,22 @@
     Grafici che raffrontano vari parametri a livello regionale, confrontando in particolare tre regioni prese come
     "benchmark", rappresentative di situazioni differenti: <strong>Veneto</strong>, <strong>Toscana</strong>, <strong>Marche</strong>. La scelta
     delle regioni è stata dettata anche dalla volontà di espandere l'analisi in particolare sulla regione Marche.
+    L'ultimo aggiornamento ai dati mostrati in questa pagina risale al {{ benchmarkSummary?.lastUpdate | extendedDate }}.
   </p>
 
   <app-benchmark-summary-table [benchmarkSummary]="benchmarkSummary"></app-benchmark-summary-table>
+
+  <p>
+    Le frecce a fianco agli indicatori di sintesi indicano se il valore è in aumento o diminuzione rispetto
+    al giorno/settimana precedente. L'incremento è calcolato in media mobile di 7 giorni, così da rendere il
+    valore meno sensibile ai ritardi di registrazione.
+  </p>
 
   <h2>Indice R(t) SIRD per regioni</h2>
 
   <p>
   Il grafico mostra l'andamento dell'indice R(t) per le regioni del benchmark, calcolato con <strong>modellazione SIRD</strong>:
-  un metodo semplificato, <strong>non quello utilizzato dall'ISS</strong>, ma indicativo dell'andamento.
+  un metodo semplificato, non quello utilizzato dall'ISS, ma indicativo dell'andamento.
   </p>
 
   <app-image src="https://maldins46.github.io/CovidAnalysis/assets/data/rt_per_regioni.png"
@@ -20,29 +27,24 @@
 
   <p>
     Le soglie orizzontali indicano la soglia dei vari <strong>scenari</strong>, a seconda dei quali vengono
-    <a href="#" routerLink="/italy">determinate le varie zone</a> :
+    <a href="#" routerLink="/italy">determinate le varie zone</a>.
   </p>
-  <ul>
-    <li><strong>Scenario 1</strong>:  R(t) minore di 1;</li>
-    <li><strong>Scenario 2</strong>: R(t) compreso tra 1 e 1,25;</li>
-    <li><strong>Scenario 3</strong>: R(t) compreso tra 1,25 e 1,50;</li>
-    <li><strong>Scenario 4</strong>: R(t) superiore a 1,50.</li>
-  </ul>
-
   <p>
-    <em>Nota metodologica</em>: differenti metodi per il calcolo di R(t) <strong>possono portare a risultati molto
-    differenti</strong> tra di loro. Quello qui utilizzato, ad esempio, ha per la natura dell'algoritmo e dei dati utilizzati
-    una forte varianza (si allontantana molto dal valore di 1). C'è però da dire che <strong>tutti i metodi modellano correttamente un
-    valore maggiore di 1 nel caso in cui i contagi sono in aumento, e minore di 1 nel caso in cui siano in diminuzione</strong>.
-    <strong>EpiEstim</strong>, quello utilzzato dall'ISS, è molto più complesso, ma fornisce valori più precisi e con meno varianza.
+    Per la natura di come viene calcolato l'indicatore, e per i dati utilizzati, il valore di R(t) SIRD è
+    <strong>arretrato di una
+      settimana</strong> rispetto al giorno corrente.
+    Inoltre, differenti metodi per il calcolo di R(t) possono portare a risultati molto
+    differenti tra di loro. Tutti i metodi, ad ogni modo, modellano correttamente un
+    valore maggiore di 1 nel caso in cui i contagi sono in aumento, e minore di 1
+    nel caso in cui siano in diminuzione.
+    L'ISS utilizza <strong>EpiEstim</strong>, un metodo più complesso, ma più preciso, basandosi su dati consolidati.
   </p>
 
   <h2>Incidenza settimanale casi, per 100.000 abitanti</h2>
   <p>
     Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni regione, scalato su 100.000 abitanti.
-    In altre parole, ogni punto del grafico esprime <em>la differenza tra il totale dei casi registrati nel giorno <strong>n</strong>
-    rispetto al giorno <strong>n - 7</strong></em>. Il dato viene riportato in quanto la soglia a 50 è uno dei nuovi parametri
-    previsti dalle regole valide dal 16 gennaio, come indicato nella tabella iniziale.
+    In altre parole, ogni punto del grafico esprime <em>la differenza tra il totale cumulato dei casi registrati nel giorno <strong>n</strong>
+    rispetto al giorno <strong>n - 7</strong></em>.
   </p>
 
   <app-image src="https://maldins46.github.io/CovidAnalysis/assets/data/incid_sett_per_regioni.png"

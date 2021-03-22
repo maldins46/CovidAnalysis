@@ -3,9 +3,16 @@
   <p>
     Grafici, analisi e indicatori utili a descrivere la situazione a
     livello nazionale, oltre a un rapido excursus sui parametri per il calcolo del sistema a zone.
+    L'ultimo aggiornamento ai dati mostrati in questa pagina risale al {{ nationalSummary?.lastUpdate | extendedDate }}.
   </p>
 
   <app-italy-summary-table [nationalSummary]="nationalSummary"></app-italy-summary-table>
+
+  <p>
+    Le frecce a fianco agli indicatori di sintesi indicano se il valore è in aumento o diminuzione rispetto
+    al giorno/settimana precedente. L'incremento è calcolato in media mobile di 7 giorni, così da rendere il
+    valore meno sensibile ai ritardi di registrazione.
+  </p>
 
   <h2>Parametri nazionali in valori assoluti</h2>
 

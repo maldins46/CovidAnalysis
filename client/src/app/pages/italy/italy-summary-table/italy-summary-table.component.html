@@ -7,30 +7,24 @@
   </thead>
   <tbody>
   <tr>
-    <td>Nuovi positivi</td>
-    <td [ngStyle]="{'color': nationalSummary.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="nationalSummary.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>Nuovi positivi nell'ultimo giorno</td>
+    <td>
       {{ nationalSummary.newPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="nationalSummary.newPositivesIncrement"></app-increment-icon>
     </td>
   </tr>
   <tr>
-    <td>Nuovi positivi sett.</td>
-    <td [ngStyle]="{'color': nationalSummary.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="nationalSummary.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>Nuovi negli ultimi 7 giorni</td>
+    <td>
       {{ nationalSummary.weeklyPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="nationalSummary.weeklyPositivesIncrement"></app-increment-icon>
     </td>
   </tr>
   <tr>
-    <td>Occupazione TI</td>
-    <td [ngStyle]="{'color': nationalSummary.tiIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="nationalSummary.tiIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>Occupazione terapie intensive nell'ultimo giorno</td>
+    <td>
       {{ nationalSummary.tiPercentage | percent:'1.2-2' }}
+      <app-increment-icon [value]="nationalSummary.tiIncrement"></app-increment-icon>
     </td>
   </tr>
   </tbody>

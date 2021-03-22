@@ -43,7 +43,6 @@ export class SharingService {
     // Set non-editable to avoid focus and move outside of view
     el.setAttribute('readonly', '');
 
-    // el.style = {position: 'absolute', left: '-9999px'};
     document.body.appendChild(el);
     // Select text inside element
     el.select();

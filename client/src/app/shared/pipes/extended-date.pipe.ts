@@ -8,6 +8,6 @@ import { DatePipe } from '@angular/common';
 export class ExtendedDatePipe extends
   DatePipe implements PipeTransform {
   transform(value: any, args?: any): any {
-    return super.transform(value, 'd MMMM y, H:mm');
+    return super.transform(value, 'd MMMM y, ore H:mm');
   }
 }

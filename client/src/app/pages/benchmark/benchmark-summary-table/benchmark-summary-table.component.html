@@ -9,66 +9,48 @@
   </thead>
   <tbody>
   <tr>
-    <td>Nuovi positivi</td>
-    <td [ngStyle]="{'color': benchmarkSummary.marche.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="benchmarkSummary.marche.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>Nuovi positivi nell'ultimo giorno</td>
+    <td>
       {{ benchmarkSummary.marche.newPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="benchmarkSummary.marche.newPositivesIncrement"></app-increment-icon>
     </td>
-    <td [ngStyle]="{'color': benchmarkSummary.veneto.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="benchmarkSummary.veneto.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>
       {{ benchmarkSummary.veneto.newPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="benchmarkSummary.veneto.newPositivesIncrement"></app-increment-icon>
     </td>
-    <td [ngStyle]="{'color': benchmarkSummary.toscana.newPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="benchmarkSummary.toscana.newPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>
       {{ benchmarkSummary.toscana.newPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="benchmarkSummary.toscana.newPositivesIncrement"></app-increment-icon>
     </td>
   </tr>
   <tr>
-    <td>Nuovi positivi sett.</td>
-    <td [ngStyle]="{'color': benchmarkSummary.marche.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="benchmarkSummary.marche.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>Nuovi positivi negli ultimi 7 giorni</td>
+    <td>
       {{ benchmarkSummary.marche.weeklyPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="benchmarkSummary.marche.weeklyPositivesIncrement"></app-increment-icon>
     </td>
-    <td [ngStyle]="{'color': benchmarkSummary.veneto.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="benchmarkSummary.veneto.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>
       {{ benchmarkSummary.veneto.weeklyPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="benchmarkSummary.veneto.weeklyPositivesIncrement"></app-increment-icon>
     </td>
-    <td [ngStyle]="{'color': benchmarkSummary.toscana.weeklyPositivesIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="benchmarkSummary.toscana.weeklyPositivesIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>
       {{ benchmarkSummary.toscana.weeklyPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="benchmarkSummary.toscana.weeklyPositivesIncrement"></app-increment-icon>
     </td>
   </tr>
   <tr>
-    <td>Occupazione TI</td>
-    <td [ngStyle]="{'color': benchmarkSummary.marche.tiIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="benchmarkSummary.marche.tiIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>Occupazione terapie intensive nell'ultimo giorno</td>
+    <td>
       {{ benchmarkSummary.marche.tiPercentage | percent:'1.2-2' }}
+      <app-increment-icon [value]="benchmarkSummary.marche.tiIncrement"></app-increment-icon>
     </td>
-    <td [ngStyle]="{'color': benchmarkSummary.veneto.tiIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="benchmarkSummary.veneto.tiIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>
       {{ benchmarkSummary.veneto.tiPercentage | percent:'1.2-2' }}
+      <app-increment-icon [value]="benchmarkSummary.veneto.tiIncrement"></app-increment-icon>
     </td>
-    <td [ngStyle]="{'color': benchmarkSummary.toscana.tiIncrement > 0 ? '#f44336' : '#14AF14'}">
-      <mat-icon
-        [svgIcon]="benchmarkSummary.toscana.tiIncrement > 0 ? 'menu-up' : 'menu-down'">
-      </mat-icon>
+    <td>
       {{ benchmarkSummary.toscana.tiPercentage | percent:'1.2-2' }}
+      <app-increment-icon [value]="benchmarkSummary.toscana.tiIncrement"></app-increment-icon>
     </td>
   </tr>
   </tbody>

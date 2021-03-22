@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {BenchmarkSummaryModel} from '../../shared/models/benchmark-summary.model';
 import {ApiService} from '../../core/api/api.service';
 import {MarcheSummaryModel} from '../../shared/models/marche-summary.model';
 
