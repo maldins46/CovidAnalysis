@@ -91,8 +91,10 @@ def compute_weekly_incidence(save_image=False, show=False):
 
     plt.plot(nation_data['data'], nation_data['incid_sett_per_100000_ab'], alpha=0.5, linestyle=':', label="Italia")
 
-    plt.axhline(y=50, color='tab:orange', linestyle='--', alpha=0.5, label="Soglia incidenza")
+    plt.axhline(y=250, color='tab:red', linestyle='--', alpha=0.5, label="Alto rischio")
+    plt.axhline(y=50, color='tab:orange', linestyle='--', alpha=0.5, label="Basso rischio")
 
+    plt.gca().set_ylim([0,None])
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
