@@ -20,13 +20,13 @@ git submodule update --remote --recursive
 
 ## How to use the Python module
 
-The `/chart-generation` folder contains the Python code for the generation of charts and summary tables. If you want to try it, you need a Python interpreter in order to execute it. Code is tested with Python 3.8. Then, install the dependencies shown into the file `requirements.txt`. You can do with Anaconda, if you are using it; alternatively, run:
+The `/chart-generation` folder contains the Python code for the generation of charts and summary tables. A Python interpreter in order to try it (code is tested with Python 3.8). Then, install the dependencies shown into the file `requirements.txt`, running:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Use the following command to generate all the assets, like charts and summary tables in JSON. Assets will be saved in the project subfolder `/assets`.
+Use the following command to generate all the assets, like charts in PNG and summary tables in JSON. Assets will be saved in the project subfolder `/assets`.
 
 ```bash
 python ./chart-generation/chart-generation.py
@@ -34,7 +34,7 @@ python ./chart-generation/chart-generation.py
 
 ## How to use the Angular client
 
-The `/client` folder contains an Angular client used to show the results of the Python elaborations. These elaborations are triggered twice a day with GitHub Actions, and the assets are automatically saved into the GitHub Pages web space. Deployed code is saved into the branch `gh-pages`. If you want to try the Angular client locally, you first need `Node` and `angular-cli` installed. Then you can run the following command to execute a local Angular server instance:
+The `/client` folder contains an Angular client used to show the results of the Python elaborations. These elaborations are triggered twice a day with GitHub Actions, and the assets are automatically saved into the GitHub Pages web space. This space (under the branch `gh-pages`) contains also the deployed and minified Angular client delivered at each push on `main` branch. To try the Angular client locally, `Node` and `angular-cli` are needed. Run the following command to execute a local Angular server instance:
 
 ```bash
 ng serve
