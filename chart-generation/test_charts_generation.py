@@ -13,12 +13,14 @@ import dictionaries.area_codes as areas
 import national.summary as national_summary
 import regions.summary as benchmark_summary
 import provinces.summary as marche_summary
+import vaccines.summary as vaccines_summary
 
 
 def test_summary_generation():
     national_summary.compute_summary(save=False, print_terminal=False)
     benchmark_summary.compute_summary(save=False, print_terminal=False)
     marche_summary.compute_marche_summary(print_terminal=True, save=False)
+    vaccines_summary.compute_summary(save=True, print_terminal=False)
 
 
 def test_national_chart_generation():

@@ -53,9 +53,11 @@ def compute_regional_doses(save_image=False, show=False):
     """
 
     for area_code, region_data in benchmark_regions_data.items():
-        plt.plot(region_data['data_somministrazione'], region_data['totale_per_100000_ab'], label=area_names[area_code])
+        rolling_avg_adm = region_data['totale_per_100000_ab'].rolling(7, center=True).mean()
+        plt.plot(region_data['data_somministrazione'], rolling_avg_adm, label=area_names[area_code])
 
-    plt.plot(nation_data['data_somministrazione'], nation_data['totale_per_100000_ab'], alpha=0.5, linestyle=':',
+    rolling_avg_adm = nation_data['totale_per_100000_ab'].rolling(7, center=True).mean()
+    plt.plot(nation_data['data_somministrazione'], rolling_avg_adm, alpha=0.5, linestyle=':',
              label="Italia")
 
     plt.gca().xaxis.set_major_locator(MonthLocator())
@@ -64,7 +66,7 @@ def compute_regional_doses(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Somministraz. ogni 100.000 abitanti')
+    plt.ylabel('Somministraz. ogni 100.000 abitanti (7 gg. m.a.')
     plt.legend()
 
     if save_image:
