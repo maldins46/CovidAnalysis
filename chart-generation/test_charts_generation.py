@@ -41,6 +41,7 @@ def test_regions_chart_generation():
 def test_provinces_chart_generation():
     provinces_analysis.compute_total_cases_per_provinces()
     provinces_analysis.compute_total_cases_per_provinces_abs()
+    provinces_analysis.compute_weekly_incidence()
 
 
 def test_vaccines_chart_generation():

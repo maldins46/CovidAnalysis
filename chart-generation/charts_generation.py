@@ -32,5 +32,5 @@ regions_analysis.compute_positivity_per_regions(save_image=True, show=False)
 regions_analysis.compute_daily_cases(save_image=True, show=False)
 regions_analysis.compute_region_parameters(save_image=True, show=False, region_code=areas.marche)
 
-provinces_analysis.compute_total_cases_per_provinces(save_image=True, show=False)
 provinces_analysis.compute_total_cases_per_provinces_abs(save_image=True, show=False)
+provinces_analysis.compute_weekly_incidence(save_image=True, show=False)

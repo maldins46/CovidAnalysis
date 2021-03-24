@@ -61,6 +61,12 @@ def extract_single_province_data(province_code="ANC"):
 
     province_df['incr_casi_per_100000_ab'] = utils.scale_per_x_inhabitants(province_df['incremento_casi'],
                                                                            population[province_code])
+
+    # Add data 'incidenza settimanale, scale per 100.000 inhabitants
+    province_df['incidenza_settimanale'] = utils.distanced_diff(province_df['totale_casi'], 7)
+    province_df['incid_sett_per_100000_ab'] = utils.scale_per_x_inhabitants(province_df['incidenza_settimanale'],
+                                                                            population[province_code])
+
     return province_df
 
 
