@@ -20,15 +20,40 @@ molise = "MOL"
 bolzano = "PAB"
 trento = "PAT"
 piemonte = "PIE"
-puglia = "Puglia"
+puglia = "PUG"
 sardegna = "SAR"
 sicilia = "SIC"
 toscana = "TOS"
 umbria = "UMB"
 valle_daosta = "VDA"
 veneto = "VEN"
-ancona = "ANC"
-macerata = "MAC"
-fermo = "FER"
-ascoli_piceno = "ASP"
-pesaro_urbino = "PEU"
+
+ancona = "AN"
+macerata = "MC"
+fermo = "FM"
+ascoli_piceno = "AP"
+pesaro_urbino = "PU"
+
+regions_dict = {
+    abruzzo: "ABR",
+    basilicata: "BAS",
+    calabria: "CAL",
+    campania: "CAM",
+    emilia_romagna: "EMR",
+    friuli: "FVG",
+    lazio: "LAZ",
+    liguria: "LIG",
+    lombardia: "LOM",
+    marche: "MAR",
+    molise: "MOL",
+    bolzano: "PAB",
+    trento: "PAT",
+    piemonte: "PIE",
+    puglia: "PUG",
+    sardegna: "SAR",
+    sicilia: "SIC",
+    toscana: "TOS",
+    umbria: "UMB",
+    valle_daosta: "VDA",
+    veneto: "VEN"
+}

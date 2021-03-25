@@ -9,9 +9,33 @@ import pandas as pd
 import utils
 from dictionaries.population import population_dict as population
 from dictionaries import area_codes as areas
+import geopandas as gpd
 
 
-def extract_national_data(path='./VaccineOpenData/dati/somministrazioni-vaccini-summary-latest.csv'):
+def extract_map_data():
+    """
+    Extracts relevant data for geographical plots, and marges them to the regional Geodataframe.
+    """
+
+    # Extract last rilevation for each region
+    summary_df = pd.DataFrame()
+    for key, area in areas.regions_dict.items():
+        last_rilevation = extract_area_adm_data(area).tail(1)
+        summary_df = pd.concat([summary_df, last_rilevation], sort=False, ignore_index=True).fillna(0)
+
+    # Change Trento and Bolzano ISTAT code to match the GeoDataframe
+    summary_df = summary_df.rename(columns={'codice_regione_ISTAT': 'codice_regione'})
+    summary_df['codice_regione'] = summary_df.apply(lambda x: 21 if x['area'] == 'PAT' else x['codice_regione'], axis=1)
+    summary_df['codice_regione'] = summary_df.apply(lambda x: 22 if x['area'] == 'PAB' else x['codice_regione'], axis=1)
+
+    # Merge geo data to vaccine info
+    geo_df = utils.get_clean_regions_geodf()
+    merged_df = geo_df.merge(summary_df, on='codice_regione')
+
+    return merged_df
+
+
+def extract_national_data(path='/users/riccardomaldini/Desktop/CovidAnalysis/VaccineOpenData/dati/somministrazioni-vaccini-summary-latest.csv'):
     """
     Reads the data summary from the database and saves it in a data frame.
     """
@@ -51,7 +75,7 @@ def extract_national_data(path='./VaccineOpenData/dati/somministrazioni-vaccini-
 
 
 def extract_area_adm_data(area_code="MAR",
-                          path='./VaccineOpenData/dati/somministrazioni-vaccini-summary-latest.csv'):
+                          path='/users/riccardomaldini/Desktop/CovidAnalysis/VaccineOpenData/dati/somministrazioni-vaccini-summary-latest.csv'):
     """
     Reads the data summary from the database and saves it in a data frame.
     """

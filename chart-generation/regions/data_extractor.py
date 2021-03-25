@@ -15,15 +15,25 @@ import utils
 from dictionaries.ti_places import ti_places_dict as ti_places
 from dictionaries.population import population_dict as population
 
-
-def extract_regions_data(path='./GvtOpenData/dati-regioni'):
+def extract_map_data():
     """
-    Reads all csv files about regions data and concatenates them in a data frame.
+    Extracts relevant data for geographical plots, and marges them to the regional Geodataframe.
     """
 
-    all_files_paths = os.path.join(path, "*.csv")
-    all_files = glob.glob(all_files_paths)
-    return pd.concat((pd.read_csv(file) for file in all_files))
+    # Extract last rilevation for each region
+    summary_df = pd.DataFrame()
+    for key, area in areas.regions_dict.items():
+        last_rilevation = extract_single_region_data(area).tail(1)
+        summary_df = pd.concat([summary_df, last_rilevation], sort=False, ignore_index=True).fillna(0)
+
+    # Change Trento and Bolzano ISTAT code to match the GeoDataframe
+    summary_df = summary_df.rename(columns={'codice_regione_ISTAT': 'codice_regione'})
+
+    # Merge geo data to vaccine info
+    geo_df = utils.get_clean_regions_geodf()
+    merged_df = geo_df.merge(summary_df, on='codice_regione')
+
+    return merged_df
 
 
 def extract_single_region_data(region_code=areas.marche):
@@ -32,7 +42,7 @@ def extract_single_region_data(region_code=areas.marche):
     Also, converts datesto datetime.
     """
     area_name = area_names[region_code]
-    region_df = region_data.loc[region_data['denominazione_regione'] == area_name]
+    region_df = regions_data.loc[regions_data['denominazione_regione'] == area_name]
 
     # suppresses a false positive in the function
     pd.options.mode.chained_assignment = None
@@ -83,6 +93,9 @@ def extract_single_region_data(region_code=areas.marche):
     region_df['incid_sett_per_100000_ab'] = utils.scale_per_x_inhabitants(region_df['incidenza_settimanale'],
                                                                           population[region_code])
 
+    region_df['incid_sett_per_100000_ab'] = region_df.apply(lambda x: 500 if x['incid_sett_per_100000_ab'] > 500 else x['incid_sett_per_100000_ab'], axis=1)
+
+
     # compute rt
     region_df['rt'] = utils.compute_rt(region_df['totale_casi'], region_df['dimessi_guariti'], region_df['deceduti'])
 
@@ -102,5 +115,5 @@ def extract_benchmark_regions():
 
 
 # Create dataframe, extract some region data
-region_data = extract_regions_data()
+regions_data = pd.read_csv('/users/riccardomaldini/Desktop/CovidAnalysis/GvtOpenData/dati-regioni/dpc-covid19-ita-regioni.csv')
 benchmark_regions_data = extract_benchmark_regions()

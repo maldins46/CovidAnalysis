@@ -13,11 +13,27 @@ import national.summary as national_summary
 import regions.summary as benchmark_summary
 import provinces.summary as marche_summary
 import vaccines.summary as vaccines_summary
+import regions.geoanalysis as geo_reg
+import vaccines.geoanalysis as geo_vac
+import provinces.geoanalysis as geo_prov
+import regions.geoanalysis as geo_reg
+import vaccines.geoanalysis as geo_vac
+import provinces.geoanalysis as geo_prov
+
+geo_reg.compute_incidence_map(save_image=True, show=False)
+geo_reg.compute_ti_map(save_image=True, show=False)
+
+geo_vac.compute_adm_doses_map(save_image=True, show=False)
+geo_vac.compute_immunes_percentage_map(save_image=True, show=False)
+
+geo_prov.compute_incidence_prov_map(save_image=True, show=False)
+geo_prov.compute_incidence_marche_map(save_image=True, show=False)
 
 vaccines_summary.compute_summary(save=True, print_terminal=False)
 marche_summary.compute_marche_summary(save=True, print_terminal=False)
 benchmark_summary.compute_summary(save=True, print_terminal=False)
 national_summary.compute_summary(save=True, print_terminal=False)
+
 vacc_nat.compute_regional_doses(save_image=True, show=False)
 vacc_nat.compute_adm(save_image=True, show=False)
 vacc_nat.compute_adm(save_image=True, show=False, area_code=areas.marche)
