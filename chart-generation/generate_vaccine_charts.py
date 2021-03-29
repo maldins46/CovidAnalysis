@@ -6,14 +6,14 @@ Generates all charts linked to the vaccines situation in italy.
 """
 
 from charts import vaccines
-vaccines.immunes_percentage(show=True)
-vaccines.regional_doses(show=True)
-vaccines.adm_doses_marche(show=True)
-vaccines.adm_doses_italy(show=True)
+vaccines.immunes_percentage(save_image=True)
+vaccines.regional_doses(save_image=True)
+vaccines.adm_doses_marche(save_image=True)
+vaccines.adm_doses_italy(save_image=True)
 
 from geocharts import vaccines
-vaccines.adm_doses(show=True)
-vaccines.immunes_percentage(show=True)
+vaccines.adm_doses(save_image=True)
+vaccines.immunes_percentage(save_image=True)
 
 from summaries import vaccines as sum_vaccines
 sum_vaccines.compute_summary(save=True)

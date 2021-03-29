@@ -17,13 +17,13 @@ marche.weekly_incidence(save_image=True)
 marche.cases_per_provinces_abs(save_image=True)
 
 from geocharts import italy
-italy.ti_occupation(show=True)
-italy.weekly_incidence_regions(show=True)
-italy.weekly_incidence_provinces(show=True)
+italy.ti_occupation(save_image=True)
+italy.weekly_incidence_regions(save_image=True)
+italy.weekly_incidence_provinces(save_image=True)
 
 from geocharts import marche
-marche.new_positives()
-marche.weekly_incidence()
+marche.new_positives(save_image=True)
+marche.weekly_incidence(save_image=True)
 
 from summaries import italy as sum_italy, marche as sum_marche
 sum_italy.compute_summary(save=True)
