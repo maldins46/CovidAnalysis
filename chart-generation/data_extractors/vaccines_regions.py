@@ -14,7 +14,7 @@ from data_extractors.geojson import regions_geodf
 import geopandas as gpd
 
 # Constants and pre-cleaning
-RAW_DF = pd.read_csv('/users/riccardomaldini/Desktop/CovidAnalysis/data/opendata-vaccini-italia/dati/somministrazioni-vaccini-summary-latest.csv')
+RAW_DF = pd.read_csv('./data/opendata-vaccini-italia/dati/somministrazioni-vaccini-summary-latest.csv')
 RAW_DF['codice_regione_ISTAT'] = RAW_DF.apply(lambda x: 21 if x['area'] == 'PAT' else x['codice_regione_ISTAT'], axis=1)
 RAW_DF['codice_regione_ISTAT'] = RAW_DF.apply(lambda x: 22 if x['area'] == 'PAB' else x['codice_regione_ISTAT'], axis=1)
 RAW_DF['codice_regione_ISTAT'] = RAW_DF['codice_regione_ISTAT'].apply(lambda x: f"{x:02d}")

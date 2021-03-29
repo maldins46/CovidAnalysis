@@ -8,7 +8,7 @@ Extractor for TI places data.
 import csv
 
 
-def extract_ti_places_dict(path='/users/riccardomaldini/Desktop/CovidAnalysis/data/ti_places.csv'):
+def extract_ti_places_dict(path='./data/ti_places.csv'):
     """
     Extracts a dictionary that keeps track of the ti places for each administrative area.
     The index column is 'istat_code', the population column is 'ti'.

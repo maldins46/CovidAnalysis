@@ -13,7 +13,7 @@ from data_extractors.population import population_dict
 
 # Constants
 POPULATION_ITALY = population_dict[istat_codes.italia]
-RAW_DF = pd.read_csv('/users/riccardomaldini/Desktop/CovidAnalysis/data/opendata-vaccini-italia/dati/somministrazioni-vaccini-summary-latest.csv')
+RAW_DF = pd.read_csv('./data/opendata-vaccini-italia/dati/somministrazioni-vaccini-summary-latest.csv')
 
 def extract_italy_df():
     """

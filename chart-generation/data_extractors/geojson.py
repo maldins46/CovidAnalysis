@@ -10,8 +10,8 @@ import geopandas as gpd
 import pandas as pd
 
 # Constants
-RAW_REG_ITALY = gpd.read_file('/users/riccardomaldini/Desktop/CovidAnalysis/data/geojson-italy/geojson/limits_IT_regions.geojson')
-RAW_PROV_ITALY = gpd.read_file('/users/riccardomaldini/Desktop/CovidAnalysis/data/geojson-italy/geojson/limits_IT_provinces.geojson')
+RAW_REG_ITALY = gpd.read_file('./data/geojson-italy/geojson/limits_IT_regions.geojson')
+RAW_PROV_ITALY = gpd.read_file('./data/geojson-italy/geojson/limits_IT_provinces.geojson')
 
 
 def extract_regions_geodf():

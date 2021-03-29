@@ -8,7 +8,7 @@ Extractor for population data.
 import csv
 
 
-def extract_population_dict(path='/users/riccardomaldini/Desktop/CovidAnalysis/data/population.csv'):
+def extract_population_dict(path='./data/population.csv'):
     """
     Extracts a dictionary that keeps track of the population for each administrative area.
     The index column is 'istat_code', the population column is 'population'.

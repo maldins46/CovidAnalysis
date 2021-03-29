@@ -100,4 +100,5 @@ def extract_marche_dict(df):
 # Create dataframe, extract data for provinces of Marche
 provinces_df = extract_provinces_df()
 provinces_geodf = extract_provinces_geodf(provinces_df)
+marche_geodf = provinces_geodf[provinces_geodf['reg_istat_code'] == '11']
 marche_dict = extract_marche_dict(provinces_df)
