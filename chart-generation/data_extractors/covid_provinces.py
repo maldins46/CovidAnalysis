@@ -54,17 +54,13 @@ def extract_provinces_df():
     df['incidenza_settimanale'] = utils.distanced_diff(df['totale_casi'], 7)
     df['incid_sett_per_100000_ab'] = df.apply(lambda x: x['incidenza_settimanale'] / population_dict[x['codice_provincia']] * 100000, axis=1)
 
-    # Labels for maps
-    df['incid_sett_per_100000_round'] = df.apply(lambda x: round(x['incid_sett_per_100000_ab'], 0), axis=1)
-    df['incid_sett_per_100000_ab_label'] = df.apply(lambda x: f"{x['incid_sett_per_100000_round']:.0f}", axis=1)
-
     # Filter data 15 days later (removes tail effect)
     df = df[df['data'] > '2020-10-15']
 
     return df
 
 
-def  extract_regions_geodf(df):
+def  extract_provinces_geodf(df):
     """
     Extracts relevant data for geographical plots, and marges them to the regional Geodataframe.
     """
@@ -73,8 +69,16 @@ def  extract_regions_geodf(df):
     summary_df = df.sort_values(['data'])
     summary_df = summary_df.tail(107)
 
+    # Labels for maps
+    summary_df['incid_sett_per_100000_round'] = summary_df['incid_sett_per_100000_ab'].apply(lambda x: round(x, 0))
+    summary_df['incid_sett_per_100000_ab_label'] = summary_df['incid_sett_per_100000_round'].apply(lambda x: f"{x:.0f}")
+    
     # Merge geo data to analysis
     merged_df = provinces_geodf.merge(summary_df, on='codice_provincia')
+
+    # Add location for the labels
+    merged_df['coords'] = merged_df['geometry'].apply(lambda x: x.representative_point().coords[:])
+    merged_df['coords'] = [coords[0] for coords in merged_df['coords']]
 
     return merged_df
 
@@ -95,5 +99,5 @@ def extract_marche_dict(df):
 
 # Create dataframe, extract data for provinces of Marche
 provinces_df = extract_provinces_df()
-provinces_geodf = extract_regions_geodf(provinces_df)
+provinces_geodf = extract_provinces_geodf(provinces_df)
 marche_dict = extract_marche_dict(provinces_df)
