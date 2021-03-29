@@ -13,12 +13,14 @@ from data_extractors.istat_code_groups import benchmark_array, regions_array
 from data_extractors.geojson import regions_geodf
 import geopandas as gpd
 
-# Constants
-RAW_DF = pd.read_csv('./data/opendata-vaccini-italia/somministrazioni-vaccini-summary-latest.csv')
+# Constants and pre-cleaning
+RAW_DF = pd.read_csv('/users/riccardomaldini/Desktop/CovidAnalysis/data/opendata-vaccini-italia/dati/somministrazioni-vaccini-summary-latest.csv')
+RAW_DF['codice_regione_ISTAT'] = RAW_DF.apply(lambda x: 21 if x['area'] == 'PAT' else x['codice_regione_ISTAT'], axis=1)
+RAW_DF['codice_regione_ISTAT'] = RAW_DF.apply(lambda x: 22 if x['area'] == 'PAB' else x['codice_regione_ISTAT'], axis=1)
+RAW_DF['codice_regione_ISTAT'] = RAW_DF['codice_regione_ISTAT'].apply(lambda x: f"{x:02d}")
 
 
-def extract_region_df(region_code="11",
-                      path='./data/opendata-vaccini-italia/somministrazioni-vaccini-summary-latest.csv'):
+def extract_region_df(region_code="11"):
     """
     Extracts dataframes that describes regional-level vaccines data for a single region, making some analysis on it.
     :rtype: Dataframe
@@ -26,12 +28,7 @@ def extract_region_df(region_code="11",
 
     df = RAW_DF
 
-    # Correction for Trento&Bolzano
-    df['codice_regione_istat'] = df.apply(lambda x: 21 if x['area'] == 'PAT' else x['codice_regione_istat'], axis=1)
-    df['codice_regione_istat'] = df.apply(lambda x: 22 if x['area'] == 'PAB' else x['codice_regione_istat'], axis=1)
-
-    # warning?
-    df = df.loc[df['codice_regione_istat'] == region_code]
+    df = df.loc[df['codice_regione_ISTAT'] == region_code]
     
     df = df.sort_values('data_somministrazione')
     df = df.reset_index()
@@ -46,7 +43,7 @@ def extract_region_df(region_code="11",
 
     # Historical totals
     df['totale_storico'] = df['totale'].cumsum()
-    df['totale_storico_su_pop'] = df.apply(lambda x: x['acc_totale'] / population_dict[x['codice_regione_ISTAT']], axis=1)
+    df['totale_storico_su_pop'] = df.apply(lambda x: x['totale_storico'] / population_dict[x['codice_regione_ISTAT']], axis=1)
 
     df['prima_dose_totale_storico'] = df['prima_dose'].cumsum()
     df['prima_dose_totale_storico_su_pop'] = df.apply(lambda x: x['prima_dose_totale_storico'] / population_dict[x['codice_regione_ISTAT']], axis=1)
@@ -70,9 +67,16 @@ def extract_regions_geodf():
 
     # Change Trento and Bolzano ISTAT code to match the GeoDataframe
     df = df.rename(columns={'codice_regione_ISTAT': 'codice_regione'})
+
+    df['seconda_dose_totale_storico_su_pop_100'] = df.apply(lambda x: x['seconda_dose_totale_storico_su_pop'] * 100, axis=1)
+    df['seconda_dose_totale_storico_su_pop_label'] = df.apply(lambda x: f"{x['seconda_dose_totale_storico_su_pop_100']:.2f} %", axis=1)
     
     # Merge geo data to analysis
     merged_df = regions_geodf.merge(df, on='codice_regione')
+
+    # Add location for the labels
+    merged_df['coords'] = merged_df['geometry'].apply(lambda x: x.representative_point().coords[:])
+    merged_df['coords'] = [coords[0] for coords in merged_df['coords']]
 
     return merged_df
 
@@ -95,3 +99,4 @@ def extract_benchmark_dict():
 # Pre-computed data. Use this to avoid re-generating the data structure each time
 regions_geodf = extract_regions_geodf()
 benchmark_dict = extract_benchmark_dict()
+marche_df = benchmark_dict[istat_codes.marche]

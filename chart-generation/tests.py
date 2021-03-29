@@ -6,7 +6,6 @@ Uses the library to generate all available charts in the ./assets/ directory.
 """
 #%%
 #from charts import italy
-
 #italy.parameters(show=True)
 #italy.weekly_incidence(show=True)
 #italy.rt_per_regions(show=True)
@@ -17,7 +16,17 @@ Uses the library to generate all available charts in the ./assets/ directory.
 #marche.weekly_incidence(show=True)
 #marche.cases_per_provinces_abs(show=True)
 
-from geocharts import italy
-italy.ti_occupation(show=True)
-italy.weekly_incidence_regions(show=True)
-italy.weekly_incidence_provinces(show=True)
+#from charts import vaccines
+#vaccines.immunes_percentage(show=True)
+#vaccines.regional_doses(show=True)
+#vaccines.adm_doses_marche(show=True)
+#vaccines.adm_doses_italy(show=True)
+
+#from geocharts import italy
+#italy.ti_occupation(show=True)
+#italy.weekly_incidence_regions(show=True)
+#italy.weekly_incidence_provinces(show=True)
+
+#from geocharts import vaccines
+#vaccines.adm_doses(show=True)
+#vaccines.immunes_percentage(show=True)

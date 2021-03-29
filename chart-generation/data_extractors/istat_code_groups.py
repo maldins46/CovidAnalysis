@@ -8,9 +8,9 @@ Defines the various groups of, based on ISTAT codes.
 from data_extractors import istat_codes
 
 benchmark_array = [
-    istat_codes.marche,
+    istat_codes.toscana,
     istat_codes.veneto,
-    istat_codes.toscana
+    istat_codes.marche
 ]
 
 marche_array = [

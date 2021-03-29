@@ -13,9 +13,9 @@ from data_extractors.population import population_dict
 
 # Constants
 POPULATION_ITALY = population_dict[istat_codes.italia]
-RAW_DF = pd.read_csv('./data/opendata-vaccini-italia/somministrazioni-vaccini-summary-latest.csv')
+RAW_DF = pd.read_csv('/users/riccardomaldini/Desktop/CovidAnalysis/data/opendata-vaccini-italia/dati/somministrazioni-vaccini-summary-latest.csv')
 
-def extract_italy_df(path='./data/opendata-vaccini-italia/somministrazioni-vaccini-summary-latest.csv'):
+def extract_italy_df():
     """
     Extracts dataframes that describes national-level vaccines data, making some analysis on it.
     """
@@ -39,7 +39,7 @@ def extract_italy_df(path='./data/opendata-vaccini-italia/somministrazioni-vacci
 
     # Historical totals
     df['totale_storico'] = df['totale'].cumsum()
-    df['totale_storico_su_pop'] = df['acc_totale'] / POPULATION_ITALY
+    df['totale_storico_su_pop'] = df['totale_storico'] / POPULATION_ITALY
 
     df['prima_dose_totale_storico'] = df['prima_dose'].cumsum()
     df['prima_dose_totale_storico_su_pop'] = df['prima_dose_totale_storico'] / POPULATION_ITALY
