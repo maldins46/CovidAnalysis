@@ -103,4 +103,38 @@ export class ApiService {
       }
     ];
   }
+
+  public getVaccineAdministrationSlides(): SlideModel[] {
+    return [
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_per_regioni_mappa.png',
+        description: 'Dosi somministrate per regioni, cumulative'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_italia.png',
+        description: 'Dosi somministrate giornalmente in italia, distinzione prima e seconda dose'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_marche.png',
+        description: 'Dosi somministrate giornalmente nelle Marche, distinzione prima e seconda dose'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_per_regioni.png',
+        description: 'Andamento somministrazioni benchmark'
+      }
+    ];
+  }
+
+  public getVaccineImmunizationSlides(): SlideModel[] {
+    return [
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/immunizzati_mappa.png',
+        description: 'Immunizzati per regione'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/immunizzati.png',
+        description: 'Andamento immunizzati benchmark'
+      }
+    ];
+  }
 }
