@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1616582760524,
+  "timestamp": 1617141424808,
   "index": "/CovidAnalysis/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/CovidAnalysis/favicon.ico",
         "/CovidAnalysis/index.html",
-        "/CovidAnalysis/main.f98f057edacdb392bbb3.js",
+        "/CovidAnalysis/main.ec86f49683a9ac49c865.js",
         "/CovidAnalysis/manifest.webmanifest",
         "/CovidAnalysis/polyfills.d15628b9ba7248669cd9.js",
         "/CovidAnalysis/runtime.7b63b9fd40098a2e8207.js",
-        "/CovidAnalysis/styles.474e326afa7833b15000.css"
+        "/CovidAnalysis/styles.ddbc5a45ffcac77d870a.css"
       ],
       "patterns": []
     },
@@ -64,12 +64,12 @@
     "/CovidAnalysis/assets/logo-small.png": "45c6e23503f7c39e005019f0ebf92bb35c4098ee",
     "/CovidAnalysis/assets/logo.png": "9cfbaf2476d59cfd215fe6ac3661756154f86b17",
     "/CovidAnalysis/favicon.ico": "8fc02df634ef772c704437cb73e9ec2b37498ce7",
-    "/CovidAnalysis/index.html": "584399209a510746dc1cbd5b9333043da07a7866",
-    "/CovidAnalysis/main.f98f057edacdb392bbb3.js": "c6792e3a7c60dcfcf15916ef5bbf4e2b9817d80f",
+    "/CovidAnalysis/index.html": "55cdbf9b8b30e6e7956662f53d9f742b042af48d",
+    "/CovidAnalysis/main.ec86f49683a9ac49c865.js": "2c8a59e790730f8a1138bbadd16c935f94d13ae9",
     "/CovidAnalysis/manifest.webmanifest": "42b245c3ee77b97424f3d03d758f56ae21a104bb",
     "/CovidAnalysis/polyfills.d15628b9ba7248669cd9.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
     "/CovidAnalysis/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/CovidAnalysis/styles.474e326afa7833b15000.css": "73ebd572509b7dcac1c7dc3d7cb8afcdce8a8d8f"
+    "/CovidAnalysis/styles.ddbc5a45ffcac77d870a.css": "ffeafa6ff7fa8c131e8b6ed9d27a2815b17aefa6"
   },
   "navigationUrls": [
     {
