@@ -9,6 +9,7 @@ import numpy as np
 import math
 from matplotlib.dates import DateFormatter
 
+
 std_date_formatter = DateFormatter('%d %b')
 
 
@@ -60,11 +61,7 @@ def compute_rt(tot_cases, tot_healed, tot_death):
 
     # add a NaN value before the array, as diff returns an array of dimension n-7
     right_padding = np.full(7, float('NaN'))
-    rt_padded = np.concatenate((column_rt, right_padding))
+    rt_padded = np.concatenate((right_padding, column_rt))
     rt_smoother = np.vectorize(lambda x: math.log2(x) + 1 if (x > 2) else x)
 
     return rt_smoother(compute_x_days_mov_average(rt_padded, 4))
-
-
-def scale_per_x_inhabitants(array, population, per_inhabitants=100000):
-    return array / population * per_inhabitants

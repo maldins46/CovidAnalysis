@@ -6,7 +6,6 @@ import {OfflineComponent} from './pages/offline/offline.component';
 import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
 import {ItalyComponent} from './pages/italy/italy.component';
 import {MarcheComponent} from './pages/marche/marche.component';
-import {BenchmarkComponent} from './pages/benchmark/benchmark.component';
 import {VaccinesComponent} from './pages/vaccines/vaccines.component';
 import {FeedComponent} from './pages/feed/feed.component';
 
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [ConnectionGuard] },
   { path: 'italy', component: ItalyComponent, canActivate: [ConnectionGuard] },
   { path: 'vaccines', component: VaccinesComponent, canActivate: [ConnectionGuard] },
-  { path: 'benchmark', component: BenchmarkComponent, canActivate: [ConnectionGuard] },
   { path: 'marche', component: MarcheComponent, canActivate: [ConnectionGuard] },
   { path: 'feed', component: FeedComponent, canActivate: [ConnectionGuard] },
 

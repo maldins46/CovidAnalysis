@@ -13,6 +13,7 @@ import { TwitterFeedComponent } from './twitter-feed/twitter-feed.component';
 import {AppbarsModule} from './appbars/appbars.module';
 import { SummaryTableComponent } from './summary-table/summary-table.component';
 import { IncrementIconComponent } from './increment-icon/increment-icon.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { IncrementIconComponent } from './increment-icon/increment-icon.componen
     PageComponent,
     TwitterFeedComponent,
     SummaryTableComponent,
-    IncrementIconComponent
+    IncrementIconComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { IncrementIconComponent } from './increment-icon/increment-icon.componen
         TwitterFeedComponent,
         AppbarsModule,
         SummaryTableComponent,
-        IncrementIconComponent
+        IncrementIconComponent,
+        CarouselComponent
     ]
 })
 export class SharedComponentsModule { }

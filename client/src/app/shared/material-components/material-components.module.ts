@@ -18,7 +18,7 @@ import {MatRippleModule} from '@angular/material/core';
     MatToolbarModule,
     MatButtonModule,
     MatTooltipModule,
-    MatRippleModule
+    MatRippleModule,
   ],
   exports: [
     MatIconModule,

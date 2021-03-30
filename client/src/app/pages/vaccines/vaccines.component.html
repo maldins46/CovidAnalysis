@@ -13,46 +13,21 @@
     valore meno sensibile ai ritardi di registrazione.
   </p>
 
-  <h2>Dosi di vaccino somministrate, distinzione prima dose/richiamo</h2>
+  <h2>Somministrazioini</h2>
   <p>
-    Il grafico mostra le dosi di vaccino somministrate giornalmente, distinguendo somministrazioni per prima dose dalle
-    somministrazioni per seconda dose. L'altezza complessiva di ogni barra indica il totale delle somministrazioni
-    giornaliere.
+    I grafici seguenti mostrano informazioni relative alle dosi di vaccino somministrate giornalmente,
+    con eventuali distinzioni tra somministrazioni di prime dosi e richiami.
   </p>
 
-  <app-image src="https://maldins46.github.io/CovidAnalysis/assets/data/dosi_italia.png"
-             alt="Dosi nazionale"></app-image>
+  <app-carousel [slides]="vaccinesAdmSlides"></app-carousel>
 
-  <h2>Dosi di vaccino somministrate per 100.000 abitanti, benchmark</h2>
+  <h2>Popolazione immunizzata</h2>
   <p>
-    Il grafico mostra le singole dosi di vaccino somministrate giornalmente per ogni regione (senza distinzione tra
-    prima dose e richiamo). Il dato è scalato su 100.000 abitanti, rendendo così possibile mettere in relazione tra
-    loro le regioni, tenendo conto della diversa densità di popolazione. È riportata, con la traccia semi-trasparente,
-    la media italiana.
+    I grafici successivi mostrano informazioni relative alla popolazione immunizzata, evidenziando la
+    percentuale di popolazione, per ogni area, tale da aver completato il ciclo di vaccinazione.
   </p>
 
-
-  <app-image src="https://maldins46.github.io/CovidAnalysis/assets/data/dosi_per_regioni.png"
-             alt="Dosi per regioni"></app-image>
-
-  <h2>Percentuale popolazione immunizzata</h2>
-  <p>
-    Il grafico mostra la percentuale di popolazione, per ogni regione del benchmark e per l'Italia (traccia
-    semi-trasparente) che puo essere definita immunizzata, ovvero tale da aver ricevuto sia la prima dose che il richiamo.
-  </p>
-
-  <app-image src="https://maldins46.github.io/CovidAnalysis/assets/data/immunizzati.png"
-             alt="Immunizzati"></app-image>
-
-  <h2>Dosi di vaccino somministrate nelle Marche, distinzione prima dose/richiamo</h2>
-  <p>
-    Il grafico mostra le dosi di vaccino somministrate giornalmente nelle Marche, distinguendo somministrazioni per
-    prima dose dalle somministrazioni per seconda dose. L'altezza complessiva di ogni barra indica il totale delle
-    somministrazioni giornaliere.
-  </p>
-
-  <app-image src="https://maldins46.github.io/CovidAnalysis/assets/data/dosi_marche.png"
-             alt="Dosi Marche"></app-image>
+  <app-carousel [slides]="vaccinesImmunesSlides"></app-carousel>
 
 </app-page>
 

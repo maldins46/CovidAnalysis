@@ -1,0 +1,49 @@
+@import "~src/styles/utils";
+
+.carousel {
+  width: 100%;
+  border-radius: 0.5em;
+  @include responsiveProp(border-radius, $defaultMargin);
+  @include responsiveProp(margin-bottom, $defaultMargin);
+  border-color: $dividerColor;
+  border-width: 1px;
+  border-style: solid;
+
+  .controls {
+    @include responsiveProp(padding, $defaultMargin);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-color: $dividerColor;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    .control-smartphone {
+      @include show();
+      @include forDesktopOnly() {
+        @include hide();
+      }
+    }
+
+    .control-desktop {
+      @include hide();
+      @include forDesktopOnly {
+        @include show();
+      }
+    }
+  }
+
+  .slide {
+    background-color: $secondaryColor;
+    @include responsiveProp(padding, $quarterMargin);
+    @include responsiveProp(padding-top, $defaultMargin);
+    @include responsiveProp(border-bottom-left-radius, $defaultMargin);
+    @include responsiveProp(border-bottom-right-radius, $defaultMargin);
+    width: 100%;
+  }
+}
+
+
+

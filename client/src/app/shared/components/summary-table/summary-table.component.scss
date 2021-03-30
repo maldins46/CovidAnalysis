@@ -5,7 +5,7 @@
   overflow-y: hidden;
   white-space: nowrap;
   @include responsiveProp(border-radius, $defaultMargin);
-  @include responsiveProp(margin-bottom, $halfMargin);
+  @include responsiveProp(margin-bottom, $defaultMargin);
   border-color: $dividerColor;
   border-width: 1px;
   border-style: solid;

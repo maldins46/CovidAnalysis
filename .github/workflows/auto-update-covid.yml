@@ -1,0 +1,58 @@
+name: Auto update data Covid
+
+# schedule the chart generation to be executed every day at 20:00, as new data usually
+# are ready at 18:00.
+on:
+  schedule:
+  - cron: "0 20 * * *"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout with Open Data Submodule
+      uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
+
+    - name: Update Open Data submodule
+      run: git submodule update --remote --recursive 
+      
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # Useful to create the release name
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+    - name: Generate updated charts covid
+      run: |
+        python ./chart-generation/generate_covid_charts.py
+
+    - name: Checkout gh-pages branch
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Push assets to gh-pages
+      run: |
+        rm -rf gh-pages/charts/covid
+        mkdir gh-pages/charts/covid
+        mv charts/covid/* gh-pages/covid        
+        cd gh-pages
+        git config user.name ReleaseBot
+        git config user.email github-actions@github.com
+        git add assets/data
+        git commit -m "Update charts to ${{ steps.date.outputs.date }}"
+        git push
