@@ -16,7 +16,7 @@ def weekly_incidence(save_image=False, show=False):
                       legend_kwds=dict(loc='upper right', title="Incid.sett. per 100.000 ab.\n", frameon=False))
 
     if save_image:
-        fig.savefig('./assets/incidenza_sett_marche_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
+        fig.savefig('./charts/covid/incidenza_sett_marche_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -38,7 +38,7 @@ def new_positives(save_image=False, show=False):
                       legend_kwds=dict(loc='upper right', title="Nuovi positivi\n", frameon=False))
 
     if save_image:
-        fig.savefig('./assets/totale_casi_per_province_marche_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
+        fig.savefig('./charts/covid/totale_casi_per_province_marche_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()

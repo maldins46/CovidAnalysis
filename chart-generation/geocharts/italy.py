@@ -29,7 +29,7 @@ def ti_occupation(save_image=False, show=False):
                        legend_kwds=dict(loc='upper right', title="Occupazione TI\n", frameon=False))
 
     if save_image:
-        fig.savefig('./assets/ti_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
+        fig.savefig('./charts/covid/ti_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -56,7 +56,7 @@ def weekly_incidence_regions(save_image=False, show=False):
                        legend_kwds=dict(loc='upper right', title="Incid.sett. per 100.000 ab.\n", frameon=False))
 
     if save_image:
-        fig.savefig('./assets/incidenza_sett_per_regioni_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
+        fig.savefig('./charts/covid/incidenza_sett_per_regioni_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -83,7 +83,7 @@ def weekly_incidence_provinces(save_image=False, show=False):
                          legend_kwds=dict(loc='upper right', title="Incid.sett. per 100.000 ab.\n", frameon=False))
 
     if save_image:
-        fig.savefig('./assets/incidenza_sett_per_prov_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
+        fig.savefig('./charts/covid/incidenza_sett_per_prov_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()

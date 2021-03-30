@@ -8,6 +8,10 @@ Generates all charts linked to the vaccines situation in italy.
 from charts import vaccines as chrt_vac
 from geocharts import vaccines as geoc_vac
 from summaries import vaccines as summ_vac
+from pathlib import Path
+
+# Generate folder if not present
+Path("./charts/vaccines").mkdir(parents=True, exist_ok=True)
 
 chrt_vac.immunes_percentage(save_image=True)
 chrt_vac.regional_doses(save_image=True)

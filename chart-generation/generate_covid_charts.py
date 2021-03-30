@@ -10,7 +10,10 @@ from charts import marche as chrt_marche
 from geocharts import italy as geoc_italy
 from geocharts import marche as geoc_marche
 from summaries import italy as summ_italy, marche as summ_marche
+from pathlib import Path
 
+# Generate folder if not present
+Path("./charts/covid").mkdir(parents=True, exist_ok=True)
 
 chrt_italy.parameters(save_image=True)
 chrt_italy.weekly_incidence(save_image=True)

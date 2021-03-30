@@ -45,19 +45,11 @@ jobs:
         ref: gh-pages
         path: gh-pages
 
-    - name: Push assets to main
-      run: |
-        git config user.name ReleaseBot
-        git config user.email github-actions@github.com
-        git add assets
-        git commit -m "Update charts to ${{ steps.date.outputs.date }}"
-        git push
-
     - name: Push assets to gh-pages
       run: |
-        rm -rf gh-pages/assets/data
-        mkdir gh-pages/assets/data
-        mv assets/* gh-pages/assets/data        
+        rm -rf gh-pages/charts/vaccines
+        mkdir gh-pages/charts/vaccines
+        mv charts/vaccines/* gh-pages/vaccines
         cd gh-pages
         git config user.name ReleaseBot
         git config user.email github-actions@github.com

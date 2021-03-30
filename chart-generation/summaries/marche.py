@@ -81,7 +81,7 @@ def compute_summary(print_terminal=False, save=False):
         output_dict.update({f"{province_name_clean}": province_dict})
 
     if save:
-        with open('./assets/marche_summary.json', 'w') as f:
+        with open('./charts/covid/marche_summary.json', 'w') as f:
             json.dump(output_dict, f)
 
     if print_terminal:

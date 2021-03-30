@@ -40,7 +40,7 @@ def parameters(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig("./assets/parametri_marche", dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig("./charts/covid/parametri_marche", dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -74,7 +74,7 @@ def cases_per_provinces_abs(save_image=False, show=False):
     plt.legend(loc='upper left')
 
     if save_image:
-        plt.savefig('./assets/totale_casi_per_province_marche_abs.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./charts/covid/totale_casi_per_province_marche_abs.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -113,7 +113,7 @@ def weekly_incidence(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./assets/incid_sett_marche.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./charts/covid/incid_sett_marche.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()

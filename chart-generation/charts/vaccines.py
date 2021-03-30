@@ -37,7 +37,7 @@ def adm_doses_italy(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./assets/dosi_italia.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./charts/vaccines/dosi_italia.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -66,7 +66,7 @@ def adm_doses_marche(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./assets/dosi_marche.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./charts/vaccines/dosi_marche.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -98,7 +98,7 @@ def regional_doses(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./assets/dosi_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./charts/vaccines/dosi_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -130,7 +130,7 @@ def immunes_percentage(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig('./assets/immunizzati.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./charts/vaccines/immunizzati.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()

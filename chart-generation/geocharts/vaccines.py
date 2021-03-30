@@ -23,7 +23,7 @@ def adm_doses(save_image=False, show=False):
                        legend_kwds=dict(loc='upper right', title="Somministraz. ultimo giorno\n", frameon=False))
 
     if save_image:
-        fig.savefig('./assets/dosi_per_regioni_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
+        fig.savefig('./charts/vaccines/dosi_per_regioni_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -46,7 +46,7 @@ def immunes_percentage(save_image=False, show=False):
                        legend_kwds=dict(loc='upper right', title="% popolaz. immunizzata\n", frameon=False))
 
     if save_image:
-        fig.savefig('./assets/immunizzati_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
+        fig.savefig('./charts/vaccines/immunizzati_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
