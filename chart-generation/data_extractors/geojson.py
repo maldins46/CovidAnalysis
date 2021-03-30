@@ -25,12 +25,15 @@ def extract_regions_geodf():
     prov_italy = RAW_PROV_ITALY
 
     # regions + trento & bolzano
-    reg_italy = pd.concat([reg_italy, prov_italy[prov_italy['prov_istat_code_num'] == 21], prov_italy[prov_italy['prov_istat_code_num'] == 22]], 
+    reg_italy = pd.concat([reg_italy, prov_italy[prov_italy['prov_istat_code_num'] == 21],
+                          prov_italy[prov_italy['prov_istat_code_num'] == 22]],
                           ignore_index=True)
 
-    reg_italy['reg_istat_code'] = reg_italy.apply(lambda x: '21' if x['prov_istat_code_num'] == 21 else x['reg_istat_code'], axis=1)
-    reg_italy['reg_istat_code'] = reg_italy.apply(lambda x: '22' if x['prov_istat_code_num'] == 22 else x['reg_istat_code'], axis=1)
-    
+    reg_italy['reg_istat_code'] = reg_italy.apply(lambda x: '21' if x['prov_istat_code_num'] == 21 else x['reg_istat_code'],
+                                                  axis=1)
+    reg_italy['reg_istat_code'] = reg_italy.apply(lambda x: '22' if x['prov_istat_code_num'] == 22 else x['reg_istat_code'],
+                                                  axis=1)
+
     reg_italy['codice_regione'] = reg_italy['reg_istat_code']
     reg_italy = reg_italy[reg_italy['codice_regione'] != '04']
 

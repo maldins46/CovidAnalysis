@@ -18,7 +18,7 @@ def adm_doses_italy(save_image=False, show=False):
     """
     Administration data about Italy.
     """
-  
+
     # plt.stackplot(data['data_somministrazione'], data['prima_dose'],data['seconda_dose'],
     #               labels=['Prime dosi', 'Seconde dosi'])
     plt.bar(italy_df['data_somministrazione'], italy_df['prima_dose'], label='Prime dosi')
@@ -37,7 +37,7 @@ def adm_doses_italy(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig(f'./assets/dosi_italia.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/dosi_italia.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -49,7 +49,7 @@ def adm_doses_marche(save_image=False, show=False):
     """
     Administration data about Italy.
     """
-  
+
     plt.bar(marche_df['data_somministrazione'], marche_df['prima_dose'], label='Prime dosi')
     plt.bar(marche_df['data_somministrazione'], marche_df['seconda_dose'], bottom=marche_df['prima_dose'],
             label='Seconde dosi')
@@ -66,7 +66,7 @@ def adm_doses_marche(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig(f'./assets/dosi_marche.png', dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig('./assets/dosi_marche.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
@@ -112,7 +112,8 @@ def immunes_percentage(save_image=False, show=False):
     """
 
     for area_code, region_data in benchmark_dict.items():
-        plt.plot(region_data['data_somministrazione'], region_data['seconda_dose_totale_storico_su_pop'], label=area_names_dict[area_code])
+        plt.plot(region_data['data_somministrazione'], region_data['seconda_dose_totale_storico_su_pop'],
+                 label=area_names_dict[area_code])
 
     plt.plot(italy_df['data_somministrazione'], italy_df['seconda_dose_totale_storico_su_pop'], alpha=0.5, linestyle=':',
              label="Italia")

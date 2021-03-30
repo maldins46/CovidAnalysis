@@ -6,8 +6,6 @@ Extracts a dataframe that describes national-level data, making some analysis on
 """
 
 import pandas as pd
-import os
-import glob
 import dateutil.parser as date_parser
 import utils
 from data_extractors.ti_places import ti_places_dict
@@ -18,6 +16,7 @@ from data_extractors import istat_codes
 TI_PLACES_ITALY = ti_places_dict[istat_codes.italia]
 POPULATION_ITALY = population_dict[istat_codes.italia]
 RAW_DF = pd.read_csv('./data/opendata-covid-italia/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv')
+
 
 def extract_italy_df():
     """

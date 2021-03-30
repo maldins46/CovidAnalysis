@@ -6,15 +6,12 @@ Extracts dataframes that describes regional-level data, making some analysis on 
 """
 
 import pandas as pd
-import os
-import glob
 import dateutil.parser as date_parser
 from data_extractors import istat_codes
 from data_extractors.ti_places import ti_places_dict
 from data_extractors.population import population_dict
 from data_extractors.istat_code_groups import benchmark_array
-from data_extractors import istat_codes
-from data_extractors.geojson import regions_geodf
+from data_extractors.geojson import regions_geodf as raw_regions_geodf
 import utils
 
 # Constants
@@ -26,14 +23,14 @@ def extract_regions_df():
     Extracts dataframes that describes regional-level data, making some analysis on it.
     :rtype: Dataframe
     """
-    
+
     df = RAW_DF
 
     # convert data column in a proper date format
     df['data'] = df['data'].apply(lambda x: date_parser.parse(x))
 
     # Clean index and duplicates, sort by region and date
-    df = df.sort_values(['codice_regione','data'])
+    df = df.sort_values(['codice_regione', 'data'])
 
     df['codice_regione'] = df['codice_regione'].apply(lambda x: f"{x:02d}")
 
@@ -49,18 +46,22 @@ def extract_regions_df():
     df['tasso_positivita'] = df['tamponi_positivi_giornalieri'] / df['tamponi_giornalieri']
 
     # Recovered with symptoms per 100.000 inhabitants
-    df['ric_per_100000_ab'] = df.apply(lambda x: x['ricoverati_con_sintomi'] / population_dict[x['codice_regione']] * 100000, axis=1)
+    df['ric_per_100000_ab'] = df.apply(lambda x: x['ricoverati_con_sintomi'] / population_dict[x['codice_regione']] * 100000,
+                                       axis=1)
 
     # New positives per 100.000 inhabitants
-    df['nuovi_pos_per_100000_ab'] = df.apply(lambda x: x['nuovi_positivi'] / population_dict[x['codice_regione']] * 100000, axis=1)
+    df['nuovi_pos_per_100000_ab'] = df.apply(lambda x: x['nuovi_positivi'] / population_dict[x['codice_regione']] * 100000,
+                                             axis=1)
 
     # Weekly incidence
     df['incidenza_settimanale'] = utils.distanced_diff(df['totale_casi'], 7)
-    df['incid_sett_per_100000_ab'] = df.apply(lambda x: x['incidenza_settimanale'] / population_dict[x['codice_regione']] * 100000, axis=1)
+    df['incid_sett_per_100000_ab'] = df.apply(lambda x: x['incidenza_settimanale'] / population_dict[x['codice_regione']]
+                                              * 100000, axis=1)
 
     # Death increment
     df['incremento_morti'] = df['deceduti'].diff()
-    df['incr_morti_per_100000_ab'] = df.apply(lambda x: x['incremento_morti'] / population_dict[x['codice_regione']] * 100000, axis=1)
+    df['incr_morti_per_100000_ab'] = df.apply(lambda x: x['incremento_morti'] / population_dict[x['codice_regione']] * 100000,
+                                              axis=1)
 
     # Filter data 15 days later (removes tail effect)
     df = df[df['data'] > '2020-10-15']
@@ -98,7 +99,7 @@ def extract_regions_geodf(df):
     summary_df['occupazione_ti_label'] = summary_df['occupazione_ti_100'].apply(lambda x: f"{x:.2f} %")
 
     # Merge geo data to analysis
-    merged_df = regions_geodf.merge(summary_df, on='codice_regione')
+    merged_df = raw_regions_geodf.merge(summary_df, on='codice_regione')
 
     # Add location for the labels
     merged_df['coords'] = merged_df['geometry'].apply(lambda x: x.representative_point().coords[:])

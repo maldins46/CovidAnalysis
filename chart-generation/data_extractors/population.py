@@ -17,7 +17,7 @@ def extract_population_dict(path='./data/population.csv'):
 
     with open(path, mode='r', encoding='utf-8-sig') as infile:
         reader = csv.reader(infile)
-        population_dict = {rows[0]:int(rows[1]) for rows in reader}
+        population_dict = {rows[0]: int(rows[1]) for rows in reader}
 
     return population_dict
 

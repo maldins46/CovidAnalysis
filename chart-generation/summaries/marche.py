@@ -54,7 +54,6 @@ def compute_summary(print_terminal=False, save=False):
     }
     output_dict.update({"marche": region_dict})
 
-
     for province_code, province_data in marche_dict.items():
         # new positives
         new_positives = province_data['nuovi_positivi'].iloc[-1]

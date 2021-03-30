@@ -6,7 +6,6 @@ Extracts dataframes that describes vaccines data, making some analysis on it.
 """
 
 import pandas as pd
-import utils
 from data_extractors import istat_codes
 from data_extractors.population import population_dict
 
@@ -14,6 +13,7 @@ from data_extractors.population import population_dict
 # Constants
 POPULATION_ITALY = population_dict[istat_codes.italia]
 RAW_DF = pd.read_csv('./data/opendata-vaccini-italia/dati/somministrazioni-vaccini-summary-latest.csv')
+
 
 def extract_italy_df():
     """

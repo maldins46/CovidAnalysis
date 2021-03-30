@@ -18,7 +18,7 @@ marche_array = [
     istat_codes.macerata,
     istat_codes.pesaro_urbino,
     istat_codes.ascoli_piceno,
-    istat_codes.fermo 
+    istat_codes.fermo
 ]
 
 regions_array = [

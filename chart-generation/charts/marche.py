@@ -40,12 +40,13 @@ def parameters(save_image=False, show=False):
     plt.legend()
 
     if save_image:
-        plt.savefig(f"./assets/parametri_marche", dpi=300, transparent=True, bbox_inches='tight')
+        plt.savefig("./assets/parametri_marche", dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
 
     plt.close()
+
 
 def cases_per_provinces_abs(save_image=False, show=False):
     """
