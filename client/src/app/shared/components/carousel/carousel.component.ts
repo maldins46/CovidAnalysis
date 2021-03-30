@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ImageModel} from './image.model';
+import {SlideModel} from '../../models/slide.model';
 
 @Component({
   selector: 'app-carousel',
@@ -7,25 +7,30 @@ import {ImageModel} from './image.model';
   styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements OnInit {
-  @Input() slides: ImageModel[] = [];
+  @Input() slides: SlideModel[] = [];
   currentSlide = 0;
 
 
   constructor() { }
 
   ngOnInit(): void {
+    this.preloadImages(); // for the demo
+  }
+
+  preloadImages(): void {
+    for (const slide of this.slides) {
+      new Image().src = slide.src;
+    }
   }
 
 
   onPreviousClick(): void {
     const previous = this.currentSlide - 1;
     this.currentSlide = previous < 0 ? this.slides.length - 1 : previous;
-    console.log('previous clicked, new current slide is: ', this.currentSlide);
   }
 
   onNextClick(): void {
     const next = this.currentSlide + 1;
     this.currentSlide = next === this.slides.length ? 0 : next;
-    console.log('next clicked, new current slide is: ', this.currentSlide);
   }
 }

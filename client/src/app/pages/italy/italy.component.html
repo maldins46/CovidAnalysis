@@ -2,7 +2,9 @@
   <h1>Italia</h1>
   <p>
     Grafici, analisi e indicatori utili a descrivere la situazione a
-    livello nazionale, oltre a un rapido excursus sui parametri per il calcolo del sistema a zone.
+    livello nazionale e regionale. Focus particolare viene posto su tre regioni prese come
+    "benchmark", rappresentative di situazioni differenti: <strong>Veneto</strong>,
+    <strong>Toscana</strong>, <strong>Marche</strong>.
     L'ultimo aggiornamento ai dati mostrati in questa pagina risale al {{ nationalSummary?.lastUpdate | extendedDate }}.
   </p>
 
@@ -14,31 +16,33 @@
     valore meno sensibile ai ritardi di registrazione.
   </p>
 
-  <h2>Parametri nazionali in valori assoluti</h2>
-
+  <h2>Incidenza settimanale</h2>
   <p>
-    Il grafico raffronta differenti indicatori a livello nazionale, in valori assoluti:
-  </p>
-  <ul>
-    <li>La linea blu riporta i decessi giornalieri (in media mobile di 7 giorni);</li>
-    <li>La linea gialla riporta l'ammontare dei pazienti in terapia intensiva, per ogni giorno;</li>
-    <li>La linea verde riporta i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni);</li>
-    <li>La linea rossa riporta i'ammontare dei pazienti ricoverati con sintomi per COVID-19, per ogni giorno.</li>
-  </ul>
-
-  <app-image src="https://maldins46.github.io/CovidAnalysis/assets/data/parametri_italia.png"
-             alt="Parametri Italia"></app-image>
-
-  <h2>Come funziona il sistema a zone?</h2>
-  <p>
-    A partire dal 16 di gennaio, i colori delle varie regioni vengono determinati sulla base di livello di rischio,
-    valore dell'indice R(t) e in base all'incidenza settimanale dei casi. Il meccanismo
-    <a href="https://www.youtrend.it/2021/01/14/come-funziona-il-nuovo-sistema-per-decidere-i-colori-delle-regioni/">
-      viene spiegato molto bene da YouTrend</a>. Il grafico qui riportato proviene dallo stesso articolo:
+    Vari grafici che trattano il valore di incidenza settimanale dei nuovi casi registrati, scalati su 100.000 abitanti
+    per rendere possibile i raffronto tra le varia aree.
+    Il valore di incidenza esprime la differenza tra il totale dei casi registrati fino a un certo giorno
+    <strong>n</strong>, rispetto al giorno <strong>n - 7</strong>.
   </p>
 
-  <app-image src="https://maldins46.github.io/CovidAnalysis/assets/data/sist_colori.png"
-             alt="Sistema a zone"></app-image>
+  <app-carousel [slides]="incidenceSlides"></app-carousel>
+
+  <h2>Occupazione terapie intensive</h2>
+
+  <p>
+    Vari grafici che trattano la percentuale di occupazione dei reparti di terapia intensiva,
+    calcolata come <strong>n° posti occupati / n° posti disponibili</strong>.
+  </p>
+
+  <app-carousel [slides]="tiSlides"></app-carousel>
+
+  <h2>Ulteriori indicatori</h2>
+
+  <p>
+    Ulteriori grafici che raffrontano altri indicatore di interesse per l'analisi della situazione
+    attuale.
+  </p>
+
+  <app-carousel [slides]="otherSlides"></app-carousel>
 
 </app-page>
 

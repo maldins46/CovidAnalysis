@@ -10,17 +10,10 @@ export class PublicAppbarComponent implements OnInit {
 
   publicMenuItems: MenuItem[] = [
     {
-      name: 'Marche',
-      route: '/marche',
-      mdiIcon: 'marche',
-      tooltip: 'Marche',
-      extendedText: false
-    },
-    {
-      name: 'Regioni',
-      route: '/benchmark',
-      mdiIcon: 'map-marker-multiple-outline',
-      tooltip: 'Regioni',
+      name: 'Italia',
+      route: '/italy',
+      mdiIcon: 'flag-variant-outline',
+      tooltip: 'Italia',
       extendedText: false
     },
     {
@@ -31,10 +24,10 @@ export class PublicAppbarComponent implements OnInit {
       extendedText: false
     },
     {
-      name: 'Italia',
-      route: '/italy',
-      mdiIcon: 'flag-variant-outline',
-      tooltip: 'Italia',
+      name: 'Marche',
+      route: '/marche',
+      mdiIcon: 'marche',
+      tooltip: 'Marche',
       extendedText: false
     },
     {

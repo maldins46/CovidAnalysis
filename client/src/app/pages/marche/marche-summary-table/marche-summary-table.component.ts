@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BenchmarkSummaryModel} from '../../../shared/models/benchmark-summary.model';
 import {MarcheSummaryModel} from '../../../shared/models/marche-summary.model';
 
 @Component({
