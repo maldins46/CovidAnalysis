@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import { NestedAppbarComponent } from './nested-appbar.component';
 
@@ -6,7 +6,7 @@ describe('NestedAppbarComponent', () => {
   let component: NestedAppbarComponent;
   let fixture: ComponentFixture<NestedAppbarComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NestedAppbarComponent ]
     })

@@ -7,7 +7,7 @@ export interface NationalSummaryModel {
     newPositivesIncrement: number;
     weeklyPositives: number;
     weeklyPositivesIncrement: number;
-  },
+  };
   toscana: {
     tiPercentage: number;
     tiIncrement: number;
