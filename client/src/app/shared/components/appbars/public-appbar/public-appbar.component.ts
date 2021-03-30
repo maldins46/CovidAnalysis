@@ -17,17 +17,17 @@ export class PublicAppbarComponent implements OnInit {
       extendedText: false
     },
     {
-      name: 'Vaccini',
-      route: '/vaccines',
-      mdiIcon: 'flask-outline',
-      tooltip: 'Vaccini',
-      extendedText: false
-    },
-    {
       name: 'Marche',
       route: '/marche',
       mdiIcon: 'marche',
       tooltip: 'Marche',
+      extendedText: false
+    },
+    {
+      name: 'Vaccini',
+      route: '/vaccines',
+      mdiIcon: 'flask-outline',
+      tooltip: 'Vaccini',
       extendedText: false
     },
     {

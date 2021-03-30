@@ -1,5 +1,11 @@
 export interface MarcheSummaryModel {
   lastUpdate: string;
+  marche: {
+    newPositives: number;
+    newPositivesIncrement: number;
+    weeklyPositives: number;
+    weeklyPositivesIncrement: number;
+  };
   pesaroeurbino: {
     newPositives: number;
     newPositivesIncrement: number;

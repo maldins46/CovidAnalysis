@@ -67,4 +67,40 @@ export class ApiService {
       }
     ];
   }
+
+  public getMarcheIncidenceSlides(): SlideModel[] {
+    return [
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incidenza_sett_marche_mappa.png',
+        description: 'Incidenza settimanale Marche mappa'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incid_sett_marche.png',
+        description: 'Andamento incidenza settimanale Marche'
+      }
+    ];
+  }
+
+
+  public getMarcheAbsSlides(): SlideModel[] {
+    return [
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/totale_casi_per_province_marche_mappa.png',
+        description: 'Nuovi positivi Marche mappa'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/totale_casi_per_province_marche_abs.png',
+        description: 'Andamento nuovi positivi Marche'
+      }
+    ];
+  }
+
+  public getOtherMarcheSlides(): SlideModel[] {
+    return [
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/parametri_marche.png',
+        description: 'Parametri Marche'
+      }
+    ];
+  }
 }

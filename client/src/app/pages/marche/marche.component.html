@@ -14,46 +14,33 @@
     valore meno sensibile ai ritardi di registrazione.
   </p>
 
-  <h2>Parametri Marche in valori assoluti</h2>
-
+  <h2>Incidenza settimanale</h2>
   <p>
-    Il grafico raffronta differenti indicatori a livello regionale, in valori assoluti:
+    Vari grafici che trattano il valore di incidenza settimanale dei nuovi casi registrati, scalati su 100.000 abitanti
+    per rendere possibile i raffronto tra le varia aree.
+    Il valore di incidenza esprime la differenza tra il totale dei casi registrati fino a un certo giorno
+    <strong>n</strong>, rispetto al giorno <strong>n - 7</strong>.
   </p>
-  <ul>
-    <li>La linea blu riporta i decessi giornalieri (in media mobile di 7 giorni);</li>
-    <li>La linea gialla riporta l'ammontare dei pazienti in terapia intensiva, per ogni giorno;</li>
-    <li>La linea verde riporta i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni);</li>
-    <li>La linea rossa riporta i'ammontare dei pazienti ricoverati con sintomi per COVID-19, per ogni giorno.</li>
-  </ul>
+  <app-carousel [slides]="incidenceSlides"></app-carousel>
 
-  <app-image src="https://maldins46.github.io/CovidAnalysis/assets/data/parametri_marche.png"
-             alt="Parametri Marche"></app-image>
-
-  <h2>Incidenza settimanale per provincia delle Marche, per 100.000 abitanti</h2>
+  <h2>Nuovi positivi, in valori assoluti</h2>
 
   <p>
-    Il grafico mostra l'incidenza settimanale dei nuovi casi registrati, per ogni provincia, scalato su 100.000 abitanti.
-    In altre parole, ogni punto del grafico esprime <em>la differenza tra il totale cumulato dei casi registrati nel giorno <strong>n</strong>
-    rispetto al giorno <strong>n - 7</strong></em>.
-  </p>
-
-  <app-image
-    src="https://maldins46.github.io/CovidAnalysis/assets/data/incid_sett_marche.png"
-    alt="Incidenza Marche">
-  </app-image>
-
-  <h2>Nuovi positivi per provincia delle Marche, in valori assoluti</h2>
-
-  <p>
-    Il grafico indica i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni provincia
+    I grafici indicano i nuovi casi positivi registrati ogni giorno, tramite tampone molecolare, per ogni provincia
     della regione Marche. Il dato è riportato in valosi assoluti, per evidenziare il numero effettivo di casi di ogni
     provincia. Il dato provinciale è fortemente instabile: per la consultazione, è stata effettuata una media mobile
     su un periodo di 14 giorni, il che porta ad avere il dato arretrato temporalmente di una settimana. È riportata,
     con la traccia semi-trasparente, la media italiana.
   </p>
 
-  <app-image
-    src="https://maldins46.github.io/CovidAnalysis/assets/data/totale_casi_per_province_marche_abs.png"
-    alt="Casi Marche abs">
-  </app-image>
+  <app-carousel [slides]="absSlides"></app-carousel>
+
+  <h2>Ulteriori indicatori</h2>
+
+  <p>
+    Ulteriori grafici che raffrontano altri indicatori di interesse per l'analisi della situazione
+    attuale.
+  </p>
+
+  <app-carousel [slides]="otherParamsSlides"></app-carousel>
 </app-page>

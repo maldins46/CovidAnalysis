@@ -2,6 +2,7 @@
   <thead>
   <tr>
     <th scope="col">Indicatori di sintesi</th>
+    <th scope="col">Marche</th>
     <th scope="col">Ancona</th>
     <th scope="col">Macerata</th>
     <th scope="col">Pesaro e Urb.</th>
@@ -12,6 +13,10 @@
   <tbody>
   <tr>
     <td>Nuovi positivi nell'ultimo giorno</td>
+    <td>
+      {{ marcheSummary.marche.newPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="marcheSummary.marche.newPositivesIncrement"></app-increment-icon>
+    </td>
     <td>
       {{ marcheSummary.ancona.newPositives | number: '1.0-2' }}
       <app-increment-icon [value]="marcheSummary.ancona.newPositivesIncrement"></app-increment-icon>
@@ -35,6 +40,10 @@
   </tr>
   <tr>
     <td>Nuovi positivi negli ultimi 7 giorni</td>
+    <td>
+      {{ marcheSummary.marche.weeklyPositives | number: '1.0-2' }}
+      <app-increment-icon [value]="marcheSummary.marche.weeklyPositivesIncrement"></app-increment-icon>
+    </td>
     <td>
       {{ marcheSummary.ancona.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="marcheSummary.ancona.weeklyPositivesIncrement"></app-increment-icon>
