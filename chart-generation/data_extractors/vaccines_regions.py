@@ -39,7 +39,9 @@ def extract_region_df(region_code="11"):
                                               axis=1)
     df['seconda_dose_per_100000_ab'] = df.apply(lambda x: x['seconda_dose'] / population_dict[x['codice_regione_ISTAT']]
                                                 * 100000, axis=1)
-    df['totale_per_100000_ab'] = df.apply(lambda x: x['totale'] / population_dict[x['codice_regione_ISTAT']] * 100000, axis=1)
+
+    df['totale_su_pop'] = df.apply(lambda x: x['totale'] / population_dict[x['codice_regione_ISTAT']], axis=1)
+    df['totale_per_100000_ab'] = df.apply(lambda x: x['totale_su_pop'] * 100000, axis=1)
 
     # Historical totals
     df['totale_storico'] = df['totale'].cumsum()
@@ -73,6 +75,10 @@ def extract_regions_geodf():
     df['seconda_dose_totale_storico_su_pop_100'] = df.apply(lambda x: x['seconda_dose_totale_storico_su_pop'] * 100, axis=1)
     df['seconda_dose_totale_storico_su_pop_label'] = df.apply(lambda x: f"{x['seconda_dose_totale_storico_su_pop_100']:.2f} %",
                                                               axis=1)
+
+    df['totale_su_pop_100'] = df.apply(lambda x: x['totale_su_pop'] * 100, axis=1)
+    df['totale_su_pop_100_label'] = df.apply(lambda x: f"{x['totale_su_pop_100']:.3f} %",
+                                             axis=1)
 
     # Merge geo data to analysis
     merged_df = raw_regions_geodf.merge(df, on='codice_regione')

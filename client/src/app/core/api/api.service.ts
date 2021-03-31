@@ -71,12 +71,12 @@ export class ApiService {
   public getMarcheIncidenceSlides(): SlideModel[] {
     return [
       {
-        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incidenza_sett_marche_mappa.png',
-        description: 'Incidenza settimanale Marche mappa'
-      },
-      {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incid_sett_marche.png',
         description: 'Andamento incidenza settimanale Marche'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incidenza_sett_marche_mappa.png',
+        description: 'Incidenza settimanale Marche mappa'
       }
     ];
   }
@@ -107,12 +107,12 @@ export class ApiService {
   public getVaccineAdministrationSlides(): SlideModel[] {
     return [
       {
-        src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_per_regioni_mappa.png',
-        description: 'Dosi somministrate per regioni, cumulative'
-      },
-      {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_italia.png',
         description: 'Dosi somministrate giornalmente in italia, distinzione prima e seconda dose'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_per_regioni_mappa.png',
+        description: 'Dosi somministrate per regioni, cumulative'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_marche.png',

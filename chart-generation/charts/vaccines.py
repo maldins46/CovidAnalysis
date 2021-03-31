@@ -25,7 +25,7 @@ def adm_doses_italy(save_image=False, show=False):
     plt.bar(italy_df['data_somministrazione'], italy_df['seconda_dose'], bottom=italy_df['prima_dose'],
             label='Seconde dosi')
 
-    plt.title("Somministrazioni giornaliere Italia")
+    plt.title("Somministrazioni giornaliere Italia,\ncon distinzione prima dose/richiamo\n")
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
@@ -33,7 +33,6 @@ def adm_doses_italy(save_image=False, show=False):
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
 
-    plt.ylabel('Somministraz. giornaliere')
     plt.legend()
 
     if save_image:
@@ -54,7 +53,7 @@ def adm_doses_marche(save_image=False, show=False):
     plt.bar(marche_df['data_somministrazione'], marche_df['seconda_dose'], bottom=marche_df['prima_dose'],
             label='Seconde dosi')
 
-    plt.title("Somministrazioni giornaliere Marche")
+    plt.title("Somministrazioni giornaliere Marche,\ncon distinzione prima dose/richiamo\n")
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
@@ -62,7 +61,6 @@ def adm_doses_marche(save_image=False, show=False):
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
 
-    plt.ylabel('Somministraz. giornaliere Marche')
     plt.legend()
 
     if save_image:
@@ -87,14 +85,13 @@ def regional_doses(save_image=False, show=False):
     plt.plot(italy_df['data_somministrazione'], rolling_avg_adm, alpha=0.5, linestyle=':',
              label="Italia")
 
-    plt.title('Somministrazioni giornaliere regioni benchmark')
+    plt.title('Andamento delle somministrazioni giornaliere\nper 100.000 abitanti, confronto tra le regioni del benchmark\n')
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Somministraz. ogni 100.000 abitanti (7 gg. m.a.')
     plt.legend()
 
     if save_image:
@@ -118,7 +115,7 @@ def immunes_percentage(save_image=False, show=False):
     plt.plot(italy_df['data_somministrazione'], italy_df['seconda_dose_totale_storico_su_pop'], alpha=0.5, linestyle=':',
              label="Italia")
 
-    plt.title('Percentuale popolazione immunizzata')
+    plt.title('Percentuale popolazione immunizzata,\nconfronto tra le regioni del benchmark\n')
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
@@ -126,7 +123,6 @@ def immunes_percentage(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Percentuale popolaz. immunizz.')
     plt.legend()
 
     if save_image:
