@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1617216645170,
-  "index": "/index.html",
+  "timestamp": 1617220757538,
+  "index": "/CovidAnalysis/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/favicon.ico",
-        "/index.html",
-        "/main.52d04c2f64d973d1256c.js",
-        "/manifest.webmanifest",
-        "/polyfills.d15628b9ba7248669cd9.js",
-        "/runtime.7b63b9fd40098a2e8207.js",
-        "/styles.ddbc5a45ffcac77d870a.css"
+        "/CovidAnalysis/favicon.ico",
+        "/CovidAnalysis/index.html",
+        "/CovidAnalysis/main.52d04c2f64d973d1256c.js",
+        "/CovidAnalysis/manifest.webmanifest",
+        "/CovidAnalysis/polyfills.d15628b9ba7248669cd9.js",
+        "/CovidAnalysis/runtime.7b63b9fd40098a2e8207.js",
+        "/CovidAnalysis/styles.ddbc5a45ffcac77d870a.css"
       ],
       "patterns": []
     },
@@ -29,47 +29,47 @@
         "ignoreVary": true
       },
       "urls": [
-        "/assets/custom-icons/marche.svg",
-        "/assets/custom-icons/mdi.svg",
-        "/assets/fallbackImg.png",
-        "/assets/icons/android-chrome-192x192.png",
-        "/assets/icons/android-chrome-512x512.png",
-        "/assets/icons/android-chrome-maskable-192x192.png",
-        "/assets/icons/apple-touch-icon.png",
-        "/assets/icons/favicon-16x16.png",
-        "/assets/icons/favicon-32x32.png",
-        "/assets/icons/favicon.ico",
-        "/assets/icons/mstile-150x150.png",
-        "/assets/icons/safari-pinned-tab.svg",
-        "/assets/logo-small.png",
-        "/assets/logo.png"
+        "/CovidAnalysis/assets/custom-icons/marche.svg",
+        "/CovidAnalysis/assets/custom-icons/mdi.svg",
+        "/CovidAnalysis/assets/fallbackImg.png",
+        "/CovidAnalysis/assets/icons/android-chrome-192x192.png",
+        "/CovidAnalysis/assets/icons/android-chrome-512x512.png",
+        "/CovidAnalysis/assets/icons/android-chrome-maskable-192x192.png",
+        "/CovidAnalysis/assets/icons/apple-touch-icon.png",
+        "/CovidAnalysis/assets/icons/favicon-16x16.png",
+        "/CovidAnalysis/assets/icons/favicon-32x32.png",
+        "/CovidAnalysis/assets/icons/favicon.ico",
+        "/CovidAnalysis/assets/icons/mstile-150x150.png",
+        "/CovidAnalysis/assets/icons/safari-pinned-tab.svg",
+        "/CovidAnalysis/assets/logo-small.png",
+        "/CovidAnalysis/assets/logo.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/assets/custom-icons/marche.svg": "170d7e7ecdbffb25aaee5ad66c848428051359ad",
-    "/assets/custom-icons/mdi.svg": "5f383669c6cb349c6a326116b0de97da66b0e076",
-    "/assets/fallbackImg.png": "dfbfc3745cb9e666d0b63bdb84230c04903a35b4",
-    "/assets/icons/android-chrome-192x192.png": "ebf08b3d3bb70f43b86716f32b1999634206aa68",
-    "/assets/icons/android-chrome-512x512.png": "d520c97ac5c9b8e999987cda608f430380481e69",
-    "/assets/icons/android-chrome-maskable-192x192.png": "34401e80ef2a3efd74030004a45ca6a040b4de17",
-    "/assets/icons/apple-touch-icon.png": "6a01fcaca37f596a9fd68c6296c9c5f5fb249207",
-    "/assets/icons/favicon-16x16.png": "507ade33fe8642782c6258909ea7c6aa8bd1b7d5",
-    "/assets/icons/favicon-32x32.png": "d436001018b8a19fc6742a64b03748503f0efb61",
-    "/assets/icons/favicon.ico": "8fc02df634ef772c704437cb73e9ec2b37498ce7",
-    "/assets/icons/mstile-150x150.png": "72da42fee5027d95e59539d544af4226f9c8eff5",
-    "/assets/icons/safari-pinned-tab.svg": "55b4493fdf99a0f4fcd9b471f42b7d704dab4a1c",
-    "/assets/logo-small.png": "45c6e23503f7c39e005019f0ebf92bb35c4098ee",
-    "/assets/logo.png": "9cfbaf2476d59cfd215fe6ac3661756154f86b17",
-    "/favicon.ico": "8fc02df634ef772c704437cb73e9ec2b37498ce7",
-    "/index.html": "3fb6fb1d05e33d91766e2b463d17a2691bb5048a",
-    "/main.52d04c2f64d973d1256c.js": "7b63928bd10c0639da1601a7a67f9f350601f003",
-    "/manifest.webmanifest": "42b245c3ee77b97424f3d03d758f56ae21a104bb",
-    "/polyfills.d15628b9ba7248669cd9.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
-    "/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.ddbc5a45ffcac77d870a.css": "ffeafa6ff7fa8c131e8b6ed9d27a2815b17aefa6"
+    "/CovidAnalysis/assets/custom-icons/marche.svg": "170d7e7ecdbffb25aaee5ad66c848428051359ad",
+    "/CovidAnalysis/assets/custom-icons/mdi.svg": "5f383669c6cb349c6a326116b0de97da66b0e076",
+    "/CovidAnalysis/assets/fallbackImg.png": "dfbfc3745cb9e666d0b63bdb84230c04903a35b4",
+    "/CovidAnalysis/assets/icons/android-chrome-192x192.png": "ebf08b3d3bb70f43b86716f32b1999634206aa68",
+    "/CovidAnalysis/assets/icons/android-chrome-512x512.png": "d520c97ac5c9b8e999987cda608f430380481e69",
+    "/CovidAnalysis/assets/icons/android-chrome-maskable-192x192.png": "34401e80ef2a3efd74030004a45ca6a040b4de17",
+    "/CovidAnalysis/assets/icons/apple-touch-icon.png": "6a01fcaca37f596a9fd68c6296c9c5f5fb249207",
+    "/CovidAnalysis/assets/icons/favicon-16x16.png": "507ade33fe8642782c6258909ea7c6aa8bd1b7d5",
+    "/CovidAnalysis/assets/icons/favicon-32x32.png": "d436001018b8a19fc6742a64b03748503f0efb61",
+    "/CovidAnalysis/assets/icons/favicon.ico": "8fc02df634ef772c704437cb73e9ec2b37498ce7",
+    "/CovidAnalysis/assets/icons/mstile-150x150.png": "72da42fee5027d95e59539d544af4226f9c8eff5",
+    "/CovidAnalysis/assets/icons/safari-pinned-tab.svg": "55b4493fdf99a0f4fcd9b471f42b7d704dab4a1c",
+    "/CovidAnalysis/assets/logo-small.png": "45c6e23503f7c39e005019f0ebf92bb35c4098ee",
+    "/CovidAnalysis/assets/logo.png": "9cfbaf2476d59cfd215fe6ac3661756154f86b17",
+    "/CovidAnalysis/favicon.ico": "8fc02df634ef772c704437cb73e9ec2b37498ce7",
+    "/CovidAnalysis/index.html": "ae8e5dda1308ff26e00bf9704d1d1b9cfc9c979d",
+    "/CovidAnalysis/main.52d04c2f64d973d1256c.js": "7b63928bd10c0639da1601a7a67f9f350601f003",
+    "/CovidAnalysis/manifest.webmanifest": "42b245c3ee77b97424f3d03d758f56ae21a104bb",
+    "/CovidAnalysis/polyfills.d15628b9ba7248669cd9.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
+    "/CovidAnalysis/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/CovidAnalysis/styles.ddbc5a45ffcac77d870a.css": "ffeafa6ff7fa8c131e8b6ed9d27a2815b17aefa6"
   },
   "navigationUrls": [
     {
