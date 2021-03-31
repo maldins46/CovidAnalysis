@@ -16,9 +16,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-bottom-color: $dividerColor;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
 
     .control-smartphone {
       @include show();
@@ -36,12 +33,26 @@
   }
 
   .slide {
+    border-top-color: $dividerColor;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-bottom-color: $dividerColor;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
     background-color: $secondaryColor;
     @include responsiveProp(padding, $quarterMargin);
     @include responsiveProp(padding-top, $defaultMargin);
-    @include responsiveProp(border-bottom-left-radius, $defaultMargin);
-    @include responsiveProp(border-bottom-right-radius, $defaultMargin);
+    @include responsiveProp(padding-bottom, $defaultMargin);
     width: 100%;
+
+    .slide-img {
+      width: 100%;
+    }
+  }
+
+  .description {
+    @include responsiveProp(padding, $defaultMargin);
   }
 }
 

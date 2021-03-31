@@ -9,12 +9,14 @@ import {SlideModel} from '../../models/slide.model';
 export class CarouselComponent implements OnInit {
   @Input() slides: SlideModel[] = [];
   currentSlide = 0;
+  totSlides = 0;
 
 
   constructor() { }
 
   ngOnInit(): void {
     this.preloadImages(); // for the demo
+    this.totSlides = this.slides.length;
   }
 
   preloadImages(): void {

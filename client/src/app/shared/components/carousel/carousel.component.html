@@ -6,23 +6,35 @@
       Grafico precedente
     </button>
 
+    <button mat-icon-button class="control-smartphone" (click)="onPreviousClick()">
+      <mat-icon svgIcon="chevron-left"></mat-icon>
+    </button>
+
+    <div>
+      {{ currentSlide + 1 }} / {{ totSlides }}
+    </div>
+
+    <button mat-icon-button class="control-smartphone" (click)="onNextClick()">
+      <mat-icon svgIcon="chevron-right"></mat-icon>
+    </button>
+
+
     <button mat-button class="control-desktop" (click)="onNextClick()">
       Grafico successivo
       <mat-icon svgIcon="chevron-right" class="arrow-right"></mat-icon>
     </button>
 
-    <button mat-icon-button class="control-smartphone" (click)="onPreviousClick()">
-      <mat-icon svgIcon="chevron-left"></mat-icon>
-    </button>
-
-    <button mat-icon-button class="control-smartphone" (click)="onNextClick()">
-      <mat-icon svgIcon="chevron-right"></mat-icon>
-    </button>
   </div>
 
   <ng-container *ngFor="let slide of slides; let i = index">
-    <img *ngIf="currentSlide == i" [src]="slide.src"
-         [alt]="slide.description" class="slide"/>
+
+    <div *ngIf="currentSlide == i" class="slide">
+      <img  [src]="slide.src" [alt]="slide.description" class="slide-img" />
+    </div>
+
+    <div *ngIf="currentSlide == i" class="description">
+      {{slide.description}}
+    </div>
   </ng-container>
 
 </div>

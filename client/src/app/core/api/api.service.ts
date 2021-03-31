@@ -29,15 +29,18 @@ export class ApiService {
     return [
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incidenza_sett_per_regioni_mappa.png',
-        description: 'Incidenza settimanale per regioni'
+        description: 'Il grafico mostra l\'incidenza settimanale dei nuovi casi registrati, per ogni regione italiana, ' +
+          'scalato su 100.000 abitanti. Ciò permette di confrontare tra loro le varie regioni.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incidenza_sett_per_prov_mappa.png',
-        description: 'Incidenza settimanale per province'
+        description: 'Il grafico mostra l\'incidenza settimanale dei nuovi casi registrati, per ogni provincia italiana, ' +
+          'scalato su 100.000 abitanti. Ciò permette di confrontare tra loro le varie regioni.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incid_sett_per_regioni.png',
-        description: 'Andamento incidenza benchmark'
+        description: 'Il grafico mostra l\'evoluzione del tasso di incidenza settimanale dei nuovi positivi, per ogni ' +
+          'regione del benchmark. È riportata, con la traccia semi-trasparente, la media italiana.'
       }
     ];
   }
@@ -46,11 +49,15 @@ export class ApiService {
     return [
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/ti_mappa.png',
-        description: 'Occupazione ti per regioni'
+        description: 'Il grafico riporta, per ogni regione italiana, il tasso di occupazione dei reparti ' +
+          'di terapie intensive, all\'ultima rilevazione. Il livello di allerta è posto sopra il 30% dei posti occupati.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/ti_per_regioni.png',
-        description: 'Andamento occupazione TI benchmark'
+        description: 'Il grafico riporta, per ogni regione del benchmark, l\'evoluzione riguardo ' +
+          'l\' occupazione dei reparti di terapia intensiva. È riportata, con la traccia semi-trasparente, ' +
+          'la media italiana. La linea gialla indica il livello d\'allerta del 30% dei posti TI occupati ' +
+          '(oltre il quale sono a rischio gli interventi ordinari), mentre la linea rossa la saturazione (100% di posti occupati).'
       }
     ];
   }
@@ -59,11 +66,16 @@ export class ApiService {
     return [
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/parametri_italia.png',
-        description: 'Parametri Italia'
+        description: 'Il grafico raffronta differenti indicatori a livello nazionale, in valori assoluti: ' +
+          'I decessi giornalieri (in media mobile di 7 giorni), l\'ammontare dei pazienti correntemente in terapia ' +
+          'intensiva, i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni) è l\'ammontare dei ' +
+          'pazienti correntemente ricoverati con sintomi per COVID-19.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/rt_per_regioni.png',
-        description: 'Indice R(t) SIRD'
+        description: 'Il grafico mostra l\'andamento dell\'indice R(t) per le regioni del benchmark, calcolato ' +
+          'con modellazione SIRD: un metodo semplificato, non quello utilizzato dall\'ISS, ma indicativo dell\'andamento. ' +
+          'Per stabilizzare il dato, è stata applicata una media mobile di 7 giorni.'
       }
     ];
   }
@@ -72,11 +84,15 @@ export class ApiService {
     return [
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incid_sett_marche.png',
-        description: 'Andamento incidenza settimanale Marche'
+        description: 'Il grafico mostra l\'incidenza settimanale dei nuovi casi registrati, ' +
+          'per ogni provincia della regione marcghe, scalato su 100.000 abitanti (per rendere ' +
+          'possibile il confronto). Il dato provinciale è fortemente instabile: per la consultazione, ' +
+          'è stata effettuata una media mobile su un periodo di 7 giorni.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incidenza_sett_marche_mappa.png',
-        description: 'Incidenza settimanale Marche mappa'
+        description: 'Il grafico mostra  l\'incidenza settimanale all\'ultima rilevazione, per ogni provincia' +
+          'della regione Marche.'
       }
     ];
   }
@@ -86,11 +102,16 @@ export class ApiService {
     return [
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/totale_casi_per_province_marche_mappa.png',
-        description: 'Nuovi positivi Marche mappa'
+        description: 'Il grafico mostra i nuovi casi positivi registrati all\'ultima rilevazione, per ogni provincia' +
+          'della regione Marche.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/totale_casi_per_province_marche_abs.png',
-        description: 'Andamento nuovi positivi Marche'
+        description: 'Il grafico indica l\'evoluzione dei i nuovi casi positivi registrati giornalmente, tramite tampone ' +
+          'molecolare, per ogni provincia della regione Marche. Il dato è riportato in valosi assoluti, per evidenziare ' +
+          'il numero effettivo di casi di ogni provincia. Il dato provinciale è fortemente instabile: per la consultazione, ' +
+          'è stata effettuata una media mobile su un periodo di 14 giorni, il che porta ad avere il dato arretrato ' +
+          'temporalmente di una settimana. È riportata, con la traccia semi-trasparente, la media italiana.'
       }
     ];
   }
@@ -99,7 +120,10 @@ export class ApiService {
     return [
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/parametri_marche.png',
-        description: 'Parametri Marche'
+        description: 'Il grafico raffronta differenti indicatori a livello regionale nelle Marche, in valori assoluti: ' +
+          'I decessi giornalieri (in media mobile di 7 giorni), l\'ammontare dei pazienti correntemente in terapia ' +
+          'intensiva, i nuovi positivi registrati ogni giorno (in media mobile di 7 giorni) è l\'ammontare dei ' +
+          'pazienti correntemente ricoverati con sintomi per COVID-19.'
       }
     ];
   }
@@ -108,19 +132,29 @@ export class ApiService {
     return [
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_italia.png',
-        description: 'Dosi somministrate giornalmente in italia, distinzione prima e seconda dose'
+        description: 'Il grafico indica le dosi somministrate ogni giorno in Italia, facendo distinzione ' +
+          'tra prime e seconde dosi. L\'altezza di ogni barra del grafico indica il totale delle ' +
+          'somministrazioni giornaliere.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_per_regioni_mappa.png',
-        description: 'Dosi somministrate per regioni, cumulative'
+        description: 'Il grafico indica le somministrazioni effettuate nell\'ultimo giorno, nelle regioni ' +
+          'italiane. Il valore è posto in percentuale sulla popolazione della regionale, così da poter effettuare ' +
+          'un confronto tra le stesse.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_marche.png',
-        description: 'Dosi somministrate giornalmente nelle Marche, distinzione prima e seconda dose'
+        description: 'Il grafico indica le dosi somministrate ogni giorno nella regione Marche, facendo distinzione ' +
+          'tra prime e seconde dosi. L\'altezza di ogni barra del grafico indica il totale delle ' +
+          'somministrazioni giornaliere.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/dosi_per_regioni.png',
-        description: 'Andamento somministrazioni benchmark'
+        description: 'Il grafico mostra le singole dosi di vaccino somministrate giornalmente per ogni regione (senza ' +
+          'distinzione tra prima dose e richiamo). Il dato è scalato su 100.000 abitanti, rendendo così possibile ' +
+          'mettere in relazione tra loro le regioni, tenendo conto della diversa densità di popolazione. È riportata, ' +
+          'con la traccia semi-trasparente, la media italiana. È applicata una media mobile di 7 giorni, per rendere il ' +
+          'grafico più comprensibile.'
       }
     ];
   }
@@ -129,11 +163,15 @@ export class ApiService {
     return [
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/immunizzati_mappa.png',
-        description: 'Immunizzati per regione'
+        description: 'Il grafico mostra la percentuale di popolazione risultante immunizzata, per ogni regione ' +
+          'italiana, nell\'ultimo giorno. Ci si riferisce con immunizzata alla parte della popolazione tale da aver ricevuto ' +
+          'sia la prima dose che il richiamo del vaccino.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/immunizzati.png',
-        description: 'Andamento immunizzati benchmark'
+        description: 'Il grafico mostra la percentuale di popolazione, per ogni regione del benchmark e per ' +
+          'l\'Italia (traccia semi-trasparente) che puo essere definita immunizzata, ovvero tale da aver ricevuto ' +
+          'sia la prima dose che il richiamo.'
       }
     ];
   }
