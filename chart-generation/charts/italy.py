@@ -29,16 +29,14 @@ def parameters(save_image=False, show=False):
 
     plt.plot(italy_df['data'], italy_df['ricoverati_con_sintomi'], label="Ricoverati con sintomi")
 
-    plt.title('Evoluzione parametri nazionali, in valori assoluti')
+    plt.title('Evoluzione di vari parametri nazionali,\nin valori assoluti\n')
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-
-    plt.ylabel('Variaz. parametri')
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./charts/covid/parametri_italia.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -62,7 +60,7 @@ def ti_occupation(save_image=False, show=False):
     plt.axhline(y=0.3, color='y', linestyle='--', alpha=0.5, label="Livello d'allerta")
     plt.axhline(y=1, color='r', linestyle='--', alpha=0.5, label="Saturazione")
 
-    plt.title('Occupazione terapie intensive')
+    plt.title('Occupazione terapie intensive,\nconfronto tra le regioni del benchmark\n')
 
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1))
     plt.gca().xaxis.set_major_locator(MonthLocator())
@@ -71,8 +69,7 @@ def ti_occupation(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Percentuale occupaz. TI')
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./charts/covid/ti_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -99,15 +96,14 @@ def rt_per_regions(save_image=False, show=False):
     plt.axhline(y=1.25, color='tab:orange', linestyle='--', alpha=0.5, label="Scenario 3")
     plt.axhline(y=1, color='y', linestyle='--', alpha=0.5, label="Scenario 2")
 
-    plt.title('Indice R(t) SIRD')
+    plt.title('Evoluzione indice R(t) SIRD,\nconfronto tra le regioni del benchmark m.a. 4 gg.\n')
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('R(t) SIRD (4 gg. m.a.)')
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./charts/covid/rt_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -132,7 +128,7 @@ def weekly_incidence(save_image=False, show=False):
     plt.axhline(y=250, color='tab:red', linestyle='--', alpha=0.5, label="Alto rischio")
     plt.axhline(y=50, color='tab:orange', linestyle='--', alpha=0.5, label="Basso rischio")
 
-    plt.title('Incidenza settimanale nuovi positivi per 100.000 abitanti')
+    plt.title('Incidenza settimanale nuovi positivi per 100.000 abitanti,\nconfronto tra le regioni del benchmark\n')
     plt.gca().set_ylim([0, 600])
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
@@ -140,8 +136,7 @@ def weekly_incidence(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Incid. sett. pos. per 100.000 ab.')
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./charts/covid/incid_sett_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')

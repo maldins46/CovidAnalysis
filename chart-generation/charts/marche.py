@@ -29,15 +29,14 @@ def parameters(save_image=False, show=False):
 
     plt.plot(marche_df['data'], marche_df['ricoverati_con_sintomi'], label="Ricoverati con sintomi")
 
-    plt.title('Evoluzione parametri Marche, in valori assoluti')
+    plt.title('Evoluzione di vari parametri nella regione\nMarche, in valori assoluti\n')
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
     plt.gca().xaxis.set_major_formatter(utils.std_date_formatter)
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Variaz. parametri')
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig("./charts/covid/parametri_marche", dpi=300, transparent=True, bbox_inches='tight')
@@ -62,7 +61,7 @@ def cases_per_provinces_abs(save_image=False, show=False):
         labels.append(area_names_dict[province_code])
         dates = province_data['data']
 
-    plt.title('Nuovi positivi nelle Marche')
+    plt.title('Nuovi positivi nelle provincie della regione Marche,\nin valori assoluti, 14 gg. m.a.\n')
     plt.stackplot(dates, cases_stack, labels=labels)
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
@@ -70,7 +69,6 @@ def cases_per_provinces_abs(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Nuovi pos. in val. ass. (14 gg. m.a.)')
     plt.legend(loc='upper left')
 
     if save_image:
@@ -101,7 +99,7 @@ def weekly_incidence(save_image=False, show=False):
     plt.axhline(y=250, color='tab:red', linestyle='--', alpha=0.5, label="Alto rischio")
     plt.axhline(y=50, color='tab:orange', linestyle='--', alpha=0.5, label="Basso rischio")
 
-    plt.title('Incidenza sett. nuovi pos. Marche per 100.000 abitanti')
+    plt.title('Incidenza settimanale nuovi positivi per 100.000 abitanti,\nconfronto tra le province della regione Marche, 7 gg. m.a.\n')
     plt.gca().set_ylim([0, None])
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))
@@ -109,8 +107,7 @@ def weekly_incidence(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.ylabel('Incid. sett. pos. per 100.000 ab. (7 gg. m.a.)')
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./charts/covid/incid_sett_marche.png', dpi=300, transparent=True, bbox_inches='tight')

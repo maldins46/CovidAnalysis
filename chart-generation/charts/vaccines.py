@@ -32,8 +32,7 @@ def adm_doses_italy(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./charts/vaccines/dosi_italia.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -60,8 +59,7 @@ def adm_doses_marche(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./charts/vaccines/dosi_marche.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -92,7 +90,7 @@ def regional_doses(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./charts/vaccines/dosi_per_regioni.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -123,7 +121,7 @@ def immunes_percentage(save_image=False, show=False):
     plt.gca().xaxis.set_minor_formatter(utils.std_date_formatter)
     plt.gcf().autofmt_xdate(which='both')
     plt.grid(True, which='both', axis='both')
-    plt.legend()
+    plt.legend(loc='upper left')
 
     if save_image:
         plt.savefig('./charts/vaccines/immunizzati.png', dpi=300, transparent=True, bbox_inches='tight')
