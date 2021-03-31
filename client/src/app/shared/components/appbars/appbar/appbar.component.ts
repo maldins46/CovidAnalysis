@@ -11,7 +11,7 @@ export class AppbarComponent implements OnInit {
   @Input() menuItems: MenuItem[] = [];
   @Input() title = 'CovidAnalysis';
   @Input() subtitle: string | undefined;
-  @Input() logoPath = 'https://maldins46.github.io/CovidAnalysis/assets/images/logo-small.png';
+  @Input() logoPath = 'https://maldins46.github.io/CovidAnalysis/assets/logo-small.png';
   @Input() homeRoute = '/home';
 
   constructor() { }
