@@ -53,6 +53,6 @@ jobs:
         cd gh-pages
         git config user.name ReleaseBot
         git config user.email github-actions@github.com
-        git add assets/data
+        git add charts
         git commit -m "Update charts to ${{ steps.date.outputs.date }}"
         git push
