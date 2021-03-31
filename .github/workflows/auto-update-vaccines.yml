@@ -49,7 +49,7 @@ jobs:
       run: |
         rm -rf gh-pages/charts/vaccines
         mkdir gh-pages/charts/vaccines
-        mv charts/vaccines/* gh-pages/vaccines
+        mv charts/vaccines/* gh-pages/charts/vaccines
         cd gh-pages
         git config user.name ReleaseBot
         git config user.email github-actions@github.com

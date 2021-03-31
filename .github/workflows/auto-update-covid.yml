@@ -49,7 +49,7 @@ jobs:
       run: |
         rm -rf gh-pages/charts/covid
         mkdir gh-pages/charts/covid
-        mv charts/covid/* gh-pages/covid        
+        mv charts/covid/* gh-pages/charts/covid        
         cd gh-pages
         git config user.name ReleaseBot
         git config user.email github-actions@github.com
