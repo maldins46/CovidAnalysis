@@ -17,24 +17,10 @@ export class PublicAppbarComponent implements OnInit {
       extendedText: false
     },
     {
-      name: 'Vaccini',
-      route: '/vaccines',
-      mdiIcon: 'flask-outline',
-      tooltip: 'Vaccini',
-      extendedText: false
-    },
-    {
       name: 'Marche',
       route: '/marche',
       mdiIcon: 'marche',
       tooltip: 'Marche',
-      extendedText: false
-    },
-    {
-      name: 'Twitter feed',
-      route: '/feed',
-      mdiIcon: 'twitter',
-      tooltip: 'Feed di Twitter',
       extendedText: false
     },
     {
@@ -43,6 +29,20 @@ export class PublicAppbarComponent implements OnInit {
       mdiIcon: 'home-outline',
       tooltip: 'Home',
       extendedText: true
+    },
+    {
+      name: 'Vaccini',
+      route: '/vaccines',
+      mdiIcon: 'flask-outline',
+      tooltip: 'Vaccini',
+      extendedText: false
+    },
+    {
+      name: 'Feed',
+      route: '/feed',
+      mdiIcon: 'twitter',
+      tooltip: 'Feed di Twitter',
+      extendedText: false
     }
   ];
 

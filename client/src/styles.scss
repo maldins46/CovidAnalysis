@@ -67,10 +67,5 @@ html, body {
     margin-top: 0;
     @include responsiveProp(margin-bottom, $quarterMargin);
   }
-
-  // overrides an angular material rule that covers custom styles
-  .mat-toolbar-row, .mat-toolbar-single-row {
-    padding: 0 8px 0 16px;
-  }
 }
 

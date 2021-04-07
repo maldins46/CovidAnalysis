@@ -7,7 +7,7 @@
 }
 .wrapper {
   min-height: 100%;
-  margin-bottom: -1 * $footerHeightSmartphone;
+  margin-bottom: -1 * $pushHeightSmartphone;
 
   @include forDesktopOnly {
     margin-bottom: -1 * $footerHeightDesktop;
@@ -35,5 +35,9 @@
 }
 
 .push {
-  @include responsiveProp(height, $footerHeight);
+  height: $footerHeightDesktop;
+
+  @include forSmartphoneOnly() {
+    height: $pushHeightSmartphone;
+  }
 }

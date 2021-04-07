@@ -12,6 +12,11 @@ footer {
   align-items: center;
   justify-content: center;
 
+  @include forSmartphoneOnly() {
+    box-shadow: none;
+  }
+
+
   div.title {
     @include responsiveProp(margin-bottom, $quarterMargin);
     text-align: center;

@@ -1,14 +1,30 @@
 @import "~src/styles/utils";
 
+
+.bottombar {
+  height: 56px;
+  background: $backgroundColor;
+  box-shadow: $inverseShadow;
+  position: fixed;
+  box-sizing: border-box;
+  bottom: 0;
+  width: 100%;
+
+  @include forDesktopOnly() {
+    @include hide();
+  }
+}
+
 .appbar {
   background: $backgroundColor;
   box-shadow: $defaultShadow;
   position: fixed;
   display: flex;
   align-items: center;
-  padding: 0 8px 0 16px;
+  padding: 0 16px 0 16px;
   flex-direction: row;
   box-sizing: border-box;
+  justify-content: center;
   top: 0;
   width: 100%;
 
@@ -46,7 +62,10 @@
 
   .menu {
     // keeps element aligned to the right
-    margin-left: auto;
+    @include forDesktopOnly() {
+      margin-left: auto;
+
+    }
 
     ul {
       list-style-type: none;

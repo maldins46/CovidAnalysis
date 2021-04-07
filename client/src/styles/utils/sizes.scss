@@ -15,6 +15,8 @@ $pageWidthDesktop: $desktopWidth - $marginDesktop;
 $fabHeightSmartphone: 56px;
 $fabHeightDesktop: 64px;
 $footerHeightSmartphone: $fabHeightSmartphone + $marginSmartphone * 2;
+$pushHeightSmartphone: 144px;
+
 $footerHeightDesktop: $fabHeightDesktop + $marginDesktop * 2;
 $cardImageSizeSmartphone: 80px;
 $cardImageSizeDesktop: 100px;

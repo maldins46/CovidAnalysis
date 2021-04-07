@@ -13,6 +13,5 @@ export class SmartphoneMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.sortedItems = MenuItemsUtils.sortItems(this.menuItems);
   }
 }
