@@ -15,7 +15,7 @@ def adm_doses(save_image=False, show=False):
 
     plt.title('Percentuale della popolazione vaccinata\nnell\'ultimo giorno, per regione')
 
-    for idx, row in regions_geodf.iterrows():
+    for row in regions_geodf.itertuples(index=True, name='Pandas'):
         plt.annotate(text=row['totale_su_pop_100_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
 
     regions_geodf.plot(ax=ax, column='totale_su_pop_100', legend=True, scheme="quantiles",
@@ -37,8 +37,8 @@ def immunes_percentage(save_image=False, show=False):
 
     plt.title('Percentuale popolazione immunizzata, per regione')
 
-    for idx, row in regions_geodf.iterrows():
-        plt.annotate(text=row['seconda_dose_totale_storico_su_pop_label'], xy=row['coords'],
+    for row in regions_geodf.itertuples(index=True, name='Pandas'):
+        plt.annotate(text=row.seconda_dose_totale_storico_su_pop_label, xy=row.coords,
                      horizontalalignment='center', fontsize=10)
 
     regions_geodf.plot(ax=ax, column='seconda_dose_totale_storico_su_pop_100', legend=True, scheme="quantiles",

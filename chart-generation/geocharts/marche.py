@@ -8,8 +8,8 @@ def weekly_incidence(save_image=False, show=False):
 
     plt.title('Incidenza settimanale nuovi positivi per 100.000 abitanti,\nnell\'ultimo giorno, per provincia della regione Marche')
 
-    for idx, row in marche_geodf.iterrows():
-        plt.annotate(text=row['incid_sett_per_100000_ab_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
+    for row in marche_geodf.itertuples(index=True, name='Pandas'):
+        plt.annotate(text=row.incid_sett_per_100000_ab_label, xy=row.coords, horizontalalignment='center', fontsize=10)
 
     marche_geodf.plot(ax=ax, column='incid_sett_per_100000_round', legend=True,  scheme="quantiles",
                       cmap='OrRd', linewidth=0.6, edgecolor='0.6',
@@ -30,8 +30,8 @@ def new_positives(save_image=False, show=False):
 
     plt.title('Nuovi positivi nell\'ultimo giorno, in valori assoluti,\nper provincia della regione Marche')
 
-    for idx, row in marche_geodf.iterrows():
-        plt.annotate(text=row['nuovi_positivi'], xy=row['coords'], horizontalalignment='center', fontsize=10)
+    for row in marche_geodf.itertuples(index=True, name='Pandas'):
+        plt.annotate(text=row.nuovi_positivi, xy=row.coords, horizontalalignment='center', fontsize=10)
 
     marche_geodf.plot(ax=ax, column='nuovi_positivi', legend=True, scheme="quantiles",
                       cmap='OrRd', linewidth=0.6, edgecolor='0.6',

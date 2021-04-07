@@ -21,8 +21,8 @@ def ti_occupation(save_image=False, show=False):
 
     plt.title('Occupazione terapie intensive, per regione')
 
-    for idx, row in regions_geodf.iterrows():
-        plt.annotate(text=row['occupazione_ti_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
+    for row in regions_geodf.itertuples(index=True, name='Pandas'):
+        plt.annotate(text=row.occupazione_ti_label, xy=row.coords, horizontalalignment='center', fontsize=10)
 
     regions_geodf.plot(ax=ax, column='occupazione_ti_100', legend=True, scheme="user_defined",
                        cmap='OrRd', linewidth=0.6, edgecolor='0.6', classification_kwds={'bins': [5, 10, 30, 50]},
@@ -48,8 +48,8 @@ def weekly_incidence_regions(save_image=False, show=False):
 
     plt.title('Incidenza settimanale nuovi positivi\nper 100.000 abitanti, per regione')
 
-    for idx, row in regions_geodf.iterrows():
-        plt.annotate(text=row['incid_sett_per_100000_ab_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
+    for row in regions_geodf.itertuples(index=True, name='Pandas'):
+        plt.annotate(text=row.incid_sett_per_100000_ab_label, xy=row.coords, horizontalalignment='center', fontsize=10)
 
     regions_geodf.plot(ax=ax, column='incid_sett_per_100000_round', legend=True, scheme="user_defined",
                        cmap='OrRd', linewidth=0.6, edgecolor='0.6', classification_kwds={'bins': [50, 100, 250, 350]},
@@ -75,8 +75,8 @@ def weekly_incidence_provinces(save_image=False, show=False):
 
     plt.title('Incidenza settimanale nuovi positivi\nper 100.000 abitanti, per provincia')
 
-    for idx, row in provinces_geodf.iterrows():
-        plt.annotate(text=row['incid_sett_per_100000_ab_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
+    for row in provinces_geodf.itertuples(index=True, name='Pandas'):
+        plt.annotate(text=row.incid_sett_per_100000_ab_label, xy=row.coords, horizontalalignment='center', fontsize=10)
 
     provinces_geodf.plot(ax=ax, column='incid_sett_per_100000_round', legend=True, scheme="user_defined",
                          cmap='OrRd', linewidth=0.6, edgecolor='0.6', classification_kwds={'bins': [50, 100, 250, 350]},
