@@ -5,6 +5,8 @@ name: Auto update data Vaccines
 on:
   schedule:
   - cron: "0 8 * * *"
+  push:
+    branches: main
 
 jobs:
   deploy:
