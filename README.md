@@ -20,7 +20,9 @@ pip install -r requirements.txt
 Use the following command to generate all the assets, like charts in PNG and summary tables in JSON. Assets will be saved in the project subfolder `/assets`.
 
 ```bash
-python ./chart-generation/chart-generation.py
+python ./chart-generation/generate-covid-charts.py
+python ./chart-generation/generate-vaccine-charts.py
+
 ```
 
 ## How to use the Angular client
