@@ -17,7 +17,7 @@ The `/chart-generation` folder contains the Python code for the generation of ch
 pip install -r requirements.txt
 ```
 
-Use the following command to generate all the assets, like charts in PNG and summary tables in JSON. Assets will be saved in the project subfolder `/assets`.
+Use the following command to generate all the assets, like charts in PNG and summary tables in JSON. Assets will be saved in the project subfolder `/charts`.
 
 ```bash
 python ./chart-generation/generate-covid-charts.py
