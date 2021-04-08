@@ -1,9 +1,0 @@
-[submodule "data/opendata-covid-italia"]
-	path = data/opendata-covid-italia
-	url = https://github.com/pcm-dpc/COVID-19.git
-[submodule "data/opendata-vaccini-italia"]
-	path = data/opendata-vaccini-italia
-	url = https://github.com/italia/covid19-opendata-vaccini.git
-[submodule "data/geojson-italy"]
-	path = data/geojson-italy
-	url = https://github.com/openpolis/geojson-italy.git
