@@ -13,8 +13,6 @@ jobs:
     steps:
     - name: Checkout with Open Data Submodule
       uses: actions/checkout@v2
-      with:
-        submodules: 'recursive'
 
     - name: Update Open Data submodule
       run: git submodule update --remote --recursive 
