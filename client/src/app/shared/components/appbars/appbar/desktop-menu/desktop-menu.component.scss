@@ -1,10 +1,6 @@
 @import "~src/styles/utils";
 
 .desktop-menu {
-  @include forSmartphoneOnly {
-    @include hide;
-  }
-
   nav {
     ul {
       display: flex;

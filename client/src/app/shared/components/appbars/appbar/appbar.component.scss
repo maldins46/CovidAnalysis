@@ -61,10 +61,12 @@
   }
 
   .menu {
+    @include hide();
+
     // keeps element aligned to the right
     @include forDesktopOnly() {
       margin-left: auto;
-
+      @include show();
     }
 
     ul {

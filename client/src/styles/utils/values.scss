@@ -4,8 +4,8 @@
 /**
  * Various other variable and utils.
  */
-$defaultShadow: 0 2px 5px 0 rgba(0,0,0,.2);
-$inverseShadow: 0 -2px 5px 0 rgba(0,0,0,.2);
+$defaultShadow: 0 1px 3px 0 rgba(0,0,0,.1);
+$inverseShadow: 0 -1px 3px 0 rgba(0,0,0,.1);
 
 // it hides the target from the screen
 @mixin hide {
