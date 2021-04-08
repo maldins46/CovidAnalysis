@@ -15,7 +15,7 @@ from data_extractors import istat_codes
 # Constants
 TI_PLACES_ITALY = ti_places_dict[istat_codes.italia]
 POPULATION_ITALY = population_dict[istat_codes.italia]
-RAW_DF = pd.read_csv('./data/opendata-covid-italia/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv')
+RAW_DF = pd.read_csv('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv')
 
 
 def extract_italy_df():

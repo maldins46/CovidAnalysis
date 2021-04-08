@@ -12,7 +12,7 @@ from data_extractors.istat_code_groups import benchmark_array, regions_array
 from data_extractors.geojson import regions_geodf as raw_regions_geodf
 
 # Constants and pre-cleaning
-RAW_DF = pd.read_csv('./data/opendata-vaccini-italia/dati/somministrazioni-vaccini-summary-latest.csv')
+RAW_DF = pd.read_csv('https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-summary-latest.csv')
 RAW_DF['codice_regione_ISTAT'] = RAW_DF.apply(lambda x: 21 if x['area'] == 'PAT' else x['codice_regione_ISTAT'], axis=1)
 RAW_DF['codice_regione_ISTAT'] = RAW_DF.apply(lambda x: 22 if x['area'] == 'PAB' else x['codice_regione_ISTAT'], axis=1)
 RAW_DF['codice_regione_ISTAT'] = RAW_DF['codice_regione_ISTAT'].apply(lambda x: f"{x:02d}")

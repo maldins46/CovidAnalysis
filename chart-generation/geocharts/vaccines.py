@@ -16,7 +16,7 @@ def adm_doses(save_image=False, show=False):
     plt.title('Percentuale della popolazione vaccinata\nnell\'ultimo giorno, per regione')
 
     for row in regions_geodf.itertuples(index=True, name='Pandas'):
-        plt.annotate(text=row['totale_su_pop_100_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
+        plt.annotate(text=row.totale_su_pop_100_label, xy=row.coords, horizontalalignment='center', fontsize=10)
 
     regions_geodf.plot(ax=ax, column='totale_su_pop_100', legend=True, scheme="quantiles",
                        cmap='Blues', linewidth=0.6, edgecolor='0.6',

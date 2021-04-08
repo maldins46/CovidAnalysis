@@ -15,7 +15,7 @@ from data_extractors.geojson import regions_geodf as raw_regions_geodf
 import utils
 
 # Constants
-RAW_DF = pd.read_csv('./data/opendata-covid-italia/dati-regioni/dpc-covid19-ita-regioni.csv')
+RAW_DF = pd.read_csv('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv')
 
 
 def extract_regions_df():

@@ -14,7 +14,7 @@ from data_extractors.istat_code_groups import marche_array
 from data_extractors.geojson import provinces_geodf as raw_provinces_geodf
 
 # Constants
-RAW_DF = pd.read_csv('./data/opendata-covid-italia/dati-province/dpc-covid19-ita-province.csv')
+RAW_DF = pd.read_csv('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv')
 
 
 def extract_provinces_df():
