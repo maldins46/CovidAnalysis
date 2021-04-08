@@ -7,16 +7,7 @@
 ![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=sqale_index)
 ![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=maldins46_CovidAnalysis&metric=ncloc)
 
-A Python module used to extract relevant information from Italian Government Covid Open Data, toghether with a neat Angular client used to show the results. The repository uses [Open Data from the Italian Government](https://github.com/pcm-dpc/COVID-19) as a Git Submodule. As such, a plain clone does not initialize submodules. You have to clone the project this way:
-
-```bash
-git clone --recurse-submodules https://github.com/maldins46/CovidAnalysis.git 
-```
-Besides performing the clone, also recursively initialize submodules. Also, the submodule have to be updated manually periodically, by using
-
-```bash
-git submodule update --remote --recursive
-```
+A Python module used to extract relevant information from Italian Open Data, toghether with a neat Angular client used to show the results. The repository uses [Open Data from the Italian Protezione Civile](https://github.com/pcm-dpc/COVID-19), and the [open data about Italian Vacination Plan](https://github.com/italia/covid19-opendata-vaccini). Also, [geojson-taly](https://github.com/openpolis/geojson-italy) is used in order to generate the geographical charts.
 
 ## How to use the Python module
 
