@@ -16,6 +16,8 @@ $fabHeightSmartphone: 56px;
 $fabHeightDesktop: 64px;
 $footerHeightSmartphone: $fabHeightSmartphone + $marginSmartphone * 2;
 $pushHeightSmartphone: 144px;
+$pushHeightiPhone: 172px;
+
 
 $footerHeightDesktop: $fabHeightDesktop + $marginDesktop * 2;
 $cardImageSizeSmartphone: 80px;
@@ -51,6 +53,17 @@ $widerTextboxWidth: ("smartphone": $textboxWidthSmartphone, "desktop": $widerTex
 // From https://css-tricks.com/approaches-media-queries-sass/#landon-schropps-technique
 @mixin forSmartphoneOnly {
   @media (max-width: #{$desktopWidth}) {
+    @content;
+  }
+}
+
+// Detect iOS Safari browser on iPhone X+ portrait
+@mixin safariOnly {
+  @media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
     @content;
   }
 }
