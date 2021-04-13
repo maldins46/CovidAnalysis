@@ -9,59 +9,59 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>Nuovi positivi nell'ultimo giorno</td>
-    <td>
+  <tr class="even-row">
+    <td class="name">Nuovi positivi nell'ultimo giorno</td>
+    <td class="data">
       {{ nationalSummary.italia.newPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.italia.newPositivesIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ nationalSummary.marche.newPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.marche.newPositivesIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ nationalSummary.veneto.newPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.veneto.newPositivesIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ nationalSummary.toscana.newPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.toscana.newPositivesIncrement"></app-increment-icon>
     </td>
   </tr>
   <tr>
-    <td>Nuovi negli ultimi 7 giorni</td>
-    <td>
+    <td class="name">Nuovi negli ultimi 7 giorni</td>
+    <td class="data">
       {{ nationalSummary.italia.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.italia.weeklyPositivesIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ nationalSummary.marche.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.marche.weeklyPositivesIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ nationalSummary.veneto.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.veneto.weeklyPositivesIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ nationalSummary.toscana.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.toscana.weeklyPositivesIncrement"></app-increment-icon>
     </td>
   </tr>
-  <tr>
-    <td>Occupazione TI nell'ultimo giorno</td>
-    <td>
+  <tr class="even-row">
+    <td class="name">Occupazione TI nell'ultimo giorno</td>
+    <td class="data">
       {{ nationalSummary.italia.tiPercentage | percent:'1.2-2' }}
       <app-increment-icon [value]="nationalSummary.italia.tiIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ nationalSummary.marche.tiPercentage | percent:'1.2-2' }}
       <app-increment-icon [value]="nationalSummary.marche.tiIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ nationalSummary.veneto.tiPercentage | percent:'1.2-2' }}
       <app-increment-icon [value]="nationalSummary.veneto.tiIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ nationalSummary.toscana.tiPercentage | percent:'1.2-2' }}
       <app-increment-icon [value]="nationalSummary.toscana.tiIncrement"></app-increment-icon>
     </td>

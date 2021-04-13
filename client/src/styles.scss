@@ -13,9 +13,6 @@
 // main utils, used across the app
 @import "styles/utils";
 
-// the custom and bootstrap scss
-@import "styles/globals/bootstrap-custom-theme";
-
 html, body {
   height: 100%;
   margin: 0;
@@ -35,6 +32,9 @@ html, body {
     color: $primaryColor;
   }
 
+  svg {
+    vertical-align: top;
+  }
   // Font used for generic titles.
   h1 {
     @include titleFont;

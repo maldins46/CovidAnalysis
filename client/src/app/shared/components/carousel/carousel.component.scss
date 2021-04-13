@@ -16,6 +16,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
 
     .control-smartphone {
       @include show();
@@ -39,6 +40,7 @@
     border-bottom-color: $dividerColor;
     border-bottom-width: 1px;
     border-bottom-style: solid;
+    box-sizing: border-box;
 
     background-color: $secondaryColor;
     @include responsiveProp(padding, $quarterMargin);

@@ -3,7 +3,7 @@
 footer {
   background: $backgroundColor;
   width: 100%;
-  box-shadow: $defaultShadow;
+  box-shadow: $inverseShadow;
   box-sizing: border-box;
   @include responsiveProp(height, $footerHeight);
   @include responsiveProp(padding, $defaultMargin);

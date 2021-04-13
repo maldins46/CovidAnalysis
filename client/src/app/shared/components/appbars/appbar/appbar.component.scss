@@ -1,6 +1,5 @@
 @import "~src/styles/utils";
 
-
 .bottombar {
   height: 56px;
   background: $backgroundColor;
@@ -15,8 +14,13 @@
     height: 84px;
   }
 
+
   @include forDesktopOnly() {
     @include hide();
+  }
+
+  a {
+    text-decoration: none;
   }
 }
 

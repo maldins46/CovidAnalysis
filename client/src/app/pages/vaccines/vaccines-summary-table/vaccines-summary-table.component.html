@@ -9,75 +9,75 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>Percentuale popolazione vaccinata</td>
-    <td>
+  <tr class="even-row">
+    <td class="name">Percentuale popolazione vaccinata</td>
+    <td class="data">
       {{ vaccinesSummary.italy.fullVaccPopulation | percent:'1.2-2' }}
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.marche.fullVaccPopulation | percent:'1.2-2' }}
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.veneto.fullVaccPopulation | percent:'1.2-2' }}
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.toscana.fullVaccPopulation | percent:'1.2-2' }}
     </td>
   </tr>
   <tr>
-    <td>Dosi somministrate nell'ultimo giorno</td>
-    <td>
+    <td class="name">Dosi somministrate nell'ultimo giorno</td>
+    <td class="data">
       {{ vaccinesSummary.italy.dailyShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.italy.dailyShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
-    <td >
+    <td class="data">
       {{ vaccinesSummary.marche.dailyShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.marche.dailyShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.veneto.dailyShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.veneto.dailyShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.toscana.dailyShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.toscana.dailyShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
   </tr>
-  <tr>
-    <td>Prime dosi somministrate nell'ultimo giorno</td>
-    <td>
+  <tr class="even-row">
+    <td class="name">Prime dosi somministrate nell'ultimo giorno</td>
+    <td class="data">
       {{ vaccinesSummary.italy.dailyFirstShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.italy.dailyFirstShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.marche.dailyFirstShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.marche.dailyFirstShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.veneto.dailyFirstShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.veneto.dailyFirstShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.toscana.dailyFirstShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.toscana.dailyFirstShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
 
   </tr>
   <tr>
-    <td>Seconde dosi somministrate nell'ultimo giorno</td>
-    <td>
+    <td class="name">Seconde dosi somministrate nell'ultimo giorno</td>
+    <td class="data">
       {{ vaccinesSummary.italy.dailySecondShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.italy.dailySecondShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.marche.dailySecondShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.marche.dailySecondShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.veneto.dailySecondShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.veneto.dailySecondShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ vaccinesSummary.toscana.dailySecondShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.toscana.dailySecondShotsIncrement" [posIncrement]="true"></app-increment-icon>
     </td>
