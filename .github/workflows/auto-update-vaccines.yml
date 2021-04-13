@@ -5,8 +5,6 @@ name: Auto update data Vaccines
 on:
   schedule:
   - cron: "0 8 * * *"
-  push:
-    branches: main
 
 jobs:
   deploy:
@@ -16,9 +14,6 @@ jobs:
     - name: Checkout with Open Data Submodule
       uses: actions/checkout@v2
 
-    - name: Update Open Data submodule
-      run: git submodule update --remote --recursive 
-      
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
@@ -33,7 +28,7 @@ jobs:
     # Useful to create the release name
     - name: Get current date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d, %H:%M')"
 
     - name: Generate updated charts vaccines
       run: |
