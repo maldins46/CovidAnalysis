@@ -44,11 +44,11 @@ jobs:
     - name: Push assets to gh-pages
       run: |
         rm -rf gh-pages/charts/covid
-        rm -rf gh-pages/charts/vaccine
+        rm -rf gh-pages/charts/vaccines
         mkdir gh-pages/charts/covid
-        mkdir gh-pages/charts/vaccine
+        mkdir gh-pages/charts/vaccines
         mv charts/covid/* gh-pages/charts/covid
-        mv charts/vaccine/* gh-pages/charts/vaccine
+        mv charts/vaccines/* gh-pages/charts/vaccines
         cd gh-pages
         git config user.name ReleaseBot
         git config user.email github-actions@github.com
