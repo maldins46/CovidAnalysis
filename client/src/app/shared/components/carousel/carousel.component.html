@@ -1,12 +1,12 @@
-<div class="carousel">
+<div class="carousel" [ngClass]="{'dark': isThemeDark}">
   <!-- controls -->
   <div class="controls">
-    <button mat-button class="control-desktop" (click)="onPreviousClick()">
+    <button mat-button class="control-desktop" [disabled]="totSlides <= 1" (click)="onPreviousClick()">
       <mat-icon svgIcon="chevron-left" class="arrow-left"></mat-icon>
       Grafico precedente
     </button>
 
-    <button mat-icon-button class="control-smartphone" (click)="onPreviousClick()">
+    <button mat-icon-button class="control-smartphone" [disabled]="totSlides <= 1" (click)="onPreviousClick()">
       <mat-icon svgIcon="chevron-left"></mat-icon>
     </button>
 
@@ -14,12 +14,12 @@
       {{ currentSlide + 1 }} / {{ totSlides }}
     </div>
 
-    <button mat-icon-button class="control-smartphone" (click)="onNextClick()">
+    <button mat-icon-button class="control-smartphone" [disabled]="totSlides <= 1" (click)="onNextClick()">
       <mat-icon svgIcon="chevron-right"></mat-icon>
     </button>
 
 
-    <button mat-button class="control-desktop" (click)="onNextClick()">
+    <button mat-button class="control-desktop"  [disabled]="totSlides <= 1" (click)="onNextClick()">
       Grafico successivo
       <mat-icon svgIcon="chevron-right" class="arrow-right"></mat-icon>
     </button>

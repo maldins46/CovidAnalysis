@@ -57,17 +57,6 @@ $widerTextboxWidth: ("smartphone": $textboxWidthSmartphone, "desktop": $widerTex
   }
 }
 
-// Detect iOS Safari browser on iPhone X+ portrait
-@mixin safariOnly {
-  @media only screen
-  and (min-device-width: 375px)
-  and (max-device-width: 812px)
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) {
-    @content;
-  }
-}
-
 // Sets a property that varies with screen size. It can be done
 // only with mapped desktop-smartphone values.
 @mixin responsiveProp($key, $mappedProp) {

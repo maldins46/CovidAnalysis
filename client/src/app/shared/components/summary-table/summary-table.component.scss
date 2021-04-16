@@ -10,12 +10,29 @@
   border-width: 1px;
   border-style: solid;
 
+
+  &.dark {
+    border-color: $dividerColorDark;
+
+    .table {
+      th {
+        color: $primaryControlColorDark;
+        border-bottom: 1px solid $dividerColorDark;
+
+      }
+      tr.even-row {
+        background-color: $secondaryColorDark;
+      }
+    }
+  }
+
   .table {
     margin-bottom: 0;
     border-collapse: collapse;
 
+
     th {
-      border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid $dividerColor;
       color: $primaryControlColor;
       font-weight: 500;
     }

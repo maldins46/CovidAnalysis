@@ -9,11 +9,9 @@
   bottom: 0;
   width: 100%;
 
-  @include safariOnly() {
-    padding-bottom: $marginSmartphone * 2;
-    height: 84px;
+  &.dark {
+    background: $backgroundColorDark;
   }
-
 
   @include forDesktopOnly() {
     @include hide();
@@ -33,15 +31,17 @@
   padding: 0 16px 0 16px;
   flex-direction: row;
   box-sizing: border-box;
-  justify-content: center;
+  justify-content: space-between;
   top: 0;
   width: 100%;
 
-  a {
-    text-decoration: none;
+  &.dark {
+    background: $backgroundColorDark;
   }
 
+
   .headline {
+    text-decoration: none;
     height: 24px;
     display: flex;
     align-items: center;
@@ -69,29 +69,45 @@
     }
   }
 
-  .menu {
-    @include hide();
+  .action {
+    color: $tertiaryControlColor;
 
-    // keeps element aligned to the right
-    @include forDesktopOnly() {
-      margin-left: auto;
-      @include show();
-    }
+    &.dark {
 
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      padding-inline-start: 0;
-
-      li {
-        margin: 0
+      &:hover {
+        background: $secondaryColorTransp;
       }
     }
+  }
+
+  .right-actions {
+    display: flex;
+    flex-direction: row;
 
     a {
-      color: $secondaryControlColor;
+      color: $tertiaryControlColor;
+    }
+
+    .menu {
+      @include hide();
+
+      // keeps element aligned to the right
+      @include forDesktopOnly() {
+        @include show();
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        padding-inline-start: 0;
+
+        li {
+          margin: 0
+        }
+      }
     }
   }
+
 }
 

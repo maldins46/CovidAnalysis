@@ -1,1 +1,10 @@
 @import "~src/styles/utils";
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+  &.dark {
+    background-color: $backgroundColorDark;
+  }
+}

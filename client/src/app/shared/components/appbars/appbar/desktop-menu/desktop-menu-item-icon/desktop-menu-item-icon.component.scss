@@ -5,6 +5,19 @@ a.icon-menu {
   border-radius: 24px;
   transition: 0.2s;
 
+
+  &.dark {
+
+    &:hover {
+      background: $secondaryColorTransp;
+    }
+
+    &.active {
+      color: $primaryColor;
+      background: $secondaryColorTransp;
+    }
+  }
+
   &:hover {
     background: $secondaryColor;
   }

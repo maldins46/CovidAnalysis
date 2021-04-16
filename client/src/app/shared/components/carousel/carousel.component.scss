@@ -9,6 +9,18 @@
   border-width: 1px;
   border-style: solid;
 
+  &.dark {
+    border-color: $dividerColorDark;
+
+
+      .slide {
+        border-top-color: $dividerColorDark;
+        border-bottom-color: $dividerColorDark;
+        background-color: $secondaryColorDark;
+      }
+
+  }
+
   .controls {
     @include responsiveProp(padding, $defaultMargin);
     width: 100%;

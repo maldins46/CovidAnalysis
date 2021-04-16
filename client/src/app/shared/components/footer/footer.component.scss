@@ -1,7 +1,8 @@
 @import "~src/styles/utils";
 
-footer {
-  background: $backgroundColor;
+
+
+.footer {
   width: 100%;
   box-shadow: $inverseShadow;
   box-sizing: border-box;
@@ -12,24 +13,31 @@ footer {
   align-items: center;
   justify-content: center;
 
-  @include forSmartphoneOnly() {
-    box-shadow: none;
-  }
-
-
-  div.title {
-    @include responsiveProp(margin-bottom, $quarterMargin);
-    text-align: center;
-  }
   a {
     @include subheadFont;
     text-decoration: none;
   }
-  a.title {
+
+  @include forSmartphoneOnly() {
+    box-shadow: none;
+  }
+
+  .title {
+    @include responsiveProp(margin-bottom, $quarterMargin);
+    text-align: center;
+  }
+
+  .personal-page {
     color: $primaryControlColor;
   }
 
-  a.subtitle {
+  &.dark {
+    .personal-page {
+      color: $primaryControlColorDark;
+    }
+  }
+
+  .donation {
     height: 24px;
     display: flex;
     align-items: center;
@@ -43,3 +51,4 @@ footer {
     }
   }
 }
+

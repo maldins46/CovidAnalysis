@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MenuItem, MenuItemsUtils} from '../menu-item.model';
+import {ThemeService} from '../../../../../core/theme/theme.service';
 
 @Component({
   selector: 'app-smartphone-menu',
@@ -10,8 +11,11 @@ export class SmartphoneMenuComponent implements OnInit {
   @Input() menuItems: MenuItem[] = [];
   sortedItems: MenuItem[] = [];
 
-  constructor() { }
+  isThemeDark = false;
+
+  constructor(private readonly themeService: ThemeService) { }
 
   ngOnInit(): void {
+    this.themeService.themeDark.subscribe(x =>  this.isThemeDark = x);
   }
 }

@@ -2,6 +2,7 @@
 
 a.text-menu {
   height: 40px;
+  text-decoration: none;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12,6 +13,20 @@ a.text-menu {
   border-radius: 24px;
   background: $tertiaryColor;
   transition: 0.2s;
+  font-weight: 300;
+
+  &.dark {
+    background: $tertiaryControlColorDark;
+
+    &:hover {
+      background: $secondaryColorTransp;
+    }
+
+    &.active {
+      color: $primaryColor;
+      background: $secondaryColorTransp;
+    }
+  }
 
   &:hover {
     background: $secondaryColor;

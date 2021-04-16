@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MenuItem} from '../../menu-item.model';
+import {ThemeService} from '../../../../../../core/theme/theme.service';
 
 @Component({
   selector: 'app-desktop-menu-item-icon',
@@ -9,8 +10,11 @@ import {MenuItem} from '../../menu-item.model';
 export class DesktopMenuItemIconComponent implements OnInit {
   @Input() menuItem: MenuItem | undefined;
 
-  constructor() { }
+  isThemeDark = false;
 
-  ngOnInit(): void { }
+  constructor(private readonly themeService: ThemeService) { }
 
+  ngOnInit(): void {
+    this.themeService.themeDark.subscribe(x =>  this.isThemeDark = x);
+  }
 }

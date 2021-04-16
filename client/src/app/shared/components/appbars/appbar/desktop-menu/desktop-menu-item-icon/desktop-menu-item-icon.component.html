@@ -1,4 +1,4 @@
-<a href="#" *ngIf="menuItem" mat-icon-button class="icon-menu" routerLinkActive="active"
+<a href="#" *ngIf="menuItem" mat-icon-button class="icon-menu" [ngClass]="{'dark': isThemeDark}" routerLinkActive="active"
    [routerLink]="menuItem.route" [matTooltip]="menuItem.tooltip">
   <mat-icon [svgIcon]="menuItem.mdiIcon" class="icon"></mat-icon>
 </a>

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SlideModel} from '../../models/slide.model';
+import {ThemeService} from '../../../core/theme/theme.service';
 
 @Component({
   selector: 'app-carousel',
@@ -11,12 +12,14 @@ export class CarouselComponent implements OnInit {
   currentSlide = 0;
   totSlides = 0;
 
+  isThemeDark = false;
 
-  constructor() { }
+  constructor(private readonly themeService: ThemeService) { }
 
   ngOnInit(): void {
     this.preloadImages(); // for the demo
     this.totSlides = this.slides.length;
+    this.themeService.themeDark.subscribe(x =>  this.isThemeDark = x);
   }
 
   preloadImages(): void {

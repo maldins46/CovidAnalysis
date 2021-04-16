@@ -1,14 +1,20 @@
-<mat-toolbar class="appbar">
+<mat-toolbar class="appbar" [ngClass]="{'dark': isThemeDark}">
+
   <a class="headline" [routerLink]="homeRoute">
-      <img [src]="logoPath" class="logo" alt="Logo"/>
-      <h1 class="title">{{title}} <span class="subtitle">{{subtitle}}</span></h1>
+    <img class="logo" [src]="logoPath" alt="Logo"/>
+    <h1 class="title">{{title}} <span class="subtitle">{{subtitle}}</span></h1>
   </a>
 
-  <div class="menu">
-    <app-desktop-menu [menuItems]="menuItems"></app-desktop-menu>
+  <div class="right-actions">
+    <button mat-icon-button class="action" [ngClass]="{'dark': isThemeDark}" [matTooltip]="theme.tooltip" (click)="toggleTheme()">
+      <mat-icon [svgIcon]="theme.icon" class="icon"></mat-icon>
+    </button>
+
+    <app-desktop-menu class="menu" [menuItems]="menuItems"></app-desktop-menu>
   </div>
+
 </mat-toolbar>
 
-<div class="bottombar">
+<div class="bottombar" [ngClass]="{'dark': isThemeDark}">
   <app-smartphone-menu [menuItems]="menuItems"></app-smartphone-menu>
 </div>

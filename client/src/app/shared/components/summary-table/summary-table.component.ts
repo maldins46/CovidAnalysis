@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {ThemeService} from '../../../core/theme/theme.service';
 
 @Component({
   selector: 'app-summary-table',
@@ -7,9 +8,11 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class SummaryTableComponent implements OnInit {
-  constructor() { }
+  isThemeDark = false;
+
+  constructor(private readonly themeService: ThemeService) { }
 
   ngOnInit(): void {
+    this.themeService.themeDark.subscribe(x =>  this.isThemeDark = x);
   }
-
 }

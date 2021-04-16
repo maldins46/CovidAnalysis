@@ -1,11 +1,12 @@
-<footer>
+<footer class="footer" [ngClass]="{'dark': isThemeDark}">
   <div class="container">
-    <div class="title"><a href="https://www.riccardomaldini.it" class="title">
-      &copy; Riccardo Maldini {{ today | date: 'yyyy' }}
-    </a>
+    <div class="title">
+      <a href="https://www.riccardomaldini.it" class="personal-page">
+        &copy; Riccardo Maldini {{ today | date: 'yyyy' }}
+      </a>
     </div>
 
-    <a href="https://www.paypal.com/paypalme/riccardomaldini" class="subtitle">
+    <a href="https://www.paypal.com/paypalme/riccardomaldini" class="donation">
       <mat-icon class="image" svgIcon="glass-mug-variant"></mat-icon>
       <div class="text">Offrimi una birra!</div>
     </a>

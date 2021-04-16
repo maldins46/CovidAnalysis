@@ -13,11 +13,25 @@
 // main utils, used across the app
 @import "styles/utils";
 
+.dark {
+  background-color: $backgroundColorDark;
+  color: $secondaryControlColorDark;
+
+  h1 {
+    color: $primaryControlColorDark;
+  }
+
+  h2 {
+    color: $primaryControlColorDark;
+  }
+}
+
 html, body {
   height: 100%;
   margin: 0;
-  line-height: 1.6;
+  color: $secondaryControlColor;
   @include bodyFont;
+  line-height: 1.6;
 
   // disables default focus for button, as a visual feedback is handled by AngularMaterial
   button {
@@ -38,6 +52,7 @@ html, body {
   // Font used for generic titles.
   h1 {
     @include titleFont;
+    color: $primaryControlColor;
     @include responsiveProp(margin-bottom, $halfMargin);
     margin-top: 0;
     line-height: 1.6;
@@ -46,24 +61,23 @@ html, body {
   // Font used for an important body text, such as a card title.
   h2 {
     @include subtitleFont;
+    color: $primaryControlColor;
     @include responsiveProp(margin-top, $defaultMargin);
     @include responsiveProp(margin-bottom, $halfMargin);
     line-height: 1.6;
   }
 
   p {
-    @include bodyFont;
     margin-top: 0;
     @include responsiveProp(margin-bottom, $halfMargin);
     line-height: 1.6;
   }
 
-  ul{
+  ul {
     padding-inline-start: 20px;
   }
 
   li {
-    @include bodyFont;
     margin-top: 0;
     @include responsiveProp(margin-bottom, $quarterMargin);
   }

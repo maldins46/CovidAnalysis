@@ -6,12 +6,9 @@
   width: 100%;
 }
 .wrapper {
+
   min-height: 100%;
   margin-bottom: -1 * $pushHeightSmartphone;
-
-  @include safariOnly() {
-    margin-bottom: -1 * $pushHeightiPhone;
-  }
 
   @include forDesktopOnly {
     margin-bottom: -1 * $footerHeightDesktop;
@@ -43,9 +40,5 @@
 
   @include forSmartphoneOnly() {
     height: $pushHeightSmartphone;
-
-    @include safariOnly() {
-      height: $pushHeightiPhone;
-    }
   }
 }

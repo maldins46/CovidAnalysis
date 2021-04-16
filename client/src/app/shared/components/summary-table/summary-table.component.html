@@ -1,5 +1,5 @@
-<div class="summary">
-  <table class="table table-striped" aria-label="Indicatori di sintesi">
+<div class="summary" [ngClass]="{'dark': isThemeDark}">
+  <table class="table" aria-label="Indicatori di sintesi">
     <ng-content></ng-content>
   </table>
 </div>
