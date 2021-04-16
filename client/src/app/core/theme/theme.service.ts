@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import set = Reflect.set;
 import {ThemeModel} from './theme.model';
+import {Meta} from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +36,11 @@ export class ThemeService {
     false
   );
 
-  constructor() {
+  constructor(private readonly meta: Meta) {
     const savedTheme = localStorage.getItem('theme');
     this.currentThemeIndex = savedTheme ? parseInt(savedTheme, 10) : 2;
     localStorage.setItem('theme', String(this.currentThemeIndex));
+    this.meta.updateTag({ name: 'theme-color', content: this.getCurrentTheme().isDark ? '#242424' : '#ffffff'});
     this.themeDark.next(this.getCurrentTheme().isDark);
   }
 
@@ -46,6 +48,7 @@ export class ThemeService {
     this.currentThemeIndex = (this.currentThemeIndex + 1) % 3;
     this.themeDark.next(this.getCurrentTheme().isDark);
     localStorage.setItem('theme', String(this.currentThemeIndex));
+    this.meta.updateTag({ name: 'theme-color', content: this.getCurrentTheme().isDark ? '#242424' : '#ffffff'});
     return this.getCurrentTheme();
   }
 
