@@ -72,14 +72,6 @@ def extract_regions_geodf():
     # Change Trento and Bolzano ISTAT code to match the GeoDataframe
     df = df.rename(columns={'codice_regione_ISTAT': 'codice_regione'})
 
-    df['seconda_dose_totale_storico_su_pop_100'] = df.apply(lambda x: x['seconda_dose_totale_storico_su_pop'] * 100, axis=1)
-    df['seconda_dose_totale_storico_su_pop_label'] = df.apply(lambda x: f"{x['seconda_dose_totale_storico_su_pop_100']:.2f} %",
-                                                              axis=1)
-
-    df['totale_su_pop_100'] = df.apply(lambda x: x['totale_su_pop'] * 100, axis=1)
-    df['totale_su_pop_100_label'] = df.apply(lambda x: f"{x['totale_su_pop_100']:.3f} %",
-                                             axis=1)
-
     # Merge geo data to analysis
     merged_df = raw_regions_geodf.merge(df, on='codice_regione')
 

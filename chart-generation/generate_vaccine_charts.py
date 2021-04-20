@@ -20,5 +20,6 @@ chrt_vac.adm_doses_italy(save_image=True)
 
 geoc_vac.adm_doses(save_image=True)
 geoc_vac.immunes_percentage(save_image=True)
+geoc_vac.coverage_percentage(save_image=True)
 
 summ_vac.compute_summary(save=True)

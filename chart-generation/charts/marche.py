@@ -99,7 +99,9 @@ def weekly_incidence(save_image=False, show=False):
     plt.axhline(y=250, color='tab:red', linestyle='--', alpha=0.5, label="Alto rischio")
     plt.axhline(y=50, color='tab:orange', linestyle='--', alpha=0.5, label="Basso rischio")
 
-    plt.title('Incidenza settimanale nuovi positivi per 100.000 abitanti,\nconfronto tra le province della regione Marche, 7 gg. m.a.\n')
+    plt.title('Incidenza settimanale nuovi positivi per 100.000 abitanti,\nconfronto ' +
+              'tra le province della regione Marche, 7 gg. m.a.\n')
+
     plt.gca().set_ylim([0, None])
     plt.gca().xaxis.set_major_locator(MonthLocator())
     plt.gca().xaxis.set_minor_locator(MonthLocator(bymonthday=15))

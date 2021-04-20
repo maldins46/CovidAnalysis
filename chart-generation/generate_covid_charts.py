@@ -27,6 +27,8 @@ chrt_marche.cases_per_provinces_abs(save_image=True)
 geoc_italy.ti_occupation(save_image=True)
 geoc_italy.weekly_incidence_regions(save_image=True)
 geoc_italy.weekly_incidence_provinces(save_image=True)
+geoc_italy.weekly_increment_regions(save_image=True)
+geoc_italy.weekly_increment_provinces(save_image=True)
 
 geoc_marche.new_positives(save_image=True)
 geoc_marche.weekly_incidence(save_image=True)

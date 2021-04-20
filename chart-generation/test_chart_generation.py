@@ -34,12 +34,15 @@ def test_italy_geocharts():
     italy.ti_occupation()
     italy.weekly_incidence_regions()
     italy.weekly_incidence_provinces()
+    italy.weekly_increment_regions()
+    italy.weekly_increment_provinces()
 
 
 def test_vaccines_geocharts():
     from geocharts import vaccines
     vaccines.adm_doses()
     vaccines.immunes_percentage()
+    vaccines.coverage_percentage()
 
 
 def test_marche_geocharts():

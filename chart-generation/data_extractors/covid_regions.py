@@ -63,6 +63,8 @@ def extract_regions_df():
     df['incr_morti_per_100000_ab'] = df.apply(lambda x: x['incremento_morti'] / population_dict[x['codice_regione']] * 100000,
                                               axis=1)
 
+    df['incremento_incidenza'] = df['incidenza_settimanale'].rolling(7).apply(lambda x: (x.values[-1]-x.values[-7])/x.values[-7])
+
     # Filter data 15 days later (removes tail effect)
     df = df[df['data'] > '2020-10-15']
 
@@ -91,12 +93,6 @@ def extract_regions_geodf(df):
     # select only tail (last version of data)
     summary_df = df.sort_values(['data'])
     summary_df = summary_df.tail(21)
-
-    # Labels for maps
-    summary_df['incid_sett_per_100000_round'] = summary_df['incid_sett_per_100000_ab'].apply(lambda x: round(x, 0))
-    summary_df['incid_sett_per_100000_ab_label'] = summary_df['incid_sett_per_100000_round'].apply(lambda x: f"{x:.0f}")
-    summary_df['occupazione_ti_100'] = summary_df['occupazione_ti'].apply(lambda x: x * 100)
-    summary_df['occupazione_ti_label'] = summary_df['occupazione_ti_100'].apply(lambda x: f"{x:.2f} %")
 
     # Merge geo data to analysis
     merged_df = raw_regions_geodf.merge(summary_df, on='codice_regione')
