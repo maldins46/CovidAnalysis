@@ -10,7 +10,7 @@
   width: 100%;
 
   &.dark {
-    background: $backgroundColorDark;
+    background: $backgroundDetailsColorDark;
   }
 
   @include forDesktopOnly() {
@@ -36,7 +36,7 @@
   width: 100%;
 
   &.dark {
-    background: $backgroundColorDark;
+    background: $backgroundDetailsColorDark;
   }
 
 

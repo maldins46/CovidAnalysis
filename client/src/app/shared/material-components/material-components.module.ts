@@ -7,6 +7,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatRippleModule} from '@angular/material/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {MatRippleModule} from '@angular/material/core';
     MatButtonModule,
     MatTooltipModule,
     MatRippleModule,
+    MatSnackBarModule
   ],
   exports: [
     MatIconModule,
@@ -26,7 +28,8 @@ import {MatRippleModule} from '@angular/material/core';
     MatToolbarModule,
     MatButtonModule,
     MatTooltipModule,
-    MatRippleModule
+    MatRippleModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialComponentsModule {

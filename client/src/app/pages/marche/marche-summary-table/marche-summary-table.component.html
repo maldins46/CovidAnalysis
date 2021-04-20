@@ -12,7 +12,7 @@
   </thead>
   <tbody>
   <tr class="even-row">
-    <td class="name">Nuovi positivi nell'ultimo giorno</td>
+    <td class="name">Positivi ultimo giorno</td>
     <td class="data">
       {{ marcheSummary.marche.newPositives | number: '1.0-2' }}
       <app-increment-icon [value]="marcheSummary.marche.newPositivesIncrement"></app-increment-icon>
@@ -39,7 +39,7 @@
     </td>
   </tr>
   <tr>
-    <td class="name">Nuovi positivi negli ultimi 7 giorni</td>
+    <td class="name">Positivi ultimi 7 giorni</td>
     <td class="data">
       {{ marcheSummary.marche.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="marcheSummary.marche.weeklyPositivesIncrement"></app-increment-icon>
@@ -48,11 +48,11 @@
       {{ marcheSummary.ancona.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="marcheSummary.ancona.weeklyPositivesIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ marcheSummary.macerata.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="marcheSummary.macerata.weeklyPositivesIncrement"></app-increment-icon>
     </td>
-    <td>
+    <td class="data">
       {{ marcheSummary.pesaroeurbino.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="marcheSummary.pesaroeurbino.weeklyPositivesIncrement"></app-increment-icon>
     </td>

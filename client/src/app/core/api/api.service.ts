@@ -38,6 +38,18 @@ export class ApiService {
           'scalato su 100.000 abitanti. Ciò permette di confrontare tra loro le varie regioni.'
       },
       {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/increm_sett_per_regioni_mappa.png',
+        description: 'Il grafico mostra l\'incremento dell\0indice di incidenza settimanale dei nuovi casi registrati,' +
+          ' per ogni regione italiana, scalato su 100.000 abitanti. Ciò permette di confrontare tra loro le varie regioni. ' +
+          'In questo modo è possibile individuare le zone nelle quali l\'epidemia è in espansione.'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/increm_sett_per_provincia_mappa.png',
+        description: 'Il grafico mostra l\'incremento dell\0indice di incidenza settimanale dei nuovi casi registrati,' +
+          ' per ogni regione italiana, scalato su 100.000 abitanti. Ciò permette di confrontare tra loro le varie regioni. ' +
+          'In questo modo è possibile individuare le zone nelle quali l\'epidemia è in espansione.'
+      },
+      {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incid_sett_per_regioni.png',
         description: 'Il grafico mostra l\'evoluzione del tasso di incidenza settimanale dei nuovi positivi, per ogni ' +
           'regione del benchmark. È riportata, con la traccia semi-trasparente, la media italiana.'
@@ -164,8 +176,12 @@ export class ApiService {
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/immunizzati_mappa.png',
         description: 'Il grafico mostra la percentuale di popolazione risultante immunizzata, per ogni regione ' +
-          'italiana, nell\'ultimo giorno. Ci si riferisce con immunizzata alla parte della popolazione tale da aver ricevuto ' +
+          'italiana. Ci si riferisce con immunizzata alla parte della popolazione tale da aver ricevuto ' +
           'sia la prima dose che il richiamo del vaccino.'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/copertura_mappa.png',
+        description: 'Il grafico mostra la percentuale di popolazione risultante coperta con almeno una dose di vaccino.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/vaccines/immunizzati.png',

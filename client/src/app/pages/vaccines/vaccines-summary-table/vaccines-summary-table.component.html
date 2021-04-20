@@ -10,7 +10,7 @@
   </thead>
   <tbody>
   <tr class="even-row">
-    <td class="name">Percentuale popolazione vaccinata</td>
+    <td class="name">Popolaz. completamente vaccinata</td>
     <td class="data">
       {{ vaccinesSummary.italy.fullVaccPopulation | percent:'1.2-2' }}
     </td>
@@ -25,7 +25,7 @@
     </td>
   </tr>
   <tr>
-    <td class="name">Dosi somministrate nell'ultimo giorno</td>
+    <td class="name">Somministraz. ultimo giorno</td>
     <td class="data">
       {{ vaccinesSummary.italy.dailyShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.italy.dailyShotsIncrement" [posIncrement]="true"></app-increment-icon>
@@ -44,7 +44,7 @@
     </td>
   </tr>
   <tr class="even-row">
-    <td class="name">Prime dosi somministrate nell'ultimo giorno</td>
+    <td class="name">Prime dosi somministr. ultimo giorno</td>
     <td class="data">
       {{ vaccinesSummary.italy.dailyFirstShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.italy.dailyFirstShotsIncrement" [posIncrement]="true"></app-increment-icon>
@@ -64,7 +64,7 @@
 
   </tr>
   <tr>
-    <td class="name">Seconde dosi somministrate nell'ultimo giorno</td>
+    <td class="name">Seconde dosi somministr. ultimo giorno</td>
     <td class="data">
       {{ vaccinesSummary.italy.dailySecondShots | number: '1.0-2' }}
       <app-increment-icon [value]="vaccinesSummary.italy.dailySecondShotsIncrement" [posIncrement]="true"></app-increment-icon>

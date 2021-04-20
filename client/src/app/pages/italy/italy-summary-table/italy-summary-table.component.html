@@ -10,7 +10,7 @@
   </thead>
   <tbody>
   <tr class="even-row">
-    <td class="name">Nuovi positivi nell'ultimo giorno</td>
+    <td class="name">Positivi ultimo giorno</td>
     <td class="data">
       {{ nationalSummary.italia.newPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.italia.newPositivesIncrement"></app-increment-icon>
@@ -29,7 +29,7 @@
     </td>
   </tr>
   <tr>
-    <td class="name">Nuovi negli ultimi 7 giorni</td>
+    <td class="name">Positivi ultimi 7 giorni</td>
     <td class="data">
       {{ nationalSummary.italia.weeklyPositives | number: '1.0-2' }}
       <app-increment-icon [value]="nationalSummary.italia.weeklyPositivesIncrement"></app-increment-icon>
@@ -48,7 +48,7 @@
     </td>
   </tr>
   <tr class="even-row">
-    <td class="name">Occupazione TI nell'ultimo giorno</td>
+    <td class="name">Occupaz. TI ultimo giorno</td>
     <td class="data">
       {{ nationalSummary.italia.tiPercentage | percent:'1.2-2' }}
       <app-increment-icon [value]="nationalSummary.italia.tiIncrement"></app-increment-icon>

@@ -1,5 +1,13 @@
 @import "~src/styles/utils";
 
+
+
+.dark {
+  background-color: $backgroundColorDark;
+  color: $secondaryControlColorDark;
+}
+
+
 .page-container {
   position: absolute;
   height: 100%;
