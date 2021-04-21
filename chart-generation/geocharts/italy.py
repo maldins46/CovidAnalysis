@@ -78,19 +78,19 @@ def weekly_increment_regions(save_image=False, show=False):
     """
 
     regions_geodf['incremento_incidenza_100'] = regions_geodf['incremento_incidenza'].apply(lambda x: x * 100)
-    regions_geodf['incremento_incidenza_label'] = regions_geodf['incremento_incidenza_100'].apply(lambda x: f"{x:.2f}%")
+    regions_geodf['incremento_incidenza_label'] = regions_geodf['incremento_incidenza_100'].apply(lambda x: f"{x:.2f}%" if x <= 0 else f"+{x:.2f}%")
 
     fig, ax = plt.subplots(1, figsize=(12, 12))
     ax.axis('off')
 
-    plt.title('Incremento incidenza rispetto alla\nsettimana precedente, per regione')
+    plt.title('Incremento/decremento casi rispetto alla\nsettimana precedente, per regione')
 
     for _, row in regions_geodf.iterrows():
         plt.annotate(text=row['incremento_incidenza_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
 
     pos = regions_geodf[regions_geodf['incremento_incidenza_100'] >= 0]
     base = pos.plot(ax=ax, column='incremento_incidenza_100', legend=False, scheme="quantiles",
-                    cmap='OrRd', linewidth=0.6, edgecolor='0.6')
+                    cmap='Oranges', linewidth=0.6, edgecolor='0.6')
 
     neg = regions_geodf[regions_geodf['incremento_incidenza_100'] < 0]
 
@@ -99,7 +99,7 @@ def weekly_increment_regions(save_image=False, show=False):
     pd.options.mode.chained_assignment = 'warn'
 
     neg.plot(ax=base, column='incremento_incidenza_100', legend=False, scheme="quantiles",
-             cmap='Blues', linewidth=0.6, edgecolor='0.6')
+             cmap='Greens', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/covid/increm_sett_per_regioni_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -147,19 +147,19 @@ def weekly_increment_provinces(save_image=False, show=False):
     """
 
     provinces_geodf['incremento_incidenza_100'] = provinces_geodf['incremento_incidenza'].apply(lambda x: x * 100)
-    provinces_geodf['incremento_incidenza_label'] = provinces_geodf['incremento_incidenza_100'].apply(lambda x: f"{x:.2f}%")
+    provinces_geodf['incremento_incidenza_label'] = provinces_geodf['incremento_incidenza_100'].apply(lambda x: f"{x:.0f}%" if x <= 0 else f"+{x:.0f}%")
 
     fig, ax = plt.subplots(1, figsize=(12, 12))
     ax.axis('off')
 
-    plt.title('Incremento incidenza rispetto alla\nsettimana precedente, per provincia')
+    plt.title('Incremento/decremento casi rispetto alla\nsettimana precedente, per provincia')
 
     for _, row in provinces_geodf.iterrows():
-        plt.annotate(text=row['incremento_incidenza_label'], xy=row['coords'], horizontalalignment='center', fontsize=8)
+        plt.annotate(text=row['incremento_incidenza_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
 
     pos = provinces_geodf[provinces_geodf['incremento_incidenza_100'] >= 0]
     base = pos.plot(ax=ax, column='incremento_incidenza_100', legend=False, scheme="quantiles",
-                    cmap='OrRd', linewidth=0.6, edgecolor='0.6')
+                    cmap='Oranges', linewidth=0.6, edgecolor='0.6')
 
     neg = provinces_geodf[provinces_geodf['incremento_incidenza_100'] < 0]
 
@@ -168,7 +168,7 @@ def weekly_increment_provinces(save_image=False, show=False):
     pd.options.mode.chained_assignment = 'warn'
 
     neg.plot(ax=base, column='incremento_incidenza_100', legend=False, scheme="quantiles",
-             cmap='Blues', linewidth=0.6, edgecolor='0.6')
+             cmap='Greens', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/covid/increm_sett_per_provincia_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
