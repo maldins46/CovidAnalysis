@@ -3,4 +3,5 @@ export interface ThemeModel {
   icon: string;
   tooltip: string;
   isDark: boolean;
+  snackbar: string;
 }

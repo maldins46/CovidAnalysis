@@ -1,27 +1,5 @@
 @import "~src/styles/utils";
 
-.bottombar {
-  height: 56px;
-  background: $backgroundColor;
-  box-shadow: $inverseShadow;
-  position: fixed;
-  box-sizing: border-box;
-  bottom: 0;
-  width: 100%;
-
-  &.dark {
-    background: $backgroundDetailsColorDark;
-  }
-
-  @include forDesktopOnly() {
-    @include hide();
-  }
-
-  a {
-    text-decoration: none;
-  }
-}
-
 .appbar {
   background: $backgroundColor;
   box-shadow: $defaultShadow;
@@ -34,6 +12,11 @@
   justify-content: space-between;
   top: 0;
   width: 100%;
+  transition: 0.2s;
+
+  a {
+    text-decoration: none;
+  }
 
   &.dark {
     background: $backgroundDetailsColorDark;
@@ -41,7 +24,6 @@
 
 
   .headline {
-    text-decoration: none;
     height: 24px;
     display: flex;
     align-items: center;
@@ -69,17 +51,6 @@
     }
   }
 
-  .action {
-    color: $tertiaryControlColor;
-
-    &.dark {
-
-      &:hover {
-        background: $secondaryColorTransp;
-      }
-    }
-  }
-
   .right-actions {
     display: flex;
     flex-direction: row;
@@ -91,7 +62,6 @@
     .menu {
       @include hide();
 
-      // keeps element aligned to the right
       @include forDesktopOnly() {
         @include show();
       }
@@ -108,6 +78,29 @@
       }
     }
   }
-
 }
+
+.bottombar {
+  height: 56px;
+  background: $backgroundColor;
+  box-shadow: $inverseShadow;
+  position: fixed;
+  box-sizing: border-box;
+  bottom: 0;
+  width: 100%;
+  transition: 0.2s;
+
+  &.dark {
+    background: $backgroundDetailsColorDark;
+  }
+
+  @include forDesktopOnly() {
+    @include hide();
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
 

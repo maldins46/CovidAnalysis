@@ -6,11 +6,8 @@
   </a>
 
   <div class="right-actions">
-    <button mat-icon-button class="action" [ngClass]="{'dark': isThemeDark}" [matTooltip]="theme.tooltip" (click)="toggleTheme()">
-      <mat-icon [svgIcon]="theme.icon" class="icon"></mat-icon>
-    </button>
-
     <app-desktop-menu class="menu" [menuItems]="menuItems"></app-desktop-menu>
+    <app-theme-selector></app-theme-selector>
   </div>
 
 </mat-toolbar>

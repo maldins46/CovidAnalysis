@@ -39,15 +39,13 @@ export class ApiService {
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/increm_sett_per_regioni_mappa.png',
-        description: 'Il grafico mostra l\'incremento dell\0indice di incidenza settimanale dei nuovi casi registrati,' +
-          ' per ogni regione italiana, scalato su 100.000 abitanti. Ciò permette di confrontare tra loro le varie regioni. ' +
-          'In questo modo è possibile individuare le zone nelle quali l\'epidemia è in espansione.'
+        description: 'Il grafico mostra l\'incremento percentuale dei casi, rispetto a quelli registrati nella settimana ' +
+          'precedente, per ogni regione italiana. In questo modo è possibile individuare le zone nelle quali l\'epidemia è in espansione.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/increm_sett_per_provincia_mappa.png',
-        description: 'Il grafico mostra l\'incremento dell\0indice di incidenza settimanale dei nuovi casi registrati,' +
-          ' per ogni regione italiana, scalato su 100.000 abitanti. Ciò permette di confrontare tra loro le varie regioni. ' +
-          'In questo modo è possibile individuare le zone nelle quali l\'epidemia è in espansione.'
+        description: 'Il grafico mostra l\'incremento percentuale dei casi, rispetto a quelli registrati nella settimana ' +
+          'precedente, per ogni provincia italiana. In questo modo è possibile individuare le zone nelle quali l\'epidemia è in espansione.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incid_sett_per_regioni.png',
@@ -62,7 +60,7 @@ export class ApiService {
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/ti_mappa.png',
         description: 'Il grafico riporta, per ogni regione italiana, il tasso di occupazione dei reparti ' +
-          'di terapie intensive, all\'ultima rilevazione. Il livello di allerta è posto sopra il 30% dei posti occupati.'
+          'di terapia intensiva, all\'ultima rilevazione. Il livello di allerta è posto sopra il 30% dei posti occupati.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/ti_per_regioni.png',
@@ -97,7 +95,7 @@ export class ApiService {
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incid_sett_marche.png',
         description: 'Il grafico mostra l\'incidenza settimanale dei nuovi casi registrati, ' +
-          'per ogni provincia della regione marcghe, scalato su 100.000 abitanti (per rendere ' +
+          'per ogni provincia della regione Marche, scalato su 100.000 abitanti (per rendere ' +
           'possibile il confronto). Il dato provinciale è fortemente instabile: per la consultazione, ' +
           'è stata effettuata una media mobile su un periodo di 7 giorni.'
       },

@@ -1,0 +1,43 @@
+@import "~src/styles/utils";
+
+// theme selector colors
+$lightSky: #ebf7ff;
+$lightSkyOverlay: #e7f2fa;
+$sun: #ffc55d;
+$darkSky: #074b6d;
+$darkSkyOverlay: #085176;
+$moon: #fffbe7;
+
+.theme-selector {
+  @include responsiveProp(margin-left, $halfMargin);
+
+  .action {
+    transition: 0.2s;
+
+    &.auto {
+      background: $tertiaryColor;
+      color: $tertiaryControlColor;
+      &:hover {
+        background: $secondaryColor;
+      }
+    }
+
+    &.light {
+      background: $lightSky;
+      color: $sun;
+
+      &:hover {
+        background: $lightSkyOverlay;
+      }
+    }
+
+    &.dark {
+      background: $darkSky;
+      color: $moon;
+
+      &:hover {
+        background: $darkSkyOverlay;
+      }
+    }
+  }
+}

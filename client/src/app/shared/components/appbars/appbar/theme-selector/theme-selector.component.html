@@ -1,0 +1,8 @@
+<div class="theme-selector">
+  <button mat-icon-button class="action"
+          [ngClass]="{'dark': theme.name === 'dark','light': theme.name === 'light','auto': theme.name === 'auto'}"
+          [matTooltip]="theme.tooltip" (click)="toggleTheme()">
+    <mat-icon [svgIcon]="theme.icon" class="icon"></mat-icon>
+  </button>
+</div>
+

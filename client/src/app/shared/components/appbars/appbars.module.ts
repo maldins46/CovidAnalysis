@@ -13,6 +13,7 @@ import { SmartphoneMenuItemComponent } from './appbar/smartphone-menu/smartphone
 import { AppbarComponent } from './appbar/appbar.component';
 import { PublicAppbarComponent } from './public-appbar/public-appbar.component';
 import {NestedAppbarComponent} from './nested-appbar/nested-appbar.component';
+import { ThemeSelectorComponent } from './appbar/theme-selector/theme-selector.component';
 
 
 
@@ -25,7 +26,8 @@ import {NestedAppbarComponent} from './nested-appbar/nested-appbar.component';
     SmartphoneMenuItemComponent,
     AppbarComponent,
     PublicAppbarComponent,
-    NestedAppbarComponent
+    NestedAppbarComponent,
+    ThemeSelectorComponent
   ],
   exports: [
     PublicAppbarComponent,

@@ -4,7 +4,10 @@
 
 .dark {
   background-color: $backgroundColorDark;
-  color: $secondaryControlColorDark;
+}
+
+.light {
+  background-color: $backgroundColor;
 }
 
 
@@ -14,7 +17,7 @@
   width: 100%;
 }
 .wrapper {
-
+  transition: 0.2s;
   min-height: 100%;
   margin-bottom: -1 * $pushHeightSmartphone;
 
@@ -31,6 +34,8 @@
     box-sizing: border-box;
     @include responsiveProp(padding, $defaultMargin);
     @include responsiveProp(width, $pageWidth);
+    transition: 0.2s;
+
 
     // this must be after the responsive padding rule
     padding-top: $appBarHeightSmartphone + $marginSmartphone;

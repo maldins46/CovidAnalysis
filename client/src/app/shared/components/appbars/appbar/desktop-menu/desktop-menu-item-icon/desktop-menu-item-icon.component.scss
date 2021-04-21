@@ -5,9 +5,16 @@ a.icon-menu {
   border-radius: 24px;
   transition: 0.2s;
 
+  &:hover {
+    background: $secondaryColor;
+  }
+
+  &.active {
+    color: $primaryColor;
+    background: $secondaryColor;
+  }
 
   &.dark {
-
     &:hover {
       background: $secondaryColorTransp;
     }
@@ -16,14 +23,5 @@ a.icon-menu {
       color: $primaryColor;
       background: $secondaryColorTransp;
     }
-  }
-
-  &:hover {
-    background: $secondaryColor;
-  }
-
-  &.active {
-    color: $primaryColor;
-    background: $secondaryColor;
   }
 }
