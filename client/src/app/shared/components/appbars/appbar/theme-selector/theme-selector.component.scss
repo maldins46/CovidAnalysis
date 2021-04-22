@@ -14,7 +14,15 @@ $moon: #fffbe7;
   .action {
     transition: 0.2s;
 
-    &.auto {
+    &.auto-dark {
+      background: $tertiaryControlColorDark;
+      color: $tertiaryControlColor;
+      &:hover {
+        background: $secondaryColorTransp;
+      }
+    }
+
+    &.auto-light {
       background: $tertiaryColor;
       color: $tertiaryControlColor;
       &:hover {
