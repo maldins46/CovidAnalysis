@@ -22,9 +22,8 @@ def adm_doses(save_image=False, show=False):
     for _, row in regions_geodf.iterrows():
         plt.annotate(text=row['totale_su_pop_100_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
 
-    regions_geodf.plot(ax=ax, column='totale_su_pop_100', legend=True, scheme="quantiles",
-                       cmap='Blues', linewidth=0.6, edgecolor='0.6',
-                       legend_kwds=dict(loc='upper right', frameon=False))
+    regions_geodf.plot(ax=ax, column='totale_su_pop_100', legend=False,
+                       cmap='Blues', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/vaccines/dosi_per_regioni_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -49,9 +48,8 @@ def immunes_percentage(save_image=False, show=False):
         plt.annotate(text=row['seconda_dose_totale_storico_su_pop_label'], xy=row['coords'],
                      horizontalalignment='center', fontsize=10)
 
-    regions_geodf.plot(ax=ax, column='seconda_dose_totale_storico_su_pop_100', legend=True, scheme="quantiles",
-                       cmap='Blues', linewidth=0.6, edgecolor='0.6',
-                       legend_kwds=dict(loc='upper right', frameon=False))
+    regions_geodf.plot(ax=ax, column='seconda_dose_totale_storico_su_pop_100', legend=False,
+                       cmap='Blues', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/vaccines/immunizzati_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -76,9 +74,8 @@ def coverage_percentage(save_image=False, show=False):
         plt.annotate(text=row['prima_dose_totale_storico_su_pop_label'], xy=row['coords'],
                      horizontalalignment='center', fontsize=10)
 
-    regions_geodf.plot(ax=ax, column='prima_dose_totale_storico_su_pop_100', legend=True, scheme="quantiles",
-                       cmap='Blues', linewidth=0.6, edgecolor='0.6',
-                       legend_kwds=dict(loc='upper right', frameon=False))
+    regions_geodf.plot(ax=ax, column='prima_dose_totale_storico_su_pop_100', legend=False,
+                       cmap='Blues', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/vaccines/copertura_mappa.png', dpi=300, transparent=True, bbox_inches='tight')

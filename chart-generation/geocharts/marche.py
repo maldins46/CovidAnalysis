@@ -17,9 +17,8 @@ def weekly_incidence(save_image=False, show=False):
     for _, row in marche_geodf.iterrows():
         plt.annotate(text=row['incid_sett_per_100000_ab_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
 
-    marche_geodf.plot(ax=ax, column='incid_sett_per_100000_round', legend=True,  scheme="percentiles",
-                      cmap='OrRd', linewidth=0.6, edgecolor='0.6',
-                      legend_kwds=dict(loc='upper right', frameon=False))
+    marche_geodf.plot(ax=ax, column='incid_sett_per_100000_round', legend=False,
+                      cmap='OrRd', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/covid/incidenza_sett_marche_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -50,7 +49,7 @@ def weekly_increment(save_image=False, show=False):
         plt.annotate(text=row['incremento_incidenza_label'], xy=row['coords'], horizontalalignment='center', fontsize=10)
 
     pos = marche_geodf[marche_geodf['incremento_incidenza_100'] >= 0]
-    base = pos.plot(ax=ax, column='incremento_incidenza_100', legend=False, scheme="quantiles",
+    base = pos.plot(ax=ax, column='incremento_incidenza_100', legend=False,
                     cmap='Oranges', linewidth=0.6, edgecolor='0.6')
 
     neg = marche_geodf[marche_geodf['incremento_incidenza_100'] < 0]
@@ -59,7 +58,7 @@ def weekly_increment(save_image=False, show=False):
     neg['incremento_incidenza_100'] = neg['incremento_incidenza_100'].apply(lambda x: -x)
     pd.options.mode.chained_assignment = 'warn'
 
-    neg.plot(ax=base, column='incremento_incidenza_100', legend=False, scheme="quantiles",
+    neg.plot(ax=base, column='incremento_incidenza_100', legend=False,
              cmap='Greens', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
@@ -80,9 +79,8 @@ def new_positives(save_image=False, show=False):
     for _, row in marche_geodf.iterrows():
         plt.annotate(text=row['nuovi_positivi'], xy=row['coords'], horizontalalignment='center', fontsize=10)
 
-    marche_geodf.plot(ax=ax, column='nuovi_positivi', legend=True, scheme="percentiles",
-                      cmap='OrRd', linewidth=0.6, edgecolor='0.6',
-                      legend_kwds=dict(loc='upper right', frameon=False))
+    marche_geodf.plot(ax=ax, column='nuovi_positivi', legend=False,
+                      cmap='OrRd', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/covid/totale_casi_per_province_marche_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
