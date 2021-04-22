@@ -39,6 +39,9 @@ def extract_regions_df():
 
     # TI occupation
     df['occupazione_ti'] = df.apply(lambda x: x['terapia_intensiva'] / ti_places_dict[x['codice_regione']], axis=1)
+    df['totale_ti'] = df['terapia_intensiva'].cumsum()
+    df['incidenza_settimanale_ti'] = utils.distanced_diff(df['totale_ti'], 7)
+    df['incremento_incidenza_ti'] = df['incidenza_settimanale_ti'].rolling(7).apply(lambda x: (x.values[-1]-x.values[-7])/x.values[-7])
 
     # Positivity rate
     df['tamponi_giornalieri'] = df['tamponi'].diff()
@@ -55,6 +58,7 @@ def extract_regions_df():
 
     # Weekly incidence
     df['incidenza_settimanale'] = utils.distanced_diff(df['totale_casi'], 7)
+    df['incremento_incidenza'] = df['incidenza_settimanale'].rolling(7).apply(lambda x: (x.values[-1]-x.values[-7])/x.values[-7])
     df['incid_sett_per_100000_ab'] = df.apply(lambda x: x['incidenza_settimanale'] / population_dict[x['codice_regione']]
                                               * 100000, axis=1)
 
@@ -62,8 +66,6 @@ def extract_regions_df():
     df['incremento_morti'] = df['deceduti'].diff()
     df['incr_morti_per_100000_ab'] = df.apply(lambda x: x['incremento_morti'] / population_dict[x['codice_regione']] * 100000,
                                               axis=1)
-
-    df['incremento_incidenza'] = df['incidenza_settimanale'].rolling(7).apply(lambda x: (x.values[-1]-x.values[-7])/x.values[-7])
 
     # Filter data 15 days later (removes tail effect)
     df = df[df['data'] > '2020-10-15']

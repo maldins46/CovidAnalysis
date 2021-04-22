@@ -63,6 +63,12 @@ export class ApiService {
           'di terapia intensiva, all\'ultima rilevazione. Il livello di allerta è posto sopra il 30% dei posti occupati.'
       },
       {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/increm_sett_ti_per_regioni_mappa.png',
+        description: 'Il grafico mostra l\'incremento settimanale di posti occupati in terapia intensiva, rispetto ' +
+          'allo stesso giorno della settimana precedente. L\'indicatore è utile per comprendere se tale parametro è ' +
+          'al momento in aumento o diminuzione.'
+      },
+      {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/ti_per_regioni.png',
         description: 'Il grafico riporta, per ogni regione del benchmark, l\'evoluzione riguardo ' +
           'l\' occupazione dei reparti di terapia intensiva. È riportata, con la traccia semi-trasparente, ' +
@@ -98,6 +104,11 @@ export class ApiService {
           'per ogni provincia della regione Marche, scalato su 100.000 abitanti (per rendere ' +
           'possibile il confronto). Il dato provinciale è fortemente instabile: per la consultazione, ' +
           'è stata effettuata una media mobile su un periodo di 7 giorni.'
+      },
+      {
+        src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/increm_sett_per_provincia_marche_mappa.png',
+        description: 'Il grafico mostra l\'incremento percentuale dei casi, rispetto a quelli registrati nella settimana ' +
+          'precedente, per ogni provincia delle Marche. In questo modo è possibile individuare le zone nelle quali l\'epidemia è in espansione.'
       },
       {
         src: 'https://maldins46.github.io/CovidAnalysis/charts/covid/incidenza_sett_marche_mappa.png',
