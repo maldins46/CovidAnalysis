@@ -1,7 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {MenuItem} from './menu-item.model';
 import {ThemeService} from '../../../../core/theme/theme.service';
-import {ThemeModel} from '../../../../core/theme/theme.model';
 
 @Component({
   selector: 'app-appbar',
