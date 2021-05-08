@@ -51,3 +51,9 @@ jobs:
         git add charts
         git commit -m "Update charts to ${{ steps.date.outputs.date }}"
         git push
+
+    - name: Notify users
+      uses: fjogeleit/http-request-action@v1.8.0
+      with:
+        url: 'https://covid-analysis-server.herokuapp.com/trigger/vaccines'
+        method: 'GET'
