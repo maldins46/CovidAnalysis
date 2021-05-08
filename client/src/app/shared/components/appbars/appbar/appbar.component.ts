@@ -18,17 +18,9 @@ export class AppbarComponent implements OnInit {
 
   isThemeDark = false;
 
-  theme: ThemeModel;
-
-  constructor(private readonly themeService: ThemeService) {
-    this.theme = this.themeService.getCurrentTheme();
-  }
+  constructor(private readonly themeService: ThemeService) {}
 
   ngOnInit(): void {
     this.themeService.themeDark.subscribe(x =>  this.isThemeDark = x);
-  }
-
-  toggleTheme(): void {
-    this.theme = this.themeService.toggleTheme();
   }
 }

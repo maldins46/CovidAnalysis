@@ -44,6 +44,7 @@ export class ThemeService {
     this.currentThemeIndex = savedTheme ? parseInt(savedTheme, 10) : 2;
     localStorage.setItem('theme', String(this.currentThemeIndex));
     this.meta.updateTag({ name: 'theme-color', content: this.getCurrentTheme().isDark ? '#0f1216' : '#ffffff'});
+    this.meta.updateTag({ name: 'color-scheme', content: this.getCurrentTheme().isDark ? 'dark' : 'light'});
     this.themeDark.next(this.getCurrentTheme().isDark);
   }
 

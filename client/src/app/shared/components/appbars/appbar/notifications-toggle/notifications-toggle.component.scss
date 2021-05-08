@@ -1,0 +1,22 @@
+@import "~src/styles/utils";
+
+.notifications-action {
+  @include responsiveProp(margin-left, $halfMargin);
+
+  transition: 0.2s;
+  background: $tertiaryColor;
+  color: $tertiaryControlColor;
+
+  &:hover {
+    background: $secondaryColor;
+  }
+
+  &.dark {
+    background: $tertiaryControlColorDark;
+    color: $tertiaryControlColor;
+
+    &:hover {
+      background: $secondaryColorTransp;
+    }
+  }
+}
