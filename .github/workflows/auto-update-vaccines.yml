@@ -57,3 +57,6 @@ jobs:
       with:
         url: 'https://covid-analysis-server.herokuapp.com/trigger/vaccines'
         method: 'GET'
+        timeout: 30000
+        username: ${{ secrets.TRIGGERS_USERNAME }}
+        password: ${{ secrets.TRIGGERS_PASSWORD }}
