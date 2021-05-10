@@ -8,6 +8,9 @@ import { DatePipe } from '@angular/common';
 export class ExtendedDatePipe extends
   DatePipe implements PipeTransform {
   transform(value: any, args?: any): any {
-    return super.transform(value, 'd MMMM y, ore H:mm');
+    // a fix to force the timezone formatting, omitted by the Python module
+    // -- Do not try this at home ! --
+    const date = new Date(`${value}-0100`);
+    return super.transform(date, 'd MMMM y, ore H:mm', '+0100', 'it');
   }
 }
