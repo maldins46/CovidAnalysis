@@ -15,8 +15,7 @@ export class NotificationsToggleComponent implements OnInit {
 
   constructor(private readonly themeService: ThemeService,
               private readonly pushService: PushService,
-              private readonly snackbar: MatSnackBar) {
-  }
+              private readonly snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.themeService.themeDark.subscribe(x =>  this.isThemeDark = x);
@@ -26,21 +25,24 @@ export class NotificationsToggleComponent implements OnInit {
   toggleNotifications(): void {
     this.waitingForCompletion = true;
     if (this.areNotifsEnabled) {
+      this.snackbar.open('Disattivazione del servizio di notifica in corso...');
       this.pushService.disableNotifs().then(finished => {
-        this.snackbar.open('Disattivazione del servizio di notifica in corso...');
         this.waitingForCompletion = false;
         if (finished) {
           this.snackbar.open('Notifiche disattivate!', undefined, {duration: 2000});
         } else {
           this.snackbar.open(
-            'C\'è stato un problema nel disattivare del servizio di notifica! Riprova più tardi.',
+            'C\'è stato un problema nel disattivare il servizio di notifica! Riprova più tardi.',
             undefined,
-            {duration: 2000}
+            {duration: 4000}
           );
         }
       });
     } else {
-      this.snackbar.open('Consenti a CovidAnalysis di inviarti le notifiche dall\'apposito popup del browser, per attivare il servizio!');
+      this.snackbar.open(
+        'Attivazione del servizio di notifica in corso... Consenti la ricezione delle notifiche ' +
+        'dall\'apposito popup, quando mostrato.'
+      );
       this.pushService.enableNotifs().then(finished => {
         this.waitingForCompletion = false;
         if (finished) {
@@ -51,8 +53,10 @@ export class NotificationsToggleComponent implements OnInit {
           );
         } else {
           this.snackbar.open(
-            'C\'è stato un problema nell\'attivazione del servizio di notifica! Concedi manualmente il permesso al browser, ' +
-            'se non lo hai fatto in precedenza. Alterimenti, riprova più tardi tramite l\'apposita voce di menù.',
+            'C\'è stato un problema nell\'attivazione del servizio :(\n' +
+            'Se sei su browser Safari, purtroppo questa funzione non è supportata (per colpa di mamma Apple, non mia!).\n' +
+            'Se hai in precedenza bloccato le notifiche al sito, concedi manualmente il permesso al browser.\n' +
+            'Alterimenti, riprova più tardi tramite l\'apposita voce di menù.',
             undefined,
             {duration: 4000}
           );

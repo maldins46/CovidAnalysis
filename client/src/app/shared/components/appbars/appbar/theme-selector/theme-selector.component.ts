@@ -10,7 +10,6 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class ThemeSelectorComponent implements OnInit {
   isThemeDark = false;
-
   theme: ThemeModel;
 
   constructor(private readonly themeService: ThemeService, private readonly snackbar: MatSnackBar) {
