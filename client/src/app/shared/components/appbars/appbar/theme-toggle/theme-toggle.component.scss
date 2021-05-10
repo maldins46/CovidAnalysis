@@ -5,11 +5,11 @@ $lightSky: #ebf7ff;
 $lightSkyOverlay: #e7f2fa;
 $sun: #ffc55d;
 $darkSky: #074b6d;
-$darkSkyOverlay: #085176;
+$darkSkyOverlay: #1c2936;
 $moon: #fffbe7;
 
 .theme-selector {
-  @include responsiveProp(margin-left, $halfMargin);
+  @include responsiveProp(margin-left, $quarterMargin);
 
   .action {
     transition: 0.2s;
@@ -31,7 +31,7 @@ $moon: #fffbe7;
     }
 
     &.light {
-      background: $lightSky;
+      background: $tertiaryColor;
       color: $sun;
 
       &:hover {
@@ -40,7 +40,7 @@ $moon: #fffbe7;
     }
 
     &.dark {
-      background: $darkSky;
+      background: $tertiaryControlColorDark;
       color: $moon;
 
       &:hover {

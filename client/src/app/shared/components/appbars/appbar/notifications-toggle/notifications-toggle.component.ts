@@ -58,7 +58,7 @@ export class NotificationsToggleComponent implements OnInit {
             'Se hai in precedenza bloccato le notifiche al sito, concedi manualmente il permesso al browser.\n' +
             'Alterimenti, riprova più tardi tramite l\'apposita voce di menù.',
             undefined,
-            {duration: 4000}
+            {duration: 8000}
           );
         }
       });

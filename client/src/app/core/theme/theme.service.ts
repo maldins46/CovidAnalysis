@@ -12,21 +12,21 @@ export class ThemeService {
     {
       name: 'light',
       icon: 'white-balance-sunny',
-      tooltip: 'Tema chiaro',
+      tooltip: 'Tema chiaro. Premi per passare al tema scuro.',
       isDark: false,
       snackbar: 'Attivato il tema chiaro!'
     },
     {
       name: 'dark',
       icon: 'weather-night',
-      tooltip: 'Tema scuro',
+      tooltip: 'Tema scuro. Premi per passare al tema automatico.',
       isDark: true,
       snackbar: 'Attivato il tema scuro!'
     },
     {
       name: 'auto',
       icon: 'theme-light-dark',
-      tooltip: 'Tema di sistema',
+      tooltip: 'Tema automatico. Premi per passare al tema chiaro.',
       isDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
       snackbar: 'Attivato il tema automatico! Il colore del tema seguirà le impostazioni del sistema operativo!'
     }

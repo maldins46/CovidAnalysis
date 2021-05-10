@@ -59,6 +59,18 @@
       color: $tertiaryControlColor;
     }
 
+    .toggles {
+      @include responsiveProp(margin-left, $halfMargin);
+      display: flex;
+      flex-direction: row;
+      background: $tertiaryColor;
+      border-radius: 48px;
+
+      &.dark {
+        background: $tertiaryControlColorDark;
+      }
+    }
+
     .menu {
       @include hide();
 

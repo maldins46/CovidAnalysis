@@ -7,8 +7,10 @@
 
   <div class="right-actions">
     <app-desktop-menu class="menu" [menuItems]="menuItems"></app-desktop-menu>
-    <app-notifications-toggle></app-notifications-toggle>
-    <app-theme-selector></app-theme-selector>
+    <div class="toggles" [ngClass]="{'dark': isThemeDark}">
+      <app-notifications-toggle></app-notifications-toggle>
+      <app-theme-toggle></app-theme-toggle>
+    </div>
   </div>
 
 </mat-toolbar>

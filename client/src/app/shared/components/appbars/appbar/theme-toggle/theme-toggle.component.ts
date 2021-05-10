@@ -4,11 +4,11 @@ import {ThemeService} from '../../../../../core/theme/theme.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-theme-selector',
-  templateUrl: './theme-selector.component.html',
-  styleUrls: ['./theme-selector.component.scss']
+  selector: 'app-theme-toggle',
+  templateUrl: './theme-toggle.component.html',
+  styleUrls: ['./theme-toggle.component.scss']
 })
-export class ThemeSelectorComponent implements OnInit {
+export class ThemeToggleComponent implements OnInit {
   isThemeDark = false;
   theme: ThemeModel;
 

@@ -14,6 +14,7 @@ import {AppbarsModule} from './appbars/appbars.module';
 import { SummaryTableComponent } from './summary-table/summary-table.component';
 import { IncrementIconComponent } from './increment-icon/increment-icon.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { PrivacyPolicySnackbarComponent } from './privacy-policy-snackbar/privacy-policy-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     TwitterFeedComponent,
     SummaryTableComponent,
     IncrementIconComponent,
-    CarouselComponent
+    CarouselComponent,
+    PrivacyPolicySnackbarComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { CarouselComponent } from './carousel/carousel.component';
         AppbarsModule,
         SummaryTableComponent,
         IncrementIconComponent,
-        CarouselComponent
+        CarouselComponent,
+        PrivacyPolicySnackbarComponent
     ]
 })
 export class SharedComponentsModule { }

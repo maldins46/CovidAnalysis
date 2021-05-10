@@ -13,7 +13,7 @@ import { SmartphoneMenuItemComponent } from './appbar/smartphone-menu/smartphone
 import { AppbarComponent } from './appbar/appbar.component';
 import { PublicAppbarComponent } from './public-appbar/public-appbar.component';
 import {NestedAppbarComponent} from './nested-appbar/nested-appbar.component';
-import { ThemeSelectorComponent } from './appbar/theme-selector/theme-selector.component';
+import { ThemeToggleComponent } from './appbar/theme-toggle/theme-toggle.component';
 import { NotificationsToggleComponent } from './appbar/notifications-toggle/notifications-toggle.component';
 
 
@@ -28,7 +28,7 @@ import { NotificationsToggleComponent } from './appbar/notifications-toggle/noti
     AppbarComponent,
     PublicAppbarComponent,
     NestedAppbarComponent,
-    ThemeSelectorComponent,
+    ThemeToggleComponent,
     NotificationsToggleComponent
   ],
   exports: [

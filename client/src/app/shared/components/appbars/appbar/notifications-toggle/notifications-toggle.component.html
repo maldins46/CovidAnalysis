@@ -1,6 +1,6 @@
 <div class="notification-toggle">
   <button mat-icon-button class="notifications-action" [ngClass]="{'dark': isThemeDark }" (click)="toggleNotifications()"
-          [matTooltip]="areNotifsEnabled ? 'Disattiva notifiche' : 'Attiva notifiche'" [disabled]="waitingForCompletion">
+          [matTooltip]="areNotifsEnabled ? 'Notifiche attive. Premi per disattivarle.' : 'Notifiche disattivate. Premi per attivarle.'" [disabled]="waitingForCompletion">
     <mat-icon [svgIcon]="areNotifsEnabled ? 'bell-ring-outline' : 'bell-off-outline'" class="icon"></mat-icon>
   </button>
 </div>

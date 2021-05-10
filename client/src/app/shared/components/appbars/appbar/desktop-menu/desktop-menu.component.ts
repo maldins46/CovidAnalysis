@@ -9,13 +9,13 @@ import {MenuItem} from '../menu-item.model';
 export class DesktopMenuComponent implements OnInit {
 
   @Input() menuItems: MenuItem[] = [];
-  textMenuItems: MenuItem[] = [];
+  priorityItems: MenuItem[] = [];
   iconMenuItems: MenuItem[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.textMenuItems = this.menuItems.filter(item => item.extendedText);
+    this.priorityItems = this.menuItems.filter(item => item.extendedText);
     this.iconMenuItems = this.menuItems.filter(item => !item.extendedText);
   }
 

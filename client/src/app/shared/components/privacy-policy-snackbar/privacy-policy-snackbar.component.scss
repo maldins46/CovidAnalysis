@@ -1,0 +1,12 @@
+@import "~src/styles/utils";
+
+.cookie-policy-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .button-accept {
+    flex-shrink: 0;
+  }
+}
