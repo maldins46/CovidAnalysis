@@ -9,9 +9,7 @@ import { OfflineComponent } from './offline/offline.component';
 import { MarcheComponent } from './marche/marche.component';
 import { ItalyComponent } from './italy/italy.component';
 import { FeedComponent } from './feed/feed.component';
-import { MarcheSummaryTableComponent } from './marche/marche-summary-table/marche-summary-table.component';
-import { ItalySummaryTableComponent } from './italy/italy-summary-table/italy-summary-table.component';
-import { VaccinesSummaryTableComponent } from './vaccines/vaccines-summary-table/vaccines-summary-table.component';
+import {TwitterFeedComponent} from './feed/twitter-feed/twitter-feed.component';
 
 
 @NgModule({
@@ -23,9 +21,7 @@ import { VaccinesSummaryTableComponent } from './vaccines/vaccines-summary-table
     MarcheComponent,
     ItalyComponent,
     FeedComponent,
-    MarcheSummaryTableComponent,
-    ItalySummaryTableComponent,
-    VaccinesSummaryTableComponent
+    TwitterFeedComponent
   ],
   imports: [
     CommonModule,

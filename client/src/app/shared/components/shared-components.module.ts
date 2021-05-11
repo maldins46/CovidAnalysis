@@ -6,27 +6,23 @@ import {SharedDirectivesModule} from '../directives/shared-directives.module';
 import {SharedPipesModule} from '../pipes/shared-pipes.module';
 import {MaterialComponentsModule} from '../material-components/material-components.module';
 import {FooterComponent} from './footer/footer.component';
-import { LastUpdateComponent } from './last-update/last-update.component';
-import { ImageComponent } from './image/image.component';
 import { PageComponent } from './page/page.component';
-import { TwitterFeedComponent } from './twitter-feed/twitter-feed.component';
-import {AppbarsModule} from './appbars/appbars.module';
+import {NavigationMenuModule} from './navigation-menu/navigation-menu.module';
 import { SummaryTableComponent } from './summary-table/summary-table.component';
-import { IncrementIconComponent } from './increment-icon/increment-icon.component';
+import { IncrementIconComponent } from './summary-table/increment-icon/increment-icon.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { PrivacyPolicySnackbarComponent } from './privacy-policy-snackbar/privacy-policy-snackbar.component';
+import {NestedAppbarComponent} from './nested-appbar/nested-appbar.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    LastUpdateComponent,
-    ImageComponent,
     PageComponent,
-    TwitterFeedComponent,
     SummaryTableComponent,
     IncrementIconComponent,
     CarouselComponent,
-    PrivacyPolicySnackbarComponent
+    PrivacyPolicySnackbarComponent,
+    NestedAppbarComponent
   ],
   imports: [
     CommonModule,
@@ -36,19 +32,17 @@ import { PrivacyPolicySnackbarComponent } from './privacy-policy-snackbar/privac
     AppRoutingModule,
     SharedDirectivesModule,
     FormsModule,
-    AppbarsModule
+    NavigationMenuModule
   ],
-    exports: [
-        FooterComponent,
-        LastUpdateComponent,
-        ImageComponent,
-        PageComponent,
-        TwitterFeedComponent,
-        AppbarsModule,
-        SummaryTableComponent,
-        IncrementIconComponent,
-        CarouselComponent,
-        PrivacyPolicySnackbarComponent
-    ]
+  exports: [
+    FooterComponent,
+    PageComponent,
+    NavigationMenuModule,
+    SummaryTableComponent,
+    IncrementIconComponent,
+    CarouselComponent,
+    PrivacyPolicySnackbarComponent,
+    NestedAppbarComponent
+  ]
 })
 export class SharedComponentsModule { }

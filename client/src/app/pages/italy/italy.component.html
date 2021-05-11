@@ -5,10 +5,10 @@
     livello nazionale e regionale. Focus particolare viene posto su tre regioni prese come
     "benchmark", rappresentative di situazioni differenti: <strong>Veneto</strong>,
     <strong>Toscana</strong>, <strong>Marche</strong>.
-    L'ultimo aggiornamento ai dati mostrati in questa pagina risale al {{ nationalSummary?.lastUpdate | extendedDate }}.
+    L'ultimo aggiornamento ai dati mostrati in questa pagina risale al {{ lastUpdate | extendedDate }}.
   </p>
 
-  <app-italy-summary-table [nationalSummary]="nationalSummary"></app-italy-summary-table>
+  <app-summary-table [summaryModel]="nationalSummaryTable"></app-summary-table>
 
   <p>
     Le frecce a fianco agli indicatori di sintesi indicano se il valore è in aumento o diminuzione rispetto

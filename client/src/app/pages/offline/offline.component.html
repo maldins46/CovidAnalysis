@@ -1,10 +1,12 @@
 <app-page>
-  <mat-icon class="icon" color="primary" svgIcon="wifi-off"></mat-icon>
+  <div class="content">
+    <mat-icon class="icon" color="primary" svgIcon="wifi-off"></mat-icon>
 
-  <div class="padded-text">
-    <h1>Sei offline!</h1>
-    <p>Riattiva la connesione a Internet e riprova.</p>
+    <div class="padded-text">
+      <h1>Sei offline!</h1>
+      <p>Riattiva la connessione a Internet e riprova.</p>
+    </div>
+
+    <button mat-raised-button color="primary" routerLink="/home">Torna alla home</button>
   </div>
-
-  <button mat-raised-button color="primary" routerLink="/home">Torna alla home</button>
 </app-page>

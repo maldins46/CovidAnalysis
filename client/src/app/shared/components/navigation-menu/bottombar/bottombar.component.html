@@ -1,0 +1,10 @@
+<div class="bottombar" [ngClass]="{'dark': isThemeDark}">
+  <nav>
+    <a *ngFor="let item of menuItems" href="#" class="bottom-button" matRippleColor="rgba(239, 246, 246, 0.2)"
+       [ngClass]="{'dark': isThemeDark}" mat-ripple routerLinkActive="active"
+       [routerLink]="item.route">
+      <mat-icon [svgIcon]="item.mdiIcon" class="icon"></mat-icon>
+      <span class="title">{{ item.name }}</span>
+    </a>
+  </nav>
+</div>

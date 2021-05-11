@@ -1,5 +1,22 @@
-<div class="summary" [ngClass]="{'dark': isThemeDark}">
+<div class="summary" [ngClass]="{'dark': isThemeDark}" *ngIf="summaryModel as summaryModel">
   <table class="table" aria-label="Indicatori di sintesi">
-    <ng-content></ng-content>
+    <thead>
+    <tr>
+      <th scope="col">Indicatori di sintesi</th>
+      <th *ngFor="let head of summaryModel.heads" scope="col">
+        {{head}}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of summaryModel.rows; index as i" [ngClass]="{'even-row': i % 2 == 0}">
+        <td class="name">{{ row.title }}</td>
+        <td *ngFor="let value of row.values" class="data">
+          <span *ngIf="row.isPercFormat">{{ value.value | percent:'1.2-2' }}</span>
+          <span *ngIf="!row.isPercFormat">{{ value.value | number:'1.0-2' }}</span>
+          <app-increment-icon *ngIf="row.isIncrementPositive !== undefined" [posIncrement]="row.isIncrementPositive" [value]="value.increment"></app-increment-icon>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>

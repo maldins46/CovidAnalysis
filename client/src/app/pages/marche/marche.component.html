@@ -2,11 +2,12 @@
   <h1>Marche</h1>
   <p>
     Analisi incentrate su dati regionali e provinciali della Regione Marche, in quanto di interesse personale un
-    focus particolare su questa regione. L'ultimo aggiornamento ai dati mostrati in questa pagina risale al {{ marcheSummary?.lastUpdate | extendedDate }}.
+    focus particolare su questa regione. L'ultimo aggiornamento ai dati mostrati in questa pagina risale al
+    {{ lastUpdate | extendedDate }}.
 
   </p>
 
-  <app-marche-summary-table [marcheSummary]="marcheSummary"></app-marche-summary-table>
+  <app-summary-table [summaryModel]="marcheSummaryTable"></app-summary-table>
 
   <p>
     Le frecce a fianco agli indicatori di sintesi indicano se il valore è in aumento o diminuzione rispetto

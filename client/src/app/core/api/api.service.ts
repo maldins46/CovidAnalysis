@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {NationalSummaryModel} from '../../shared/models/national-summary.model';
 import {MarcheSummaryModel} from '../../shared/models/marche-summary.model';
 import {VaccinesSummaryModel} from '../../shared/models/vaccines-summary.model';
-import {SlideModel} from '../../shared/models/slide.model';
+import {SlideModel} from '../../shared/components/carousel/slide.model';
 
 
 @Injectable({

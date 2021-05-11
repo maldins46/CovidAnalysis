@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SlideModel} from '../../models/slide.model';
+import {SlideModel} from './slide.model';
 import {ThemeService} from '../../../core/theme/theme.service';
 
 @Component({

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {SwPush} from '@angular/service-worker';
 import {BehaviorSubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {PublicKeyResponseModel} from './publicKeyResponse.model';
+import {PublicKeyResponseModel} from './public-key-response.model';
 
 @Injectable({
   providedIn: 'root'

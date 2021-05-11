@@ -1,8 +1,0 @@
-<div *ngIf="menuItem">
-  <a href="#" class="text-menu" [ngClass]="{'dark': isThemeDark}" mat-ripple routerLinkActive="active"
-     [routerLink]="menuItem.route"
-     [matTooltip]="menuItem.tooltip">
-    <mat-icon [svgIcon]="menuItem.mdiIcon" class="icon"></mat-icon>
-    <span class="title">{{ menuItem.name }}</span>
-  </a>
-</div>

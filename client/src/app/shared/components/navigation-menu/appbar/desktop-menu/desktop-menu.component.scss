@@ -1,0 +1,19 @@
+@import "~src/styles/utils";
+
+.desktop-menu {
+  nav {
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

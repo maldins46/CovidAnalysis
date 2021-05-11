@@ -2,10 +2,10 @@
   <h1>Vaccini</h1>
   <p>
     Varie analisi ricavate a partire dai dati sui vaccini, sia a livello nazionale, che di benchmark, che per la regione
-    Marche. L'ultimo aggiornamento ai dati mostrati in questa pagina risale al {{ vaccinesSummary?.lastUpdate | extendedDate }}.
+    Marche. L'ultimo aggiornamento ai dati mostrati in questa pagina risale al {{ lastUpdate | extendedDate }}.
   </p>
 
-  <app-vaccines-summary-table [vaccinesSummary]="vaccinesSummary"></app-vaccines-summary-table>
+  <app-summary-table [summaryModel]="vaccinesSummaryTable"></app-summary-table>
 
   <p>
     Le frecce a fianco agli indicatori di sintesi indicano se il valore è in aumento o diminuzione rispetto
