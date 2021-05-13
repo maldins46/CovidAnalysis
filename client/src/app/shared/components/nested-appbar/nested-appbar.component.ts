@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {AppbarAction} from './appbar-action.model';
 import {Params} from '@angular/router';
 

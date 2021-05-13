@@ -2,8 +2,7 @@ import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-increment-icon',
-  templateUrl: './increment-icon.component.html',
-  styleUrls: ['./increment-icon.component.scss']
+  templateUrl: './increment-icon.component.html'
 })
 export class IncrementIconComponent {
   @Input() posIncrement = false;

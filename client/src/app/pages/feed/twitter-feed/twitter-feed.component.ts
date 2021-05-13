@@ -2,8 +2,7 @@ import {AfterViewInit, Component, ElementRef, Renderer2} from '@angular/core';
 
 @Component({
   selector: 'app-twitter-feed',
-  templateUrl: './twitter-feed.component.html',
-  styleUrls: ['./twitter-feed.component.scss']
+  templateUrl: './twitter-feed.component.html'
 })
 export class TwitterFeedComponent implements AfterViewInit {
 
