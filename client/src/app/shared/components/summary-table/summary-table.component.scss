@@ -9,7 +9,8 @@
   border-color: $dividerColor;
   border-width: 1px;
   border-style: solid;
-
+  display: flex;
+  justify-content: flex-start;
 
   &.dark {
     border-color: $dividerColorDark;
@@ -29,7 +30,7 @@
   .table {
     margin-bottom: 0;
     border-collapse: collapse;
-
+    flex-grow: 1;
 
     th {
       border-bottom: 1px solid $dividerColor;
