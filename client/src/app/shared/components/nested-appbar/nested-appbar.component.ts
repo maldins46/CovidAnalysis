@@ -7,14 +7,10 @@ import {Params} from '@angular/router';
   templateUrl: './nested-appbar.component.html',
   styleUrls: ['./nested-appbar.component.scss']
 })
-export class NestedAppbarComponent implements OnInit {
+export class NestedAppbarComponent {
   @Input() backRoute: string | undefined;
   @Input() backPageName: string | undefined;
   @Input() title: string | undefined;
   @Input() actions: AppbarAction[] | undefined;
   @Input() backQueryParams: Params | undefined;
-
-  constructor() { }
-
-  ngOnInit(): void { }
 }

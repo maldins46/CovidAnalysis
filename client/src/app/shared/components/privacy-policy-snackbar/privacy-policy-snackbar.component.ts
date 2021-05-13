@@ -1,5 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_SNACK_BAR_DATA, MatSnackBarRef} from '@angular/material/snack-bar';
+import {Component} from '@angular/core';
 import {CookieAcceptanceService} from '../../../core/cookie-acceptation/cookie-acceptance.service';
 
 @Component({
@@ -7,11 +6,8 @@ import {CookieAcceptanceService} from '../../../core/cookie-acceptation/cookie-a
   templateUrl: './privacy-policy-snackbar.component.html',
   styleUrls: ['./privacy-policy-snackbar.component.scss'],
 })
-export class PrivacyPolicySnackbarComponent implements OnInit {
-
+export class PrivacyPolicySnackbarComponent {
   constructor(private readonly cookieAcceptance: CookieAcceptanceService) { }
-
-  ngOnInit(): void {}
 
   acceptCookies(): void {
     this.cookieAcceptance.acceptCookies();

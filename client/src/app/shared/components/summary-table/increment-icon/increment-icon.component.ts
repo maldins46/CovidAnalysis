@@ -1,17 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-increment-icon',
   templateUrl: './increment-icon.component.html',
   styleUrls: ['./increment-icon.component.scss']
 })
-export class IncrementIconComponent implements OnInit {
+export class IncrementIconComponent {
   @Input() posIncrement = false;
   @Input() value = 0;
-
-  constructor() { }
-
-  ngOnInit(): void { }
 
   positiveConditionSatisfied(): boolean {
     if (this.posIncrement) {

@@ -7,12 +7,9 @@ import {NavigationMenuItem} from '../../navigation-menu-item.model';
   styleUrls: ['./desktop-menu.component.scss']
 })
 export class DesktopMenuComponent implements OnInit {
-
   @Input() menuItems: NavigationMenuItem[] = [];
   priorityItems: NavigationMenuItem[] = [];
   iconMenuItems: NavigationMenuItem[] = [];
-
-  constructor() { }
 
   ngOnInit(): void {
     this.priorityItems = this.menuItems.filter(item => item.extendedText);

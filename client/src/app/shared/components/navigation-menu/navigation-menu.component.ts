@@ -1,14 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavigationMenuItem} from './navigation-menu-item.model';
-import {ThemeService} from '../../../core/theme/theme.service';
 
 @Component({
   selector: 'app-navigation-menu',
   templateUrl: './navigation-menu.component.html'
 })
-export class NavigationMenuComponent implements OnInit {
-
-  constructor() {}
+export class NavigationMenuComponent {
 
   menuItems: NavigationMenuItem[] = [
     {
@@ -47,6 +44,4 @@ export class NavigationMenuComponent implements OnInit {
       extendedText: false
     }
   ];
-
-  ngOnInit(): void { }
 }

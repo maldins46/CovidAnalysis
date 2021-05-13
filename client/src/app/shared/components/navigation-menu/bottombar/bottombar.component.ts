@@ -8,7 +8,6 @@ import {NavigationMenuItem} from '../navigation-menu-item.model';
   styleUrls: ['./bottombar.component.scss']
 })
 export class BottombarComponent implements OnInit {
-
   isThemeDark = false;
   @Input() menuItems: NavigationMenuItem[] = [];
 

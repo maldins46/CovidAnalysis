@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ThemeService} from '../../../core/theme/theme.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-page',

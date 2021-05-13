@@ -3,7 +3,6 @@ import {ApiService} from '../../core/api/api.service';
 import {VaccinesSummaryModel} from '../../shared/models/vaccines-summary.model';
 import {SlideModel} from '../../shared/components/carousel/slide.model';
 import {SummaryTableModel} from '../../shared/components/summary-table/summary-table.model';
-import {NationalSummaryModel} from '../../shared/models/national-summary.model';
 
 @Component({
   selector: 'app-vaccines',

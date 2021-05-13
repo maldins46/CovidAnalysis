@@ -1,15 +1,13 @@
-import {AfterViewInit, Component, ElementRef, OnInit, Renderer2} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Renderer2} from '@angular/core';
 
 @Component({
   selector: 'app-twitter-feed',
   templateUrl: './twitter-feed.component.html',
   styleUrls: ['./twitter-feed.component.scss']
 })
-export class TwitterFeedComponent implements OnInit, AfterViewInit {
+export class TwitterFeedComponent implements AfterViewInit {
 
   constructor(private renderer2: Renderer2, private el: ElementRef) {}
-
-  ngOnInit(): void { }
 
   ngAfterViewInit(): void {
     const scriptEl = document.createElement('script');

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import set = Reflect.set;
+import {BehaviorSubject} from 'rxjs';
 import {ThemeModel} from './theme.model';
 import {Meta} from '@angular/platform-browser';
 
