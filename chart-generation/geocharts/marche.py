@@ -62,7 +62,9 @@ def weekly_increment(save_image=False, show=False):
              cmap='Greens', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
-        fig.savefig('./charts/covid/increm_sett_per_provincia_marche_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
+        # bbox_inches='tight' removed at the moment, but it is a patch. The problem has to
+        # be solved, as weekly_increment() generates now an empty chart-
+        fig.savefig('./charts/covid/increm_sett_per_provincia_marche_mappa.png', dpi=300, transparent=True)
 
     if show:
         plt.show()
