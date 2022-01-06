@@ -67,8 +67,9 @@ def weekly_increment_ti(save_image=False, show=False):
     neg['incremento_incidenza_ti_100'] = neg['incremento_incidenza_ti_100'].apply(lambda x: -x)
     pd.options.mode.chained_assignment = 'warn'
 
-    neg.plot(ax=base, column='incremento_incidenza_ti_100', legend=False,
-             cmap='Greens', linewidth=0.6, edgecolor='0.6')
+    if len(neg) > 0:
+        neg.plot(ax=base, column='incremento_incidenza_ti_100', legend=False,
+                cmap='Greens', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/covid/increm_sett_ti_per_regioni_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -135,8 +136,9 @@ def weekly_increment_regions(save_image=False, show=False):
     neg['incremento_incidenza_100'] = neg['incremento_incidenza_100'].apply(lambda x: -x)
     pd.options.mode.chained_assignment = 'warn'
 
-    neg.plot(ax=base, column='incremento_incidenza_100', legend=False,
-             cmap='Greens', linewidth=0.6, edgecolor='0.6')
+    if len(neg) > 0:
+        neg.plot(ax=base, column='incremento_incidenza_100', legend=False,
+                 cmap='Greens', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/covid/increm_sett_per_regioni_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
@@ -203,8 +205,9 @@ def weekly_increment_provinces(save_image=False, show=False):
     neg['incremento_incidenza_100'] = neg['incremento_incidenza_100'].apply(lambda x: -x)
     pd.options.mode.chained_assignment = 'warn'
 
-    neg.plot(ax=base, column='incremento_incidenza_100', legend=False,
-             cmap='Greens', linewidth=0.6, edgecolor='0.6')
+    if len(neg) > 0:
+        neg.plot(ax=base, column='incremento_incidenza_100', legend=False,
+                 cmap='Greens', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         fig.savefig('./charts/covid/increm_sett_per_provincia_mappa.png', dpi=300, transparent=True, bbox_inches='tight')

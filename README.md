@@ -11,19 +11,34 @@ A Python module used to extract relevant information from Italian Open Data, tog
 
 ## How to use the Python module
 
-The `/chart-generation` folder contains the Python code for the generation of charts and summary tables. A Python interpreter in order to try it (code is tested with Python 3.8). Then, install the dependencies shown into the file `requirements.txt`, running:
+The `/chart-generation` folder contains the Python code for the generation of charts and summary tables. A Python interpreter in order to try it (code is tested with Python 3.8). Then, install the dependencies shown into the file `requirements.txt`, executing in the project root the following lines:
 
 ```bash
-pip install -r requirements.txt
+python -m pip install virtualenv
+python -m virtualenv --python=python venv
+./venv/bin/pip install -r requirements.txt --upgrade
+```
+
+These commands will install all the required dependencies in a virtual environment inside the project root. You can use your preferred Python interpreter (for example, on my MacBook i use `python3` instead of Python, as `python` points to the default interpreter, 2.7).
+
+To run chart generation or test, make sure to enable the environement first by terminal, with:
+
+```bash
+ source venv/bin/activate
 ```
 
 Use the following command to generate all the assets, like charts in PNG and summary tables in JSON. Assets will be saved in the project subfolder `/charts`.
 
 ```bash
-python ./chart-generation/generate-covid-charts.py
-python ./chart-generation/generate-vaccine-charts.py
-
+python ./chart-generation/generate_covid_charts.py
+python ./chart-generation/generate_vaccine_charts.py
 ```
+
+You can also run python tests using:
+
+```bash
+python -m pytest ./chart-generation/test_chart_generation.py
+``` 
 
 ## How to use the Angular client
 

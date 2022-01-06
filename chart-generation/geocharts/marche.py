@@ -58,13 +58,14 @@ def weekly_increment(save_image=False, show=False):
     neg['incremento_incidenza_100'] = neg['incremento_incidenza_100'].apply(lambda x: -x)
     pd.options.mode.chained_assignment = 'warn'
 
-    neg.plot(ax=base, column='incremento_incidenza_100', legend=False,
-             cmap='Greens', linewidth=0.6, edgecolor='0.6')
+    if len(neg) > 0:
+        neg.plot(ax=base, column='incremento_incidenza_100', legend=False,
+                cmap='Greens', linewidth=0.6, edgecolor='0.6')
 
     if save_image:
         # bbox_inches='tight' removed at the moment, but it is a patch. The problem has to
         # be solved, as weekly_increment() generates now an empty chart-
-        fig.savefig('./charts/covid/increm_sett_per_provincia_marche_mappa.png', dpi=300, transparent=True)
+        fig.savefig('./charts/covid/increm_sett_per_provincia_marche_mappa.png', dpi=300, transparent=True, bbox_inches='tight')
 
     if show:
         plt.show()
